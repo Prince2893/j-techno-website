@@ -1,167 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>J-Techno Engineering</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-Techno Engineering | Automation & Handling Solutions for EU & Germany</title>
+    <meta name="description" content="J-Techno Engineering provides semi-automatic and automatic handling solutions with manipulators, grippers, robotic systems, AGVs, and customized solutions. We offer research, innovation, design, and development for German and EU clients.">
+    <meta name="keywords" content="Automation, Handling Solutions, Robotic Systems, Manipulators, Grippers, AGVs, EU Clients, Germany, Research, Design, Development">
+    <link rel="icon" href="Logo.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Header */
+        header {
+            background-color: #1E2A38;
+            color: #fff;
+            padding: 20px 0;
+        }
+        header .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header nav a {
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        header nav a:hover {
+            color: #f39c12;
+        }
+        /* Hero Section */
+        .hero {
+            background: url('hero-bg.jpg') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .hero a {
+            background-color: #f39c12;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .hero a:hover {
+            background-color: #e67e22;
+        }
+        /* Sections */
+        section {
+            padding: 80px 20px;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            color: #1E2A38;
+        }
+        .section-title p {
+            font-size: 1rem;
+            color: #555;
+        }
+        /* Services / Solutions */
+        .solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .solution-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .solution-card img {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+        .solution-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #1E2A38;
+        }
+        .solution-card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        /* About Section */
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1rem;
+            color: #555;
+            text-align: center;
+        }
+        /* Contact Section */
+        .contact {
+            background-color: #1E2A38;
+            color: #fff;
+            text-align: center;
+        }
+        .contact h2 {
+            margin-bottom: 30px;
+        }
+        .contact p {
+            margin: 5px 0;
+        }
+        .contact a {
+            color: #f39c12;
+            text-decoration: underline;
+        }
+        /* Footer */
+        footer {
+            background-color: #0F1A25;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media(max-width:768px){
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <!-- Header -->
-  <header class="bg-white py-6 shadow-md sticky top-0 z-50">
-  <div class="container mx-auto px-6 flex justify-between items-center">
-    <img src="Logo.svg" alt="Company Logo" class="h-20 w-auto">
-    <nav class="space-x-6 text-lg font-semibold text-gray-700">
-      <a href="#" class="hover:text-orange-500">Home</a>
-      <a href="#about" class="hover:text-orange-500">About</a>
-      <a href="#products" class="hover:text-orange-500">Products & Services</a>
-      <a href="#innovations" class="hover:text-orange-500">Innovations</a>
-      <a href="#contact" class="hover:text-orange-500">Contact</a>
-    </nav>
-  </div>
-</header>
+<body>
 
-  <!-- Hero Section -->
-  <section class="relative h-screen flex items-center bg-gradient-to-r from-orange-100 via-gray-50 to-orange-50">
-    <div class="container mx-auto px-6 text-center">
-      <h1 class="text-4xl md:text-6xl font-bold text-orange-600 mb-4 animate-fade-in-up">Empowering Global Engineering</h1>
-      <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto">Delivering high-quality mechanical components from India to Germany and the world.</p>
-      <div class="space-x-4">
-        <a href="#products" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition">Explore Products</a>
-        <a href="#contact" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg transition">Contact Us</a>
-      </div>
-    </div>
-  </section>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Logo.svg" alt="J-Techno Engineering Logo" height="50">
+            </div>
+            <nav>
+                <a href="#solutions">Solutions</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-white">
-    <div class="container mx-auto px-6 max-w-4xl text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">J-Techno Engineering – Your Partner in Precision & Performance</h2>
-      <p class="text-gray-700 text-lg mb-4">J-Techno Engineering is a dynamic Indian engineering export company dedicated to delivering precision mechanical and industrial parts to clients across Germany and the global market.</p>
-      <p class="text-gray-600 mb-4">Founded with a vision to bridge the quality and cost gap in engineering supply chains, we specialize in sourcing and supplying high-performance components for robotics, automation, machinery, fabrication, and industrial safety.</p>
-      <p class="text-gray-600 mb-6">With operational offices in India and Germany, we ensure faster communication, prompt support, and seamless coordination between suppliers and international buyers.</p>
-      <div class="grid md:grid-cols-2 gap-10 text-left">
-        <div>
-          <h3 class="text-2xl font-semibold text-orange-600 mb-2">Our Vision</h3>
-          <p class="text-gray-700">To become a globally trusted name for high-quality, cost-effective engineering components from India, helping manufacturers and industries scale efficiently with precision.</p>
-        </div>
-        <div>
-          <h3 class="text-2xl font-semibold text-orange-600 mb-2">Our Mission</h3>
-          <ul class="list-disc list-inside text-gray-700 space-y-2">
-            <li>Deliver superior industrial components with integrity and reliability.</li>
-            <li>Build long-term relationships through transparency and consistency.</li>
-            <li>Embrace innovation to serve the evolving needs of automation and engineering.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Semi-Automatic & Automatic Handling Solutions</h1>
+        <p>Specializing in manipulators, grippers, robotic systems, AGVs, and fully customized automation solutions for German and EU clients.</p>
+        <a href="#contact">Get in Touch</a>
+    </section>
 
-  <!-- Products & Services Section -->
-  <section id="products" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">Explore Our Product Categories</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Robotics & Automation Accessories</h3>
-          <p class="text-gray-700">Precision-engineered components including grippers, gearboxes, couplings, and motion guides to enhance automation efficiency.</p>
+    <!-- Solutions Section -->
+    <section id="solutions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Automation Solutions</h2>
+                <p>We offer research, innovation, design, and development — tailored to your handling and automation needs.</p>
+            </div>
+            <div class="solutions">
+                <div class="solution-card">
+                    <img src="manipulator.svg" alt="Manipulator Icon">
+                    <h3>Manipulators</h3>
+                    <p>Custom manipulators for precise handling of equipment in semi-automatic and automatic processes.</p>
+                </div>
+                <div class="solution-card">
+                    <img src="gripper.svg" alt="Gripper Icon">
+                    <h3>Grippers</h3>
+                    <p>Design and development of grippers for delicate and heavy-duty applications.</p>
+                </div>
+                <div class="solution-card">
+                    <img src="robotic.svg" alt="Robotic System Icon">
+                    <h3>Robotic Systems</h3>
+                    <p>Advanced robotic systems for automation, tailored for EU & German industrial standards.</p>
+                </div>
+                <div class="solution-card">
+                    <img src="agv.svg" alt="AGV Icon">
+                    <h3>AGVs</h3>
+                    <p>Automated Guided Vehicles for optimized material handling and workflow efficiency.</p>
+                </div>
+                <div class="solution-card">
+                    <img src="custom.svg" alt="Customized Solutions Icon">
+                    <h3>Customized Solutions</h3>
+                    <p>Fully customized automation and handling solutions according to project requirements.</p>
+                </div>
+            </div>
         </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Fasteners & Mechanical Components</h3>
-          <p class="text-gray-700">High-tolerance bolts, pins, washers, circlips, and collars crafted to exact specifications for secure assembly and mechanical stability.</p>
-        </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Bearings & Power Transmission</h3>
-          <p class="text-gray-700">Pillow blocks, pulleys, chains, and belts that ensure seamless power transfer and smooth mechanical movement.</p>
-        </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">CNC Machine Accessories</h3>
-          <p class="text-gray-700">Tool holders, collets, clamps, and coolant nozzles designed for CNC precision and machine uptime.</p>
-        </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Welding Tools & Consumables</h3>
-          <p class="text-gray-700">Durable consumables such as MIG/TIG nozzles, tips, holders, and accessories for robust welding performance.</p>
-        </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Hydraulic & Pneumatic Fittings</h3>
-          <p class="text-gray-700">Quick couplings, PU tubes, FRLs, and hoses built for pressure-resistant performance and leak-proof connections.</p>
-        </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">3D Printer Mechanical Parts</h3>
-          <p class="text-gray-700">Components like linear rails, lead screws, bearings, and couplers essential for 3D printer mechanics and stability.</p>
-        </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Industrial Safety Products</h3>
-          <p class="text-gray-700">Reliable machine safety gear: guards, interlocks, emergency switches, and lockout-tagout systems.</p>
-        </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Custom Fabricated Parts</h3>
-          <p class="text-gray-700">Custom-designed brackets, jigs, fixtures, and enclosures built from user drawings or samples.</p>
-        </div>
-        <div class="bg-orange-50 p-6 rounded-xl shadow hover:shadow-orange-400 transition">
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Packaging Machine Parts</h3>
-          <p class="text-gray-700">Spare parts for packaging lines: rollers, belts, tensioners, sprockets, and guides tailored for uptime and performance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Innovations Section -->
-  <section id="innovations" class="py-20 bg-white">
-    <div class="container mx-auto px-6 max-w-5xl text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Innovations at J-Techno</h2>
-      <p class="text-gray-700 text-lg mb-6">We constantly innovate to bring cutting-edge engineering solutions tailored for the dynamic demands of the global industrial landscape.</p>
-      <div class="grid md:grid-cols-2 gap-10 text-left">
-        <div>
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Smart Supplier Integration</h3>
-          <p class="text-gray-700">We use digital workflows and real-time supplier coordination to ensure quality and lead time control across continents.</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About J-Techno Engineering</h2>
+            </div>
+            <p>
+                J-Techno Engineering specializes in providing semi-automatic and automatic handling solutions using manipulators, grippers, robotic systems, AGVs, and other customized automation solutions. 
+                We focus exclusively on <strong>research, innovation, design, and development</strong> for German and EU clients. Our expertise ensures high-quality solutions for handling, assembly, and automation projects — without engaging in production.
+            </p>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold text-orange-600 mb-2">Component Customization Support</h3>
-          <p class="text-gray-700">From drawing to delivery, our team helps customers optimize designs for cost-efficiency and manufacturing feasibility.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6 max-w-4xl text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Contact Us</h2>
-      <p class="text-gray-700 mb-6">We’re here to collaborate, quote, or simply have a conversation about how we can support your supply chain needs.</p>
-      <div class="grid md:grid-cols-2 gap-10 text-left">
-        <div>
-          <h3 class="text-xl font-semibold text-orange-600">India Office</h3>
-          <p class="text-gray-700">Vipul Joshina<br>📞 +91-9377209288<br>📍 U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat, India</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:info@jtechnoengineering.com">info@jtechnoengineering.com</a></p>
+            <p>Phone (India): +91-9377209288</p>
+            <p>Phone (Germany): +49-17647138403</p>
+            <p>WhatsApp (Germany): <a href="https://wa.me/4917647138403">Chat on WhatsApp</a></p>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold text-orange-600">Germany Office</h3>
-          <p class="text-gray-700">Prince Joshina<br>📞 / WhatsApp: +49-17647138403<br>📍 Fichtestraße 52, 01917 Kamenz, Saxony, Germany</p>
-        </div>
-      </div>
-      <p class="text-gray-700 mt-8">Email: <a href="mailto:info@jtechnoengineering.com" class="text-orange-600 underline">info@jtechnoengineering.com</a><br>
-      🌐 <a href="http://www.jtechnoengineering.com" class="text-orange-600 underline">www.jtechnoengineering.com</a></p>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-white py-8">
-    <div class="container mx-auto px-6 text-center text-gray-600">
-      <p>© 2025 J-Techno Engineering. All rights reserved.</p>
-      <div class="flex justify-center space-x-6 mt-4">
-        <a href="#" class="hover:text-orange-600">LinkedIn</a>
-        <a href="mailto:info@jtechnoengineering.com" class="hover:text-orange-600">Email</a>
-        <a href="https://wa.me/4917647138403" class="hover:text-orange-600">WhatsApp</a>
-      </div>
-      <p class="mt-4">
-        <a href="#" class="hover:text-orange-600">Terms & Conditions</a> |
-        <a href="#" class="hover:text-orange-600">Privacy Policy</a>
-      </p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 J-Techno Engineering. All Rights Reserved.
+    </footer>
+
 </body>
 </html>
