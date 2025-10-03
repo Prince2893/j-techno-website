@@ -6,9 +6,8 @@
   <title>J-Techno Engineering | Handling & Automation R&D for German & EU Clients</title>
   <meta name="description" content="J-Techno Engineering — research, design and development of handling and automation solutions: manipulators, grippers, robotic systems, 3D vision, sensors, AGVs and IoT integration for German & EU industries." />
   <meta name="keywords" content="automation, manipulators, grippers, robotic systems, AGV, 3D vision, IoT, research, design, development, Germany, EU" />
-  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/favicon.svg" type="image/svg+xml" />
 
-  <!-- Tailwind CDN for quick developer preview (replace with build CSS for production if preferred) -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -20,14 +19,13 @@
     .hero-bg { background: linear-gradient(90deg, rgba(255,244,236,1) 0%, rgba(250,250,250,1) 100%); }
   </style>
 
-  <!-- Structured Data (Organization) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "J-Techno Engineering",
     "url": "https://www.jtechnoengineering.com",
-    "logo": "https://www.jtechnoengineering.com/images/Logo.svg",
+    "logo": "https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg",
     "contactPoint": [
       {
         "@type": "ContactPoint",
@@ -47,11 +45,10 @@
 </head>
 <body class="text-gray-900 bg-gray-50">
 
-  <!-- Header -->
   <header class="bg-white shadow sticky top-0 z-40">
     <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3" aria-label="J-Techno Engineering homepage">
-        <img src="images/Logo.svg" alt="J-Techno Engineering logo" class="h-12 w-auto">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-12 w-auto">
         <span class="font-semibold text-lg">J-Techno Engineering</span>
       </a>
 
@@ -63,10 +60,8 @@
         <a href="#contact" class="hover:text-orange-600">Contact</a>
       </nav>
 
-      <!-- Mobile nav button -->
       <div class="md:hidden">
         <button id="mobileToggle" aria-label="Open navigation" class="p-2 rounded hover:bg-gray-100">
-          <!-- simple hamburger -->
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"></path>
           </svg>
@@ -74,7 +69,6 @@
       </div>
     </div>
 
-    <!-- Mobile menu (hidden by default, toggled by JS) -->
     <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
       <div class="px-6 py-4 flex flex-col gap-4">
         <a href="#home" class="block">Home</a>
@@ -86,12 +80,10 @@
     </div>
   </header>
 
-  <!-- ===== HERO (Home) ===== -->
   <main id="home">
     <section class="hero-bg relative overflow-hidden">
-      <!-- recommended hero image: images/hero-automation.jpg (1920x900) - industrial automation / robotic arm in action -->
       <div class="absolute inset-0 opacity-40">
-        <img src="images/hero-automation.jpg" alt="Robotic arm on a factory floor" class="w-full h-full object-cover">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/hero-automation.jpg" alt="Robotic arm on a factory floor" class="w-full h-full object-cover">
       </div>
 
       <div class="relative container mx-auto px-6 lg:px-12 py-28 flex items-center">
@@ -107,13 +99,11 @@
       </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
     <section id="about" class="py-16 bg-white">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="grid md:grid-cols-2 gap-10 items-center">
-          <!-- About image: images/about-team.jpg (1200x800) - engineers reviewing CAD or prototype; office photo -->
           <figure class="order-2 md:order-1">
-            <img src="images/about-team.jpg" alt="Engineers collaborating on CAD and prototypes" class="rounded-lg shadow-lg w-full object-cover">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/about-team.jpg" alt="Engineers collaborating on CAD and prototypes" class="rounded-lg shadow-lg w-full object-cover">
             <figcaption class="sr-only">J-Techno Engineering team collaborating</figcaption>
           </figure>
 
@@ -140,63 +130,61 @@
       </div>
     </section>
 
-    <!-- ===== PRODUCTS & SERVICES ===== -->
     <section id="products" class="py-16 bg-gray-50">
       <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Explore Our Product Categories</h2>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- each card uses a product image. Recommended filenames included -->
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/robotics-automation-accessories.jpg" alt="Robotics and automation accessories" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/robotics-automation-accessories.jpg" alt="Robotics and automation accessories" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Robotics &amp; Automation Accessories</h3>
             <p class="text-gray-700">Precision grippers, gearboxes, couplings and motion components for high-performance automation systems.</p>
           </article>
 
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/fasteners-mechanical-components.jpg" alt="Fasteners and mechanical components" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/fasteners-mechanical-components.jpg" alt="Fasteners and mechanical components" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Fasteners &amp; Mechanical Components</h3>
             <p class="text-gray-700">High-tolerance bolts, pins, collars and assembly solutions crafted to specification.</p>
           </article>
 
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/bearings-power-transmission.jpg" alt="Bearings and power transmission" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/bearings-power-transmission.jpg" alt="Bearings and power transmission" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Bearings &amp; Power Transmission</h3>
             <p class="text-gray-700">Pillow blocks, pulleys, chains and belts for smooth and reliable mechanical movement.</p>
           </article>
 
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/cnc-machine-accessories.jpg" alt="CNC machine accessories" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/cnc-machine-accessories.jpg" alt="CNC machine accessories" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">CNC Machine Accessories</h3>
             <p class="text-gray-700">Tool holders, collets and clamps designed for precision and uptime.</p>
           </article>
 
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/welding-tools-consumables.jpg" alt="Welding tools and consumables" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/welding-tools-consumables.jpg" alt="Welding tools and consumables" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Welding Tools &amp; Consumables</h3>
             <p class="text-gray-700">Durable consumables and accessories for professional welding applications.</p>
           </article>
 
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/hydraulic-pneumatic-fittings.jpg" alt="Hydraulic and pneumatic fittings" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/hydraulic-pneumatic-fittings.jpg" alt="Hydraulic and pneumatic fittings" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Hydraulic &amp; Pneumatic Fittings</h3>
             <p class="text-gray-700">Pressure-resistant quick couplings, FRLs and hoses for reliable fluid systems.</p>
           </article>
 
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/3d-printer-parts.jpg" alt="3D printer mechanical parts" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/3d-printer-parts.jpg" alt="3D printer mechanical parts" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">3D Printer Mechanical Parts</h3>
             <p class="text-gray-700">Lead screws, linear rails and bearings essential for print stability.</p>
           </article>
 
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/industrial-safety.jpg" alt="Industrial safety products" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/industrial-safety.jpg" alt="Industrial safety products" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Industrial Safety Products</h3>
             <p class="text-gray-700">Machine guards, safety interlocks and emergency systems for compliant operations.</p>
           </article>
 
           <article class="bg-white rounded-xl p-6 shadow">
-            <img src="images/custom-fabricated-parts.jpg" alt="Custom fabricated parts" class="h-44 w-full object-cover rounded-md mb-4">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/custom-fabricated-parts.jpg" alt="Custom fabricated parts" class="h-44 w-full object-cover rounded-md mb-4">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Custom Fabricated Parts</h3>
             <p class="text-gray-700">Jigs, fixtures and enclosures built from your drawings or samples.</p>
           </article>
@@ -204,7 +192,6 @@
       </div>
     </section>
 
-    <!-- ===== RESEARCH & INNOVATION (Core Focus) ===== -->
     <section id="innovation" class="py-16 bg-white">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-10">
@@ -212,9 +199,7 @@
           <p class="text-gray-700 mt-3 max-w-3xl mx-auto">We focus exclusively on research, concept design, simulation, and development of handling systems — manipulators, grippers, robotic systems with sensors and 3D vision, AGVs, and IoT-enabled automation. We do not engage in mass production; our strength is engineering precision and bespoke R&amp;D for German and EU clients.</p>
         </div>
 
-        <!-- Grid: left feature list, right visual gallery -->
         <div class="grid md:grid-cols-2 gap-10 items-start">
-          <!-- Left: feature cards with short technical summaries -->
           <div class="space-y-6">
             <div class="p-6 bg-gray-50 rounded-lg border">
               <h3 class="text-lg font-semibold text-orange-600 mb-2">Manipulators</h3>
@@ -247,14 +232,12 @@
             </div>
           </div>
 
-          <!-- Right: visual gallery / mockups -->
           <aside class="space-y-6">
-            <!-- gallery grid recommended -->
             <div class="grid grid-cols-2 gap-4">
-              <img src="images/manipulator.jpg" alt="Manipulator prototype in lab" class="rounded shadow-sm object-cover h-44 w-full">
-              <img src="images/grippers.jpg" alt="Advanced robotic grippers holding different parts" class="rounded shadow-sm object-cover h-44 w-full">
-              <img src="images/robotic-vision.jpg" alt="Robotic arm with 3D vision camera" class="rounded shadow-sm object-cover h-44 w-full">
-              <img src="images/agv.jpg" alt="Automated Guided Vehicle in warehouse" class="rounded shadow-sm object-cover h-44 w-full">
+              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/manipulator.jpg" alt="Manipulator prototype in lab" class="rounded shadow-sm object-cover h-44 w-full">
+              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/grippers.jpg" alt="Advanced robotic grippers holding different parts" class="rounded shadow-sm object-cover h-44 w-full">
+              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/robotic-vision.jpg" alt="Robotic arm with 3D vision camera" class="rounded shadow-sm object-cover h-44 w-full">
+              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/agv.jpg" alt="Automated Guided Vehicle in warehouse" class="rounded shadow-sm object-cover h-44 w-full">
             </div>
 
             <div class="bg-white p-4 rounded-lg border shadow-sm">
@@ -272,7 +255,6 @@
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
     <section id="contact" class="py-16 bg-gray-50">
       <div class="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
         <h2 class="text-2xl md:text-3xl font-bold mb-4">Let’s Collaborate</h2>
@@ -282,16 +264,14 @@
           <div class="bg-white rounded-lg p-6 shadow">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Germany Office</h3>
             <p class="text-gray-700">Prince Joshina<br>📞 / WhatsApp: <a href="https://wa.me/4917647138403" class="text-orange-600">+49-17647138403</a><br>📍 Fichtestraße 52, 01917 Kamenz, Saxony, Germany</p>
-            <!-- Germany office image -->
-            <img src="images/germany-office.jpg" alt="Germany office / industrial site" class="mt-4 rounded-md object-cover w-full h-40">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/germany-office.jpg" alt="Germany office / industrial site" class="mt-4 rounded-md object-cover w-full h-40">
             <p class="sr-only">Image suggested file: images/germany-office.jpg (800×600)</p>
           </div>
 
           <div class="bg-white rounded-lg p-6 shadow">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">India Office</h3>
             <p class="text-gray-700">Vipul Joshina<br>📞: <a href="tel:+919377209288" class="text-orange-600">+91-9377209288</a><br>📍 U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat, India</p>
-            <!-- India office image -->
-            <img src="images/india-office.jpg" alt="India office reception or team" class="mt-4 rounded-md object-cover w-full h-40">
+            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/india-office.jpg" alt="India office reception or team" class="mt-4 rounded-md object-cover w-full h-40">
             <p class="sr-only">Image suggested file: images/india-office.jpg (800×600)</p>
           </div>
         </div>
@@ -302,7 +282,6 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="bg-white border-t py-6">
     <div class="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-sm text-gray-600">© <span id="year2"></span> J-Techno Engineering. All rights reserved.</p>
@@ -314,7 +293,6 @@
     </div>
   </footer>
 
-  <!-- Minimal JS: mobile toggle + year update -->
   <script>
     document.getElementById('mobileToggle').addEventListener('click', function() {
       var menu = document.getElementById('mobileMenu');
