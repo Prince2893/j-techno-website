@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>J-Techno Engineering | Handling & Automation R&D for German & EU Clients</title>
+  <title>J-Techno Engineering – R&D for German & EU Clients</title>
   <meta name="description" content="J-Techno Engineering — research, design and development of handling and automation solutions: manipulators, grippers, robotic systems, 3D vision, sensors, AGVs and IoT integration for German & EU industries." />
   <meta name="keywords" content="automation, manipulators, grippers, robotic systems, AGV, 3D vision, IoT, research, design, development, Germany, EU" />
   <link rel="icon" href="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/favicon.svg" type="image/svg+xml" />
@@ -12,10 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    /* subtle focus style for accessibility */
-    :focus { outline: 3px solid rgba(243,156,18,0.25); outline-offset: 3px; }
-    /* hero gradient fallback */
+    /* Custom font stack, prioritizing Inter, falling back to system fonts */
+    body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    /* Subtle focus style for accessibility (improved contrast) */
+    :focus-visible { outline: 3px solid rgba(243,156,18,0.5); outline-offset: 3px; }
+    /* Hero background gradient */
     .hero-bg { background: linear-gradient(90deg, rgba(255,244,236,1) 0%, rgba(250,250,250,1) 100%); }
   </style>
 
@@ -47,12 +48,12 @@
 
   <header class="bg-white shadow sticky top-0 z-40">
     <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3" aria-label="J-Techno Engineering homepage">
+      <a href="#home" class="flex items-center gap-3" aria-label="J-Techno Engineering homepage">
         <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-12 w-auto">
         <span class="font-semibold text-lg">J-Techno Engineering</span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium" aria-label="Main Navigation">
         <a href="#home" class="hover:text-orange-600">Home</a>
         <a href="#about" class="hover:text-orange-600">About</a>
         <a href="#products" class="hover:text-orange-600">Products &amp; Services</a>
@@ -61,7 +62,7 @@
       </nav>
 
       <div class="md:hidden">
-        <button id="mobileToggle" aria-label="Open navigation" class="p-2 rounded hover:bg-gray-100">
+        <button id="mobileToggle" type="button" aria-label="Open navigation" class="p-2 rounded hover:bg-gray-100">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"></path>
           </svg>
@@ -70,19 +71,19 @@
     </div>
 
     <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
-      <div class="px-6 py-4 flex flex-col gap-4">
+      <nav class="px-6 py-4 flex flex-col gap-4" aria-label="Mobile Navigation">
         <a href="#home" class="block">Home</a>
         <a href="#about" class="block">About</a>
         <a href="#products" class="block">Products &amp; Services</a>
         <a href="#innovation" class="block">Research &amp; Innovation</a>
         <a href="#contact" class="block">Contact</a>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <main id="home">
-    <section class="hero-bg relative overflow-hidden">
-      <div class="absolute inset-0 opacity-40">
+  <main>
+    <section id="home" class="hero-bg relative overflow-hidden">
+      <div class="absolute inset-0 opacity-40" aria-hidden="true">
         <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/hero-automation.jpg" alt="Robotic arm on a factory floor" class="w-full h-full object-cover">
       </div>
 
@@ -232,7 +233,7 @@
             </div>
           </div>
 
-          <aside class="space-y-6">
+          <aside class="space-y-6" aria-label="Innovation Media and Process">
             <div class="grid grid-cols-2 gap-4">
               <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/manipulator.jpg" alt="Manipulator prototype in lab" class="rounded shadow-sm object-cover h-44 w-full">
               <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/grippers.jpg" alt="Advanced robotic grippers holding different parts" class="rounded shadow-sm object-cover h-44 w-full">
@@ -258,34 +259,31 @@
     <section id="contact" class="py-16 bg-gray-50">
       <div class="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
         <h2 class="text-2xl md:text-3xl font-bold mb-4">Let’s Collaborate</h2>
-        <p class="text-gray-700 mb-6">We’re available for project discussions, concept studies, design partnerships and R&amp;D collaborations for German &amp; EU buyers.</p>
+        <p class="text-gray-700 mb-8">We’re available for project discussions, concept studies, design partnerships and R&amp;D collaborations for German &amp; EU buyers.</p>
 
         <div class="grid md:grid-cols-2 gap-8 text-left">
           <div class="bg-white rounded-lg p-6 shadow">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">Germany Office</h3>
-            <p class="text-gray-700">Prince Joshina<br>📞 / WhatsApp: <a href="https://wa.me/4917647138403" class="text-orange-600">+49-17647138403</a><br>📍 Fichtestraße 52, 01917 Kamenz, Saxony, Germany</p>
+            <p class="text-gray-700">Prince Joshina<br>📞 / WhatsApp: <a href="https://wa.me/4917647138403" class="text-orange-600 hover:underline">+49-17647138403</a><br>📍 Fichtestraße 52, 01917 Kamenz, Saxony, Germany</p>
             <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/germany-office.jpg" alt="Germany office / industrial site" class="mt-4 rounded-md object-cover w-full h-40">
-            <p class="sr-only">Image suggested file: images/germany-office.jpg (800×600)</p>
           </div>
 
           <div class="bg-white rounded-lg p-6 shadow">
             <h3 class="text-lg font-semibold text-orange-600 mb-2">India Office</h3>
-            <p class="text-gray-700">Vipul Joshina<br>📞: <a href="tel:+919377209288" class="text-orange-600">+91-9377209288</a><br>📍 U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat, India</p>
+            <p class="text-gray-700">Vipul Joshina<br>📞: <a href="tel:+919377209288" class="text-orange-600 hover:underline">+91-9377209288</a><br>📍 U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat, India</p>
             <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/india-office.jpg" alt="India office reception or team" class="mt-4 rounded-md object-cover w-full h-40">
-            <p class="sr-only">Image suggested file: images/india-office.jpg (800×600)</p>
           </div>
         </div>
 
-        <p class="text-gray-700 mt-8">Email: <a href="mailto:info@jtechnoengineering.com" class="text-orange-600">info@jtechnoengineering.com</a></p>
-        <p class="text-gray-500 mt-4 text-sm">© <span id="year"></span> J-Techno Engineering. All rights reserved.</p>
-      </div>
+        <p class="text-gray-700 mt-8">Email: <a href="mailto:info@jtechnoengineering.com" class="text-orange-600 hover:underline">info@jtechnoengineering.com</a></p>
+        </div>
     </section>
   </main>
 
   <footer class="bg-white border-t py-6">
     <div class="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-sm text-gray-600">© <span id="year2"></span> J-Techno Engineering. All rights reserved.</p>
-      <nav class="flex gap-4">
+      <p class="text-sm text-gray-600">© <span id="currentYear"></span> J-Techno Engineering. All rights reserved.</p>
+      <nav class="flex gap-4" aria-label="Quick Links">
         <a href="#" class="text-sm text-gray-600 hover:text-orange-600">LinkedIn</a>
         <a href="mailto:info@jtechnoengineering.com" class="text-sm text-gray-600 hover:text-orange-600">Email</a>
         <a href="https://wa.me/4917647138403" class="text-sm text-gray-600 hover:text-orange-600">WhatsApp</a>
@@ -294,14 +292,28 @@
   </footer>
 
   <script>
-    document.getElementById('mobileToggle').addEventListener('click', function() {
-      var menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
+    // Get references
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    // Toggle menu visibility
+    mobileToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
     });
-    // update year in footer
-    var y = new Date().getFullYear();
-    document.getElementById('year').textContent = y;
-    document.getElementById('year2').textContent = y;
+
+    // Close menu when a link is clicked (for single-page navigation)
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Update year in footer (simplified by removing redundant ID)
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
   </script>
 </body>
 </html>
