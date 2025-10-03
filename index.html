@@ -8,20 +8,18 @@
   <meta name="keywords" content="automation, manipulators, grippers, robotic systems, AGV, 3D vision, IoT, engineering components, fasteners, bearings, Germany, EU, supply chain" />
   <link rel="icon" href="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/favicon.svg" type="image/svg+xml" />
 
-  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Professional Fix: Added 'sans-serif' fallback */
     body { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
     
-    /* Professional Fix: Ensures smooth scrolling for anchor links */
+    /* FIX: Ensures smooth scrolling for anchor links (better UX) */
     html { scroll-behavior: smooth; }
 
-    /* Professional Fix: Use :focus-visible for better accessibility */
+    /* FIX: Use :focus-visible for better accessibility */
     :focus-visible { outline: 3px solid rgba(243,156,18,0.5); outline-offset: 3px; }
     
-    /* hero gradient fallback */
     .hero-bg { background: linear-gradient(90deg, rgba(255,244,236,1) 0%, rgba(250,250,250,1) 100%); }
   </style>
 
@@ -42,7 +40,7 @@
       {
         "@type": "ContactPoint",
         "telephone": "+91-9377209288",
-        "contactType": "sales",
+        "@type": "sales",
         "areaServed": "IN"
       }
     ]
@@ -308,17 +306,14 @@
   </footer>
 
   <script>
-    // Get references
     const mobileToggle = document.getElementById('mobileToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileLinks = mobileMenu.querySelectorAll('a');
 
-    // Toggle menu visibility
     mobileToggle.addEventListener('click', function() {
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Professional Fix: Close menu when a link is clicked
     mobileLinks.forEach(link => {
       link.addEventListener('click', function() {
         // Delay hiding the menu slightly to allow the hash navigation to initiate smooth scroll
@@ -328,7 +323,6 @@
       });
     });
 
-    // Update year in footer
     const yearSpan = document.getElementById('currentYear');
     if (yearSpan) {
       yearSpan.textContent = new Date().getFullYear();
