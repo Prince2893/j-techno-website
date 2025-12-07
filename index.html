@@ -6,7 +6,7 @@
   <title>J-Techno Engineering – R&D and Precision Component Supply for German &amp; EU Industries</title>
   <meta name="description" content="J-Techno Engineering: Indian-German engineering startup specializing in R&D, design, and development of complete automation systems and supply of high-precision mechanical components for German &amp; EU clients." />
   <meta name="keywords" content="automation startup, manipulators, grippers, robotic systems, AGV, 3D vision, IoT, engineering components, fasteners, bearings, Germany, EU, supply chain" />
-  <link rel="icon" href="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
 
   <!-- Tailwind v2 and Inter font -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
@@ -237,26 +237,21 @@
     }
     
     /* Fallback for broken images */
-    .product-image:before {
-      content: '';
-      display: block;
-      padding-top: 66.67%; /* 3:2 aspect ratio */
-      background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    .product-image-container {
+      position: relative;
+      overflow: hidden;
       border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      height: 200px;
     }
     
-    .product-image img {
+    .product-image-container img {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    
-    .product-image {
-      position: relative;
-      overflow: hidden;
     }
   </style>
 
@@ -266,14 +261,20 @@
     "@type": "Organization",
     "name": "J-Techno Engineering",
     "url": "https://www.jtechnoengineering.com",
-    "logo": "https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg",
+    "logo": "./Logo.svg",
     "description": "Indian-German engineering startup specializing in R&D, design, and development of complete automation systems and supply of high-precision mechanical components",
-    "address": {
+    "address": [{
       "@type": "PostalAddress",
       "addressCountry": "Germany",
       "addressLocality": "Kamenz",
       "streetAddress": "Fichtestraße 52, 01917 Kamenz, Saxony"
     },
+    {
+      "@type": "PostalAddress",
+      "addressCountry": "India",
+      "addressLocality": "Surat",
+      "streetAddress": "U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat"
+    }],
     "contactPoint": [
       {
         "@type": "ContactPoint",
@@ -283,8 +284,8 @@
       },
       {
         "@type": "ContactPoint",
-        "telephone": "+91-9377209288",
-        "contactType": "sales",
+        "telephone": "+91-9687782243",
+        "contactType": "technical support",
         "areaServed": "IN"
       }
     ]
@@ -297,7 +298,7 @@
   <header class="bg-white shadow-sm sticky top-0 z-40">
     <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
-        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-14 w-auto">
+        <img src="./Logo.svg" alt="J-Techno Engineering logo" class="h-14 w-auto">
         <div>
           <span class="font-bold text-xl text-gray-900">J-Techno Engineering</span>
           <div class="text-xs text-orange-600 font-semibold">German-Indian Engineering Partnership</div>
@@ -378,7 +379,7 @@
             </div>
 
             <div class="hero-image-container">
-              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/team-working.png" alt="J-Techno Engineering team working on automation project" class="hero-image">
+              <img src="./team-working.png" alt="J-Techno Engineering team working on automation project" class="hero-image">
               <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                 <p class="text-white text-lg font-semibold">Our team collaborating on industrial automation solutions</p>
               </div>
@@ -401,7 +402,7 @@
         <div class="grid md:grid-cols-3 gap-8 mb-12">
           <!-- Founder Germany -->
           <div class="text-center">
-            <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/prince-portrait.png" alt="Prince Joshina - Managing Director Germany" class="founder-image">
+            <img src="./prince-portrait.png" alt="Prince Joshina - Managing Director Germany" class="founder-image">
             <h3 class="text-xl font-bold mb-2">Prince Joshina</h3>
             <p class="text-orange-600 font-semibold mb-2">Managing Director, Germany</p>
             <p class="text-gray-600 text-sm">Based in Kamenz, Saxony</p>
@@ -419,13 +420,15 @@
             </p>
           </div>
 
-          <!-- R&D Focus -->
+          <!-- India Founder -->
           <div class="text-center">
-            <div class="img-hover-zoom mb-6">
-              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/engineering-meeting.png" alt="Engineering team meeting and collaboration" class="w-full h-48 object-cover rounded-lg">
+            <div class="w-48 h-48 mx-auto bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-user text-white text-6xl"></i>
             </div>
-            <h3 class="text-xl font-bold mb-2">Collaborative Engineering</h3>
-            <p class="text-gray-700">Cross-border teamwork for innovative automation solutions</p>
+            <h3 class="text-xl font-bold mb-2">Vipul Joshina</h3>
+            <p class="text-orange-600 font-semibold mb-2">Co-Founder & Technical Director, India</p>
+            <p class="text-gray-600 text-sm">Based in Surat, Gujarat</p>
+            <p class="text-gray-700 mt-3">Oversees R&D, engineering design, and manufacturing operations</p>
           </div>
         </div>
 
@@ -446,10 +449,14 @@
                   <i class="fas fa-check text-green-500 mt-1"></i>
                   <span><strong>Seamless Integration:</strong> Continuous communication across time zones</span>
                 </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span><strong>24/7 Support:</strong> Extended coverage with dual timezone operations</span>
+                </li>
               </ul>
             </div>
             <div class="img-hover-zoom">
-              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/video-call-meeting.png" alt="Cross-border video conference between Germany and India teams" class="rounded-lg">
+              <img src="./video-call-meeting.png" alt="Cross-border video conference between Germany and India teams" class="rounded-lg">
             </div>
           </div>
         </div>
@@ -471,8 +478,8 @@
           <!-- Mobile Robotics -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Mobile Robotics (AGVs & AMRs).png" alt="Mobile Robotics AGVs AMRs autonomous vehicles" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Mobile Robotics (AGVs & AMRs).png" alt="Mobile Robotics AGVs AMRs autonomous vehicles" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -492,8 +499,8 @@
           <!-- Industrial Robots -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Industrial Robots.png" alt="Industrial Robots manufacturing automation" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Industrial Robots.png" alt="Industrial Robots manufacturing automation" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -513,8 +520,8 @@
           <!-- EOAT -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/End-of-Arm%20Tooling.png" alt="End of Arm Tooling robotic grippers" loading="lazy">
+              <div class="product-image-container">
+                <img src="./End-of-Arm Tooling.png" alt="End of Arm Tooling robotic grippers" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -534,8 +541,8 @@
           <!-- Vision & Sensing -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Vision%20&%20Sensing%20Systems.png" alt="Vision Sensing Systems inspection automation" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Vision & Sensing Systems.png" alt="Vision Sensing Systems inspection automation" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -555,8 +562,8 @@
           <!-- CONVEYING & MATERIAL TRANSPORT -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Conveying%20&%20Material%20Transport.png" alt="Conveying Material Transport systems" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Conveying & Material Transport.png" alt="Conveying Material Transport systems" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -576,8 +583,8 @@
           <!-- STORAGE & RETRIEVAL AUTOMATION -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Storage%20&%20Retrieval%20Automation.png" alt="Storage Retrieval Automation ASRS systems" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Storage & Retrieval Automation.png" alt="Storage Retrieval Automation ASRS systems" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -597,8 +604,8 @@
           <!-- MACHINE TENDING & WORKSTATIONS -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Machine%20Tending%20&%20Workstations.png" alt="Machine Tending Workstations automation" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Machine Tending & Workstations.png" alt="Machine Tending Workstations automation" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -618,8 +625,8 @@
           <!-- PACKAGING & PALLETIZING -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Packaging%20&%20Palletizing%20Systems.png" alt="Packaging Palletizing Systems automation" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Packaging & Palletizing Systems.png" alt="Packaging Palletizing Systems automation" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -639,8 +646,8 @@
           <!-- INSPECTION & QUALITY AUTOMATION -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Inspection%20&%20Quality%20Automation.png" alt="Inspection Quality Automation systems" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Inspection & Quality Automation.png" alt="Inspection Quality Automation systems" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -660,8 +667,8 @@
           <!-- DIGITAL AUTOMATION & CONTROL -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Digital%20Automation%20&%20Control.pmg" alt="Digital Automation Control systems" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Digital Automation & Control.png" alt="Digital Automation Control systems" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -681,8 +688,8 @@
           <!-- SAFETY SYSTEMS -->
           <div class="product-card">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Safety%20Systems.png" alt="Safety Systems industrial protection" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Safety Systems.png" alt="Safety Systems industrial protection" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -702,8 +709,8 @@
           <!-- PRECISION COMPONENTS -->
           <div class="product-card bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200">
             <div class="img-hover-zoom mb-4">
-              <div class="product-image">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Precision%20Mechanical%20Components.png" alt="Precision Mechanical Components fasteners bearings" loading="lazy">
+              <div class="product-image-container">
+                <img src="./Precision Mechanical Components.png" alt="Precision Mechanical Components fasteners bearings" loading="lazy">
               </div>
             </div>
             <div class="flex items-center gap-3 mb-3">
@@ -748,7 +755,7 @@
           <!-- CAD & Design -->
           <div class="text-center">
             <div class="img-hover-zoom mb-6">
-              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/cad-workstation.png" alt="CAD workstation with 3D modeling software" class="w-full h-64 object-cover rounded-lg" loading="lazy">
+              <img src="./cad-workstation.png" alt="CAD workstation with 3D modeling software" class="w-full h-64 object-cover rounded-lg" loading="lazy">
             </div>
             <h3 class="text-xl font-bold mb-3">Design & Engineering</h3>
             <p class="text-gray-700">Advanced CAD modeling, simulation, and digital twin creation for precision engineering.</p>
@@ -757,7 +764,7 @@
           <!-- Prototyping -->
           <div class="text-center">
             <div class="img-hover-zoom mb-6">
-              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/3d-printing-prototype.png" alt="3D printing rapid prototyping" class="w-full h-64 object-cover rounded-lg" loading="lazy">
+              <img src="./3d-printing-prototype.png" alt="3D printing rapid prototyping" class="w-full h-64 object-cover rounded-lg" loading="lazy">
             </div>
             <h3 class="text-xl font-bold mb-3">Rapid Prototyping</h3>
             <p class="text-gray-700">Quick iteration and validation of designs through 3D printing and prototyping.</p>
@@ -766,7 +773,7 @@
           <!-- Testing -->
           <div class="text-center">
             <div class="img-hover-zoom mb-6">
-              <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/testing-setup.png" alt="Engineering testing and validation setup" class="w-full h-64 object-cover rounded-lg" loading="lazy">
+              <img src="./testing-setup.png" alt="Engineering testing and validation setup" class="w-full h-64 object-cover rounded-lg" loading="lazy">
             </div>
             <h3 class="text-xl font-bold mb-3">Testing & Validation</h3>
             <p class="text-gray-700">Rigorous testing protocols to ensure performance and reliability meet European standards.</p>
@@ -832,7 +839,7 @@
                 </div>
                 <div>
                   <label class="block text-gray-700 mb-2 font-medium">Phone</label>
-                  <input type="tel" class="form-input" placeholder="+49 ...">
+                  <input type="tel" class="form-input" placeholder="+49 ... or +91 ...">
                 </div>
               </div>
               
@@ -874,7 +881,7 @@
               </div>
               <div class="space-y-3">
                 <div class="flex items-center gap-3 mb-4">
-                  <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/prince-portrait.png" alt="Prince Joshina" class="w-20 h-20 rounded-full object-cover" loading="lazy">
+                  <img src="./prince-portrait.png" alt="Prince Joshina" class="w-20 h-20 rounded-full object-cover" loading="lazy">
                   <div>
                     <p class="font-semibold">Prince Joshina</p>
                     <p class="text-sm text-gray-600">Managing Director & Founder</p>
@@ -895,6 +902,51 @@
                 <p class="flex items-start gap-3">
                   <i class="fas fa-map-marker-alt text-gray-400 mt-1"></i>
                   <span>Fichtestraße 52, 01917 Kamenz, Saxony, Germany</span>
+                </p>
+                <p class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-100">
+                  <i class="fas fa-clock text-gray-400"></i>
+                  <span class="text-sm text-gray-600">Office Hours: 9:00 AM - 6:00 PM CET (GMT+1)</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- India Office -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="bg-orange-100 p-3 rounded-full">
+                  <i class="fas fa-flag text-orange-600"></i>
+                </div>
+                <h3 class="text-xl font-bold">India Office</h3>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-20 h-20 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center">
+                    <i class="fas fa-user text-white text-2xl"></i>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Vipul Joshina</p>
+                    <p class="text-sm text-gray-600">Co-Founder & Technical Director</p>
+                  </div>
+                </div>
+                <p class="flex items-center gap-3">
+                  <i class="fas fa-phone text-gray-400"></i>
+                  <a href="tel:+919687782243" class="text-orange-600 hover:underline font-medium">+91 96877 82243</a>
+                </p>
+                <p class="flex items-center gap-3">
+                  <i class="fab fa-whatsapp text-gray-400"></i>
+                  <a href="https://wa.me/919687782243" class="text-orange-600 hover:underline font-medium">Chat on WhatsApp</a>
+                </p>
+                <p class="flex items-center gap-3">
+                  <i class="fas fa-envelope text-gray-400"></i>
+                  <a href="mailto:info@jtechnoengineering.com" class="text-orange-600 hover:underline font-medium">info@jtechnoengineering.com</a>
+                </p>
+                <p class="flex items-start gap-3">
+                  <i class="fas fa-map-marker-alt text-gray-400 mt-1"></i>
+                  <span>U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat, India</span>
+                </p>
+                <p class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-100">
+                  <i class="fas fa-clock text-gray-400"></i>
+                  <span class="text-sm text-gray-600">Office Hours: 9:00 AM - 6:00 PM IST (GMT+5:30)</span>
                 </p>
               </div>
             </div>
@@ -923,6 +975,7 @@
                 <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Initial response within 24 hours</li>
                 <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Technical quote within 3 business days</li>
                 <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Urgent inquiries: Call Germany office directly</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> 24/7 emergency support available</li>
               </ul>
             </div>
           </div>
@@ -936,7 +989,7 @@
     <div class="container mx-auto px-6 lg:px-12">
       <div class="grid md:grid-cols-4 gap-10 mb-10">
         <div>
-          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-16 mb-4" />
+          <img src="./Logo.svg" alt="J-Techno Engineering logo" class="h-16 mb-4" />
           <p class="text-gray-400">
             A dynamic German-Indian engineering startup delivering complete automation solutions and precision components for European industries.
           </p>
@@ -971,12 +1024,20 @@
               <span>Germany & India Offices</span>
             </p>
             <p class="flex items-center gap-2">
+              <i class="fas fa-user text-gray-400"></i>
+              <span>Germany: Prince Joshina | India: Vipul Joshina</span>
+            </p>
+            <p class="flex items-center gap-2">
               <i class="fas fa-envelope text-gray-400"></i>
               <a href="mailto:info@jtechnoengineering.com" class="hover:text-orange-400">info@jtechnoengineering.com</a>
             </p>
             <p class="flex items-center gap-2">
               <i class="fas fa-phone text-gray-400"></i>
-              <span>DE: +49 176 471 38403</span>
+              <span>DE: +49 176 471 38403 | IN: +91 96877 82243</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fab fa-whatsapp text-gray-400"></i>
+              <span>WhatsApp: Germany & India</span>
             </p>
           </div>
         </div>
@@ -1047,20 +1108,11 @@
         // Add error handling
         img.onerror = function() {
           console.log('Failed to load image:', this.src);
-          // You could set a fallback image here
-          // this.src = 'https://via.placeholder.com/400x300?text=Image+Coming+Soon';
+          // Add fallback for broken images
+          if (this.classList.contains('product-image-container')) {
+            this.parentElement.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center"><i class="fas fa-image text-gray-400 text-4xl"></i></div>';
+          }
         };
-      });
-    });
-
-    // Check if images are loading correctly
-    window.addEventListener('load', function() {
-      console.log('All page resources loaded');
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        if (!img.complete || img.naturalHeight === 0) {
-          console.log('Image may not have loaded:', img.src);
-        }
       });
     });
 
