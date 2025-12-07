@@ -103,7 +103,7 @@
       transform: translateY(-2px);
     }
     
-    /* Trust indicators for startup */
+    /* Startup advantages */
     .advantage-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -155,11 +155,21 @@
       height: 100%;
       border: 1px solid #e5e7eb;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
     
     .product-card:hover {
       border-color: #f97316;
       box-shadow: 0 10px 25px rgba(249, 115, 22, 0.1);
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
     }
     
     /* Enhanced footer */
@@ -170,6 +180,30 @@
     }
     .footer-links a:hover {
       color: #f97316;
+    }
+    
+    /* Founder image styles */
+    .founder-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f97316;
+      margin: 0 auto 1rem;
+    }
+    
+    /* Hero image styling */
+    .hero-image-container {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
     }
     
     /* Mobile menu animation */
@@ -186,6 +220,20 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+    
+    /* Image hover effects */
+    .img-hover-zoom {
+      overflow: hidden;
+      border-radius: 0.5rem;
+    }
+    
+    .img-hover-zoom img {
+      transition: transform 0.5s ease;
+    }
+    
+    .img-hover-zoom:hover img {
+      transform: scale(1.05);
     }
   </style>
 
@@ -222,7 +270,7 @@
 </head>
 <body class="text-gray-800 bg-white">
 
-  <!-- Header with enhanced styling -->
+  <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-40">
     <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
@@ -264,57 +312,52 @@
   </header>
 
   <main>
-    <!-- Enhanced Hero Section - Startup Focus -->
+    <!-- Hero Section -->
     <section id="home" class="gradient-bg relative overflow-hidden">
       <div class="section-padding relative">
         <div class="container mx-auto px-6 lg:px-12">
-          <div class="max-w-4xl mx-auto text-center">
-            <div class="startup-badge">New Generation Engineering Partnership</div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Complete Automation Solutions <span class="highlight-text">for German Industry</span>
-            </h1>
-            <p class="text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
-              A dynamic German-Indian engineering startup delivering end-to-end automation systems, precision components, and innovative R&D services tailored for European manufacturing excellence.
-            </p>
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div class="startup-badge">New Generation Engineering Partnership</div>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Complete Automation Solutions <span class="highlight-text">for German Industry</span>
+              </h1>
+              <p class="text-xl text-gray-700 mb-8">
+                A dynamic German-Indian engineering startup delivering end-to-end automation systems, precision components, and innovative R&D services tailored for European manufacturing excellence.
+              </p>
 
-            <div class="flex flex-wrap justify-center gap-4 mb-16">
-              <a href="#products" class="btn-primary text-lg px-8 py-4">
-                <i class="fas fa-cogs mr-2"></i>Explore Our Solutions
-              </a>
-              <a href="#contact" class="btn-secondary text-lg px-8 py-4">
-                <i class="fas fa-comments mr-2"></i>Schedule Consultation
-              </a>
+              <div class="flex flex-wrap gap-4 mb-8">
+                <a href="#products" class="btn-primary text-lg px-8 py-4">
+                  <i class="fas fa-cogs mr-2"></i>Explore Our Solutions
+                </a>
+                <a href="#contact" class="btn-secondary text-lg px-8 py-4">
+                  <i class="fas fa-comments mr-2"></i>Schedule Consultation
+                </a>
+              </div>
+
+              <!-- Trust Indicators -->
+              <div class="advantage-grid">
+                <div class="advantage-item">
+                  <div class="advantage-icon">
+                    <i class="fas fa-bolt"></i>
+                  </div>
+                  <div class="font-semibold text-lg mb-2">Agile & Innovative</div>
+                  <div class="text-sm text-gray-600">Startup flexibility with fresh engineering approaches</div>
+                </div>
+                <div class="advantage-item">
+                  <div class="advantage-icon">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <div class="font-semibold text-lg mb-2">Dual-Location</div>
+                  <div class="text-sm text-gray-600">German precision meets Indian engineering</div>
+                </div>
+              </div>
             </div>
 
-            <!-- Startup Advantages -->
-            <div class="advantage-grid">
-              <div class="advantage-item">
-                <div class="advantage-icon">
-                  <i class="fas fa-bolt"></i>
-                </div>
-                <div class="font-semibold text-lg mb-2">Agile & Innovative</div>
-                <div class="text-sm text-gray-600">Startup flexibility with fresh engineering approaches</div>
-              </div>
-              <div class="advantage-item">
-                <div class="advantage-icon">
-                  <i class="fas fa-handshake"></i>
-                </div>
-                <div class="font-semibold text-lg mb-2">Dual-Location Advantage</div>
-                <div class="text-sm text-gray-600">German precision meets Indian engineering excellence</div>
-              </div>
-              <div class="advantage-item">
-                <div class="advantage-icon">
-                  <i class="fas fa-euro-sign"></i>
-                </div>
-                <div class="font-semibold text-lg mb-2">Cost-Effective Solutions</div>
-                <div class="text-sm text-gray-600">Competitive pricing without compromising quality</div>
-              </div>
-              <div class="advantage-item">
-                <div class="advantage-icon">
-                  <i class="fas fa-headset"></i>
-                </div>
-                <div class="font-semibold text-lg mb-2">Direct Founder Access</div>
-                <div class="text-sm text-gray-600">Work directly with decision-makers</div>
+            <div class="hero-image-container">
+              <img src="team-working.jpg" alt="J-Techno Engineering team working on automation project" class="hero-image">
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                <p class="text-white text-lg font-semibold">Our team collaborating on industrial automation solutions</p>
               </div>
             </div>
           </div>
@@ -322,82 +365,68 @@
       </div>
     </section>
 
-    <!-- About Section - Startup Story -->
+    <!-- About Section -->
     <section id="about" class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">The New Generation of <span class="text-orange-600">German-Indian Engineering</span></h2>
-            <p class="text-gray-700 mb-6 text-lg">
-              Founded by engineers with deep expertise in both German and Indian industrial landscapes, J-Techno Engineering represents a new model of cross-border technical collaboration. We combine German quality standards with Indian engineering innovation to deliver exceptional value.
-            </p>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">The New Generation of <span class="text-orange-600">German-Indian Engineering</span></h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Founded by engineers with deep expertise in both German and Indian industrial landscapes, we combine German quality standards with Indian engineering innovation.
+          </p>
+        </div>
 
-            <div class="space-y-6">
-              <div class="flex items-start gap-4">
-                <div class="bg-orange-100 p-3 rounded-full">
-                  <i class="fas fa-brain text-orange-600 text-xl"></i>
-                </div>
-                <div>
-                  <h3 class="text-xl font-semibold mb-2">Our Founding Vision</h3>
-                  <p class="text-gray-700">To create a bridge between German industrial precision and Indian engineering innovation, delivering world-class automation solutions with startup agility and partner-level commitment.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="bg-orange-100 p-3 rounded-full">
-                  <i class="fas fa-rocket text-orange-600 text-xl"></i>
-                </div>
-                <div>
-                  <h3 class="text-xl font-semibold mb-2">Why Partner With a Startup?</h3>
-                  <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li><strong>Faster Innovation Cycles:</strong> Agile development and rapid prototyping</li>
-                    <li><strong>Direct Communication:</strong> Work directly with technical founders</li>
-                    <li><strong>Cost Efficiency:</strong> Lean operations translate to better value</li>
-                    <li><strong>Custom Focus:</strong> Your project gets our undivided attention</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-10">
-              <a href="#contact" class="btn-primary inline-flex items-center">
-                <i class="fas fa-calendar-alt mr-2"></i> Schedule Introductory Call
-              </a>
-            </div>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <!-- Founder Germany -->
+          <div class="text-center">
+            <img src="prince-portrait.jpg" alt="Prince Joshina - Managing Director Germany" class="founder-image">
+            <h3 class="text-xl font-bold mb-2">Prince Joshina</h3>
+            <p class="text-orange-600 font-semibold mb-2">Managing Director, Germany</p>
+            <p class="text-gray-600 text-sm">Based in Kamenz, Saxony</p>
+            <p class="text-gray-700 mt-3">Direct technical liaison for German & EU clients</p>
           </div>
 
-          <div>
-            <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg border border-gray-100">
-              <h3 class="text-2xl font-bold mb-6 text-center">Our Dual-Location Model</h3>
-              <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                  <div class="bg-blue-100 p-3 rounded-full">
-                    <i class="fas fa-flag text-blue-600"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-lg mb-2">Germany Office</h4>
-                    <p class="text-gray-700">Client-facing operations, quality assurance, and European market understanding</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-4">
-                  <div class="bg-green-100 p-3 rounded-full">
-                    <i class="fas fa-industry text-green-600"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-lg mb-2">India Office</h4>
-                    <p class="text-gray-700">R&D, engineering design, prototyping, and cost-effective manufacturing</p>
-                  </div>
-                </div>
-                <div class="flex items-start gap-4">
-                  <div class="bg-purple-100 p-3 rounded-full">
-                    <i class="fas fa-sync-alt text-purple-600"></i>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold text-lg mb-2">Seamless Integration</h4>
-                    <p class="text-gray-700">Continuous communication and synchronized workflows across time zones</p>
-                  </div>
-                </div>
-              </div>
+          <!-- Partnership -->
+          <div class="text-center flex flex-col items-center justify-center">
+            <div class="w-32 h-32 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center mb-6">
+              <i class="fas fa-handshake text-white text-4xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Strategic Partnership</h3>
+            <p class="text-gray-700">
+              Combining German market access with Indian engineering capability for optimal solutions.
+            </p>
+          </div>
+
+          <!-- R&D Focus -->
+          <div class="text-center">
+            <div class="img-hover-zoom mb-6">
+              <img src="engineering-meeting.jpg" alt="Engineering team meeting and collaboration" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <h3 class="text-xl font-bold mb-2">Collaborative Engineering</h3>
+            <p class="text-gray-700">Cross-border teamwork for innovative automation solutions</p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Our Dual-Location Advantage</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span><strong>Germany Office:</strong> Client-facing operations, quality assurance, European standards compliance</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span><strong>India Office:</strong> R&D, engineering design, prototyping, cost-effective manufacturing</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span><strong>Seamless Integration:</strong> Continuous communication across time zones</span>
+                </li>
+              </ul>
+            </div>
+            <div class="img-hover-zoom">
+              <img src="video-call-meeting.jpg" alt="Cross-border video conference between Germany and India teams" class="rounded-lg">
             </div>
           </div>
         </div>
@@ -418,13 +447,16 @@
           
           <!-- Mobile Robotics -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Mobile Robotics (AGVs & AMRs).jpg" alt="Mobile Robotics AGVs AMRs autonomous vehicles" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-robot text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Mobile Robotics (AGVs & AMRs)</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">Autonomous mobile platforms for intralogistics and material transport.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">Autonomous mobile platforms for intralogistics and material transport.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Tugger, Forklift & Pallet AGVs</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Transport & Pallet AMRs</li>
@@ -434,13 +466,16 @@
 
           <!-- Industrial Robots -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Industrial Robots.jpg" alt="Industrial Robots manufacturing automation" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-industry text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Industrial Robots</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">High-performance robotic systems for precision operations.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">High-performance robotic systems for precision operations.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>6-axis & 7-axis articulated robots</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>SCARA & Delta robots</li>
@@ -450,13 +485,16 @@
 
           <!-- EOAT -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="End-of-Arm Tooling.jpg" alt="End of Arm Tooling robotic grippers" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-hand-paper text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">End-of-Arm Tooling</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">Complete tooling solutions for robotic applications.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">Complete tooling solutions for robotic applications.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Mechanical & pneumatic grippers</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Welding guns & torch holders</li>
@@ -466,13 +504,16 @@
 
           <!-- Vision & Sensing -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Vision & Sensing Systems.jpg" alt="Vision Sensing Systems inspection automation" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-eye text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Vision & Sensing Systems</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">Smart vision and sensors for intelligent automation.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">Smart vision and sensors for intelligent automation.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>2D/3D vision systems</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>LiDAR & proximity sensors</li>
@@ -482,136 +523,150 @@
 
           <!-- CONVEYING & MATERIAL TRANSPORT -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Conveying & Material Transport.jpg" alt="Conveying Material Transport systems" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-conveyor-belt text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Conveying & Material Transport</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">Material flow solutions for production and dispatch.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">Material flow solutions for production and dispatch.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Belt, roller & chain conveyors</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Modular plastic conveyors</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Overhead conveyors</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Turntables & lift units</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Pallet conveyor systems</li>
             </ul>
           </div>
 
           <!-- STORAGE & RETRIEVAL AUTOMATION -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Storage & Retrieval Automation.jpg" alt="Storage Retrieval Automation ASRS systems" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-warehouse text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Storage & Retrieval Automation</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">High-density automated storage solutions.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">High-density automated storage solutions.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Unit-load & mini-load AS/RS</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Shuttle & multi-shuttle systems</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Mobile racking systems</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Vertical lift modules (VLM)</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Robotic storage walls</li>
             </ul>
           </div>
 
           <!-- MACHINE TENDING & WORKSTATIONS -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Machine Tending & Workstations.jpg" alt="Machine Tending Workstations automation" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-cogs text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Machine Tending & Workstations</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">Automated loading/unloading solutions.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">Automated loading/unloading solutions.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Robotic machine tending cells</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Robotic part-feeding systems</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>CNC loading AMR/AGV cells</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Automatic tool changers</li>
             </ul>
           </div>
 
           <!-- PACKAGING & PALLETIZING -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Packaging & Palletizing Systems.jpg" alt="Packaging Palletizing Systems automation" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-box-open text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Packaging & Palletizing Systems</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">End-of-line automation solutions.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">End-of-line automation solutions.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Robotic palletizers/depalletizers</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Case packers & box erectors</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Layer forming systems</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Automatic stretch wrappers</li>
             </ul>
           </div>
 
           <!-- INSPECTION & QUALITY AUTOMATION -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Inspection & Quality Automation.jpg" alt="Inspection Quality Automation systems" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-search text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Inspection & Quality Automation</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">Inline quality control and metrology.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">Inline quality control and metrology.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Vision inspection systems</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Inline metrology robots</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Surface defect detection</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>AI-based anomaly inspection</li>
             </ul>
           </div>
 
           <!-- DIGITAL AUTOMATION & CONTROL -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Digital Automation & Control.jpg" alt="Digital Automation Control systems" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-desktop text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Digital Automation & Control</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">Control architectures and software platforms.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">Control architectures and software platforms.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>PLC control systems & I/O</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>HMI panels & SCADA systems</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>MES integration</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Fleet management for AGVs</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Digital twin & simulation</li>
             </ul>
           </div>
 
           <!-- SAFETY SYSTEMS -->
           <div class="product-card">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Safety Systems.jpg" alt="Safety Systems industrial protection" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-shield-alt text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Safety Systems</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-3">Essential protective systems for safe operations.</p>
+            <p class="text-gray-700 text-sm mb-3 flex-grow">Essential protective systems for safe operations.</p>
             <ul class="text-xs text-gray-600 space-y-1">
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Light curtains</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Safety scanners</li>
               <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Emergency stop systems</li>
-              <li class="flex items-center"><i class="fas fa-arrow-right text-orange-500 mr-2 text-xs"></i>Safety relays & controllers</li>
             </ul>
           </div>
 
-          <!-- PRECISION COMPONENTS CTA -->
+          <!-- PRECISION COMPONENTS -->
           <div class="product-card bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200">
-            <div class="flex items-center gap-3 mb-4">
+            <div class="img-hover-zoom mb-4">
+              <img src="Precision Mechanical Components.jpg" alt="Precision Mechanical Components fasteners bearings" class="product-image">
+            </div>
+            <div class="flex items-center gap-3 mb-3">
               <div class="bg-orange-100 p-2 rounded-lg">
                 <i class="fas fa-cube text-orange-600"></i>
               </div>
               <h3 class="text-lg font-semibold">Precision Mechanical Components</h3>
             </div>
-            <p class="text-gray-700 text-sm mb-4">Fasteners, bearings, custom parts, and engineering components for German industries.</p>
-            <a href="#contact" class="inline-flex items-center text-sm font-semibold text-orange-600 hover:text-orange-700">
+            <p class="text-gray-700 text-sm mb-4 flex-grow">Fasteners, bearings, custom parts, and engineering components for German industries.</p>
+            <a href="#contact" class="inline-flex items-center text-sm font-semibold text-orange-600 hover:text-orange-700 mt-auto">
               Request Component Catalog
               <i class="fas fa-arrow-right ml-2"></i>
             </a>
@@ -632,7 +687,7 @@
       </div>
     </section>
 
-    <!-- R&D & Innovation - Enhanced -->
+    <!-- R&D & Innovation Section -->
     <section id="innovation" class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
@@ -642,48 +697,36 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <article class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg border border-gray-100 card-hover">
-            <div class="text-orange-600 text-3xl mb-6">
-              <i class="fas fa-lightbulb"></i>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <!-- CAD & Design -->
+          <div class="text-center">
+            <div class="img-hover-zoom mb-6">
+              <img src="cad-workstation.jpg" alt="CAD workstation with 3D modeling software" class="w-full h-64 object-cover rounded-lg">
             </div>
-            <h3 class="text-2xl font-semibold mb-4">Concept & Feasibility</h3>
-            <p class="text-gray-700 mb-6">Initial research, feasibility studies, cost-benefit analysis and design evaluation for your automation projects.</p>
-            <ul class="space-y-3">
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> Market & technical research</li>
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> Feasibility assessment</li>
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> ROI analysis</li>
-            </ul>
-          </article>
+            <h3 class="text-xl font-bold mb-3">Design & Engineering</h3>
+            <p class="text-gray-700">Advanced CAD modeling, simulation, and digital twin creation for precision engineering.</p>
+          </div>
 
-          <article class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg border border-gray-100 card-hover">
-            <div class="text-orange-600 text-3xl mb-6">
-              <i class="fas fa-cube"></i>
+          <!-- Prototyping -->
+          <div class="text-center">
+            <div class="img-hover-zoom mb-6">
+              <img src="3d-printing-prototype.jpg" alt="3D printing rapid prototyping" class="w-full h-64 object-cover rounded-lg">
             </div>
-            <h3 class="text-2xl font-semibold mb-4">Design & Simulation</h3>
-            <p class="text-gray-700 mb-6">Mechanical design, digital twins, robotic simulation, motion analysis and product engineering.</p>
-            <ul class="space-y-3">
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> 3D CAD modeling</li>
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> FEA & motion analysis</li>
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> Digital twin creation</li>
-            </ul>
-          </article>
+            <h3 class="text-xl font-bold mb-3">Rapid Prototyping</h3>
+            <p class="text-gray-700">Quick iteration and validation of designs through 3D printing and prototyping.</p>
+          </div>
 
-          <article class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg border border-gray-100 card-hover">
-            <div class="text-orange-600 text-3xl mb-6">
-              <i class="fas fa-vial"></i>
+          <!-- Testing -->
+          <div class="text-center">
+            <div class="img-hover-zoom mb-6">
+              <img src="testing-setup.jpg" alt="Engineering testing and validation setup" class="w-full h-64 object-cover rounded-lg">
             </div>
-            <h3 class="text-2xl font-semibold mb-4">Prototyping & Testing</h3>
-            <p class="text-gray-700 mb-6">Prototype development, functional testing, field trials and continuous improvement cycles.</p>
-            <ul class="space-y-3">
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> Functional prototyping</li>
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> Field testing & validation</li>
-              <li class="flex items-center gap-3"><div class="w-2 h-2 bg-orange-500 rounded-full"></div> Iterative improvement</li>
-            </ul>
-          </article>
+            <h3 class="text-xl font-bold mb-3">Testing & Validation</h3>
+            <p class="text-gray-700">Rigorous testing protocols to ensure performance and reliability meet European standards.</p>
+          </div>
         </div>
 
-        <div class="mt-16 p-8 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border border-orange-100">
+        <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100">
           <div class="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 class="text-2xl font-bold mb-2">Start Your Innovation Journey With Us</h3>
@@ -783,10 +826,13 @@
                 <h3 class="text-xl font-bold">Germany Office</h3>
               </div>
               <div class="space-y-3">
-                <p class="flex items-center gap-3">
-                  <i class="fas fa-user text-gray-400"></i>
-                  <span class="font-semibold">Prince Joshina — Managing Director & Founder</span>
-                </p>
+                <div class="flex items-center gap-3 mb-4">
+                  <img src="prince-portrait.jpg" alt="Prince Joshina" class="w-20 h-20 rounded-full object-cover">
+                  <div>
+                    <p class="font-semibold">Prince Joshina</p>
+                    <p class="text-sm text-gray-600">Managing Director & Founder</p>
+                  </div>
+                </div>
                 <p class="flex items-center gap-3">
                   <i class="fas fa-phone text-gray-400"></i>
                   <a href="tel:+4917647138403" class="text-orange-600 hover:underline font-medium">+49 176 471 38403</a>
@@ -806,34 +852,6 @@
               </div>
             </div>
 
-            <!-- India Office -->
-            <div class="bg-white p-6 rounded-xl shadow-lg">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="bg-orange-100 p-3 rounded-full">
-                  <i class="fas fa-flag text-orange-600"></i>
-                </div>
-                <h3 class="text-xl font-bold">India Office</h3>
-              </div>
-              <div class="space-y-3">
-                <p class="flex items-center gap-3">
-                  <i class="fas fa-user text-gray-400"></i>
-                  <span class="font-semibold">Vipul Joshina — Co-Founder</span>
-                </p>
-                <p class="flex items-center gap-3">
-                  <i class="fas fa-phone text-gray-400"></i>
-                  <a href="tel:+919687782243" class="text-orange-600 hover:underline font-medium">+91 96877 82243</a>
-                </p>
-                <p class="flex items-center gap-3">
-                  <i class="fas fa-envelope text-gray-400"></i>
-                  <a href="mailto:info@jtechnoengineering.com" class="text-orange-600 hover:underline font-medium">info@jtechnoengineering.com</a>
-                </p>
-                <p class="flex items-start gap-3">
-                  <i class="fas fa-map-marker-alt text-gray-400 mt-1"></i>
-                  <span>U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat, India</span>
-                </p>
-              </div>
-            </div>
-
             <!-- Startup Advantage -->
             <div class="bg-orange-50 border border-orange-200 rounded-xl p-6">
               <div class="flex items-center gap-3 mb-3">
@@ -847,13 +865,26 @@
                 <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Your project gets our full attention</li>
               </ul>
             </div>
+
+            <!-- Response Time -->
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <i class="fas fa-clock text-gray-600 text-xl"></i>
+                <h4 class="font-bold text-lg">Our Response Promise</h4>
+              </div>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Initial response within 24 hours</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Technical quote within 3 business days</li>
+                <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Urgent inquiries: Call Germany office directly</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Enhanced Footer -->
+  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
     <div class="container mx-auto px-6 lg:px-12">
       <div class="grid md:grid-cols-4 gap-10 mb-10">
@@ -957,6 +988,14 @@
           // Close mobile menu if open
           document.getElementById('mobileMenu').classList.add('hidden');
         }
+      });
+    });
+
+    // Add image lazy loading
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.loading = 'lazy';
       });
     });
 
