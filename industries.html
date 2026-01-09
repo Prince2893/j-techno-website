@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Industries & Applications | J-Techno Engineering | Industry-Specific Engineering Services</title>
+  <meta name="description" content="Engineering services for automation & robotics, machinery manufacturing, material handling, automotive components, and industrial machinery sectors." />
+  <meta name="keywords" content="automation engineering, machinery design, automotive engineering, material handling systems, industrial engineering Germany" />
+  <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
+
+  <!-- Tailwind v2 and Inter font -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body { 
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    html { scroll-behavior: smooth; }
+    
+    .section-padding { padding: 5rem 1rem; }
+    @media (max-width: 768px) {
+      .section-padding { padding: 3rem 1rem; }
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+    }
+    
+    .industries-hero {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: white;
+    }
+    
+    .industry-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .industry-card:hover {
+      border-color: #f97316;
+      box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .industry-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .industry-icon i {
+      font-size: 2.5rem;
+      color: white;
+    }
+    
+    .application-example {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+    
+    .application-example:hover {
+      border-color: #3b82f6;
+      background: #f0f9ff;
+    }
+    
+    .challenge-solution {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 2rem;
+    }
+    
+    .challenge-label {
+      display: inline-block;
+      background: #fee2e2;
+      color: #dc2626;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+    
+    .solution-label {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+    
+    .industry-stats {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid #bae6fd;
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0369a1;
+      line-height: 1;
+    }
+    
+    .client-type-card {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      text-align: center;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #f97316;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    /* Industry-specific colors */
+    .automation-icon {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    }
+    
+    .machinery-icon {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+    
+    .material-icon {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    }
+    
+    .automotive-icon {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+    
+    .industrial-icon {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+    
+    .startup-icon {
+      background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "J-Techno Engineering",
+    "url": "https://www.jtechnoengineering.com",
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.1657,
+        "longitude": 10.4515
+      },
+      "geoRadius": "1000 km"
+    },
+    "servesCuisine": [
+      "Automation & Robotics",
+      "Machinery Manufacturing", 
+      "Material Handling",
+      "Automotive Components",
+      "Industrial Machinery"
+    ]
+  }
+  </script>
+</head>
+<body class="text-gray-800 bg-white">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-40">
+    <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-14 w-auto">
+        <div>
+          <span class="font-bold text-xl text-gray-900">J-Techno Engineering</span>
+          <div class="text-xs text-orange-600 font-semibold">Engineering & Automation Design Partner</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Main Navigation">
+        <a href="index.html" class="text-gray-700 hover:text-orange-600 transition-colors">Home</a>
+        <a href="engineering-services.html" class="text-gray-700 hover:text-orange-600 transition-colors">Engineering Services</a>
+        <a href="automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors">Automation & Integration</a>
+        <a href="industries.html" class="text-orange-600 hover:text-orange-700 transition-colors">Industries & Applications</a>
+        <a href="working-model.html" class="text-gray-700 hover:text-orange-600 transition-colors">Working Model</a>
+        <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
+        <a href="contact.html" class="btn-primary text-sm">Discuss Industry Application</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileToggle" type="button" aria-label="Open navigation" class="p-3 rounded-lg hover:bg-gray-100 transition-colors">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
+      <nav class="px-6 py-6 flex flex-col gap-4" aria-label="Mobile Navigation">
+        <a href="index.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Home</a>
+        <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
+        <a href="automation-integration.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
+        <a href="industries.html" class="py-2 text-orange-600 font-semibold">Industries & Applications</a>
+        <a href="working-model.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Working Model</a>
+        <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
+        <a href="contact.html" class="btn-primary text-center mt-2">Discuss Industry Application</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="industries-hero relative overflow-hidden">
+      <div class="section-padding relative">
+        <div class="container mx-auto px-6 lg:px-12">
+          <div class="max-w-4xl animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-white mb-6">
+              <i class="fas fa-industry"></i>
+              <span>Industry-Specific Engineering Solutions</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Industries & Applications
+              <span class="text-orange-400">We Serve</span>
+            </h1>
+            
+            <p class="text-xl text-gray-300 mb-8">
+              Clear, relevant engineering services for industries where technical accuracy, reliability, and scalability are critical.
+              <span class="block mt-2 text-lg">Not over-claimed. Not over-promised. Just professional engineering.</span>
+            </p>
+            
+            <div class="flex flex-wrap gap-4">
+              <a href="#industries" class="btn-primary text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
+                <i class="fas fa-building mr-2"></i>Explore Industries
+              </a>
+              <a href="contact.html" class="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
+                <i class="fas fa-comment-dots mr-2"></i>Discuss Your Industry Application
+              </a>
+            </div>
+            
+            <!-- Industry Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-white/20">
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-1">6+</div>
+                <p class="text-gray-300 text-sm">Industry Sectors</p>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-1">DE+IN</div>
+                <p class="text-gray-300 text-sm">Engineering Teams</p>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-1">100%</div>
+                <p class="text-gray-300 text-sm">Engineering Focus</p>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold text-white mb-1">DIN/ISO</div>
+                <p class="text-gray-300 text-sm">Standards Compliance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section id="industries" class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Industries We Serve</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Specialized engineering services for sectors where technical excellence and reliability are non-negotiable.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Industry 1: Automation & Robotics -->
+          <div class="industry-card animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="industry-icon automation-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Automation & Robotics</h3>
+            <p class="text-gray-600 mb-6">
+              Engineering services for robotic systems, automated assembly lines, and intelligent manufacturing solutions.
+            </p>
+            
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3">Typical Engineering Needs:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Robotic workcell design and layout</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>End-of-arm tooling (EOAT) design</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Safety system integration</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Vision system integration planning</span>
+                </li>
+              </ul>
+            </div>
+            
+            <a href="automation-integration.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+              Explore Automation Services
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Industry 2: Machinery & Equipment Manufacturing -->
+          <div class="industry-card animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="industry-icon machinery-icon">
+              <i class="fas fa-industry"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Machinery & Equipment Manufacturing</h3>
+            <p class="text-gray-600 mb-6">
+              Design and engineering for industrial machinery, production equipment, and specialized manufacturing systems.
+            </p>
+            
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3">Typical Engineering Needs:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Special Purpose Machine (SPM) design</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Mechanical component design</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Structural analysis and optimization</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Manufacturing drawing creation</span>
+                </li>
+              </ul>
+            </div>
+            
+            <a href="engineering-services.html" class="inline-flex items-center text-green-600 font-semibold hover:text-green-700">
+              Explore Mechanical Design Services
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Industry 3: Material Handling & Intralogistics -->
+          <div class="industry-card animate-fade-in-up" style="animation-delay: 0.3s;">
+            <div class="industry-icon material-icon">
+              <i class="fas fa-truck-loading"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Material Handling & Intralogistics</h3>
+            <p class="text-gray-600 mb-6">
+              Engineering for conveyor systems, automated storage, retrieval systems, and internal logistics solutions.
+            </p>
+            
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3">Typical Engineering Needs:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Conveyor system design and layout</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>AGV/AMR integration planning</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Storage system optimization</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Material flow analysis</span>
+                </li>
+              </ul>
+            </div>
+            
+            <a href="automation-integration.html" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700">
+              Explore Material Handling Solutions
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Industry 4: Automotive Components -->
+          <div class="industry-card animate-fade-in-up" style="animation-delay: 0.4s;">
+            <div class="industry-icon automotive-icon">
+              <i class="fas fa-car"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Automotive Components</h3>
+            <p class="text-gray-600 mb-6">
+              Engineering support for automotive component manufacturers, tier suppliers, and production system developers.
+            </p>
+            
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3">Typical Engineering Needs:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Production line design for components</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Testing and inspection system design</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Tooling and fixture design</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Quality control system planning</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="mt-2">
+              <span class="text-xs text-gray-500 font-medium">Note: We serve component manufacturers, not automotive OEMs directly.</span>
+            </div>
+          </div>
+
+          <!-- Industry 5: Industrial Machinery -->
+          <div class="industry-card animate-fade-in-up" style="animation-delay: 0.5s;">
+            <div class="industry-icon industrial-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Industrial Machinery</h3>
+            <p class="text-gray-600 mb-6">
+              Engineering for general industrial machinery, processing equipment, and manufacturing systems across various sectors.
+            </p>
+            
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3">Typical Engineering Needs:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Machine design and development</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Prototype development support</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Design for manufacturing (DFM)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Technical documentation creation</span>
+                </li>
+              </ul>
+            </div>
+            
+            <a href="engineering-services.html" class="inline-flex items-center text-amber-600 font-semibold hover:text-amber-700">
+              Explore Engineering Services
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+
+          <!-- Industry 6: Startups & R&D Teams -->
+          <div class="industry-card animate-fade-in-up" style="animation-delay: 0.6s;">
+            <div class="industry-icon startup-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Startups & R&D Teams</h3>
+            <p class="text-gray-600 mb-6">
+              Flexible engineering support for startups, innovation teams, and companies developing new products or technologies.
+            </p>
+            
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3">Typical Engineering Needs:</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Concept development and prototyping</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Proof-of-concept engineering</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Technical feasibility studies</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-green-500 mt-1"></i>
+                  <span>Investor-ready technical documentation</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="mt-2">
+              <span class="text-xs text-gray-500 font-medium">Flexible engagement models available for startups.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typical Applications -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Typical Applications</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Practical engineering applications we've supported across various industries.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="application-example">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-cogs text-blue-600"></i>
+              </div>
+              <h4 class="text-lg font-bold">Special Purpose Machines</h4>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Custom-designed machinery for specific manufacturing processes that standard equipment cannot address.
+            </p>
+            <div class="text-sm text-gray-500">
+              <i class="fas fa-industry mr-1"></i>
+              Common in: Automotive components, electronics assembly, packaging
+            </div>
+          </div>
+          
+          <div class="application-example">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-robot text-green-600"></i>
+              </div>
+              <h4 class="text-lg font-bold">Automated Assembly & Inspection Systems</h4>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Complete automated workcells for assembly operations with integrated quality inspection capabilities.
+            </p>
+            <div class="text-sm text-gray-500">
+              <i class="fas fa-industry mr-1"></i>
+              Common in: Consumer goods, medical devices, automotive components
+            </div>
+          </div>
+          
+          <div class="application-example">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-eye text-purple-600"></i>
+              </div>
+              <h4 class="text-lg font-bold">Vision-Guided Handling Solutions</h4>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Robotic systems equipped with vision technology for precise part handling, sorting, and placement.
+            </p>
+            <div class="text-sm text-gray-500">
+              <i class="fas fa-industry mr-1"></i>
+              Common in: Logistics, electronics, food processing
+            </div>
+          </div>
+          
+          <div class="application-example">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-tools text-orange-600"></i>
+              </div>
+              <h4 class="text-lg font-bold">Production Tooling & Fixtures</h4>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Custom tooling, fixtures, jigs, and workholding solutions for manufacturing and assembly processes.
+            </p>
+            <div class="text-sm text-gray-500">
+              <i class="fas fa-industry mr-1"></i>
+              Common in: All manufacturing sectors
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenge-Solution Examples -->
+        <div class="mt-12">
+          <h3 class="text-2xl font-bold mb-8 text-center">Industry Challenges We Address</h3>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="challenge-solution">
+              <div class="challenge-label">Challenge</div>
+              <h4 class="text-lg font-bold mb-3">Limited In-House Engineering Capacity</h4>
+              <p class="text-gray-600 mb-6">
+                Companies with peak engineering workloads or specialized project needs that exceed internal team capacity.
+              </p>
+              
+              <div class="solution-label">Our Solution</div>
+              <p class="text-gray-700 font-medium">
+                Serve as an extended engineering arm, providing additional capacity and specialized expertise as needed.
+              </p>
+            </div>
+            
+            <div class="challenge-solution">
+              <div class="challenge-label">Challenge</div>
+              <h4 class="text-lg font-bold mb-3">Need for Specialized Expertise</h4>
+              <p class="text-gray-600 mb-6">
+                Projects requiring specific technical expertise not available internally (e.g., robotics, advanced simulation).
+              </p>
+              
+              <div class="solution-label">Our Solution</div>
+              <p class="text-gray-700 font-medium">
+                Provide targeted expertise for specific project phases while working collaboratively with your team.
+              </p>
+            </div>
+            
+            <div class="challenge-solution">
+              <div class="challenge-label">Challenge</div>
+              <h4 class="text-lg font-bold mb-3">Cost-Effective Development</h4>
+              <p class="text-gray-600 mb-6">
+                Need for high-quality engineering while managing development costs, especially for SMEs and startups.
+              </p>
+              
+              <div class="solution-label">Our Solution</div>
+              <p class="text-gray-700 font-medium">
+                Flexible engagement models and dual-location approach (Germany-India) providing quality at competitive rates.
+              </p>
+            </div>
+            
+            <div class="challenge-solution">
+              <div class="challenge-label">Challenge</div>
+              <h4 class="text-lg font-bold mb-3">Accelerated Time-to-Market</h4>
+              <p class="text-gray-600 mb-6">
+                Pressure to bring products or systems to market faster while maintaining quality and reliability.
+              </p>
+              
+              <div class="solution-label">Our Solution</div>
+              <p class="text-gray-700 font-medium">
+                Parallel engineering execution with clear milestones and regular progress reviews to keep projects on schedule.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Types -->
+    <section class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Who We Work With</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Our engineering services are tailored to different types of organizations with varying needs.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="client-type-card">
+            <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-building text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-3">Manufacturing Companies</h3>
+            <p class="text-gray-600 text-sm">
+              Established manufacturers needing additional engineering capacity or specialized expertise for new projects.
+            </p>
+          </div>
+          
+          <div class="client-type-card">
+            <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-project-diagram text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-3">System Integrators</h3>
+            <p class="text-gray-600 text-sm">
+              Automation integrators requiring mechanical design support or specialized engineering for customer projects.
+            </p>
+          </div>
+          
+          <div class="client-type-card">
+            <div class="w-16 h-16 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-rocket text-purple-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-3">Startups & Innovators</h3>
+            <p class="text-gray-600 text-sm">
+              New ventures developing innovative products who need flexible, cost-effective engineering support.
+            </p>
+          </div>
+        </div>
+
+        <!-- Industry Stats -->
+        <div class="industry-stats">
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="stat-number">German Standards</div>
+              <p class="text-gray-700 font-medium">All engineering follows DIN/ISO standards</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="stat-number">Dual-Location</div>
+              <p class="text-gray-700 font-medium">German oversight with international execution</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="stat-number">Supplier-Neutral</div>
+              <p class="text-gray-700 font-medium">No brand bias in engineering solutions</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="mt-16 text-center">
+          <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-10 border border-orange-200">
+            <h3 class="text-3xl font-bold mb-6">Discuss Your Industry Application</h3>
+            <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+              Every industry has unique engineering challenges. Let's discuss how our services can address your specific needs.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+              <a href="contact.html" class="btn-primary text-lg px-10 py-4">
+                <i class="fas fa-comment-dots mr-2"></i>Schedule Industry Discussion
+              </a>
+              <a href="working-model.html" class="btn-secondary text-lg px-10 py-4">
+                <i class="fas fa-info-circle mr-2"></i>View How We Work
+              </a>
+            </div>
+            
+            <p class="text-gray-600 mt-6 text-sm">
+              <i class="fas fa-clock mr-2"></i>
+              Industry-specific engineering discussion within 48 hours
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Services -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold mb-4">Explore Our Engineering Services</h2>
+          <p class="text-gray-700 max-w-2xl mx-auto">
+            Detailed information about our specific engineering capabilities.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white p-8 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-cogs text-blue-600 text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold">Engineering Services</h3>
+            </div>
+            <p class="text-gray-600 mb-6">
+              Detailed overview of our R&D, mechanical design, simulation, and documentation services.
+            </p>
+            <a href="engineering-services.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+              Explore Engineering Services
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+          
+          <div class="bg-white p-8 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-robot text-green-600 text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold">Automation & Integration</h3>
+            </div>
+            <p class="text-gray-600 mb-6">
+              Information about our automation system design and technology integration capabilities.
+            </p>
+            <a href="automation-integration.html" class="inline-flex items-center text-green-600 font-semibold hover:text-green-700">
+              Explore Automation Services
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+    <div class="container mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-16 mb-4" />
+          <p class="text-gray-400">
+            Industry-specific engineering services for automation, machinery, material handling, and industrial systems.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Industries Served</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="industries.html">Automation & Robotics</a></div>
+            <div><a href="industries.html">Machinery Manufacturing</a></div>
+            <div><a href="industries.html">Material Handling</a></div>
+            <div><a href="industries.html">Automotive Components</a></div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Company</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="engineering-services.html">Engineering Services</a></div>
+            <div><a href="automation-integration.html">Automation & Integration</a></div>
+            <div><a href="working-model.html">Working Model</a></div>
+            <div><a href="contact.html">Contact</a></div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Contact Engineering Team</h4>
+          <div class="space-y-3">
+            <p class="flex items-center gap-2">
+              <i class="fas fa-globe text-gray-400"></i>
+              <span>Germany & India Engineering</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-envelope text-gray-400"></i>
+              <a href="mailto:info@jtechnoengineering.com" class="hover:text-orange-400">info@jtechnoengineering.com</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-phone text-gray-400"></i>
+              <span>DE: +49 176 471 38403</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-user-graduate text-gray-400"></i>
+              <span>M.Sc. Mechanical Engineering</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 text-center">
+        <p class="text-gray-500 text-sm">
+          © 2025 J-Techno Engineering. All rights reserved. | Industry-Specific Engineering Services
+        </p>
+        <p class="text-gray-600 text-xs mt-2">Clear, relevant engineering solutions without over-claiming</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('mobileToggle');
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === '#') return;
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          window.scrollTo({
+            top: targetElement.offsetTop - headerHeight - 20,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          document.getElementById('mobileMenu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Animation for industry cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe industry cards for animation
+    document.querySelectorAll('.industry-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
