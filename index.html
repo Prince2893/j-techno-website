@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>J-Techno Engineering | Engineering & Automation Design Partner for German Industry</title>
+  <meta name="description" content="Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards." />
+  <meta name="keywords" content="engineering services Germany, automation design, mechanical design, R&D services, German engineering standards" />
+  <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
+
+  <!-- Tailwind v2 and Inter font -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body { 
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    html { scroll-behavior: smooth; }
+    :focus-visible { outline: 3px solid rgba(243,156,18,0.5); outline-offset: 3px; }
+    
+    .section-padding { padding: 5rem 1rem; }
+    @media (max-width: 768px) {
+      .section-padding { padding: 3rem 1rem; }
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+    }
+    
+    .highlight-text {
+      position: relative;
+      display: inline-block;
+    }
+    .highlight-text:after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: rgba(249, 115, 22, 0.2);
+      z-index: -1;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2.5rem 2rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .service-card:hover {
+      border-color: #f97316;
+      box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-icon i {
+      font-size: 1.75rem;
+      color: #f97316;
+    }
+    
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f0f9ff;
+      color: #0369a1;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+    
+    .role-card {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      border: 1px solid #fbbf24;
+      border-radius: 1rem;
+      padding: 2.5rem;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #f97316;
+    }
+    
+    /* Hero styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f97316;
+      line-height: 1;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "J-Techno Engineering",
+    "url": "https://www.jtechnoengineering.com",
+    "logo": "./Logo.svg",
+    "description": "Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards",
+    "areaServed": ["DE", "EU"],
+    "serviceType": "Engineering Services",
+    "founder": {
+      "@type": "Person",
+      "name": "Prince Joshina",
+      "honorificSuffix": "M.Sc. Mechanical Engineering",
+      "alumniOf": "Leibniz University Hannover"
+    }
+  }
+  </script>
+</head>
+<body class="text-gray-800 bg-white">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-40">
+    <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-14 w-auto">
+        <div>
+          <span class="font-bold text-xl text-gray-900">J-Techno Engineering</span>
+          <div class="text-xs text-orange-600 font-semibold">Engineering & Automation Design Partner</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Main Navigation">
+        <a href="index.html" class="text-orange-600 hover:text-orange-700 transition-colors">Home</a>
+        <a href="engineering-services.html" class="text-gray-700 hover:text-orange-600 transition-colors">Engineering Services</a>
+        <a href="automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors">Automation & Integration</a>
+        <a href="industries.html" class="text-gray-700 hover:text-orange-600 transition-colors">Industries</a>
+        <a href="working-model.html" class="text-gray-700 hover:text-orange-600 transition-colors">Working Model</a>
+        <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
+        <a href="contact.html" class="btn-primary text-sm">Discuss Requirement</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileToggle" type="button" aria-label="Open navigation" class="p-3 rounded-lg hover:bg-gray-100 transition-colors">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
+      <nav class="px-6 py-6 flex flex-col gap-4" aria-label="Mobile Navigation">
+        <a href="index.html" class="py-2 text-orange-600 font-semibold">Home</a>
+        <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
+        <a href="automation-integration.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
+        <a href="industries.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Industries</a>
+        <a href="working-model.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Working Model</a>
+        <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
+        <a href="contact.html" class="btn-primary text-center mt-2">Discuss Requirement</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section (Above the Fold) -->
+    <section class="hero-gradient relative overflow-hidden">
+      <div class="section-padding relative">
+        <div class="container mx-auto px-6 lg:px-12">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="animate-fade-in-up">
+              <div class="trust-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Serving German & EU engineering clients</span>
+              </div>
+              
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Engineering & Automation Design Partner
+                <span class="highlight-text">for Industrial Systems</span>
+              </h1>
+              
+              <p class="text-xl text-gray-700 mb-8">
+                Research, design, and integration-ready engineering services for mechanical and automation systems — aligned with German engineering standards.
+              </p>
+              
+              <p class="text-lg text-gray-600 mb-8 font-medium">
+                <i class="fas fa-globe-europe text-orange-500 mr-2"></i>
+                Serving manufacturers, system integrators, and startups across Germany, EU, and international markets.
+              </p>
+
+              <div class="flex flex-wrap gap-4 mb-8">
+                <a href="contact.html" class="btn-primary text-lg px-8 py-4">
+                  <i class="fas fa-comment-dots mr-2"></i>Discuss Your Engineering Requirement
+                </a>
+                <a href="#what-we-do" class="btn-secondary text-lg px-8 py-4">
+                  <i class="fas fa-cogs mr-2"></i>View Our Services
+                </a>
+              </div>
+
+              <!-- Trust Indicators -->
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+                <div class="text-center">
+                  <div class="stat-number">100%</div>
+                  <div class="text-sm text-gray-600 font-medium">Engineering Focus</div>
+                </div>
+                <div class="text-center">
+                  <div class="stat-number">24-48h</div>
+                  <div class="text-sm text-gray-600 font-medium">Initial Response</div>
+                </div>
+                <div class="text-center">
+                  <div class="stat-number">DE+IN</div>
+                  <div class="text-sm text-gray-600 font-medium">Dual-Location</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+              <div class="bg-white rounded-2xl p-2 shadow-2xl border border-gray-100">
+                <div class="rounded-xl overflow-hidden">
+                  <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/engineering-design-team.jpg" 
+                       alt="Engineering team working on mechanical design and automation systems" 
+                       class="w-full h-auto rounded-lg">
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
+                      <i class="fas fa-user-graduate text-orange-600"></i>
+                    </div>
+                    <div>
+                      <p class="font-bold">Prince Joshina</p>
+                      <p class="text-sm text-gray-600">M.Sc. Mechanical Engineering, Leibniz University Hannover</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 italic border-l-4 border-orange-500 pl-4 py-1">
+                    "We combine German engineering mindset with international execution efficiency."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">What We Do</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            J-Techno Engineering provides engineering services across the complete development lifecycle — from concept development and feasibility studies to detailed mechanical design, simulation, and production-ready documentation.
+          </p>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+            We support our clients as an extended engineering arm, enabling faster development, reduced internal workload, and reliable system implementation.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">R&D & Concept Engineering</h3>
+            <p class="text-gray-600">Feasibility studies, functional architecture, technology evaluation, and concept development.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Mechanical & Automation Design</h3>
+            <p class="text-gray-600">3D CAD design, manufacturing-ready drawings, Special Purpose Machines (SPM), and automation layouts.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Simulation & Design Validation</h3>
+            <p class="text-gray-600">FEA analysis, motion simulation, tolerance analysis, and design optimization for reliability.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Integration-Ready Documentation</h3>
+            <p class="text-gray-600">BOMs, technical documentation, supplier-ready data packages, and manufacturing drawings.</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="engineering-services.html" class="inline-flex items-center text-orange-600 font-bold text-lg hover:text-orange-700">
+            Explore All Engineering Services
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Role Section (Clarification) -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+        <div class="role-card">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Role in Your Project</h2>
+            <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">We Are Engineering Specialists</h3>
+                  <p class="text-gray-700">
+                    Our core focus is engineering, system design, and technical integration support. 
+                    We are not a general product reseller or catalog supplier.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-project-diagram text-orange-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">Component Selection as Part of System Solutions</h3>
+                  <p class="text-gray-700">
+                    Component selection and sourcing are supported only as part of a complete system solution, 
+                    based on customer standards, performance needs, and approval.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-handshake text-blue-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">Supplier-Neutral, Customer-Aligned Approach</h3>
+                  <p class="text-gray-700">
+                    Our designs are integration-ready and can work with your preferred technologies. 
+                    We maintain no brand bias — only what serves your project best.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-8">
+            <p class="text-gray-700 font-medium">
+              This clarity ensures we deliver exactly what you need — no confusion, no misalignment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why J-Techno Engineering -->
+    <section class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Choose J-Techno Engineering</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            The combination that delivers German engineering quality with international execution efficiency.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-brain text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">German Engineering Mindset</h3>
+            <p class="text-gray-600">Trained in German engineering universities with experience in German industry standards and quality expectations.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-green-100 to-green-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-comments text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Clear Communication</h3>
+            <p class="text-gray-600">Direct founder-level communication, fast turnaround, and transparent project tracking throughout.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-purple-100 to-purple-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-sliders-h text-purple-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Flexible Engagement Models</h3>
+            <p class="text-gray-600">Hourly engineering support, project-based delivery, or long-term partnership — tailored to your needs.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-orange-100 to-orange-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-balance-scale text-orange-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Supplier-Neutral Design</h3>
+            <p class="text-gray-600">Designs that integrate with your preferred technologies. No brand bias, only what's best for your project.</p>
+          </div>
+        </div>
+
+        <!-- CTA Card -->
+        <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100 mt-12">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 class="text-2xl font-bold mb-2">Ready to Start Your Engineering Project?</h3>
+              <p class="text-gray-700">Discuss your requirements with our engineering team. No sales pitch — just technical expertise.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="contact.html" class="btn-primary whitespace-nowrap">
+                <i class="fas fa-calendar-check mr-2"></i>Schedule Technical Call
+              </a>
+              <a href="working-model.html" class="btn-secondary whitespace-nowrap">
+                <i class="fas fa-info-circle mr-2"></i>See How We Work
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Industry Applications -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Industries We Serve</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Specialized engineering services for industries where technical accuracy and reliability are critical.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-robot text-orange-600"></i>
+              </div>
+              <h3 class="text-lg font-bold">Automation & Robotics</h3>
+            </div>
+            <p class="text-gray-600">Special purpose machines, robotic cells, automated assembly systems.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-industry text-blue-600"></i>
+              </div>
+              <h3 class="text-lg font-bold">Machinery Manufacturing</h3>
+            </div>
+            <p class="text-gray-600">Industrial machinery design, production tooling, equipment development.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-truck-loading text-green-600"></i>
+              </div>
+              <h3 class="text-lg font-bold">Material Handling</h3>
+            </div>
+            <p class="text-gray-600">Conveyor systems, intralogistics solutions, handling equipment.</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="industries.html" class="inline-flex items-center text-orange-600 font-bold text-lg hover:text-orange-700">
+            View All Industries & Applications
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+    <div class="container mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-16 mb-4" />
+          <p class="text-gray-400">
+            Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Engineering Services</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="engineering-services.html">R&D & Concept Engineering</a></div>
+            <div><a href="engineering-services.html">Mechanical Design</a></div>
+            <div><a href="engineering-services.html">Simulation & Validation</a></div>
+            <div><a href="automation-integration.html">Automation Design</a></div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Company</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="working-model.html">How We Work</a></div>
+            <div><a href="industries.html">Industries</a></div>
+            <div><a href="about.html">About</a></div>
+            <div><a href="contact.html">Contact</a></div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Contact Engineering Team</h4>
+          <div class="space-y-3">
+            <p class="flex items-center gap-2">
+              <i class="fas fa-globe text-gray-400"></i>
+              <span>Germany & India Engineering</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-envelope text-gray-400"></i>
+              <a href="mailto:info@jtechnoengineering.com" class="hover:text-orange-400">info@jtechnoengineering.com</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-phone text-gray-400"></i>
+              <span>DE: +49 176 471 38403</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-user-graduate text-gray-400"></i>
+              <span>M.Sc. Mechanical Engineering</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 text-center">
+        <p class="text-gray-500 text-sm">
+          © 2025 J-Techno Engineering. All rights reserved. | Engineering & Automation Design Partner
+        </p>
+        <p class="text-gray-600 text-xs mt-2">German engineering mindset with international execution efficiency</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('mobileToggle');
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === '#') return;
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          window.scrollTo({
+            top: targetElement.offsetTop - headerHeight - 20,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          document.getElementById('mobileMenu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Animation for cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe service cards for animation
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
