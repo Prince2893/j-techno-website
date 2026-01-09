@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact | J-Techno Engineering | Technical Engineering Consultation</title>
+  <meta name="description" content="Contact J-Techno Engineering for technical engineering consultation. Direct access to founder for automation systems, mechanical design, and engineering services." />
+  <meta name="keywords" content="contact engineering Germany, automation engineering consultation, mechanical design services, technical engineering support" />
+  <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
+
+  <!-- Tailwind v2 and Inter font -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body { 
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    html { scroll-behavior: smooth; }
+    
+    .section-padding { padding: 5rem 1rem; }
+    @media (max-width: 768px) {
+      .section-padding { padding: 3rem 1rem; }
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+    }
+    
+    .contact-hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: white;
+    }
+    
+    .contact-form-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      width: 100%;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.375rem;
+      font-size: 0.9375rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    }
+    
+    .form-select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.375rem;
+      font-size: 0.9375rem;
+      background-color: white;
+      transition: all 0.3s ease;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1.25rem;
+    }
+    
+    .form-select:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    }
+    
+    .form-textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.375rem;
+      font-size: 0.9375rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-textarea:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    }
+    
+    .office-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .office-card:hover {
+      border-color: #f97316;
+      box-shadow: 0 10px 25px rgba(249, 115, 22, 0.1);
+      transform: translateY(-3px);
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    
+    .contact-info-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .contact-icon i {
+      font-size: 1.25rem;
+      color: #f97316;
+    }
+    
+    .founder-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .founder-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+    }
+    
+    .founder-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 1rem;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .response-timeline {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 1px solid #86efac;
+      border-radius: 1rem;
+      padding: 2rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+    
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: #10b981;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    .response-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #f97316;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    /* Form checkbox styling */
+    .form-checkbox {
+      width: 18px;
+      height: 18px;
+      border-radius: 0.25rem;
+      border: 2px solid #d1d5db;
+      cursor: pointer;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+    
+    .form-checkbox:checked {
+      background-color: #f97316;
+      border-color: #f97316;
+    }
+    
+    /* Form validation styling */
+    .form-error {
+      border-color: #ef4444 !important;
+    }
+    
+    .error-message {
+      color: #ef4444;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+    
+    /* Text overflow prevention */
+    .text-truncate {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .text-break {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    /* Grid container fixes */
+    .grid-container {
+      display: grid;
+      gap: 2rem;
+      width: 100%;
+    }
+    
+    /* Responsive fixes */
+    @media (max-width: 768px) {
+      .contact-form-card,
+      .founder-card,
+      .response-timeline,
+      .office-card {
+        padding: 1.5rem;
+      }
+      
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .contact-icon i {
+        font-size: 1rem;
+      }
+      
+      .founder-image {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .btn-primary,
+      .btn-secondary {
+        padding: 0.625rem 1.5rem;
+        font-size: 0.9375rem;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .section-padding {
+        padding: 2rem 1rem;
+      }
+      
+      .grid-container {
+        gap: 1.5rem;
+      }
+    }
+    
+    /* Ensure form elements don't overflow */
+    input, select, textarea {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    
+    /* Contact info item text handling */
+    .contact-info-text {
+      flex: 1;
+      min-width: 0; /* Allows text truncation */
+    }
+    
+    .contact-info-text a {
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    /* Office info text handling */
+    .office-info {
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    
+    .office-info p {
+      margin-bottom: 0.5rem;
+      overflow-wrap: break-word;
+    }
+    
+    .office-info p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "J-Techno Engineering",
+    "url": "https://www.jtechnoengineering.com",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+49-17647138403",
+        "contactType": "technical support",
+        "areaServed": "DE",
+        "availableLanguage": ["English", "German"],
+        "contactOption": "TollFree"
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91-9687782243",
+        "contactType": "technical support",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi", "Gujarati"]
+      }
+    ],
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Fichtestraße 52",
+        "addressLocality": "Kamenz",
+        "postalCode": "01917",
+        "addressRegion": "Saxony",
+        "addressCountry": "DE"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "U-1 Paris Plaza, Station Road",
+        "addressLocality": "Surat",
+        "postalCode": "395003",
+        "addressRegion": "Gujarat",
+        "addressCountry": "IN"
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="text-gray-800 bg-white">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-40">
+    <div class="container mx-auto px-4 lg:px-8 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-12 w-auto">
+        <div>
+          <span class="font-bold text-lg text-gray-900">J-Techno Engineering</span>
+          <div class="text-xs text-orange-600 font-semibold">Engineering & Automation Design Partner</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold" aria-label="Main Navigation">
+        <a href="index.html" class="text-gray-700 hover:text-orange-600 transition-colors">Home</a>
+        <a href="engineering-services.html" class="text-gray-700 hover:text-orange-600 transition-colors">Engineering Services</a>
+        <a href="automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors">Automation & Integration</a>
+        <a href="industries.html" class="text-gray-700 hover:text-orange-600 transition-colors">Industries</a>
+        <a href="working-model.html" class="text-gray-700 hover:text-orange-600 transition-colors">Working Model</a>
+        <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
+        <a href="contact.html" class="text-orange-600 hover:text-orange-700 transition-colors">Contact</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileToggle" type="button" aria-label="Open navigation" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
+      <nav class="px-4 py-4 flex flex-col gap-3" aria-label="Mobile Navigation">
+        <a href="index.html" class="py-2 px-3 text-gray-700 hover:text-orange-600 font-semibold rounded hover:bg-gray-50">Home</a>
+        <a href="engineering-services.html" class="py-2 px-3 text-gray-700 hover:text-orange-600 font-semibold rounded hover:bg-gray-50">Engineering Services</a>
+        <a href="automation-integration.html" class="py-2 px-3 text-gray-700 hover:text-orange-600 font-semibold rounded hover:bg-gray-50">Automation & Integration</a>
+        <a href="industries.html" class="py-2 px-3 text-gray-700 hover:text-orange-600 font-semibold rounded hover:bg-gray-50">Industries</a>
+        <a href="working-model.html" class="py-2 px-3 text-gray-700 hover:text-orange-600 font-semibold rounded hover:bg-gray-50">Working Model</a>
+        <a href="about.html" class="py-2 px-3 text-gray-700 hover:text-orange-600 font-semibold rounded hover:bg-gray-50">About</a>
+        <a href="contact.html" class="py-2 px-3 text-orange-600 font-semibold rounded hover:bg-orange-50">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="contact-hero relative overflow-hidden">
+      <div class="section-padding relative">
+        <div class="container mx-auto px-4 lg:px-8">
+          <div class="max-w-4xl animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-white mb-4">
+              <i class="fas fa-comment-dots text-xs"></i>
+              <span>Technical Engineering Consultation</span>
+            </div>
+            
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
+              Contact for
+              <span class="text-orange-400">Technical Engineering Consultation</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
+              Direct access to our engineering team for technical discussions, project requirements analysis, 
+              and professional engineering service consultation.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <a href="#contact-form" class="btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 bg-white text-gray-900 hover:bg-gray-100 text-center">
+                <i class="fas fa-file-alt mr-2"></i>Submit Technical Inquiry
+              </a>
+              <a href="tel:+4917647138403" class="bg-transparent border border-white text-white hover:bg-white/10 text-base md:text-lg px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-colors text-center">
+                <i class="fas fa-phone mr-2"></i>Call Germany: +49 176 471 38403
+              </a>
+            </div>
+            
+            <!-- Key Contact Information -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/20">
+              <div class="flex items-start gap-3">
+                <i class="fas fa-user-graduate text-orange-400 text-lg mt-0.5"></i>
+                <div>
+                  <p class="font-bold text-white text-sm md:text-base">Founder-Level Access</p>
+                  <p class="text-gray-300 text-xs md:text-sm">Direct communication with engineering leadership</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fas fa-clock text-orange-400 text-lg mt-0.5"></i>
+                <div>
+                  <p class="font-bold text-white text-sm md:text-base">24-Hour Response</p>
+                  <p class="text-gray-300 text-xs md:text-sm">Initial technical response within one business day</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fas fa-globe-europe text-orange-400 text-lg mt-0.5"></i>
+                <div>
+                  <p class="font-bold text-white text-sm md:text-base">Dual-Location Support</p>
+                  <p class="text-gray-300 text-xs md:text-sm">Germany-India engineering team coordination</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form & Information -->
+    <section id="contact-form" class="bg-white section-padding">
+      <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+        <div class="grid-container lg:grid-cols-2 gap-6 md:gap-10">
+          <!-- Contact Form -->
+          <div class="contact-form-card animate-fade-in-up">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">Technical Inquiry Form</h2>
+            <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">
+              Provide details about your engineering requirements for a comprehensive technical response.
+            </p>
+            
+            <form id="technicalInquiryForm" class="space-y-4 md:space-y-6">
+              <!-- Project Type Selection -->
+              <div>
+                <label class="block text-gray-700 mb-1.5 md:mb-2 font-semibold text-sm md:text-base">
+                  Primary Engineering Interest <span class="text-red-500">*</span>
+                </label>
+                <select class="form-select" required id="projectType">
+                  <option value="">Select primary technical interest</option>
+                  <option value="mechanical-design">Mechanical Design & Engineering</option>
+                  <option value="automation-system">Automation System Design</option>
+                  <option value="rnd-collaboration">R&D & Concept Engineering</option>
+                  <option value="technical-consultation">Technical Consultation</option>
+                  <option value="system-integration">System Integration Planning</option>
+                  <option value="other">Other Engineering Requirement</option>
+                </select>
+              </div>
+
+              <!-- Project Timeline -->
+              <div>
+                <label class="block text-gray-700 mb-1.5 md:mb-2 font-semibold text-sm md:text-base">
+                  Project Timeline <span class="text-red-500">*</span>
+                </label>
+                <select class="form-select" required id="projectTimeline">
+                  <option value="">Select project timeline</option>
+                  <option value="immediate">Immediate (1-3 months)</option>
+                  <option value="planning">Planning Phase (3-6 months)</option>
+                  <option value="future">Future Project (6-12 months)</option>
+                  <option value="exploring">Exploring Technical Options</option>
+                </select>
+              </div>
+
+              <!-- Contact Information -->
+              <div class="grid sm:grid-cols-2 gap-3 md:gap-4">
+                <div>
+                  <label class="block text-gray-700 mb-1.5 md:mb-2 font-semibold text-sm md:text-base">
+                    Name <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" required class="form-input" id="contactName" placeholder="Full name">
+                </div>
+                <div>
+                  <label class="block text-gray-700 mb-1.5 md:mb-2 font-semibold text-sm md:text-base">
+                    Company <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" required class="form-input" id="companyName" placeholder="Company name">
+                </div>
+              </div>
+              
+              <!-- Location Information -->
+              <div>
+                <label class="block text-gray-700 mb-1.5 md:mb-2 font-semibold text-sm md:text-base">
+                  Country / Region <span class="text-red-500">*</span>
+                </label>
+                <select class="form-select" required id="country">
+                  <option value="">Select your country</option>
+                  <option value="germany">Germany</option>
+                  <option value="austria">Austria</option>
+                  <option value="switzerland">Switzerland</option>
+                  <option value="other-eu">Other EU Country</option>
+                  <option value="non-eu">Outside European Union</option>
+                </select>
+              </div>
+              
+              <!-- Contact Details -->
+              <div class="grid sm:grid-cols-2 gap-3 md:gap-4">
+                <div>
+                  <label class="block text-gray-700 mb-1.5 md:mb-2 font-semibold text-sm md:text-base">
+                    Email Address <span class="text-red-500">*</span>
+                  </label>
+                  <input type="email" required class="form-input" id="email" placeholder="professional@company.com">
+                </div>
+                <div>
+                  <label class="block text-gray-700 mb-1.5 md:mb-2 font-semibold text-sm md:text-base">
+                    Phone Number
+                  </label>
+                  <input type="tel" class="form-input" id="phone" placeholder="+49 ... or +91 ...">
+                </div>
+              </div>
+              
+              <!-- Technical Details -->
+              <div>
+                <label class="block text-gray-700 mb-1.5 md:mb-2 font-semibold text-sm md:text-base">
+                  Technical Requirements & Details <span class="text-red-500">*</span>
+                </label>
+                <textarea class="form-textarea" id="technicalDetails" placeholder="Describe your engineering requirements, technical specifications, challenges, or project objectives..."></textarea>
+              </div>
+              
+              <!-- Additional Options -->
+              <div class="space-y-2 md:space-y-3">
+                <div class="flex items-start">
+                  <input type="checkbox" id="technicalProposal" class="form-checkbox mt-0.5">
+                  <label for="technicalProposal" class="text-gray-700 text-xs md:text-sm ml-2">
+                    Request detailed technical proposal with scope, timeline, and deliverables
+                  </label>
+                </div>
+                
+                <div class="flex items-start">
+                  <input type="checkbox" id="ndaRequired" class="form-checkbox mt-0.5">
+                  <label for="ndaRequired" class="text-gray-700 text-xs md:text-sm ml-2">
+                    NDA required before detailed technical discussion
+                  </label>
+                </div>
+                
+                <div class="flex items-start">
+                  <input type="checkbox" id="engineeringUpdates" class="form-checkbox mt-0.5" checked>
+                  <label for="engineeringUpdates" class="text-gray-700 text-xs md:text-sm ml-2">
+                    Receive technical updates and engineering insights
+                  </label>
+                </div>
+              </div>
+              
+              <!-- Submit Button -->
+              <button type="submit" class="btn-primary w-full py-3 text-base md:text-lg">
+                <i class="fas fa-paper-plane mr-2"></i>Submit Technical Inquiry
+              </button>
+              
+              <p class="text-xs md:text-sm text-gray-600 text-center">
+                Your inquiry will be reviewed by our engineering team within 24 hours.
+              </p>
+            </form>
+          </div>
+
+          <!-- Contact Information & Founder -->
+          <div class="space-y-6 md:space-y-8">
+            <!-- Founder Information -->
+            <div class="founder-card animate-fade-in-up" style="animation-delay: 0.1s;">
+              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-6">
+                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/prince-portrait.png" 
+                     alt="Prince Joshina - Founder, J-Techno Engineering" 
+                     class="founder-image">
+                <div class="text-center sm:text-left">
+                  <h3 class="text-lg md:text-xl font-bold text-gray-900">Prince Joshina</h3>
+                  <p class="text-gray-600 font-medium text-sm md:text-base">Managing Director & Founder</p>
+                  <p class="text-xs md:text-sm text-gray-500">M.Sc. Mechanical Engineering, Leibniz University Hannover</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="contact-info-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="contact-info-text">
+                    <p class="font-semibold text-gray-900 text-sm md:text-base">Direct Technical Contact</p>
+                    <a href="tel:+4917647138403" class="text-orange-600 hover:text-orange-700 font-medium text-sm md:text-base block text-truncate">
+                      +49 176 471 38403
+                    </a>
+                    <p class="text-xs md:text-sm text-gray-600 mt-1">Germany-based technical leadership</p>
+                  </div>
+                </div>
+                
+                <div class="contact-info-item">
+                  <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                  <div class="contact-info-text">
+                    <p class="font-semibold text-gray-900 text-sm md:text-base">WhatsApp Technical Chat</p>
+                    <a href="https://wa.me/4917647138403" class="text-orange-600 hover:text-orange-700 font-medium text-sm md:text-base block text-truncate">
+                      Start WhatsApp Conversation
+                    </a>
+                    <p class="text-xs md:text-sm text-gray-600 mt-1">For quick technical questions and file sharing</p>
+                  </div>
+                </div>
+                
+                <div class="contact-info-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-info-text">
+                    <p class="font-semibold text-gray-900 text-sm md:text-base">Technical Email</p>
+                    <a href="mailto:info@jtechnoengineering.com" class="text-orange-600 hover:text-orange-700 font-medium text-sm md:text-base block text-truncate">
+                      info@jtechnoengineering.com
+                    </a>
+                    <p class="text-xs md:text-sm text-gray-600 mt-1">For detailed technical documentation and proposals</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Response Timeline -->
+            <div class="response-timeline animate-fade-in-up" style="animation-delay: 0.2s;">
+              <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-gray-900">Technical Response Timeline</h3>
+              
+              <div class="space-y-3 md:space-y-4">
+                <div class="timeline-step">
+                  <div class="step-number">1</div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1 text-sm md:text-base">Within 2 Hours</h4>
+                    <p class="text-gray-600 text-xs md:text-sm">Initial acknowledgment and inquiry confirmation</p>
+                  </div>
+                </div>
+                
+                <div class="timeline-step">
+                  <div class="step-number">2</div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1 text-sm md:text-base">Within 24 Hours</h4>
+                    <p class="text-gray-600 text-xs md:text-sm">Technical assessment and preliminary response from engineering team</p>
+                  </div>
+                </div>
+                
+                <div class="timeline-step">
+                  <div class="step-number">3</div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1 text-sm md:text-base">Within 48 Hours</h4>
+                    <p class="text-gray-600 text-xs md:text-sm">Scheduled technical discussion with engineering leadership</p>
+                  </div>
+                </div>
+                
+                <div class="timeline-step">
+                  <div class="step-number">4</div>
+                  <div>
+                    <h4 class="font-bold text-gray-900 mb-1 text-sm md:text-base">Within 3 Business Days</h4>
+                    <p class="text-gray-600 text-xs md:text-sm">Formal technical proposal with scope, timeline, and deliverables</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Office Locations -->
+            <div class="grid sm:grid-cols-2 gap-4 md:gap-6">
+              <!-- Germany Office -->
+              <div class="office-card animate-fade-in-up" style="animation-delay: 0.3s;">
+                <div class="flex items-center gap-3 mb-3 md:mb-4">
+                  <div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-black to-gray-800 rounded-lg flex items-center justify-center flex-shrink: 0">
+                    <i class="fas fa-flag text-white text-sm"></i>
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-sm md:text-base">Germany Office</h4>
+                </div>
+                <div class="office-info">
+                  <p class="text-gray-700">
+                    <i class="fas fa-map-marker-alt text-gray-400 mr-2 text-xs"></i>
+                    Fichtestraße 52, 01917 Kamenz, Saxony
+                  </p>
+                  <p class="text-gray-700">
+                    <i class="fas fa-phone text-gray-400 mr-2 text-xs"></i>
+                    +49 176 471 38403
+                  </p>
+                  <p class="text-gray-700">
+                    <i class="fas fa-clock text-gray-400 mr-2 text-xs"></i>
+                    CET Business Hours
+                  </p>
+                </div>
+              </div>
+
+              <!-- India Office -->
+              <div class="office-card animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="flex items-center gap-3 mb-3 md:mb-4">
+                  <div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center flex-shrink: 0">
+                    <i class="fas fa-flag text-white text-sm"></i>
+                  </div>
+                  <h4 class="font-bold text-gray-900 text-sm md:text-base">India Office</h4>
+                </div>
+                <div class="office-info">
+                  <p class="text-gray-700">
+                    <i class="fas fa-map-marker-alt text-gray-400 mr-2 text-xs"></i>
+                    U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat
+                  </p>
+                  <p class="text-gray-700">
+                    <i class="fas fa-phone text-gray-400 mr-2 text-xs"></i>
+                    +91 96877 82243
+                  </p>
+                  <p class="text-gray-700">
+                    <i class="fas fa-clock text-gray-400 mr-2 text-xs"></i>
+                    IST Business Hours
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Contact Channels -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        <div class="text-center mb-8 md:mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Alternative Contact Channels</h2>
+          <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+            Multiple options for technical communication based on your preference and urgency.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div class="bg-white p-6 md:p-8 rounded-xl border border-gray-200 text-center">
+            <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-phone text-blue-600 text-lg md:text-2xl"></i>
+            </div>
+            <h3 class="text-base md:text-lg font-bold mb-3">Direct Phone Consultation</h3>
+            <p class="text-gray-600 mb-4 text-xs md:text-sm">
+              For immediate technical discussions and urgent engineering inquiries.
+            </p>
+            <a href="tel:+4917647138403" class="text-blue-600 font-semibold hover:text-blue-700 text-sm md:text-base">
+              +49 176 471 38403
+            </a>
+            <p class="text-xs text-gray-500 mt-2">Germany business hours (CET)</p>
+          </div>
+          
+          <div class="bg-white p-6 md:p-8 rounded-xl border border-gray-200 text-center">
+            <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
+              <i class="fab fa-whatsapp text-green-600 text-lg md:text-2xl"></i>
+            </div>
+            <h3 class="text-base md:text-lg font-bold mb-3">WhatsApp Technical Support</h3>
+            <p class="text-gray-600 mb-4 text-xs md:text-sm">
+              For quick technical questions, file sharing, and informal technical discussions.
+            </p>
+            <a href="https://wa.me/4917647138403" class="text-green-600 font-semibold hover:text-green-700 text-sm md:text-base">
+              Start WhatsApp Chat
+            </a>
+            <p class="text-xs text-gray-500 mt-2">Available for technical file exchange</p>
+          </div>
+          
+          <div class="bg-white p-6 md:p-8 rounded-xl border border-gray-200 text-center">
+            <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-orange-100 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-envelope text-orange-600 text-lg md:text-2xl"></i>
+            </div>
+            <h3 class="text-base md:text-lg font-bold mb-3">Technical Email</h3>
+            <p class="text-gray-600 mb-4 text-xs md:text-sm">
+              For detailed technical specifications, proposals, and formal engineering documentation.
+            </p>
+            <a href="mailto:info@jtechnoengineering.com" class="text-orange-600 font-semibold hover:text-orange-700 text-sm md:text-base text-truncate block">
+              info@jtechnoengineering.com
+            </a>
+            <p class="text-xs text-gray-500 mt-2">24-hour response guarantee</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before You Contact Information -->
+    <section class="bg-white section-padding">
+      <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 md:p-8 border border-gray-200">
+          <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900">Information for Effective Technical Consultation</h3>
+          
+          <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div>
+              <h4 class="text-base md:text-lg font-semibold mb-3 md:mb-4 text-gray-800">To Expedite Your Technical Inquiry</h4>
+              <ul class="space-y-2 md:space-y-3 text-gray-700 text-sm md:text-base">
+                <li class="flex items-start gap-2 md:gap-3">
+                  <i class="fas fa-check text-green-500 mt-0.5 text-xs md:text-sm"></i>
+                  <span>Provide specific technical requirements</span>
+                </li>
+                <li class="flex items-start gap-2 md:gap-3">
+                  <i class="fas fa-check text-green-500 mt-0.5 text-xs md:text-sm"></i>
+                  <span>Share existing drawings or specifications if available</span>
+                </li>
+                <li class="flex items-start gap-2 md:gap-3">
+                  <i class="fas fa-check text-green-500 mt-0.5 text-xs md:text-sm"></i>
+                  <span>Indicate project timeline and budget parameters</span>
+                </li>
+                <li class="flex items-start gap-2 md:gap-3">
+                  <i class="fas fa-check text-green-500 mt-0.5 text-xs md:text-sm"></i>
+                  <span>Specify any technology preferences or constraints</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 class="text-base md:text-lg font-semibold mb-3 md:mb-4 text-gray-800">What to Expect in Our Response</h4>
+              <ul class="space-y-2 md:space-y-3 text-gray-700 text-sm md:text-base">
+                <li class="flex items-start gap-2 md:gap-3">
+                  <i class="fas fa-check text-green-500 mt-0.5 text-xs md:text-sm"></i>
+                  <span>Technical feasibility assessment</span>
+                </li>
+                <li class="flex items-start gap-2 md:gap-3">
+                  <i class="fas fa-check text-green-500 mt-0.5 text-xs md:text-sm"></i>
+                  <span>Preliminary engineering approach</span>
+                </li>
+                <li class="flex items-start gap-2 md:gap-3">
+                  <i class="fas fa-check text-green-500 mt-0.5 text-xs md:text-sm"></i>
+                  <span>Timeline and resource estimates</span>
+                </li>
+                <li class="flex items-start gap-2 md:gap-3">
+                  <i class="fas fa-check text-green-500 mt-0.5 text-xs md:text-sm"></i>
+                  <span>Engagement model recommendations</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200">
+            <div class="flex flex-wrap gap-2">
+              <span class="response-badge text-xs">
+                <i class="fas fa-file-contract"></i> Technical Proposals
+              </span>
+              <span class="response-badge text-xs">
+                <i class="fas fa-calendar-check"></i> Scheduled Technical Calls
+              </span>
+              <span class="response-badge text-xs">
+                <i class="fas fa-cogs"></i> Engineering Approach
+              </span>
+              <span class="response-badge text-xs">
+                <i class="fas fa-clock"></i> Timeline Estimates
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-4 lg:px-8 max-w-6xl">
+        <div class="text-center mb-8 md:mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Primary Service Areas</h2>
+          <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+            Technical engineering services we provide to clients in Germany and internationally.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div class="bg-white p-4 md:p-6 rounded-xl border border-gray-200 text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-3 md:mb-4">
+              <i class="fas fa-cogs text-blue-600 text-sm md:text-base"></i>
+            </div>
+            <h3 class="text-sm md:text-lg font-bold mb-2 md:mb-3">Mechanical Design</h3>
+            <p class="text-gray-600 text-xs md:text-sm">3D CAD modeling, manufacturing drawings, component design</p>
+          </div>
+          
+          <div class="bg-white p-4 md:p-6 rounded-xl border border-gray-200 text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-3 md:mb-4">
+              <i class="fas fa-robot text-green-600 text-sm md:text-base"></i>
+            </div>
+            <h3 class="text-sm md:text-lg font-bold mb-2 md:mb-3">Automation Systems</h3>
+            <p class="text-gray-600 text-xs md:text-sm">Robotic cells, assembly lines, material handling systems</p>
+          </div>
+          
+          <div class="bg-white p-4 md:p-6 rounded-xl border border-gray-200 text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-3 md:mb-4">
+              <i class="fas fa-lightbulb text-purple-600 text-sm md:text-base"></i>
+            </div>
+            <h3 class="text-sm md:text-lg font-bold mb-2 md:mb-3">R&D Engineering</h3>
+            <p class="text-gray-600 text-xs md:text-sm">Concept development, feasibility studies, prototyping</p>
+          </div>
+          
+          <div class="bg-white p-4 md:p-6 rounded-xl border border-gray-200 text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 mx-auto bg-orange-100 rounded-full flex items-center justify-center mb-3 md:mb-4">
+              <i class="fas fa-project-diagram text-orange-600 text-sm md:text-base"></i>
+            </div>
+            <h3 class="text-sm md:text-lg font-bold mb-2 md:mb-3">System Integration</h3>
+            <p class="text-gray-600 text-xs md:text-sm">Technical integration planning, interface design</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="bg-white section-padding">
+      <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-6 md:p-10 border border-orange-200">
+            <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Initiate Technical Engineering Discussion</h3>
+            <p class="text-lg md:text-xl text-gray-700 mb-6 md:mb-8 max-w-2xl mx-auto">
+              Contact our engineering team to discuss your technical requirements and explore collaboration possibilities.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
+              <a href="#contact-form" class="btn-primary text-base md:text-lg px-6 md:px-10 py-3 md:py-4 text-center">
+                <i class="fas fa-file-alt mr-2"></i>Submit Technical Inquiry
+              </a>
+              <a href="tel:+4917647138403" class="btn-secondary text-base md:text-lg px-6 md:px-10 py-3 md:py-4 text-center">
+                <i class="fas fa-phone mr-2"></i>Call for Immediate Discussion
+              </a>
+            </div>
+            
+            <div class="mt-6 md:mt-8">
+              <p class="text-gray-600 text-sm md:text-base">
+                <i class="fas fa-clock mr-2"></i>
+                24-hour initial response • Direct founder access • Technical proposal within 3 business days
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 pt-8 md:pt-12 pb-6 md:pb-8">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-6 md:gap-10 mb-8 md:mb-10">
+        <div>
+          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-12 md:h-16 mb-3 md:mb-4">
+          <p class="text-gray-400 text-sm">
+            Professional engineering consultation services with direct access to technical leadership. 
+            German-Indian engineering partnership delivering technical solutions.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-base md:text-lg mb-3 md:mb-4">Contact Channels</h4>
+          <div class="footer-links space-y-2 md:space-y-3">
+            <div><a href="#contact-form" class="text-sm md:text-base">Technical Inquiry Form</a></div>
+            <div><a href="tel:+4917647138403" class="text-sm md:text-base">Direct Phone Contact</a></div>
+            <div><a href="https://wa.me/4917647138403" class="text-sm md:text-base">WhatsApp Technical Support</a></div>
+            <div><a href="mailto:info@jtechnoengineering.com" class="text-sm md:text-base text-truncate block">Technical Email</a></div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-base md:text-lg mb-3 md:mb-4">Engineering Services</h4>
+          <div class="footer-links space-y-2 md:space-y-3">
+            <div><a href="engineering-services.html" class="text-sm md:text-base">Mechanical Design</a></div>
+            <div><a href="automation-integration.html" class="text-sm md:text-base">Automation Systems</a></div>
+            <div><a href="engineering-services.html" class="text-sm md:text-base">R&D Engineering</a></div>
+            <div><a href="automation-integration.html" class="text-sm md:text-base">System Integration</a></div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-base md:text-lg mb-3 md:mb-4">Technical Contact Information</h4>
+          <div class="space-y-2 md:space-y-3">
+            <p class="flex items-center gap-2 text-sm">
+              <i class="fas fa-globe text-gray-400"></i>
+              <span>Germany & India Engineering Coordination</span>
+            </p>
+            <p class="flex items-center gap-2 text-sm">
+              <i class="fas fa-envelope text-gray-400"></i>
+              <a href="mailto:info@jtechnoengineering.com" class="hover:text-orange-400 text-truncate block">
+                info@jtechnoengineering.com
+              </a>
+            </p>
+            <p class="flex items-center gap-2 text-sm">
+              <i class="fas fa-phone text-gray-400"></i>
+              <span>Germany: +49 176 471 38403</span>
+            </p>
+            <p class="flex items-center gap-2 text-sm">
+              <i class="fas fa-user-graduate text-gray-400"></i>
+              <span>M.Sc. Mechanical Engineering</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-6 md:pt-8 text-center">
+        <p class="text-gray-500 text-xs md:text-sm">
+          © 2025 J-Techno Engineering. All rights reserved. | Professional Engineering Consultation
+        </p>
+        <p class="text-gray-600 text-xs mt-1 md:mt-2">Direct technical access with professional engineering response protocols</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('mobileToggle');
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === '#') return;
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          window.scrollTo({
+            top: targetElement.offsetTop - headerHeight - 20,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          document.getElementById('mobileMenu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Form submission with validation
+    document.getElementById('technicalInquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Basic form validation
+      const requiredFields = ['projectType', 'projectTimeline', 'contactName', 'companyName', 'country', 'email', 'technicalDetails'];
+      let isValid = true;
+      
+      // Clear previous error states
+      document.querySelectorAll('.form-error').forEach(el => el.classList.remove('form-error'));
+      document.querySelectorAll('.error-message').forEach(el => el.remove());
+      
+      // Validate required fields
+      requiredFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (!field.value.trim()) {
+          isValid = false;
+          field.classList.add('form-error');
+          
+          // Create error message
+          const errorMsg = document.createElement('div');
+          errorMsg.className = 'error-message';
+          errorMsg.textContent = 'This field is required';
+          field.parentNode.appendChild(errorMsg);
+        }
+      });
+      
+      // Email validation
+      const emailField = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailField.value && !emailRegex.test(emailField.value)) {
+        isValid = false;
+        emailField.classList.add('form-error');
+        
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'error-message';
+        errorMsg.textContent = 'Please enter a valid email address';
+        emailField.parentNode.appendChild(errorMsg);
+      }
+      
+      if (!isValid) {
+        // Scroll to first error
+        const firstError = document.querySelector('.form-error');
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstError.focus();
+        }
+        return;
+      }
+      
+      // Get form data for confirmation message
+      const projectType = document.getElementById('projectType').value;
+      const timeline = document.getElementById('projectTimeline').value;
+      const technicalProposal = document.getElementById('technicalProposal').checked;
+      const ndaRequired = document.getElementById('ndaRequired').checked;
+      
+      // Create confirmation message
+      let message = 'Thank you for your technical inquiry. Your submission has been received by our engineering team.';
+      
+      if (technicalProposal) {
+        message += ' A detailed technical proposal will be prepared and sent within 3 business days.';
+      }
+      
+      if (ndaRequired) {
+        message += ' We will send an NDA for your review before proceeding with detailed technical discussions.';
+      }
+      
+      if (timeline === 'immediate') {
+        message += ' Given your immediate timeline, we will prioritize your inquiry and contact you within 2 hours.';
+      }
+      
+      // Show confirmation
+      alert(message);
+      
+      // Reset form
+      this.reset();
+      
+      // Scroll to top of form
+      document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Animation for cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe cards for animation
+    document.querySelectorAll('.founder-card, .response-timeline, .office-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+
+    // Add focus styles for better accessibility
+    document.querySelectorAll('a, button, input, select, textarea').forEach(element => {
+      element.addEventListener('focus', function() {
+        this.style.outline = '2px solid #f97316';
+        this.style.outlineOffset = '2px';
+      });
+      
+      element.addEventListener('blur', function() {
+        this.style.outline = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
