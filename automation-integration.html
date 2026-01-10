@@ -6,10 +6,7 @@
   <title>Automation & Integration | J-Techno Engineering | System Design & Integration</title>
   <meta name="description" content="Automation system design and integration services. Supplier-neutral engineering for robotic cells, assembly lines, and material handling systems aligned with German standards." />
   <meta name="keywords" content="automation engineering Germany, robotic cell design, system integration, assembly line design, material handling systems" />
-  <!-- Favicon for all browsers -->
-<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="./images/favicon-16x16.png" type="image/png" sizes="16x16">
-<link rel="icon" href="./images/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
 
   <!-- Tailwind v2 and Inter font -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
@@ -67,9 +64,25 @@
     }
     
     .automation-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: white;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1f2937; /* Dark gray text like index.html */
     }
+	
+	/* Text color fixes to match index.html */
+.automation-hero h1,
+.automation-hero h2,
+.automation-hero h3,
+.automation-hero h4 {
+  color: #111827;
+}
+
+.automation-hero p {
+  color: #4b5563;
+}
+
+.automation-hero .text-gray-300 {
+  color: #6b7280 !important;
+}
     
     .capability-card {
       background: white;
@@ -87,20 +100,20 @@
     }
     
     .capability-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    
-    .capability-icon i {
-      font-size: 2rem;
-      color: #1d4ed8;
-    }
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%); /* Same as index.html */
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.capability-icon i {
+  font-size: 2rem;
+  color: #f97316; /* Orange like index.html */
+}
     
     .integration-grid {
       display: grid;
@@ -315,9 +328,9 @@
               <a href="#capabilities" class="btn-primary text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
                 <i class="fas fa-cogs mr-2"></i>View Capabilities
               </a>
-              <a href="contact.html" class="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
-                <i class="fas fa-calendar-check mr-2"></i>Schedule Technical Discussion
-              </a>
+              <a href="contact.html" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
+  <i class="fas fa-calendar-check mr-2"></i>Schedule Technical Discussion
+</a>
             </div>
             
             <!-- Key Differentiators -->
@@ -388,7 +401,7 @@
           <!-- Capability 2 -->
           <div class="capability-card animate-fade-in-up" style="animation-delay: 0.2s;">
             <div class="capability-icon">
-              <i class="fas fa-conveyor-belt"></i>
+              <i class="fas fa-boxes-stacked"></i>
             </div>
             <h3 class="text-xl font-bold mb-4">Material Handling Layouts</h3>
             <p class="text-gray-600 mb-6">
