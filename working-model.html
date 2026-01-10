@@ -6,10 +6,7 @@
   <title>Working Model | J-Techno Engineering | Clear Process & Engagement Models</title>
   <meta name="description" content="Clear working process and flexible engagement models for engineering projects. German engineering standards with transparent communication." />
   <meta name="keywords" content="engineering process, project engagement models, German engineering workflow, transparent collaboration" />
-  <!-- Favicon for all browsers -->
-<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="./images/favicon-16x16.png" type="image/png" sizes="16x16">
-<link rel="icon" href="./images/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
 
   <!-- Tailwind v2 and Inter font -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
@@ -48,28 +45,31 @@
       color: white;
     }
     
-    .btn-secondary {
-      background: transparent;
-      color: #4b5563;
-      font-weight: 600;
-      padding: 0.75rem 2rem;
-      border-radius: 0.375rem;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
-      border: 1px solid #d1d5db;
-      cursor: pointer;
-    }
-    .btn-secondary:hover {
-      background: #f9fafb;
-      border-color: #9ca3af;
-      transform: translateY(-2px);
-    }
     
     .process-hero {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      color: white;
-    }
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1f2937;
+}
+
+/* Fix text colors for light background */
+.process-hero h1,
+.process-hero h2,
+.process-hero h3,
+.process-hero h4,
+.process-hero .text-white,
+.process-hero .text-gray-300 {
+  color: #1f2937 !important;
+}
+
+.process-hero p {
+  color: #4b5563 !important;
+}
+
+/* Fix the badge */
+.process-hero .bg-white\/10 {
+  background: rgba(249, 115, 22, 0.1) !important;
+  color: #7c2d12 !important;
+}
     
     .process-step-card {
       background: white;
@@ -436,9 +436,9 @@
               <a href="#process" class="btn-primary text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
                 <i class="fas fa-list-ol mr-2"></i>View Our Process
               </a>
-              <a href="#engagement" class="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
-                <i class="fas fa-handshake mr-2"></i>Explore Engagement Models
-              </a>
+              <a href="#engagement" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
+  <i class="fas fa-handshake mr-2"></i>Explore Engagement Models
+</a>
             </div>
             
             <!-- Key Principles - PROFESSIONAL VERSION -->
