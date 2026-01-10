@@ -6,10 +6,7 @@
   <title>Industries & Applications | J-Techno Engineering | Industry-Specific Engineering Services</title>
   <meta name="description" content="Engineering services for automation & robotics, machinery manufacturing, material handling, automotive components, and industrial machinery sectors." />
   <meta name="keywords" content="automation engineering, machinery design, automotive engineering, material handling systems, industrial engineering Germany" />
-  <!-- Favicon for all browsers -->
-<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="./images/favicon-16x16.png" type="image/png" sizes="16x16">
-<link rel="icon" href="./images/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
 
   <!-- Tailwind v2 and Inter font -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
@@ -48,28 +45,37 @@
       color: white;
     }
     
-    .btn-secondary {
-      background: transparent;
-      color: #4b5563;
-      font-weight: 600;
-      padding: 0.75rem 2rem;
-      border-radius: 0.375rem;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
-      border: 1px solid #d1d5db;
-      cursor: pointer;
-    }
-    .btn-secondary:hover {
-      background: #f9fafb;
-      border-color: #9ca3af;
-      transform: translateY(-2px);
-    }
+    
     
     .industries-hero {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-      color: white;
-    }
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1f2937;
+}
+
+/* Fix text colors for light background */
+.industries-hero h1,
+.industries-hero h2,
+.industries-hero h3,
+.industries-hero h4,
+.industries-hero .text-white,
+.industries-hero .text-gray-300 {
+  color: #1f2937 !important; /* Dark gray text */
+}
+
+.industries-hero p {
+  color: #4b5563 !important; /* Medium gray for paragraphs */
+}
+
+/* Fix the badge text */
+.industries-hero .bg-white\/10 {
+  background: rgba(249, 115, 22, 0.1) !important; /* Orange tint */
+  color: #7c2d12 !important; /* Dark orange text */
+}
+
+/* Fix stats numbers */
+.industries-hero .text-3xl {
+  color: #ea580c !important; /* Orange for numbers */
+}
     
     .industry-card {
       background: white;
@@ -231,13 +237,13 @@
       },
       "geoRadius": "1000 km"
     },
-    "servesCuisine": [
-      "Automation & Robotics",
-      "Machinery Manufacturing", 
-      "Material Handling",
-      "Automotive Components",
-      "Industrial Machinery"
-    ]
+    "serves": [
+  "Automation & Robotics",
+  "Machinery Manufacturing", 
+  "Material Handling",
+  "Automotive Components",
+  "Industrial Machinery"
+]
   }
   </script>
 </head>
@@ -258,7 +264,7 @@
         <a href="index.html" class="text-gray-700 hover:text-orange-600 transition-colors">Home</a>
         <a href="engineering-services.html" class="text-gray-700 hover:text-orange-600 transition-colors">Engineering Services</a>
         <a href="automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors">Automation & Integration</a>
-        <a href="industries.html" class="text-orange-600 hover:text-orange-700 transition-colors">Industries & Applications</a>
+        <a href="industries.html" class="text-orange-600 hover:text-orange-700 transition-colors">Industries</a>
         <a href="working-model.html" class="text-gray-700 hover:text-orange-600 transition-colors">Working Model</a>
         <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
         <a href="contact.html" class="btn-primary text-sm">Discuss Industry Application</a>
@@ -311,9 +317,9 @@
               <a href="#industries" class="btn-primary text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
                 <i class="fas fa-building mr-2"></i>Explore Industries
               </a>
-              <a href="contact.html" class="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
-                <i class="fas fa-comment-dots mr-2"></i>Discuss Your Industry Application
-              </a>
+              <a href="contact.html" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
+  <i class="fas fa-comment-dots mr-2"></i>Discuss Your Industry Application
+</a>
             </div>
             
             <!-- Industry Stats -->
