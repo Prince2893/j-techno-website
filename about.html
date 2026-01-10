@@ -6,11 +6,8 @@
   <title>About | J-Techno Engineering | German-Indian Engineering Partnership</title>
   <meta name="description" content="J-Techno Engineering: Led by Prince Joshina, M.Sc. Mechanical Engineering from Leibniz University Hannover. German-Indian engineering partnership with academic depth and industrial experience." />
   <meta name="keywords" content="about J-Techno Engineering, Prince Joshina, German engineering company, mechanical engineering Germany, Fraunhofer IPK" />
-  <!-- Favicon for all browsers -->
-<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="./images/favicon-16x16.png" type="image/png" sizes="16x16">
-<link rel="icon" href="./images/favicon-32x32.png" type="image/png" sizes="32x32">
-  
+  <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
+
   <!-- Tailwind v2 and Inter font -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,28 +45,32 @@
       color: white;
     }
     
-    .btn-secondary {
-      background: transparent;
-      color: #4b5563;
-      font-weight: 600;
-      padding: 0.75rem 2rem;
-      border-radius: 0.375rem;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
-      border: 1px solid #d1d5db;
-      cursor: pointer;
-    }
-    .btn-secondary:hover {
-      background: #f9fafb;
-      border-color: #9ca3af;
-      transform: translateY(-2px);
-    }
+    
     
     .about-hero {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      color: white;
-    }
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #1f2937;
+}
+
+/* Fix text colors for light background */
+.about-hero h1,
+.about-hero h2,
+.about-hero h3,
+.about-hero h4,
+.about-hero .text-white,
+.about-hero .text-gray-300 {
+  color: #1f2937 !important;
+}
+
+.about-hero p {
+  color: #4b5563 !important;
+}
+
+/* Fix the badge */
+.about-hero .bg-white\/10 {
+  background: rgba(249, 115, 22, 0.1) !important;
+  color: #7c2d12 !important;
+}
     
     .founder-card {
       background: white;
@@ -367,9 +368,9 @@
               <a href="#founder" class="btn-primary text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
                 <i class="fas fa-user-graduate mr-2"></i>Meet Our Founder
               </a>
-              <a href="contact.html" class="bg-transparent border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
-                <i class="fas fa-comment-dots mr-2"></i>Discuss Technical Collaboration
-              </a>
+              <a href="contact.html" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
+  <i class="fas fa-comment-dots mr-2"></i>Discuss Technical Collaboration
+</a>
             </div>
           </div>
         </div>
