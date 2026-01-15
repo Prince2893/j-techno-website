@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Engineering Services | J-Techno Engineering | R&D, Design & Validation</title>
-  <meta name="description" content="Professional engineering services: R&D, mechanical design, simulation, and documentation aligned with German engineering standards for industrial systems." />
-  <meta name="keywords" content="engineering services Germany, mechanical design, R&D services, FEA simulation, CAD design, German engineering standards" />
+  <title>J-Techno Engineering | Engineering & Automation Design Partner for German Industry</title>
+  <meta name="description" content="Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards." />
+  <meta name="keywords" content="engineering services Germany, automation design, mechanical design, R&D services, German engineering standards" />
   <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
 
   <!-- Tailwind v2 and Inter font -->
@@ -21,6 +21,7 @@
       line-height: 1.6;
     }
     html { scroll-behavior: smooth; }
+    :focus-visible { outline: 3px solid rgba(243,156,18,0.5); outline-offset: 3px; }
     
     .section-padding { padding: 5rem 1rem; }
     @media (max-width: 768px) {
@@ -63,96 +64,71 @@
       transform: translateY(-2px);
     }
     
-    .service-hero {
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    .highlight-text {
+      position: relative;
+      display: inline-block;
+    }
+    .highlight-text:after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: rgba(249, 115, 22, 0.2);
+      z-index: -1;
     }
     
-    .service-section {
+    .service-card {
       background: white;
       border-radius: 1rem;
-      padding: 3rem;
+      padding: 2.5rem 2rem;
       border: 1px solid #e5e7eb;
-      margin-bottom: 2rem;
       transition: all 0.3s ease;
+      height: 100%;
     }
     
-    .service-section:hover {
+    .service-card:hover {
       border-color: #f97316;
-      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
+      box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
+      transform: translateY(-5px);
     }
     
-    .service-icon {
-      width: 80px;
-      height: 80px;
+    .card-icon {
+      width: 60px;
+      height: 60px;
       background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-      border-radius: 1rem;
+      border-radius: 0.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     
-    .service-icon i {
-      font-size: 2.5rem;
+    .card-icon i {
+      font-size: 1.75rem;
       color: #f97316;
     }
     
-    .capability-list {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .capability-list li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #f3f4f6;
-      display: flex;
+    .trust-badge {
+      display: inline-flex;
       align-items: center;
-    }
-    
-    .capability-list li:last-child {
-      border-bottom: none;
-    }
-    
-    .capability-list li i {
-      color: #10b981;
-      margin-right: 1rem;
-      font-size: 1.25rem;
-    }
-    
-    .software-badge {
-      display: inline-block;
-      background: #eff6ff;
-      color: #1d4ed8;
+      gap: 0.5rem;
+      background: #f0f9ff;
+      color: #0369a1;
       padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
+      border-radius: 50px;
       font-weight: 500;
       font-size: 0.875rem;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
     
-    .process-step {
-      counter-increment: step-counter;
-      padding-left: 4rem;
-      position: relative;
-      margin-bottom: 2.5rem;
-    }
-    
-    .process-step:before {
-      content: counter(step-counter);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 3rem;
-      height: 3rem;
-      background: #f97316;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.25rem;
+    /* CHANGED: Background color from yellow to professional blue/gray */
+    .role-card {
+      background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 2.5rem;
     }
     
     .footer-links a {
@@ -162,6 +138,18 @@
     }
     .footer-links a:hover {
       color: #f97316;
+    }
+    
+    /* Hero styling */
+    .hero-gradient {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f97316;
+      line-height: 1;
     }
     
     @keyframes fadeInUp {
@@ -180,54 +168,22 @@
     }
   </style>
 
+  <!-- FIXED: Schema markup with full URL -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "ProfessionalService",
+    "name": "J-Techno Engineering",
+    "url": "https://www.jtechnoengineering.com",
+    "logo": "https://www.jtechnoengineering.com/Logo.svg",
+    "description": "Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards",
+    "areaServed": ["DE", "EU"],
     "serviceType": "Engineering Services",
-    "provider": {
-      "@type": "Organization",
-      "name": "J-Techno Engineering",
-      "url": "https://www.jtechnoengineering.com"
-    },
-    "description": "Professional engineering services including R&D, mechanical design, simulation, and technical documentation for industrial systems",
-    "areaServed": {
-      "@type": "Country",
-      "name": "Germany, EU"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Engineering Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Research & Development"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Mechanical Design & Engineering"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Simulation & Design Validation"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Technical Documentation"
-          }
-        }
-      ]
+    "founder": {
+      "@type": "Person",
+      "name": "Prince Joshina",
+      "honorificSuffix": "M.Sc.",
+      "alumniOf": "Leibniz University Hannover"
     }
   }
   </script>
@@ -237,8 +193,11 @@
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-40">
     <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <!-- FIXED: Added alt text to logo -->
       <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
-        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-14 w-auto">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" 
+             alt="J-Techno Engineering Logo" 
+             class="h-14 w-auto">
         <div>
           <span class="font-bold text-xl text-gray-900">J-Techno Engineering</span>
           <div class="text-xs text-orange-600 font-semibold">Engineering & Automation Design Partner</div>
@@ -246,13 +205,13 @@
       </a>
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Main Navigation">
-        <a href="index.html" class="text-gray-700 hover:text-orange-600 transition-colors">Home</a>
-        <a href="engineering-services.html" class="text-orange-600 hover:text-orange-700 transition-colors">Engineering Services</a>
+        <a href="index.html" class="text-orange-600 hover:text-orange-700 transition-colors">Home</a>
+        <a href="engineering-services.html" class="text-gray-700 hover:text-orange-600 transition-colors">Engineering Services</a>
         <a href="automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors">Automation & Integration</a>
         <a href="industries.html" class="text-gray-700 hover:text-orange-600 transition-colors">Industries</a>
         <a href="working-model.html" class="text-gray-700 hover:text-orange-600 transition-colors">Working Model</a>
         <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
-        <a href="contact.html" class="btn-primary">Contact</a>
+        <a href="contact.html" class="btn-primary text-center mt-2">Contact</a>
       </nav>
 
       <div class="md:hidden">
@@ -266,59 +225,92 @@
 
     <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
       <nav class="px-6 py-6 flex flex-col gap-4" aria-label="Mobile Navigation">
-        <a href="index.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Home</a>
-        <a href="engineering-services.html" class="py-2 text-orange-600 font-semibold">Engineering Services</a>
+        <a href="index.html" class="py-2 text-orange-600 font-semibold">Home</a>
+        <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
         <a href="automation-integration.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
         <a href="industries.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Industries</a>
         <a href="working-model.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Working Model</a>
         <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
-        <a href="contact.html" class="btn-primary text-center mt-2">Discuss Requirement</a>
+        <a href="contact.html" class="btn-primary text-sm">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section class="service-hero relative overflow-hidden">
+    <!-- Hero Section (Above the Fold) -->
+    <section class="hero-gradient relative overflow-hidden">
       <div class="section-padding relative">
         <div class="container mx-auto px-6 lg:px-12">
-          <div class="max-w-4xl animate-fade-in-up">
-            <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-orange-700 mb-6">
-              <i class="fas fa-graduation-cap"></i>
-              <span>Professional Engineering Services</span>
-            </div>
-            
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Engineering Services for
-              <span class="text-orange-600">Industrial Systems</span>
-            </h1>
-            
-            <p class="text-xl text-gray-700 mb-8">
-              Our engineering services are designed for industrial projects where technical accuracy, reliability, and scalability are critical.
-            </p>
-            
-            <div class="flex flex-wrap gap-4">
-              <a href="#services" class="btn-primary text-lg px-8 py-4">
-                <i class="fas fa-cogs mr-2"></i>Explore Our Services
-              </a>
-              <a href="contact.html" class="btn-secondary text-lg px-8 py-4">
-                <i class="fas fa-file-alt mr-2"></i>Request Service Proposal
-              </a>
-            </div>
-            
-            <!-- Trust Badges -->
-            <div class="flex flex-wrap items-center gap-6 mt-10 pt-8 border-t border-gray-200">
-              <div class="flex items-center gap-2">
-                <i class="fas fa-check-circle text-green-500"></i>
-                <span class="text-gray-700 font-medium">German Engineering Standards</span>
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="animate-fade-in-up">
+              <div class="trust-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Serving German & EU engineering clients</span>
               </div>
-              <div class="flex items-center gap-2">
-                <i class="fas fa-check-circle text-green-500"></i>
-                <span class="text-gray-700 font-medium">Direct Founder Access</span>
+              
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Engineering & Automation Design Partner
+                <span class="highlight-text">for Industrial Systems</span>
+              </h1>
+              
+              <p class="text-xl text-gray-700 mb-8">
+                Research, design, and integration-ready engineering services for mechanical and automation systems — aligned with German engineering standards.
+              </p>
+              
+              <p class="text-lg text-gray-600 mb-8 font-medium">
+                <i class="fas fa-globe-europe text-orange-500 mr-2"></i>
+                Serving manufacturers, system integrators, and startups across Germany, EU, and international markets.
+              </p>
+
+              <div class="flex flex-wrap gap-4 mb-8">
+                <a href="contact.html" class="btn-primary text-lg px-8 py-4">
+  <i class="fas fa-envelope mr-2"></i>Contact Engineering Team
+</a>
+                <a href="#what-we-do" class="btn-secondary text-lg px-8 py-4">
+                  <i class="fas fa-cogs mr-2"></i>View Our Services
+                </a>
               </div>
-              <div class="flex items-center gap-2">
-                <i class="fas fa-check-circle text-green-500"></i>
-                <span class="text-gray-700 font-medium">Supplier-Neutral Approach</span>
+
+              <!-- Trust Indicators -->
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+                <div class="text-center">
+                  <div class="stat-number">100%</div>
+                  <div class="text-sm text-gray-600 font-medium">Engineering Focus</div>
+                </div>
+                <div class="text-center">
+                  <div class="stat-number">24-48h</div>
+                  <div class="text-sm text-gray-600 font-medium">Initial Response</div>
+                </div>
+                <div class="text-center">
+                  <div class="stat-number">DE+IN</div>
+                  <div class="text-sm text-gray-600 font-medium">Dual-Location</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+              <div class="bg-white rounded-2xl p-2 shadow-2xl border border-gray-100">
+                <div class="rounded-xl overflow-hidden">
+                  <!-- FIXED: Added lazy loading to hero image -->
+                  <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/engineering-design-team.png" 
+                       alt="Engineering team working on mechanical design and automation systems" 
+                       loading="lazy"
+                       class="w-full h-auto rounded-lg">
+                </div>
+                <div class="p-6">
+                  <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
+                      <i class="fas fa-user-graduate text-orange-600"></i>
+                    </div>
+                    <div>
+                      <p class="font-bold">Prince Joshina</p>
+                      <p class="text-sm text-gray-600">M.Sc. Mechanical Engineering, Leibniz University Hannover</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 italic border-l-4 border-orange-500 pl-4 py-1">
+                    "We combine German engineering mindset with international execution efficiency."
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -326,295 +318,235 @@
       </div>
     </section>
 
-    <!-- Services Overview -->
-    <section id="services" class="bg-white section-padding">
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Complete Engineering Lifecycle Services</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">What We Do</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
-            From initial concept to production-ready documentation, we provide comprehensive engineering support for your industrial projects.
+            J-Techno Engineering provides engineering services across the complete development lifecycle — from concept development and feasibility studies to detailed mechanical design, simulation, and production-ready documentation.
+          </p>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+            We support our clients as an extended engineering arm, enabling faster development, reduced internal workload, and reliable system implementation.
           </p>
         </div>
 
-        <!-- Service 1: Research & Development -->
-        <div class="service-section animate-fade-in-up" style="animation-delay: 0.1s;">
-          <div class="flex flex-col lg:flex-row gap-8 items-start">
-            <div class="lg:w-1/3">
-              <div class="service-icon">
-                <i class="fas fa-flask"></i>
-              </div>
-              <h3 class="text-2xl font-bold mb-4">Research & Development</h3>
-              <p class="text-gray-600 mb-4">
-                We convert ideas into technically validated concepts ready for detailed engineering.
-              </p>
-              <div class="mt-4">
-                <span class="font-semibold text-gray-700">Software Expertise:</span>
-                <div class="mt-2">
-                  <span class="software-badge">SolidWorks</span>
-                  <span class="software-badge">Autodesk Inventor</span>
-                  <span class="software-badge">MATLAB</span>
-                </div>
-              </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fas fa-lightbulb"></i>
             </div>
-            
-            <div class="lg:w-2/3">
-              <h4 class="text-lg font-semibold text-gray-900 mb-4">Core Capabilities</h4>
-              <ul class="capability-list">
-                <li><i class="fas fa-check"></i><strong>Concept Development:</strong> Transform initial ideas into viable technical concepts</li>
-                <li><i class="fas fa-check"></i><strong>Feasibility Studies:</strong> Technical and economic viability analysis</li>
-                <li><i class="fas fa-check"></i><strong>Functional Architecture:</strong> System-level functional breakdown and interface definition</li>
-                <li><i class="fas fa-check"></i><strong>Technology Evaluation:</strong> Assessment of available technologies and selection recommendations</li>
-                <li><i class="fas fa-check"></i><strong>Performance Optimization:</strong> Technical optimization for efficiency, reliability, and cost</li>
-              </ul>
-              
-              <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                <p class="text-blue-800 font-medium">
-                  <i class="fas fa-lightbulb mr-2"></i>
-                  We provide clear documentation of assumptions, constraints, and recommendations for informed decision-making.
-                </p>
-              </div>
+            <h3 class="text-xl font-bold mb-4">R&D & Concept Engineering</h3>
+            <p class="text-gray-600">Feasibility studies, functional architecture, technology evaluation, and concept development.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fas fa-cogs"></i>
             </div>
+            <h3 class="text-xl font-bold mb-4">Mechanical & Automation Design</h3>
+            <p class="text-gray-600">3D CAD design, manufacturing-ready drawings, Special Purpose Machines (SPM), and automation layouts.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Simulation & Design Validation</h3>
+            <p class="text-gray-600">FEA analysis, motion simulation, tolerance analysis, and design optimization for reliability.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="card-icon">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Integration-Ready Documentation</h3>
+            <p class="text-gray-600">BOMs, technical documentation, supplier-ready data packages, and manufacturing drawings.</p>
           </div>
         </div>
 
-        <!-- Service 2: Mechanical Design & Engineering -->
-        <div class="service-section animate-fade-in-up" style="animation-delay: 0.2s;">
-          <div class="flex flex-col lg:flex-row gap-8 items-start">
-            <div class="lg:w-1/3">
-              <div class="service-icon">
-                <i class="fas fa-cogs"></i>
-              </div>
-              <h3 class="text-2xl font-bold mb-4">Mechanical Design & Engineering</h3>
-              <p class="text-gray-600 mb-4">
-                Detailed engineering design with manufacturing considerations integrated from the start.
-              </p>
-              <div class="mt-4">
-                <span class="font-semibold text-gray-700">Design Standards:</span>
-                <div class="mt-2">
-                  <span class="software-badge">DIN/ISO Standards</span>
-                  <span class="software-badge">GD&T</span>
-                  <span class="software-badge">DFM/DFA</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="lg:w-2/3">
-              <h4 class="text-lg font-semibold text-gray-900 mb-4">Design Capabilities</h4>
-              <ul class="capability-list">
-                <li><i class="fas fa-check"></i><strong>3D CAD Design:</strong> Professional modeling using Autodesk Inventor, SolidWorks</li>
-                <li><i class="fas fa-check"></i><strong>Manufacturing-Ready 2D Drawings:</strong> Complete production drawings with tolerances</li>
-                <li><i class="fas fa-check"></i><strong>Weldment and Sheet-Metal Design:</strong> Specialized design for fabrication processes</li>
-                <li><i class="fas fa-check"></i><strong>Special Purpose Machines (SPM):</strong> Custom machinery design for specific applications</li>
-                <li><i class="fas fa-check"></i><strong>Reverse Engineering:</strong> 3D scanning and CAD recreation of existing components</li>
-                <li><i class="fas fa-check"></i><strong>Assembly Design:</strong> Complete assembly modeling with interference checking</li>
-              </ul>
-              
-              <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-100">
-                <p class="text-green-800 font-medium">
-                  <i class="fas fa-industry mr-2"></i>
-                  All designs include manufacturability analysis and cost considerations.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div class="text-center mt-12">
+          <a href="engineering-services.html" class="inline-flex items-center text-orange-600 font-bold text-lg hover:text-orange-700">
+            Explore All Engineering Services
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
         </div>
+      </div>
+    </section>
 
-        <!-- Service 3: Simulation & Design Validation -->
-        <div class="service-section animate-fade-in-up" style="animation-delay: 0.3s;">
-          <div class="flex flex-col lg:flex-row gap-8 items-start">
-            <div class="lg:w-1/3">
-              <div class="service-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <h3 class="text-2xl font-bold mb-4">Simulation & Design Validation</h3>
-              <p class="text-gray-600 mb-4">
-                Validate designs before manufacturing to ensure performance, reliability, and safety.
-              </p>
-              <div class="mt-4">
-                <span class="font-semibold text-gray-700">Analysis Methods:</span>
-                <div class="mt-2">
-                  <span class="software-badge">FEA</span>
-                  <span class="software-badge">Kinematics</span>
-                  <span class="software-badge">Tolerance Stack-up</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="lg:w-2/3">
-              <h4 class="text-lg font-semibold text-gray-900 mb-4">Validation Services</h4>
-              <ul class="capability-list">
-                <li><i class="fas fa-check"></i><strong>Structural Analysis (FEA):</strong> Stress, strain, and deformation analysis</li>
-                <li><i class="fas fa-check"></i><strong>Thermal Analysis:</strong> Heat transfer and thermal stress evaluation</li>
-                <li><i class="fas fa-check"></i><strong>Fatigue Analysis:</strong> Life prediction under cyclic loading conditions</li>
-                <li><i class="fas fa-check"></i><strong>Motion & Mechanism Simulation:</strong> Kinematic and dynamic analysis</li>
-                <li><i class="fas fa-check"></i><strong>Tolerance Analysis:</strong> Statistical tolerance stack-up analysis</li>
-                <li><i class="fas fa-check"></i><strong>Design Optimization:</strong> Iterative improvement based on simulation results</li>
-              </ul>
-              
-              <div class="mt-6 p-4 bg-purple-50 rounded-lg border border-purple-100">
-                <p class="text-purple-800 font-medium">
-                  <i class="fas fa-shield-alt mr-2"></i>
-                  Simulation reduces prototyping costs and prevents field failures.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 4: Documentation & Handover -->
-        <div class="service-section animate-fade-in-up" style="animation-delay: 0.4s;">
-          <div class="flex flex-col lg:flex-row gap-8 items-start">
-            <div class="lg:w-1/3">
-              <div class="service-icon">
-                <i class="fas fa-file-contract"></i>
-              </div>
-              <h3 class="text-2xl font-bold mb-4">Documentation & Handover</h3>
-              <p class="text-gray-600 mb-4">
-                Complete, organized documentation for manufacturing, assembly, and future reference.
-              </p>
-              <div class="mt-4">
-                <span class="font-semibold text-gray-700">Document Types:</span>
-                <div class="mt-2">
-                  <span class="software-badge">2D Drawings</span>
-                  <span class="software-badge">3D Models</span>
-                  <span class="software-badge">BOMs</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="lg:w-2/3">
-              <h4 class="text-lg font-semibold text-gray-900 mb-4">Documentation Services</h4>
-              <ul class="capability-list">
-                <li><i class="fas fa-check"></i><strong>BOM and Technical Documentation:</strong> Complete bill of materials with specifications</li>
-                <li><i class="fas fa-check"></i><strong>Manufacturing Drawings:</strong> Detailed drawings for each component</li>
-                <li><i class="fas fa-check"></i><strong>Assembly Drawings:</strong> Step-by-step assembly instructions</li>
-                <li><i class="fas fa-check"></i><strong>Supplier-Ready Data Packages:</strong> Complete packages for vendor quotations</li>
-                <li><i class="fas fa-check"></i><strong>Maintenance Documentation:</strong> Manuals and maintenance procedures</li>
-                <li><i class="fas fa-check"></i><strong>Quality Control Documentation:</strong> Inspection plans and quality requirements</li>
-              </ul>
-              
-              <div class="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-100">
-                <p class="text-amber-800 font-medium">
-                  <i class="fas fa-clipboard-check mr-2"></i>
-                  Documentation follows German engineering standards (DIN) for clarity and precision.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Process Flow -->
-        <div class="mt-16">
-          <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold mb-4">Our Engineering Process</h2>
-            <p class="text-gray-700 max-w-2xl mx-auto">
-              A systematic approach ensuring quality, compliance, and alignment with your requirements.
-            </p>
+    <!-- Our Role Section (Clarification) -->
+    <!-- CHANGED: Background from yellow to blue/gray and removed internal discussion line -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+        <div class="role-card">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Role in Your Project</h2>
+            <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
           </div>
           
-          <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
-            <ol class="list-none">
-              <li class="process-step">
-                <h4 class="text-xl font-bold mb-2">Requirement Analysis</h4>
-                <p class="text-gray-700">Detailed discussion to understand technical requirements, constraints, and project objectives.</p>
-              </li>
-              
-              <li class="process-step">
-                <h4 class="text-xl font-bold mb-2">Concept Development</h4>
-                <p class="text-gray-700">Generation of multiple concept alternatives with feasibility assessment.</p>
-              </li>
-              
-              <li class="process-step">
-                <h4 class="text-xl font-bold mb-2">Design & Engineering</h4>
-                <p class="text-gray-700">Detailed 3D modeling, component design, and system integration planning.</p>
-              </li>
-              
-              <li class="process-step">
-                <h4 class="text-xl font-bold mb-2">Simulation & Validation</h4>
-                <p class="text-gray-700">FEA, motion analysis, and other validation methods to ensure design integrity.</p>
-              </li>
-              
-              <li class="process-step">
-                <h4 class="text-xl font-bold mb-2">Documentation</h4>
-                <p class="text-gray-700">Complete technical documentation package for manufacturing and assembly.</p>
-              </li>
-              
-              <li class="process-step">
-                <h4 class="text-xl font-bold mb-2">Review & Delivery</h4>
-                <p class="text-gray-700">Client review sessions and final delivery of all project deliverables.</p>
-              </li>
-            </ol>
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">We Are Engineering Specialists</h3>
+                  <p class="text-gray-700">
+                    Our core focus is engineering, system design, and technical integration support. 
+                    We are not a general product reseller or catalog supplier.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-project-diagram text-orange-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">Component Selection as Part of System Solutions</h3>
+                  <p class="text-gray-700">
+                    Component selection and sourcing are supported only as part of a complete system solution, 
+                    based on customer standards, performance needs, and approval.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-handshake text-blue-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">Supplier-Neutral, Customer-Aligned Approach</h3>
+                  <p class="text-gray-700">
+                    Our designs are integration-ready and can work with your preferred technologies. 
+                    We maintain no brand bias — only what serves your project best.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- REMOVED: The internal discussion line "This clarity ensures we deliver exactly what you need — no confusion, no misalignment." -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Why J-Techno Engineering -->
+    <section class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Choose J-Techno Engineering</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            The combination that delivers German engineering quality with international execution efficiency.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-brain text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">German Engineering Mindset</h3>
+            <p class="text-gray-600">Trained in German engineering universities with experience in German industry standards and quality expectations.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-green-100 to-green-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-comments text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Clear Communication</h3>
+            <p class="text-gray-600">Direct founder-level communication, fast turnaround, and transparent project tracking throughout.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-purple-100 to-purple-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-sliders-h text-purple-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Flexible Engagement Models</h3>
+            <p class="text-gray-600">Hourly engineering support, project-based delivery, or long-term partnership — tailored to your needs.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-orange-100 to-orange-50 rounded-full flex items-center justify-center mb-4">
+              <i class="fas fa-balance-scale text-orange-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">Supplier-Neutral Design</h3>
+            <p class="text-gray-600">Designs that integrate with your preferred technologies. No brand bias, only what's best for your project.</p>
           </div>
         </div>
 
-        <!-- CTA Section -->
-        <div class="mt-16 text-center">
-          <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-10 border border-orange-200">
-            <h3 class="text-3xl font-bold mb-6">Ready to Start Your Engineering Project?</h3>
-            <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-              Discuss your specific engineering requirements with our technical team. We'll provide a detailed proposal outlining scope, timeline, and deliverables.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-              <a href="contact.html" class="btn-primary text-lg px-10 py-4">
-                <i class="fas fa-comment-dots mr-2"></i>Discuss Your Project
-              </a>
-              <a href="working-model.html" class="btn-secondary text-lg px-10 py-4">
-                <i class="fas fa-info-circle mr-2"></i>View Working Model
+        <!-- CTA Card -->
+        <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100 mt-12">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 class="text-2xl font-bold mb-2">Ready to Start Your Engineering Project?</h3>
+              <p class="text-gray-700">Discuss your requirements with our engineering team. No sales pitch — just technical expertise.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="contact.html" class="btn-primary whitespace-nowrap">
+  <i class="fas fa-envelope mr-2"></i>Contact Us
+</a>
+              <a href="working-model.html" class="btn-secondary whitespace-nowrap">
+                <i class="fas fa-info-circle mr-2"></i>See How We Work
               </a>
             </div>
-            
-            <p class="text-gray-600 mt-6 text-sm">
-              <i class="fas fa-clock mr-2"></i>
-              Initial technical response within 24 hours
-            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Related Services -->
+    <!-- Quick Industry Applications -->
     <section class="bg-gray-50 section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl font-bold mb-4">Related Capabilities</h2>
-          <p class="text-gray-700 max-w-2xl mx-auto">
-            Explore our complementary services for complete system solutions.
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Industries We Serve</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Specialized engineering services for industries where technical accuracy and reliability are critical.
           </p>
         </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white p-8 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-robot text-blue-600 text-2xl"></i>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-robot text-orange-600"></i>
               </div>
-              <h3 class="text-xl font-bold">Automation & Integration</h3>
+              <h3 class="text-lg font-bold">Automation & Robotics</h3>
             </div>
-            <p class="text-gray-600 mb-6">
-              Design of automation systems, robotic cells, and integration solutions aligned with your technology preferences.
-            </p>
-            <a href="automation-integration.html" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
-              Explore Automation Services
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <p class="text-gray-600">Special purpose machines, robotic cells, automated assembly systems.</p>
           </div>
-          
-          <div class="bg-white p-8 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-industry text-green-600 text-2xl"></i>
+
+          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-industry text-blue-600"></i>
               </div>
-              <h3 class="text-xl font-bold">Industry Applications</h3>
+              <h3 class="text-lg font-bold">Machinery Manufacturing</h3>
             </div>
-            <p class="text-gray-600 mb-6">
-              See how our engineering services apply to specific industries and applications.
-            </p>
-            <a href="industries.html" class="inline-flex items-center text-green-600 font-semibold hover:text-green-700">
-              View Industry Applications
-              <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <p class="text-gray-600">Industrial machinery design, production tooling, equipment development.</p>
           </div>
+
+          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-truck-loading text-green-600"></i>
+              </div>
+              <h3 class="text-lg font-bold">Material Handling</h3>
+            </div>
+            <p class="text-gray-600">Conveyor systems, intralogistics solutions, handling equipment.</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="industries.html" class="inline-flex items-center text-orange-600 font-bold text-lg hover:text-orange-700">
+            View All Industries & Applications
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -625,9 +557,11 @@
     <div class="container mx-auto px-6 lg:px-12">
       <div class="grid md:grid-cols-4 gap-10 mb-10">
         <div>
-          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-16 mb-4" />
+          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" 
+               alt="J-Techno Engineering Logo" 
+               class="h-16 mb-4" />
           <p class="text-gray-400">
-            Professional engineering services for industrial systems — R&D, design, simulation, and documentation aligned with German engineering standards.
+            Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards.
           </p>
         </div>
         
@@ -637,7 +571,7 @@
             <div><a href="engineering-services.html">R&D & Concept Engineering</a></div>
             <div><a href="engineering-services.html">Mechanical Design</a></div>
             <div><a href="engineering-services.html">Simulation & Validation</a></div>
-            <div><a href="engineering-services.html">Technical Documentation</a></div>
+            <div><a href="automation-integration.html">Automation Design</a></div>
           </div>
         </div>
         
@@ -678,7 +612,7 @@
         <p class="text-gray-500 text-sm">
           © 2025 J-Techno Engineering. All rights reserved. | Engineering & Automation Design Partner
         </p>
-        <p class="text-gray-600 text-xs mt-2">German engineering standards with international execution efficiency</p>
+        <p class="text-gray-600 text-xs mt-2">German engineering mindset with international execution efficiency</p>
       </div>
     </div>
   </footer>
@@ -721,7 +655,7 @@
       });
     });
 
-    // Animation for service sections on scroll
+    // Animation for cards on scroll
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -736,12 +670,12 @@
       });
     }, observerOptions);
 
-    // Observe service sections for animation
-    document.querySelectorAll('.service-section').forEach(section => {
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(20px)';
-      section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(section);
+    // Observe service cards for animation
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
     });
   </script>
 </body>
