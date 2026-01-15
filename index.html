@@ -123,9 +123,10 @@
       margin-bottom: 1rem;
     }
     
+    /* CHANGED: Background color from yellow to professional blue/gray */
     .role-card {
-      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-      border: 1px solid #fbbf24;
+      background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+      border: 1px solid #bfdbfe;
       border-radius: 1rem;
       padding: 2.5rem;
     }
@@ -167,20 +168,21 @@
     }
   </style>
 
+  <!-- FIXED: Schema markup with full URL -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "J-Techno Engineering",
     "url": "https://www.jtechnoengineering.com",
-    "logo": "./Logo.svg",
+    "logo": "https://www.jtechnoengineering.com/Logo.svg",
     "description": "Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards",
     "areaServed": ["DE", "EU"],
     "serviceType": "Engineering Services",
     "founder": {
       "@type": "Person",
       "name": "Prince Joshina",
-      "honorificSuffix": "M.Sc. Mechanical Engineering",
+      "honorificSuffix": "M.Sc.",
       "alumniOf": "Leibniz University Hannover"
     }
   }
@@ -191,8 +193,11 @@
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-40">
     <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <!-- FIXED: Added alt text to logo -->
       <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
-        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-14 w-auto">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" 
+             alt="J-Techno Engineering Logo" 
+             class="h-14 w-auto">
         <div>
           <span class="font-bold text-xl text-gray-900">J-Techno Engineering</span>
           <div class="text-xs text-orange-600 font-semibold">Engineering & Automation Design Partner</div>
@@ -286,8 +291,10 @@
             <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
               <div class="bg-white rounded-2xl p-2 shadow-2xl border border-gray-100">
                 <div class="rounded-xl overflow-hidden">
+                  <!-- FIXED: Added lazy loading to hero image -->
                   <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/engineering-design-team.png" 
                        alt="Engineering team working on mechanical design and automation systems" 
+                       loading="lazy"
                        class="w-full h-auto rounded-lg">
                 </div>
                 <div class="p-6">
@@ -368,6 +375,7 @@
     </section>
 
     <!-- Our Role Section (Clarification) -->
+    <!-- CHANGED: Background from yellow to blue/gray and removed internal discussion line -->
     <section class="bg-gray-50 section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
         <div class="role-card">
@@ -423,11 +431,7 @@
             </div>
           </div>
           
-          <div class="text-center mt-8">
-            <p class="text-gray-700 font-medium">
-              This clarity ensures we deliver exactly what you need — no confusion, no misalignment.
-            </p>
-          </div>
+          <!-- REMOVED: The internal discussion line "This clarity ensures we deliver exactly what you need — no confusion, no misalignment." -->
         </div>
       </div>
     </section>
@@ -553,7 +557,9 @@
     <div class="container mx-auto px-6 lg:px-12">
       <div class="grid md:grid-cols-4 gap-10 mb-10">
         <div>
-          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-16 mb-4" />
+          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" 
+               alt="J-Techno Engineering Logo" 
+               class="h-16 mb-4" />
           <p class="text-gray-400">
             Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards.
           </p>
