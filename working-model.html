@@ -45,41 +45,38 @@
       color: white;
     }
     
+    .btn-secondary {
+      background: transparent;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+    }
     
     .process-hero {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  color: #1f2937;
-}
-
-/* Fix text colors for light background */
-.process-hero h1,
-.process-hero h2,
-.process-hero h3,
-.process-hero h4,
-.process-hero .text-white,
-.process-hero .text-gray-300 {
-  color: #1f2937 !important;
-}
-
-.process-hero p {
-  color: #4b5563 !important;
-}
-
-/* Fix the badge */
-.process-hero .bg-white\/10 {
-  background: rgba(249, 115, 22, 0.1) !important;
-  color: #7c2d12 !important;
-}
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color: #1f2937;
+    }
     
     .process-step-card {
       background: white;
       border-radius: 1rem;
-      padding: 2.5rem 2rem 2rem 2rem; /* Fixed padding to prevent overlap */
+      padding: 2.5rem 2rem 2rem 2rem;
       border: 1px solid #e5e7eb;
       transition: all 0.3s ease;
       height: 100%;
       position: relative;
-      overflow: visible; /* Changed from hidden */
+      overflow: visible;
     }
     
     .process-step-card:hover {
@@ -90,7 +87,7 @@
     
     .step-number {
       position: absolute;
-      top: -1.25rem; /* Adjusted to prevent overlap */
+      top: -1.25rem;
       right: 1.5rem;
       width: 50px;
       height: 50px;
@@ -192,14 +189,14 @@
       position: relative;
       padding-left: 3rem;
       margin-bottom: 2.5rem;
-      padding-top: 0.5rem; /* Added padding for better spacing */
+      padding-top: 0.5rem;
     }
     
     .timeline-item:before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.75rem; /* Adjusted for better alignment */
+      top: 0.75rem;
       width: 20px;
       height: 20px;
       background: #f97316;
@@ -211,7 +208,7 @@
       content: '';
       position: absolute;
       left: 9px;
-      top: 35px; /* Adjusted for better positioning */
+      top: 35px;
       width: 2px;
       height: calc(100% + 10px);
       background: #d1d5db;
@@ -291,7 +288,7 @@
       height: 3px;
       background: #d1d5db;
       position: relative;
-      max-width: calc((100% - 420px) / 6); /* Fixed calculation for 7 nodes */
+      max-width: calc((100% - 420px) / 6);
     }
     
     .process-connector.active {
@@ -309,7 +306,7 @@
         max-width: none;
       }
       .process-step-card {
-        padding: 2rem 1.5rem 1.5rem 1.5rem; /* Adjusted for mobile */
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
       }
       .step-number {
         top: -1rem;
@@ -322,7 +319,46 @@
     
     /* Fix for step cards to prevent text overlap */
     .step-content {
-      padding-top: 0.5rem; /* Added to create space for step number */
+      padding-top: 0.5rem;
+    }
+    
+    /* New styles for page consistency */
+    .hero-image-container {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 45%;
+      max-width: 600px;
+      z-index: 1;
+    }
+    
+    @media (max-width: 1024px) {
+      .hero-image-container {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        margin: 2rem auto 0;
+        transform: none;
+        top: 0;
+      }
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .page-transition {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 
@@ -366,7 +402,7 @@
   }
   </script>
 </head>
-<body class="text-gray-800 bg-white">
+<body class="text-gray-800 bg-white page-transition">
 
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-40">
@@ -398,8 +434,13 @@
       </div>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
-      <nav class="px-6 py-6 flex flex-col gap-4" aria-label="Mobile Navigation">
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg relative">
+      <button id="mobileClose" class="absolute top-4 right-6 p-2 text-gray-500 hover:text-gray-700" aria-label="Close navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav class="px-6 py-10 flex flex-col gap-4" aria-label="Mobile Navigation">
         <a href="index.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Home</a>
         <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
         <a href="automation-integration.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
@@ -412,59 +453,70 @@
   </header>
 
   <main>
-    <!-- Hero Section - PROFESSIONAL VERSION -->
+    <!-- Hero Section -->
     <section class="process-hero relative overflow-hidden">
       <div class="section-padding relative">
         <div class="container mx-auto px-6 lg:px-12">
-          <div class="max-w-4xl animate-fade-in-up">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-white mb-6">
-              <i class="fas fa-project-diagram"></i>
+          <div class="max-w-4xl animate-fade-in-up relative z-10">
+            <!-- Fixed Badge: Changed from orange background to clean white with border -->
+            <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-800 mb-6 border border-gray-200">
+              <i class="fas fa-project-diagram text-orange-500"></i>
               <span>Structured Working Process & Engagement Models</span>
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Professional Working
-              <span class="text-orange-400">Methodology</span>
+              <span class="text-orange-500">Methodology</span>
             </h1>
             
-            <p class="text-xl text-gray-300 mb-8">
+            <p class="text-xl text-gray-700 mb-8">
               A systematic approach to engineering collaboration with clear processes and flexible engagement options.
               Our methodology ensures quality, transparency, and alignment with client requirements.
             </p>
             
             <div class="flex flex-wrap gap-4">
-              <a href="#process" class="btn-primary text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
+              <a href="#process" class="btn-primary text-lg px-8 py-4">
                 <i class="fas fa-list-ol mr-2"></i>View Our Process
               </a>
               <a href="#engagement" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
-  <i class="fas fa-handshake mr-2"></i>Explore Engagement Models
-</a>
+                <i class="fas fa-handshake mr-2"></i>Explore Engagement Models
+              </a>
             </div>
             
-            <!-- Key Principles - PROFESSIONAL VERSION -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
+            <!-- Key Principles - Fixed text colors -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-300">
               <div class="flex items-start gap-3">
-                <i class="fas fa-sitemap text-orange-400 text-xl mt-1"></i>
+                <i class="fas fa-sitemap text-orange-500 text-xl mt-1"></i>
                 <div>
-                  <p class="font-bold text-white">Structured Process</p>
-                  <p class="text-gray-300 text-sm">Systematic engineering methodology with clear milestones</p>
+                  <p class="font-bold text-gray-900">Structured Process</p>
+                  <p class="text-gray-600 text-sm">Systematic engineering methodology with clear milestones</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <i class="fas fa-comments text-orange-400 text-xl mt-1"></i>
+                <i class="fas fa-comments text-orange-500 text-xl mt-1"></i>
                 <div>
-                  <p class="font-bold text-white">Direct Communication</p>
-                  <p class="text-gray-300 text-sm">Founder-level access with regular project updates</p>
+                  <p class="font-bold text-gray-900">Direct Communication</p>
+                  <p class="text-gray-600 text-sm">Founder-level access with regular project updates</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <i class="fas fa-sliders-h text-orange-400 text-xl mt-1"></i>
+                <i class="fas fa-sliders-h text-orange-500 text-xl mt-1"></i>
                 <div>
-                  <p class="font-bold text-white">Adaptable Models</p>
-                  <p class="text-gray-300 text-sm">Multiple engagement options to suit project requirements</p>
+                  <p class="font-bold text-gray-900">Adaptable Models</p>
+                  <p class="text-gray-600 text-sm">Multiple engagement options to suit project requirements</p>
                 </div>
               </div>
             </div>
+          </div>
+          
+          <!-- PNG Image Integration -->
+          <div class="hero-image-container">
+            <img 
+              src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/working-model-hero.png" 
+              alt="Professional Working Methodology and Engagement Models" 
+              class="hero-image"
+              onerror="this.style.display='none'"
+            >
           </div>
         </div>
       </div>
@@ -474,13 +526,13 @@
     <section id="process" class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Systematic Engineering Process</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Systematic Engineering Process</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             A proven 7-phase methodology ensuring quality, compliance, and alignment with technical requirements.
           </p>
         </div>
 
-        <!-- Process Visualization - FIXED -->
+        <!-- Process Visualization -->
         <div class="process-visualization">
           <div class="process-node">1</div>
           <div class="process-connector active"></div>
@@ -498,11 +550,11 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Step 1 - FIXED OVERLAP -->
+          <!-- Step 1 -->
           <div class="process-step-card animate-fade-in-up" style="animation-delay: 0.1s;">
             <div class="step-number">1</div>
             <div class="step-content">
-              <h3 class="text-xl font-bold mb-4">Requirement Analysis</h3>
+              <h3 class="text-xl font-bold mb-4 text-gray-900">Requirement Analysis</h3>
               <p class="text-gray-600 mb-6">
                 Comprehensive technical discussion to understand project objectives, constraints, and success criteria.
               </p>
@@ -527,7 +579,7 @@
           <div class="process-step-card animate-fade-in-up" style="animation-delay: 0.2s;">
             <div class="step-number">2</div>
             <div class="step-content">
-              <h3 class="text-xl font-bold mb-4">Concept Development</h3>
+              <h3 class="text-xl font-bold mb-4 text-gray-900">Concept Development</h3>
               <p class="text-gray-600 mb-6">
                 Generation and evaluation of multiple concept alternatives with feasibility assessment.
               </p>
@@ -552,7 +604,7 @@
           <div class="process-step-card animate-fade-in-up" style="animation-delay: 0.3s;">
             <div class="step-number">3</div>
             <div class="step-content">
-              <h3 class="text-xl font-bold mb-4">Client Review & Approval</h3>
+              <h3 class="text-xl font-bold mb-4 text-gray-900">Client Review & Approval</h3>
               <p class="text-gray-600 mb-6">
                 Formal review and approval of selected concept before proceeding to detailed design phase.
               </p>
@@ -577,7 +629,7 @@
           <div class="process-step-card animate-fade-in-up" style="animation-delay: 0.4s;">
             <div class="step-number">4</div>
             <div class="step-content">
-              <h3 class="text-xl font-bold mb-4">Detailed Design Engineering</h3>
+              <h3 class="text-xl font-bold mb-4 text-gray-900">Detailed Design Engineering</h3>
               <p class="text-gray-600 mb-6">
                 Complete 3D modeling, component design, and system integration planning.
               </p>
@@ -602,7 +654,7 @@
           <div class="process-step-card animate-fade-in-up" style="animation-delay: 0.5s;">
             <div class="step-number">5</div>
             <div class="step-content">
-              <h3 class="text-xl font-bold mb-4">Engineering Analysis & Validation</h3>
+              <h3 class="text-xl font-bold mb-4 text-gray-900">Engineering Analysis & Validation</h3>
               <p class="text-gray-600 mb-6">
                 FEA, motion analysis, and other validation methods to ensure design integrity.
               </p>
@@ -627,7 +679,7 @@
           <div class="process-step-card animate-fade-in-up" style="animation-delay: 0.6s;">
             <div class="step-number">6</div>
             <div class="step-content">
-              <h3 class="text-xl font-bold mb-4">Technical Documentation</h3>
+              <h3 class="text-xl font-bold mb-4 text-gray-900">Technical Documentation</h3>
               <p class="text-gray-600 mb-6">
                 Complete technical documentation package for manufacturing and assembly.
               </p>
@@ -649,13 +701,13 @@
           </div>
         </div>
 
-        <!-- Step 7 (Full Width) - FIXED -->
+        <!-- Step 7 (Full Width) -->
         <div class="mt-12">
           <div class="process-step-card animate-fade-in-up" style="animation-delay: 0.7s;">
             <div class="step-number">7</div>
             <div class="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 class="text-xl font-bold mb-4">Project Review & Final Delivery</h3>
+                <h3 class="text-xl font-bold mb-4 text-gray-900">Project Review & Final Delivery</h3>
                 <p class="text-gray-600 mb-6">
                   Comprehensive review sessions and final delivery of all project deliverables with complete technical handover.
                 </p>
@@ -675,7 +727,7 @@
                 </div>
               </div>
               <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg p-6 border border-orange-100">
-                <h4 class="font-bold text-lg mb-3">Quality Assurance Principle</h4>
+                <h4 class="font-bold text-lg mb-3 text-gray-900">Quality Assurance Principle</h4>
                 <p class="text-gray-700">
                   Each project phase requires formal client approval before proceeding to the next phase, ensuring continuous alignment and minimizing rework.
                 </p>
@@ -690,7 +742,7 @@
     <section id="engagement" class="bg-gray-50 section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Professional Engagement Models</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Professional Engagement Models</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             Select the collaboration framework that aligns with your project requirements, timeline, and resource allocation.
           </p>
@@ -702,7 +754,7 @@
             <div class="model-icon hourly-icon">
               <i class="fas fa-clock"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">Hourly Engineering Support</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Hourly Engineering Support</h3>
             <p class="text-gray-600 mb-6">
               Flexible engineering assistance for variable workloads, specialized expertise requirements, or ongoing technical support.
             </p>
@@ -742,7 +794,7 @@
             <div class="model-icon project-icon">
               <i class="fas fa-tasks"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">Project-Based Engineering</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Project-Based Engineering</h3>
             <p class="text-gray-600 mb-6">
               Fixed-scope engineering projects with clearly defined deliverables, timeline, and budgetary parameters.
             </p>
@@ -782,7 +834,7 @@
             <div class="model-icon partnership-icon">
               <i class="fas fa-handshake"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">Strategic Engineering Partnership</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Strategic Engineering Partnership</h3>
             <p class="text-gray-600 mb-6">
               Retainer-based collaboration for ongoing engineering requirements, multiple related projects, or extended development initiatives.
             </p>
@@ -820,7 +872,7 @@
 
         <!-- Model Comparison Table -->
         <div class="mb-12">
-          <h3 class="text-2xl font-bold mb-8 text-center">Engagement Model Comparison</h3>
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">Engagement Model Comparison</h3>
           
           <div class="overflow-x-auto">
             <table class="comparison-table">
@@ -834,37 +886,37 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="font-semibold text-left">Financial Structure</td>
+                  <td class="font-semibold text-left text-gray-800">Financial Structure</td>
                   <td>Hourly engineering rate</td>
                   <td>Fixed project price</td>
                   <td>Monthly retainer fee</td>
                 </tr>
                 <tr>
-                  <td class="font-semibold text-left">Budget Predictability</td>
+                  <td class="font-semibold text-left text-gray-800">Budget Predictability</td>
                   <td>Variable based on hours</td>
                   <td>Fixed and predictable</td>
                   <td>Fixed monthly commitment</td>
                 </tr>
                 <tr>
-                  <td class="font-semibold text-left">Adaptability to Changes</td>
+                  <td class="font-semibold text-left text-gray-800">Adaptability to Changes</td>
                   <td><i class="fas fa-check check-mark"></i> High flexibility</td>
                   <td>Medium flexibility</td>
                   <td><i class="fas fa-check check-mark"></i> High flexibility</td>
                 </tr>
                 <tr>
-                  <td class="font-semibold text-left">Scope Modification Process</td>
+                  <td class="font-semibold text-left text-gray-800">Scope Modification Process</td>
                   <td>Easily accommodated</td>
                   <td>Formal change order required</td>
                   <td>Easily accommodated</td>
                 </tr>
                 <tr>
-                  <td class="font-semibold text-left">Minimum Engagement Period</td>
+                  <td class="font-semibold text-left text-gray-800">Minimum Engagement Period</td>
                   <td>20 hours per month</td>
                   <td>Project-specific minimum</td>
                   <td>3-month initial term</td>
                 </tr>
                 <tr>
-                  <td class="font-semibold text-left">Optimal Application</td>
+                  <td class="font-semibold text-left text-gray-800">Optimal Application</td>
                   <td>Variable engineering workloads</td>
                   <td>Clearly defined projects</td>
                   <td>Strategic engineering initiatives</td>
@@ -874,35 +926,35 @@
           </div>
         </div>
 
-        <!-- Communication & Collaboration - PROFESSIONAL VERSION -->
+        <!-- Communication & Collaboration -->
         <div class="communication-card">
-          <h3 class="text-2xl font-bold mb-6">Communication & Collaboration Protocol</h3>
+          <h3 class="text-2xl font-bold mb-6 text-gray-900">Communication & Collaboration Protocol</h3>
           
           <div class="grid md:grid-cols-2 gap-8">
             <div>
-              <h4 class="text-lg font-semibold mb-4">Communication Standards</h4>
+              <h4 class="text-lg font-semibold mb-4 text-gray-800">Communication Standards</h4>
               <ul class="space-y-3">
                 <li class="flex items-start gap-3">
                   <i class="fas fa-comments text-blue-500 mt-1"></i>
-                  <span><strong>Direct Technical Leadership Access:</strong> Communication with engineering leadership</span>
+                  <span><strong class="text-gray-800">Direct Technical Leadership Access:</strong> Communication with engineering leadership</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <i class="fas fa-sync-alt text-blue-500 mt-1"></i>
-                  <span><strong>Scheduled Progress Reviews:</strong> Regular project status updates</span>
+                  <span><strong class="text-gray-800">Scheduled Progress Reviews:</strong> Regular project status updates</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <i class="fas fa-file-alt text-blue-500 mt-1"></i>
-                  <span><strong>Comprehensive Documentation:</strong> All technical decisions formally documented</span>
+                  <span><strong class="text-gray-800">Comprehensive Documentation:</strong> All technical decisions formally documented</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <i class="fas fa-globe-europe text-blue-500 mt-1"></i>
-                  <span><strong>Dual-Location Coordination:</strong> Germany-India engineering team collaboration</span>
+                  <span><strong class="text-gray-800">Dual-Location Coordination:</strong> Germany-India engineering team collaboration</span>
                 </li>
               </ul>
             </div>
             
             <div>
-              <h4 class="text-lg font-semibold mb-4">Collaboration Infrastructure</h4>
+              <h4 class="text-lg font-semibold mb-4 text-gray-800">Collaboration Infrastructure</h4>
               <div class="flex flex-wrap gap-2">
                 <span class="benefit-badge">
                   <i class="fas fa-video"></i> Secure Video Conferencing
@@ -937,7 +989,7 @@
     <section class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Representative Project Timeline</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Representative Project Timeline</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             Example schedule for a medium-complexity engineering development project.
           </p>
@@ -945,32 +997,32 @@
 
         <div class="timeline-container">
           <div class="timeline-item">
-            <h4 class="text-lg font-bold mb-2">Week 1-2: Discovery & Planning Phase</h4>
+            <h4 class="text-lg font-bold mb-2 text-gray-900">Week 1-2: Discovery & Planning Phase</h4>
             <p class="text-gray-600">Comprehensive requirements analysis, scope definition, and project planning.</p>
           </div>
           
           <div class="timeline-item">
-            <h4 class="text-lg font-bold mb-2">Week 3-4: Concept Development Phase</h4>
+            <h4 class="text-lg font-bold mb-2 text-gray-900">Week 3-4: Concept Development Phase</h4>
             <p class="text-gray-600">Concept generation, feasibility analysis, and technical review sessions.</p>
           </div>
           
           <div class="timeline-item">
-            <h4 class="text-lg font-bold mb-2">Week 5-8: Detailed Design Phase</h4>
+            <h4 class="text-lg font-bold mb-2 text-gray-900">Week 5-8: Detailed Design Phase</h4>
             <p class="text-gray-600">3D modeling, component design, and technical specification development.</p>
           </div>
           
           <div class="timeline-item">
-            <h4 class="text-lg font-bold mb-2">Week 9-10: Engineering Validation Phase</h4>
+            <h4 class="text-lg font-bold mb-2 text-gray-900">Week 9-10: Engineering Validation Phase</h4>
             <p class="text-gray-600">Engineering analysis, simulation, and design optimization activities.</p>
           </div>
           
           <div class="timeline-item">
-            <h4 class="text-lg font-bold mb-2">Week 11-12: Documentation Phase</h4>
+            <h4 class="text-lg font-bold mb-2 text-gray-900">Week 11-12: Documentation Phase</h4>
             <p class="text-gray-600">2D drawing creation, BOM development, and technical documentation preparation.</p>
           </div>
           
           <div class="timeline-item">
-            <h4 class="text-lg font-bold mb-2">Week 13: Final Review & Delivery</h4>
+            <h4 class="text-lg font-bold mb-2 text-gray-900">Week 13: Final Review & Delivery</h4>
             <p class="text-gray-600">Comprehensive project review, final adjustments, and complete project delivery.</p>
           </div>
         </div>
@@ -984,11 +1036,11 @@
       </div>
     </section>
 
-    <!-- Benefits of Our Working Model - PROFESSIONAL VERSION -->
+    <!-- Benefits of Our Working Model -->
     <section class="bg-gray-50 section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Methodology Advantages</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Methodology Advantages</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             Professional benefits of our structured engineering collaboration approach.
           </p>
@@ -999,7 +1051,7 @@
             <div class="w-12 h-12 mx-auto bg-orange-100 rounded-full flex items-center justify-center mb-4">
               <i class="fas fa-sitemap text-orange-600"></i>
             </div>
-            <h3 class="text-lg font-bold mb-3">Structured Methodology</h3>
+            <h3 class="text-lg font-bold mb-3 text-gray-900">Structured Methodology</h3>
             <p class="text-gray-600 text-sm">Systematic engineering process with clear phases and milestones.</p>
           </div>
           
@@ -1007,7 +1059,7 @@
             <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
               <i class="fas fa-comments text-blue-600"></i>
             </div>
-            <h3 class="text-lg font-bold mb-3">Direct Technical Communication</h3>
+            <h3 class="text-lg font-bold mb-3 text-gray-900">Direct Technical Communication</h3>
             <p class="text-gray-600 text-sm">Access to engineering leadership with responsive communication.</p>
           </div>
           
@@ -1015,7 +1067,7 @@
             <div class="w-12 h-12 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
               <i class="fas fa-sliders-h text-green-600"></i>
             </div>
-            <h3 class="text-lg font-bold mb-3">Adaptable Engagement</h3>
+            <h3 class="text-lg font-bold mb-3 text-gray-900">Adaptable Engagement</h3>
             <p class="text-gray-600 text-sm">Multiple collaboration models to match specific project requirements.</p>
           </div>
           
@@ -1023,19 +1075,19 @@
             <div class="w-12 h-12 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-4">
               <i class="fas fa-check-double text-purple-600"></i>
             </div>
-            <h3 class="text-lg font-bold mb-3">Quality Assurance Protocol</h3>
+            <h3 class="text-lg font-bold mb-3 text-gray-900">Quality Assurance Protocol</h3>
             <p class="text-gray-600 text-sm">German engineering standards with multi-level technical review.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section - PROFESSIONAL VERSION -->
+    <!-- CTA Section -->
     <section class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
         <div class="text-center">
           <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-10 border border-orange-200">
-            <h3 class="text-3xl font-bold mb-6">Initiate Engineering Collaboration</h3>
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Initiate Engineering Collaboration</h3>
             <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
               Discuss your project requirements to determine the optimal collaboration framework for your engineering needs.
             </p>
@@ -1061,7 +1113,7 @@
     </section>
   </main>
 
-  <!-- Footer - PROFESSIONAL VERSION -->
+  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
     <div class="container mx-auto px-6 lg:px-12">
       <div class="grid md:grid-cols-4 gap-10 mb-10">
@@ -1131,11 +1183,18 @@
       menu.classList.toggle('hidden');
     });
 
+    // Close mobile menu button
+    document.getElementById('mobileClose').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+    });
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
       const menu = document.getElementById('mobileMenu');
       const toggle = document.getElementById('mobileToggle');
-      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+      const closeBtn = document.getElementById('mobileClose');
+      
+      if (!menu.contains(event.target) && !toggle.contains(event.target) && !closeBtn.contains(event.target)) {
         menu.classList.add('hidden');
       }
     });
