@@ -65,24 +65,8 @@
     
     .automation-hero {
       background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  color: #1f2937; /* Dark gray text like index.html */
+      color: #1f2937;
     }
-	
-	/* Text color fixes to match index.html */
-.automation-hero h1,
-.automation-hero h2,
-.automation-hero h3,
-.automation-hero h4 {
-  color: #111827;
-}
-
-.automation-hero p {
-  color: #4b5563;
-}
-
-.automation-hero .text-gray-300 {
-  color: #6b7280 !important;
-}
     
     .capability-card {
       background: white;
@@ -100,20 +84,20 @@
     }
     
     .capability-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%); /* Same as index.html */
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
 
-.capability-icon i {
-  font-size: 2rem;
-  color: #f97316; /* Orange like index.html */
-}
+    .capability-icon i {
+      font-size: 2rem;
+      color: #f97316;
+    }
     
     .integration-grid {
       display: grid;
@@ -138,8 +122,8 @@
     }
     
     .philosophy-card {
-      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-      border: 1px solid #fbbf24;
+      background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+      border: 1px solid #d1e9ff;
       border-radius: 1rem;
       padding: 2.5rem;
     }
@@ -216,28 +200,123 @@
       padding: 2rem;
     }
     
-    .integration-diagram {
+    /* NEW: Professional timeline styling */
+    .timeline-container {
+      position: relative;
+      padding: 2rem 0;
+    }
+    
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #06b6d4);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .timeline-line {
+        left: 30px;
+      }
+    }
+    
+    .timeline-step {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+      z-index: 2;
+    }
+    
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+    
+    .timeline-number {
+      width: 60px;
+      height: 60px;
       background: white;
-      border-radius: 1rem;
-      padding: 2rem;
-      border: 1px solid #e5e7eb;
+      border: 3px solid #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #3b82f6;
+      flex-shrink: 0;
+      z-index: 2;
       position: relative;
     }
     
-    .integration-node {
-      background: #eff6ff;
-      border: 2px solid #3b82f6;
-      border-radius: 0.5rem;
-      padding: 1rem;
-      text-align: center;
-      font-weight: 600;
-      color: #1e40af;
+    .timeline-content {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-left: 2rem;
+      flex: 1;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
     
-    .integration-arrow {
-      color: #94a3b8;
-      font-size: 1.5rem;
-      text-align: center;
+    .timeline-content:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .timeline-step {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .timeline-content {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+      }
+    }
+    
+    .hero-image-container {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 45%;
+      max-width: 600px;
+      z-index: 1;
+    }
+    
+    @media (max-width: 1024px) {
+      .hero-image-container {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        margin: 2rem auto 0;
+        transform: none;
+        top: 0;
+      }
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .page-transition {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 
@@ -259,7 +338,7 @@
   }
   </script>
 </head>
-<body class="text-gray-800 bg-white">
+<body class="text-gray-800 bg-white page-transition">
 
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-40">
@@ -291,8 +370,13 @@
       </div>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
-      <nav class="px-6 py-6 flex flex-col gap-4" aria-label="Mobile Navigation">
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg relative">
+      <button id="mobileClose" class="absolute top-4 right-6 p-2 text-gray-500 hover:text-gray-700" aria-label="Close navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav class="px-6 py-10 flex flex-col gap-4" aria-label="Mobile Navigation">
         <a href="index.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Home</a>
         <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
         <a href="automation-integration.html" class="py-2 text-orange-600 font-semibold">Automation & Integration</a>
@@ -309,54 +393,64 @@
     <section class="automation-hero relative overflow-hidden">
       <div class="section-padding relative">
         <div class="container mx-auto px-6 lg:px-12">
-          <div class="max-w-4xl animate-fade-in-up">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-white mb-6">
-              <i class="fas fa-robot"></i>
+          <div class="max-w-4xl animate-fade-in-up relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-800 mb-6 border border-gray-200">
+              <i class="fas fa-robot text-orange-500"></i>
               <span>Automation & System Integration</span>
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Automation System Design
-              <span class="text-orange-400">& Integration</span>
+              <span class="text-orange-500">& Integration</span>
             </h1>
             
-            <p class="text-xl text-gray-300 mb-8">
+            <p class="text-xl text-gray-700 mb-8">
               We design automation systems that are integration-ready, supplier-neutral, and aligned with customer technology preferences.
             </p>
             
             <div class="flex flex-wrap gap-4">
-              <a href="#capabilities" class="btn-primary text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
+              <a href="#capabilities" class="btn-primary text-lg px-8 py-4">
                 <i class="fas fa-cogs mr-2"></i>View Capabilities
               </a>
               <a href="contact.html" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
-  <i class="fas fa-calendar-check mr-2"></i>Schedule Technical Discussion
-</a>
+                <i class="fas fa-calendar-check mr-2"></i>Schedule Technical Discussion
+              </a>
             </div>
             
             <!-- Key Differentiators -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-300">
               <div class="flex items-start gap-3">
-                <i class="fas fa-balance-scale text-orange-400 text-xl mt-1"></i>
+                <i class="fas fa-balance-scale text-orange-500 text-xl mt-1"></i>
                 <div>
-                  <p class="font-bold text-white">Supplier-Neutral</p>
-                  <p class="text-gray-300 text-sm">No brand bias, only what's best for your project</p>
+                  <p class="font-bold text-gray-900">Supplier-Neutral</p>
+                  <p class="text-gray-600 text-sm">No brand bias, only what's best for your project</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <i class="fas fa-handshake text-orange-400 text-xl mt-1"></i>
+                <i class="fas fa-handshake text-orange-500 text-xl mt-1"></i>
                 <div>
-                  <p class="font-bold text-white">Customer-Aligned</p>
-                  <p class="text-gray-300 text-sm">Works with your preferred technologies</p>
+                  <p class="font-bold text-gray-900">Customer-Aligned</p>
+                  <p class="text-gray-600 text-sm">Works with your preferred technologies</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <i class="fas fa-puzzle-piece text-orange-400 text-xl mt-1"></i>
+                <i class="fas fa-puzzle-piece text-orange-500 text-xl mt-1"></i>
                 <div>
-                  <p class="font-bold text-white">Integration-Ready</p>
-                  <p class="text-gray-300 text-sm">Designed for seamless implementation</p>
+                  <p class="font-bold text-gray-900">Integration-Ready</p>
+                  <p class="text-gray-600 text-sm">Designed for seamless implementation</p>
                 </div>
               </div>
             </div>
+          </div>
+          
+          <!-- PNG Image Integration -->
+          <div class="hero-image-container">
+            <img 
+              src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/automation-hero.png" 
+              alt="Automation System Design and Integration" 
+              class="hero-image"
+              onerror="this.style.display='none'"
+            >
           </div>
         </div>
       </div>
@@ -366,7 +460,7 @@
     <section id="capabilities" class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">Automation System Design</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Automation System Design</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             Comprehensive design services for industrial automation systems, from concept to implementation-ready engineering.
           </p>
@@ -378,7 +472,7 @@
             <div class="capability-icon">
               <i class="fas fa-industry"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">Assembly Line Concepts</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Assembly Line Concepts</h3>
             <p class="text-gray-600 mb-6">
               Complete assembly line design including workstation layout, material flow, and process optimization.
             </p>
@@ -403,7 +497,7 @@
             <div class="capability-icon">
               <i class="fas fa-boxes-stacked"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">Material Handling Layouts</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Material Handling Layouts</h3>
             <p class="text-gray-600 mb-6">
               Conveyor systems, AGV/AMR integration, and material transport solutions for efficient logistics.
             </p>
@@ -428,7 +522,7 @@
             <div class="capability-icon">
               <i class="fas fa-robot"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">Robotic Cell Concepts</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Robotic Cell Concepts</h3>
             <p class="text-gray-600 mb-6">
               Robotic workcell design for welding, assembly, machine tending, and material handling applications.
             </p>
@@ -453,7 +547,7 @@
             <div class="capability-icon">
               <i class="fas fa-eye"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">Vision-Guided Automation</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Vision-Guided Automation</h3>
             <p class="text-gray-600 mb-6">
               Integration of vision systems for inspection, guidance, and quality control in automated processes.
             </p>
@@ -478,7 +572,7 @@
             <div class="capability-icon">
               <i class="fas fa-tools"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">Fixtures & Tooling Design</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Fixtures & Tooling Design</h3>
             <p class="text-gray-600 mb-6">
               Custom fixtures, jigs, grippers, and tooling for automated assembly, welding, and processing.
             </p>
@@ -503,7 +597,7 @@
             <div class="capability-icon">
               <i class="fas fa-project-diagram"></i>
             </div>
-            <h3 class="text-xl font-bold mb-4">System Integration</h3>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">System Integration</h3>
             <p class="text-gray-600 mb-6">
               Integration of multiple subsystems into a cohesive automation solution with control architecture.
             </p>
@@ -531,7 +625,7 @@
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="philosophy-card animate-fade-in-up">
           <div class="text-center mb-8">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Technology Integration Philosophy</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Technology Integration Philosophy</h2>
             <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
             <p class="text-xl text-gray-700 max-w-3xl mx-auto">
               Our engineering designs can be integrated with your preferred technologies — we maintain no brand bias.
@@ -543,27 +637,27 @@
               <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <i class="fas fa-crown text-blue-600 text-2xl"></i>
               </div>
-              <h3 class="text-lg font-bold mb-3">Customer-Preferred Technologies</h3>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Customer-Preferred Technologies</h3>
               <p class="text-gray-600">
                 We design around your existing technology investments and preferred suppliers.
               </p>
             </div>
             
             <div class="text-center p-6">
-              <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <i class="fas fa-industry text-green-600 text-2xl"></i>
+              <div class="w-16 h-16 mx-auto bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-industry text-indigo-600 text-2xl"></i>
               </div>
-              <h3 class="text-lg font-bold mb-3">Industry-Standard Platforms</h3>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Industry-Standard Platforms</h3>
               <p class="text-gray-600">
                 Designs compatible with major automation platforms and control systems.
               </p>
             </div>
             
             <div class="text-center p-6">
-              <div class="w-16 h-16 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                <i class="fas fa-exchange-alt text-purple-600 text-2xl"></i>
+              <div class="w-16 h-16 mx-auto bg-cyan-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-exchange-alt text-cyan-600 text-2xl"></i>
               </div>
-              <h3 class="text-lg font-bold mb-3">Equivalent Alternatives</h3>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Equivalent Alternatives</h3>
               <p class="text-gray-600">
                 Where required, we evaluate and recommend technically equivalent alternatives.
               </p>
@@ -579,7 +673,7 @@
 
         <!-- Technology Compatibility -->
         <div class="mt-12">
-          <h3 class="text-2xl font-bold mb-6 text-center">Technology Compatibility</h3>
+          <h3 class="text-2xl font-bold mb-6 text-center text-gray-900">Technology Compatibility</h3>
           
           <div class="bg-white rounded-xl p-6 border border-gray-200">
             <div class="mb-6">
@@ -631,7 +725,7 @@
             </div>
             
             <div class="md:w-3/4">
-              <h3 class="text-2xl font-bold mb-4">Cost Optimization Approach</h3>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Cost Optimization Approach</h3>
               <p class="text-gray-700 mb-4">
                 Where required, we support cost optimization through careful evaluation of component alternatives, while ensuring:
               </p>
@@ -640,7 +734,7 @@
                 <div class="flex items-start gap-3">
                   <i class="fas fa-check-circle text-green-500 mt-1"></i>
                   <div>
-                    <p class="font-semibold">Technical Compatibility</p>
+                    <p class="font-semibold text-gray-900">Technical Compatibility</p>
                     <p class="text-gray-600 text-sm">Equivalent technical specifications and performance</p>
                   </div>
                 </div>
@@ -648,7 +742,7 @@
                 <div class="flex items-start gap-3">
                   <i class="fas fa-check-circle text-green-500 mt-1"></i>
                   <div>
-                    <p class="font-semibold">Reliability Assurance</p>
+                    <p class="font-semibold text-gray-900">Reliability Assurance</p>
                     <p class="text-gray-600 text-sm">Proven reliability and appropriate service life</p>
                   </div>
                 </div>
@@ -656,7 +750,7 @@
                 <div class="flex items-start gap-3">
                   <i class="fas fa-check-circle text-green-500 mt-1"></i>
                   <div>
-                    <p class="font-semibold">Customer Approval</p>
+                    <p class="font-semibold text-gray-900">Customer Approval</p>
                     <p class="text-gray-600 text-sm">Full transparency and approval before implementation</p>
                   </div>
                 </div>
@@ -664,7 +758,7 @@
                 <div class="flex items-start gap-3">
                   <i class="fas fa-check-circle text-green-500 mt-1"></i>
                   <div>
-                    <p class="font-semibold">Supply Chain Stability</p>
+                    <p class="font-semibold text-gray-900">Supply Chain Stability</p>
                     <p class="text-gray-600 text-sm">Available supply and reasonable lead times</p>
                   </div>
                 </div>
@@ -680,51 +774,92 @@
           </div>
         </div>
 
-        <!-- Integration Process -->
+        <!-- NEW: Professional System Integration Process Timeline -->
         <div class="mt-16">
-          <h3 class="text-2xl font-bold mb-8 text-center">System Integration Process</h3>
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">System Integration Process</h3>
           
-          <div class="integration-diagram">
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
-              <div class="integration-node">
-                <i class="fas fa-clipboard-list block text-2xl mb-2"></i>
-                Requirements Analysis
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="timeline-container">
+              <div class="timeline-line"></div>
+              
+              <!-- Step 1 -->
+              <div class="timeline-step">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-clipboard-list text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Requirements Analysis</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Comprehensive analysis of technical requirements, production goals, and integration constraints.
+                  </p>
+                </div>
               </div>
               
-              <div class="integration-arrow hidden md:block">
-                <i class="fas fa-arrow-right"></i>
+              <!-- Step 2 -->
+              <div class="timeline-step">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-lightbulb text-purple-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Concept Development</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Creation of system architecture, workflow diagrams, and preliminary design concepts.
+                  </p>
+                </div>
               </div>
               
-              <div class="integration-node">
-                <i class="fas fa-lightbulb block text-2xl mb-2"></i>
-                Concept Development
+              <!-- Step 3 -->
+              <div class="timeline-step">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-cogs text-indigo-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Detailed Design</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Complete engineering documentation including 3D models, schematics, and specifications.
+                  </p>
+                </div>
               </div>
               
-              <div class="integration-arrow hidden md:block">
-                <i class="fas fa-arrow-right"></i>
+              <!-- Step 4 -->
+              <div class="timeline-step">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-puzzle-piece text-cyan-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Interface Definition</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Specification of all mechanical, electrical, and software interfaces between components.
+                  </p>
+                </div>
               </div>
               
-              <div class="integration-node">
-                <i class="fas fa-cogs block text-2xl mb-2"></i>
-                Detailed Design
-              </div>
-              
-              <div class="integration-arrow hidden md:block">
-                <i class="fas fa-arrow-right"></i>
-              </div>
-              
-              <div class="integration-node">
-                <i class="fas fa-puzzle-piece block text-2xl mb-2"></i>
-                Interface Definition
-              </div>
-              
-              <div class="integration-arrow hidden md:block">
-                <i class="fas fa-arrow-right"></i>
-              </div>
-              
-              <div class="integration-node">
-                <i class="fas fa-file-contract block text-2xl mb-2"></i>
-                Documentation
+              <!-- Step 5 -->
+              <div class="timeline-step">
+                <div class="timeline-number">5</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-file-contract text-green-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Documentation & Handover</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Complete documentation package including integration manuals, wiring diagrams, and acceptance criteria.
+                  </p>
+                </div>
               </div>
             </div>
             
@@ -738,7 +873,7 @@
 
         <!-- Application Examples -->
         <div class="mt-16">
-          <h3 class="text-2xl font-bold mb-8 text-center">Typical Applications</h3>
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">Typical Applications</h3>
           
           <div class="grid md:grid-cols-2 gap-6">
             <div class="application-example">
@@ -746,7 +881,7 @@
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                   <i class="fas fa-cogs text-blue-600"></i>
                 </div>
-                <h4 class="text-lg font-bold">Special Purpose Machines</h4>
+                <h4 class="text-lg font-bold text-gray-900">Special Purpose Machines</h4>
               </div>
               <p class="text-gray-600">
                 Custom machines for specific manufacturing processes, testing, or assembly operations.
@@ -758,7 +893,7 @@
                 <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                   <i class="fas fa-robot text-green-600"></i>
                 </div>
-                <h4 class="text-lg font-bold">Automated Assembly Systems</h4>
+                <h4 class="text-lg font-bold text-gray-900">Automated Assembly Systems</h4>
               </div>
               <p class="text-gray-600">
                 Complete assembly lines with robotic workstations, vision inspection, and quality control.
@@ -770,7 +905,7 @@
                 <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                   <i class="fas fa-eye text-purple-600"></i>
                 </div>
-                <h4 class="text-lg font-bold">Vision-Guided Handling</h4>
+                <h4 class="text-lg font-bold text-gray-900">Vision-Guided Handling</h4>
               </div>
               <p class="text-gray-600">
                 Robotic systems with vision guidance for part identification, orientation, and placement.
@@ -782,7 +917,7 @@
                 <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                   <i class="fas fa-tools text-orange-600"></i>
                 </div>
-                <h4 class="text-lg font-bold">Production Tooling & Fixtures</h4>
+                <h4 class="text-lg font-bold text-gray-900">Production Tooling & Fixtures</h4>
               </div>
               <p class="text-gray-600">
                 Custom tooling, fixtures, and end-effectors for automated manufacturing processes.
@@ -794,7 +929,7 @@
         <!-- CTA Section -->
         <div class="mt-16 text-center">
           <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-10 border border-blue-200">
-            <h3 class="text-3xl font-bold mb-6">Start Your Automation Project</h3>
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Start Your Automation Project</h3>
             <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
               Discuss your automation requirements with our engineering team. We'll provide integration-ready designs that work with your preferred technologies.
             </p>
@@ -888,11 +1023,18 @@
       menu.classList.toggle('hidden');
     });
 
+    // Close mobile menu button
+    document.getElementById('mobileClose').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+    });
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
       const menu = document.getElementById('mobileMenu');
       const toggle = document.getElementById('mobileToggle');
-      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+      const closeBtn = document.getElementById('mobileClose');
+      
+      if (!menu.contains(event.target) && !toggle.contains(event.target) && !closeBtn.contains(event.target)) {
         menu.classList.add('hidden');
       }
     });
@@ -940,6 +1082,14 @@
       card.style.transform = 'translateY(20px)';
       card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(card);
+    });
+
+    // Observe timeline items for animation
+    document.querySelectorAll('.timeline-step').forEach((step, index) => {
+      step.style.opacity = '0';
+      step.style.transform = 'translateX(-20px)';
+      step.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+      observer.observe(step);
     });
   </script>
 </body>
