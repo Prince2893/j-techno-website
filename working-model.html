@@ -323,26 +323,33 @@
     }
     
     /* New styles for page consistency */
-    .hero-image-container {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 45%;
-      max-width: 600px;
-      z-index: 1;
-    }
-    
-    @media (max-width: 1024px) {
-      .hero-image-container {
-        position: relative;
-        width: 100%;
-        max-width: 500px;
-        margin: 2rem auto 0;
-        transform: none;
-        top: 0;
-      }
-    }
+    /* Hero Image Container - Updated */
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto 0;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  /* TARGET THE CORRECT CLASS - it's .process-hero not .working-hero */
+  .process-hero .container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  .process-hero .container > div:first-child {
+    flex: 1;
+  }
+  
+  .hero-image-container {
+    flex: 1;
+    margin: 0;
+    max-width: none;
+  }
+}
     
     .hero-image {
       width: 100%;
@@ -453,11 +460,12 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+       <!-- Hero Section -->
     <section class="process-hero relative overflow-hidden">
-      <div class="section-padding relative">
-        <div class="container mx-auto px-6 lg:px-12">
-          <div class="max-w-4xl animate-fade-in-up relative z-10">
+      <div class="section-padding">
+        <div class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <!-- Text Content -->
+          <div class="lg:w-1/2 animate-fade-in-up">
             <!-- Fixed Badge: Changed from orange background to clean white with border -->
             <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-800 mb-6 border border-gray-200">
               <i class="fas fa-project-diagram text-orange-500"></i>
@@ -509,8 +517,8 @@
             </div>
           </div>
           
-          <!-- PNG Image Integration -->
-          <div class="hero-image-container">
+          <!-- Image Content -->
+          <div class="lg:w-1/2 hero-image-container">
             <img 
               src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/working-model-hero.png" 
               alt="Professional Working Methodology and Engagement Models" 
