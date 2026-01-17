@@ -45,32 +45,42 @@
       color: white;
     }
     
-    
+    .btn-secondary {
+      background: transparent;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+    }
     
     .about-hero {
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  color: #1f2937;
-}
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color: #1f2937;
+    }
+    
+    /* Fix text colors for light background */
+    .about-hero h1,
+    .about-hero h2,
+    .about-hero h3,
+    .about-hero h4 {
+      color: #1f2937 !important;
+    }
 
-/* Fix text colors for light background */
-.about-hero h1,
-.about-hero h2,
-.about-hero h3,
-.about-hero h4,
-.about-hero .text-white,
-.about-hero .text-gray-300 {
-  color: #1f2937 !important;
-}
+    .about-hero p {
+      color: #4b5563 !important;
+    }
 
-.about-hero p {
-  color: #4b5563 !important;
-}
-
-/* Fix the badge */
-.about-hero .bg-white\/10 {
-  background: rgba(249, 115, 22, 0.1) !important;
-  color: #7c2d12 !important;
-}
+    
     
     .founder-card {
       background: white;
@@ -268,6 +278,16 @@
         height: 160px;
       }
     }
+    
+    /* Page transition animation */
+    .page-transition {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -298,7 +318,7 @@
   }
   </script>
 </head>
-<body class="text-gray-800 bg-white">
+<body class="text-gray-800 bg-white page-transition">
 
   <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-40">
@@ -330,8 +350,13 @@
       </div>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
-      <nav class="px-6 py-6 flex flex-col gap-4" aria-label="Mobile Navigation">
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg relative">
+      <button id="mobileClose" class="absolute top-4 right-6 p-2 text-gray-500 hover:text-gray-700" aria-label="Close navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav class="px-6 py-10 flex flex-col gap-4" aria-label="Mobile Navigation">
         <a href="index.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Home</a>
         <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
         <a href="automation-integration.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
@@ -349,28 +374,28 @@
       <div class="section-padding relative">
         <div class="container mx-auto px-6 lg:px-12">
           <div class="max-w-4xl animate-fade-in-up">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-white mb-6">
-              <i class="fas fa-university"></i>
-              <span>German-Indian Engineering Partnership</span>
-            </div>
+            <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-800 mb-6 border border-gray-200">
+  <i class="fas fa-university text-orange-500"></i>
+  <span>German-Indian Engineering Partnership</span>
+</div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Engineering Excellence Through
-              <span class="text-orange-400">Cross-Border Collaboration</span>
+              <span class="text-orange-500">Cross-Border Collaboration</span>
             </h1>
             
-            <p class="text-xl text-gray-300 mb-8">
+            <p class="text-xl mb-8">
               J-Techno Engineering combines German academic depth with international engineering execution, 
               delivering professional engineering services aligned with German quality standards.
             </p>
             
             <div class="flex flex-wrap gap-4">
-              <a href="#founder" class="btn-primary text-lg px-8 py-4 bg-white text-gray-900 hover:bg-gray-100">
+              <a href="#founder" class="btn-primary text-lg px-8 py-4">
                 <i class="fas fa-user-graduate mr-2"></i>Meet Our Founder
               </a>
-              <a href="contact.html" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
-  <i class="fas fa-comment-dots mr-2"></i>Discuss Technical Collaboration
-</a>
+              <a href="contact.html" class="btn-secondary text-lg px-8 py-4">
+                <i class="fas fa-comment-dots mr-2"></i>Discuss Technical Collaboration
+              </a>
             </div>
           </div>
         </div>
@@ -386,11 +411,11 @@
             <div class="text-center md:text-left">
               <div class="flex flex-col items-center md:items-start">
                 <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/prince-portrait.png" 
-                     alt="Prince Joshina - Founder, J-Techno Engineering" 
+                     alt="Eng. Prince Joshina - Founder, J-Techno Engineering" 
                      class="founder-image mb-6">
                 
                 <div class="mb-6">
-                  <h2 class="text-2xl font-bold text-gray-900 mb-1">Prince Joshina</h2>
+                  <h2 class="text-2xl font-bold text-gray-900 mb-1">Eng. Prince Joshina</h2>
                   <p class="text-gray-600 font-medium">Managing Director & Founder</p>
                   <p class="text-sm text-gray-500 mt-1">M.Sc. Mechanical Engineering</p>
                 </div>
@@ -419,7 +444,7 @@
               
               <div class="mb-8">
                 <p class="text-gray-700 mb-4">
-                  J-Techno Engineering is led by <strong>Prince Joshina</strong>, a Mechanical Engineer with a Master's degree 
+                  J-Techno Engineering is led by <strong>Eng. Prince Joshina</strong>, a Mechanical Engineer with a Master's degree 
                   from <strong>Leibniz University Hannover, Germany</strong>.
                 </p>
                 
@@ -446,7 +471,7 @@
                   <div class="education-card">
                     <div class="university-badge">Master of Science</div>
                     <h5 class="font-bold text-gray-900 mb-1">Mechanical Engineering</h5>
-                    <p class="text-gray-600 mb-2">Leibniz University Hannover, Germany</p>
+                    <p class="text-gray-600 mb-2">Leibniz University Hannover</p>
                     <div class="flex items-center gap-2">
                       <span class="location-chip">
                         <i class="fas fa-map-marker-alt"></i>
@@ -459,11 +484,11 @@
                   <div class="education-card">
                     <div class="university-badge">Bachelor of Engineering</div>
                     <h5 class="font-bold text-gray-900 mb-1">Mechanical Engineering</h5>
-                    <p class="text-gray-600 mb-2">Gujarat Technological University, India</p>
+                    <p class="text-gray-600 mb-2">Visvesvaraya Technological University</p>
                     <div class="flex items-center gap-2">
                       <span class="location-chip">
                         <i class="fas fa-map-marker-alt"></i>
-                        Gujarat, India
+                        Belgavi, Karnataka, India
                       </span>
                       <span class="text-xs text-gray-500">• Focus on Manufacturing Systems</span>
                     </div>
@@ -940,11 +965,18 @@
       menu.classList.toggle('hidden');
     });
 
+    // Close mobile menu button
+    document.getElementById('mobileClose').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+    });
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
       const menu = document.getElementById('mobileMenu');
       const toggle = document.getElementById('mobileToggle');
-      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+      const closeBtn = document.getElementById('mobileClose');
+      
+      if (!menu.contains(event.target) && !toggle.contains(event.target) && !closeBtn.contains(event.target)) {
         menu.classList.add('hidden');
       }
     });
