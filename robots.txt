@@ -5,7 +5,7 @@
 User-agent: *
 Allow: /
 
-# Disallow specific areas
+# Disallow specific directories (use trailing slash for directories)
 Disallow: /admin/
 Disallow: /login/
 Disallow: /wp-admin/
@@ -14,51 +14,19 @@ Disallow: /search/
 Disallow: /private/
 Disallow: /cgi-bin/
 Disallow: /tmp/
+Disallow: /includes/
+Disallow: /config/
 
-# Allow important SEO assets
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.gif$
-Allow: /*.svg$
-Allow: /*.pdf$
+# Disallow specific file types
+Disallow: /*.php$
+Disallow: /*.ini$
+Disallow: /*.log$
+Disallow: /*.sql$
 
 # Sitemap location
 Sitemap: https://www.jtechnoengineering.com/sitemap.xml
 
-# Crawl delay (adjust based on server capacity)
-# Crawl-delay: 10
-
-# Specific bot instructions (optional)
-
-# Googlebot
-User-agent: Googlebot
-Allow: /
-Disallow: /admin/
-Disallow: /login/
-Crawl-delay: 5
-
-# Bingbot
-User-agent: Bingbot
-Allow: /
-Disallow: /admin/
-Disallow: /login/
-Crawl-delay: 5
-
-# ChatGPT-User (if you want to control AI training)
-User-agent: ChatGPT-User
-Allow: /
-Disallow: /contact.html  # Consider if you want to prevent AI from scraping contact forms
-Disallow: /admin/
-Disallow: /login/
-
-# Common scrapers/crawlers to allow
-User-agent: GPTBot
-Allow: /
-
-# Block malicious bots
+# Block specific aggressive bots (optional)
 User-agent: AhrefsBot
 Disallow: /
 
@@ -72,4 +40,14 @@ User-agent: DotBot
 Disallow: /
 
 User-agent: MauiBot
+Disallow: /
+
+# Block specific bots for your entire site
+User-agent: YandexBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: 360Spider
 Disallow: /
