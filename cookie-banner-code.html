@@ -1,0 +1,167 @@
+<!-- Cookie Consent Banner - Add this to ALL pages, just before closing </body> tag -->
+
+<style>
+/* Cookie Banner Styling */
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    display: none; /* Hidden by default, shown by JS if needed */
+}
+
+#cookie-banner.show {
+    display: block;
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cookie-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.cookie-text p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.cookie-text a {
+    color: #4da6ff;
+    text-decoration: underline;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cookie-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.cookie-btn:hover {
+    opacity: 0.9;
+}
+
+.btn-accept {
+    background: #0066cc;
+    color: white;
+}
+
+.btn-decline {
+    background: #666;
+    color: white;
+}
+
+.btn-settings {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+    }
+    
+    .cookie-btn {
+        flex: 1;
+    }
+}
+</style>
+
+<div id="cookie-banner">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <p>
+                <strong>🍪 We value your privacy</strong><br>
+                This website uses only essential cookies necessary for functionality. 
+                We do not use tracking or analytics cookies without your consent.
+                <a href="privacy-policy.html" target="_blank">Learn more</a>
+            </p>
+            <p style="font-size: 12px; color: #ccc;">
+                By clicking "Accept", you agree to our use of essential cookies. 
+                No analytics tracking is active unless you explicitly opt-in.
+            </p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn btn-accept" onclick="acceptCookies()">Accept</button>
+            <button class="cookie-btn btn-decline" onclick="declineCookies()">Decline</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Cookie Banner Logic
+(function() {
+    'use strict';
+    
+    // Check if user has already made a choice
+    function getCookieConsent() {
+        const consent = localStorage.getItem('cookieConsent');
+        return consent; // Returns 'accepted', 'declined', or null
+    }
+    
+    // Show banner if no consent given
+    function showBannerIfNeeded() {
+        const consent = getCookieConsent();
+        if (!consent) {
+            document.getElementById('cookie-banner').classList.add('show');
+        }
+    }
+    
+    // Accept cookies
+    window.acceptCookies = function() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        document.getElementById('cookie-banner').classList.remove('show');
+        
+        // If you add analytics later, initialize them here:
+        // initializeAnalytics();
+    };
+    
+    // Decline cookies
+    window.declineCookies = function() {
+        localStorage.setItem('cookieConsent', 'declined');
+        document.getElementById('cookie-banner').classList.remove('show');
+        
+        // Ensure no tracking cookies are set
+        // clearTrackingCookies();
+    };
+    
+    // Show banner on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        showBannerIfNeeded();
+    });
+    
+})();
+</script>
+
+<!-- END Cookie Consent Banner -->
