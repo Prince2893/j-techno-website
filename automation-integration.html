@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact | J-Techno Engineering | Technical Engineering Consultation</title>
-  <meta name="description" content="Contact J-Techno Engineering for technical engineering consultation. Direct access to founder for automation systems, mechanical design, and engineering services." />
-  <meta name="keywords" content="contact engineering Germany, automation engineering consultation, mechanical design services, technical engineering support" />
+  <title>Automation & Integration | J-Techno Engineering | System Design & Integration</title>
+  <meta name="description" content="Automation system design and integration services. Supplier-neutral engineering for robotic cells, assembly lines, and material handling systems aligned with German standards." />
+  <meta name="keywords" content="automation engineering Germany, robotic cell design, system integration, assembly line design, material handling systems" />
   <link rel="icon" href="./Logo.svg" type="image/svg+xml" />
 
   <!-- Tailwind v2 and Inter font -->
@@ -21,7 +21,6 @@
       line-height: 1.6;
     }
     html { scroll-behavior: smooth; }
-    :focus-visible { outline: 3px solid rgba(243,156,18,0.5); outline-offset: 3px; }
     
     .section-padding { padding: 5rem 1rem; }
     @media (max-width: 768px) {
@@ -64,64 +63,109 @@
       transform: translateY(-2px);
     }
     
-    .hero-gradient {
+    .automation-hero {
       background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color: #1f2937;
     }
     
-    .contact-hero h1,
-    .contact-hero h2,
-    .contact-hero h3,
-    .contact-hero h4 {
-      color: #1f2937 !important;
-    }
-
-    .contact-hero p {
-      color: #4b5563 !important;
-    }
-    
-    .service-card {
+    .capability-card {
       background: white;
       border-radius: 1rem;
-      padding: 2.5rem 2rem;
+      padding: 2.5rem;
       border: 1px solid #e5e7eb;
       transition: all 0.3s ease;
       height: 100%;
     }
     
-    .service-card:hover {
+    .capability-card:hover {
       border-color: #f97316;
-      box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
+      box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
       transform: translateY(-5px);
     }
     
-    .card-icon {
-      width: 60px;
-      height: 60px;
+    .capability-icon {
+      width: 70px;
+      height: 70px;
       background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-      border-radius: 0.75rem;
+      border-radius: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.5rem;
     }
-    
-    .card-icon i {
-      font-size: 1.75rem;
+
+    .capability-icon i {
+      font-size: 2rem;
       color: #f97316;
     }
     
-    .trust-badge {
-      display: inline-flex;
+    .integration-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .integration-item {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e2e8f0;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      background: white;
-      color: #1f2937;
+      gap: 1rem;
+    }
+    
+    .integration-item i {
+      color: #10b981;
+      font-size: 1.25rem;
+    }
+    
+    .philosophy-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+      border: 1px solid #d1e9ff;
+      border-radius: 1rem;
+      padding: 2.5rem;
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #475569;
       padding: 0.5rem 1rem;
-      border-radius: 50px;
+      border-radius: 0.375rem;
       font-weight: 500;
       font-size: 0.875rem;
-      margin-bottom: 1.5rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tech-badge.platform {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .tech-badge.standard {
+      background: #dcfce7;
+      color: #166534;
+    }
+    
+    .tech-badge.component {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+    
+    .application-example {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
       border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+    
+    .application-example:hover {
+      border-color: #3b82f6;
+      background: #f0f9ff;
     }
     
     .footer-links a {
@@ -131,13 +175,6 @@
     }
     .footer-links a:hover {
       color: #f97316;
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #f97316;
-      line-height: 1;
     }
     
     @keyframes fadeInUp {
@@ -155,219 +192,130 @@
       animation: fadeInUp 0.6s ease-out;
     }
     
-    /* Contact page specific styles */
-    .contact-form-card {
-      background: white;
-      border-radius: 1rem;
-      padding: 2.5rem;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-    
-    .form-input {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.375rem;
-      font-size: 0.9375rem;
-      transition: all 0.3s ease;
-    }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: #f97316;
-      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
-    }
-    
-    .form-select {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.375rem;
-      font-size: 0.9375rem;
-      background-color: white;
-      transition: all 0.3s ease;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 1.25rem;
-    }
-    
-    .form-select:focus {
-      outline: none;
-      border-color: #f97316;
-      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
-    }
-    
-    .form-textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.375rem;
-      font-size: 0.9375rem;
-      font-family: inherit;
-      transition: all 0.3s ease;
-      min-height: 120px;
-      resize: vertical;
-    }
-    
-    .form-textarea:focus {
-      outline: none;
-      border-color: #f97316;
-      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
-    }
-    
-    .office-card {
-      background: white;
-      border-radius: 1rem;
-      padding: 2rem;
-      border: 1px solid #e5e7eb;
-      transition: all 0.3s ease;
-      height: 100%;
-    }
-    
-    .office-card:hover {
-      border-color: #f97316;
-      box-shadow: 0 10px 25px rgba(249, 115, 22, 0.1);
-      transform: translateY(-3px);
-    }
-    
-    .contact-info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid #f3f4f6;
-    }
-    
-    .contact-info-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    
-    .contact-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-      border-radius: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    
-    .contact-icon i {
-      font-size: 1.25rem;
-      color: #f97316;
-    }
-    
-    .founder-card {
-      background: white;
-      border-radius: 1rem;
-      padding: 2rem;
-      border: 1px solid #e5e7eb;
-      transition: all 0.3s ease;
-    }
-    
-    .founder-card:hover {
-      border-color: #f97316;
-      box-shadow: 0 10px 25px rgba(249, 115, 22, 0.1);
-    }
-    
-    .founder-image {
-      width: 120px;
-      height: 120px;
-      border-radius: 1rem;
-      object-fit: cover;
-      border: 3px solid white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .response-timeline {
+    /* Cost optimization section styling */
+    .cost-optimization {
       background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
       border: 1px solid #86efac;
       border-radius: 1rem;
       padding: 2rem;
     }
     
-    .timeline-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+    /* NEW: Professional timeline styling */
+    .timeline-container {
       position: relative;
+      padding: 2rem 0;
+    }
+    
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #06b6d4);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .timeline-line {
+        left: 30px;
+      }
+    }
+    
+    .timeline-step {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+      z-index: 2;
     }
     
     .timeline-step:last-child {
       margin-bottom: 0;
     }
     
-    .step-number {
-      width: 36px;
-      height: 36px;
-      background: #10b981;
-      color: white;
+    .timeline-number {
+      width: 60px;
+      height: 60px;
+      background: white;
+      border: 3px solid #3b82f6;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
+      font-size: 1.25rem;
+      color: #3b82f6;
       flex-shrink: 0;
+      z-index: 2;
+      position: relative;
     }
     
-    .response-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #eff6ff;
-      color: #1d4ed8;
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
-      font-weight: 500;
-      font-size: 0.875rem;
-      margin-right: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .form-checkbox {
-      width: 18px;
-      height: 18px;
-      border-radius: 0.25rem;
-      border: 2px solid #d1d5db;
-      cursor: pointer;
-      margin-right: 0.5rem;
-      flex-shrink: 0;
-    }
-    
-    .form-checkbox:checked {
-      background-color: #f97316;
-      border-color: #f97316;
-    }
-    
-    .form-error {
-      border-color: #ef4444 !important;
-    }
-    
-    .error-message {
-      color: #ef4444;
-      font-size: 0.875rem;
-      margin-top: 0.25rem;
-    }
-    
-    /* NEW: Information section with light blue background */
-    .info-section {
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-      border: 1px solid #bae6fd;
+    .timeline-content {
+      background: white;
+      border: 1px solid #e5e7eb;
       border-radius: 1rem;
-      padding: 2.5rem;
+      padding: 1.5rem;
+      margin-left: 2rem;
+      flex: 1;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
     
-    /* NEW: Page transition */
+    .timeline-content:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .timeline-step {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .timeline-content {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+      }
+    }
+    
+    /* Hero Image Container - Updated */
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto 0;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .automation-hero .container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  .automation-hero .container > div:first-child {
+    flex: 1;
+  }
+  
+  .hero-image-container {
+    flex: 1;
+    margin: 0;
+    max-width: none;
+  }
+}
+    
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
     .page-transition {
       animation: fadeIn 0.5s ease-in;
     }
@@ -376,93 +324,29 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    
-    /* NEW: Improved form spacing */
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-label {
-      display: block;
-      font-weight: 600;
-      color: #374151;
-      margin-bottom: 0.5rem;
-      font-size: 0.9375rem;
-    }
-    
-    /* NEW: Professional alignment improvements */
-    .section-heading {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1f2937;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    .section-subheading {
-      font-size: 1.25rem;
-      color: #6b7280;
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-    
-    @media (max-width: 768px) {
-      .section-heading {
-        font-size: 2rem;
-      }
-      .section-subheading {
-        font-size: 1.125rem;
-      }
-    }
   </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "J-Techno Engineering",
-    "url": "https://www.jtechnoengineering.com",
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        "telephone": "+49-15566478752",
-        "contactType": "technical support",
-        "areaServed": "DE",
-        "availableLanguage": ["English", "German"],
-        "contactOption": "TollFree"
-      },
-      {
-        "@type": "ContactPoint",
-        "telephone": "+91-9687782243",
-        "contactType": "technical support",
-        "areaServed": "IN",
-        "availableLanguage": ["English", "Hindi", "Gujarati"]
-      }
-    ],
-    "address": [
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "Fichtestraße 52",
-        "addressLocality": "Kamenz",
-        "postalCode": "01917",
-        "addressRegion": "Saxony",
-        "addressCountry": "DE"
-      },
-      {
-        "@type": "PostalAddress",
-        "streetAddress": "U-1 Paris Plaza, Station Road",
-        "addressLocality": "Surat",
-        "postalCode": "395003",
-        "addressRegion": "Gujarat",
-        "addressCountry": "IN"
-      }
-    ]
+    "@type": "Service",
+    "serviceType": "Automation Engineering & System Integration",
+    "provider": {
+      "@type": "Organization",
+      "name": "J-Techno Engineering"
+    },
+    "description": "Automation system design and integration services for industrial applications including robotic cells, assembly lines, and material handling systems",
+    "areaServed": ["DE", "EU"],
+    "offers": {
+      "@type": "Offer",
+      "description": "Supplier-neutral automation engineering and system integration services"
+    }
   }
   </script>
 </head>
 <body class="text-gray-800 bg-white page-transition">
 
-  <!-- Header - FIXED with orange Contact button like other pages -->
+  <!-- Header -->
   <header class="bg-white shadow-sm sticky top-0 z-40">
     <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
@@ -476,7 +360,7 @@
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Main Navigation">
         <a href="index.html" class="text-gray-700 hover:text-orange-600 transition-colors">Home</a>
         <a href="engineering-services.html" class="text-gray-700 hover:text-orange-600 transition-colors">Engineering Services</a>
-        <a href="automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors">Automation & Integration</a>
+        <a href="automation-integration.html" class="text-orange-600 hover:text-orange-700 transition-colors">Automation & Integration</a>
         <a href="industries.html" class="text-gray-700 hover:text-orange-600 transition-colors">Industries</a>
         <a href="working-model.html" class="text-gray-700 hover:text-orange-600 transition-colors">Working Model</a>
         <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
@@ -501,7 +385,7 @@
       <nav class="px-6 py-10 flex flex-col gap-4" aria-label="Mobile Navigation">
         <a href="index.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Home</a>
         <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
-        <a href="automation-integration.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
+        <a href="automation-integration.html" class="py-2 text-orange-600 font-semibold">Automation & Integration</a>
         <a href="industries.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Industries</a>
         <a href="working-model.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Working Model</a>
         <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
@@ -511,375 +395,230 @@
   </header>
 
   <main>
-    <!-- Hero Section - Professional styling -->
-    <section class="hero-gradient contact-hero relative overflow-hidden">
+    <!-- Hero Section -->
+    <section class="automation-hero relative overflow-hidden">
       <div class="section-padding relative">
         <div class="container mx-auto px-6 lg:px-12">
-          <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-              <div class="trust-badge inline-flex mb-6">
-                <i class="fas fa-comment-dots text-orange-500"></i>
-                <span class="ml-2">Technical Engineering Consultation</span>
+          <div class="max-w-4xl animate-fade-in-up relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-800 mb-6 border border-gray-200">
+              <i class="fas fa-robot text-orange-500"></i>
+              <span>Automation & System Integration</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Automation System Design
+              <span class="text-orange-500">& Integration</span>
+            </h1>
+            
+            <p class="text-xl text-gray-700 mb-8">
+              We design automation systems that are integration-ready, supplier-neutral, and aligned with customer technology preferences.
+            </p>
+            
+            <div class="flex flex-wrap gap-4">
+              <a href="#capabilities" class="btn-primary text-lg px-8 py-4">
+                <i class="fas fa-cogs mr-2"></i>View Capabilities
+              </a>
+              <a href="contact.html" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
+                <i class="fas fa-calendar-check mr-2"></i>Schedule Technical Discussion
+              </a>
+            </div>
+            
+            <!-- Key Differentiators -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-300">
+              <div class="flex items-start gap-3">
+                <i class="fas fa-balance-scale text-orange-500 text-xl mt-1"></i>
+                <div>
+                  <p class="font-bold text-gray-900">Supplier-Neutral</p>
+                  <p class="text-gray-600 text-sm">No brand bias, only what's best for your project</p>
+                </div>
               </div>
-              
-              <h1 class="section-heading">
-                Contact for Technical Engineering
-                <span class="text-orange-500">Consultation</span>
-              </h1>
-              
-              <p class="section-subheading max-w-3xl mx-auto">
-                Direct access to our engineering team for technical discussions, project requirements analysis, 
-                and professional engineering service consultation.
-              </p>
-              
-              <div class="flex flex-wrap gap-4 justify-center mt-8">
-                <a href="#contact-form" class="btn-primary text-lg px-8 py-4">
-                  <i class="fas fa-file-alt mr-2"></i>Submit Technical Inquiry
-                </a>
-                <a href="tel:+4915566478752" class="btn-secondary text-lg px-8 py-4">
-                  <i class="fas fa-phone mr-2"></i>Call Germany: +49 155 664 78752
-                </a>
+              <div class="flex items-start gap-3">
+                <i class="fas fa-handshake text-orange-500 text-xl mt-1"></i>
+                <div>
+                  <p class="font-bold text-gray-900">Customer-Aligned</p>
+                  <p class="text-gray-600 text-sm">Works with your preferred technologies</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fas fa-puzzle-piece text-orange-500 text-xl mt-1"></i>
+                <div>
+                  <p class="font-bold text-gray-900">Integration-Ready</p>
+                  <p class="text-gray-600 text-sm">Designed for seamless implementation</p>
+                </div>
               </div>
             </div>
-
-            <!-- Trust Indicators -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-gray-200">
-              <div class="text-center">
-                <div class="stat-number">24-48h</div>
-                <div class="text-gray-600 font-medium">Technical Response</div>
-                <p class="text-sm text-gray-500 mt-1">Comprehensive technical assessment</p>
-              </div>
-              <div class="text-center">
-                <div class="stat-number">Direct</div>
-                <div class="text-gray-600 font-medium">Founder Access</div>
-                <p class="text-sm text-gray-500 mt-1">M.Sc. Mechanical Engineering leadership</p>
-              </div>
-              <div class="text-center">
-                <div class="stat-number">DE+IN</div>
-                <div class="text-gray-600 font-medium">Dual-Location</div>
-                <p class="text-sm text-gray-500 mt-1">Germany-India engineering coordination</p>
-              </div>
-            </div>
+          </div>
+          
+          <!-- PNG Image Integration -->
+          <div class="hero-image-container">
+            <img 
+              src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/automation-hero.png" 
+              alt="Automation System Design and Integration" 
+              class="hero-image"
+              onerror="this.style.display='none'"
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Form & Information -->
-    <section id="contact-form" class="bg-white section-padding">
+    <!-- Automation System Design Section -->
+    <section id="capabilities" class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <h2 class="section-heading">Submit Your Technical Inquiry</h2>
-          <p class="section-subheading max-w-3xl mx-auto">
-            Provide details about your engineering requirements for a comprehensive technical response.
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Automation System Design</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Comprehensive design services for industrial automation systems, from concept to implementation-ready engineering.
           </p>
         </div>
-        
-        <div class="grid lg:grid-cols-2 gap-10">
-          <!-- Contact Form - Improved Structure -->
-          <div class="contact-form-card animate-fade-in-up">
-            <form id="technicalInquiryForm" class="space-y-6">
-              <!-- Project Type Selection -->
-              <div class="form-group">
-                <label class="form-label">
-                  Primary Engineering Interest <span class="text-red-500">*</span>
-                </label>
-                <select class="form-select" required id="projectType">
-                  <option value="">Select primary technical interest</option>
-                  <option value="mechanical-design">Mechanical Design & Engineering</option>
-                  <option value="automation-system">Automation System Design</option>
-                  <option value="rnd-collaboration">R&D & Concept Engineering</option>
-                  <option value="technical-consultation">Technical Consultation</option>
-                  <option value="system-integration">System Integration Planning</option>
-                  <option value="other">Other Engineering Requirement</option>
-                </select>
-              </div>
 
-              <!-- Project Timeline -->
-              <div class="form-group">
-                <label class="form-label">
-                  Project Timeline <span class="text-red-500">*</span>
-                </label>
-                <select class="form-select" required id="projectTimeline">
-                  <option value="">Select project timeline</option>
-                  <option value="immediate">Immediate (1-3 months)</option>
-                  <option value="planning">Planning Phase (3-6 months)</option>
-                  <option value="future">Future Project (6-12 months)</option>
-                  <option value="exploring">Exploring Technical Options</option>
-                </select>
-              </div>
-
-              <!-- Contact Information -->
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div class="form-group">
-                  <label class="form-label">
-                    Name <span class="text-red-500">*</span>
-                  </label>
-                  <input type="text" required class="form-input" id="contactName" placeholder="Full name">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">
-                    Company <span class="text-red-500">*</span>
-                  </label>
-                  <input type="text" required class="form-input" id="companyName" placeholder="Company name">
-                </div>
-              </div>
-              
-              <!-- Location Information -->
-              <div class="form-group">
-                <label class="form-label">
-                  Country / Region <span class="text-red-500">*</span>
-                </label>
-                <select class="form-select" required id="country">
-                  <option value="">Select your country</option>
-                  <option value="germany">Germany</option>
-                  <option value="austria">Austria</option>
-                  <option value="switzerland">Switzerland</option>
-                  <option value="other-eu">Other EU Country</option>
-                  <option value="non-eu">Outside European Union</option>
-                </select>
-              </div>
-              
-              <!-- Contact Details -->
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div class="form-group">
-                  <label class="form-label">
-                    Email Address <span class="text-red-500">*</span>
-                  </label>
-                  <input type="email" required class="form-input" id="email" placeholder="professional@company.com">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">
-                    Phone Number
-                  </label>
-                  <input type="tel" class="form-input" id="phone" placeholder="+49 ... or +91 ...">
-                </div>
-              </div>
-              
-              <!-- Technical Details -->
-              <div class="form-group">
-                <label class="form-label">
-                  Technical Requirements & Details <span class="text-red-500">*</span>
-                </label>
-                <textarea class="form-textarea" required id="technicalDetails" placeholder="Describe your engineering requirements, technical specifications, challenges, or project objectives..." rows="5"></textarea>
-              </div>
-              
-              <!-- Additional Options -->
-              <div class="space-y-4 pt-2">
-                <div class="flex items-start">
-                  <input type="checkbox" id="technicalProposal" class="form-checkbox mt-0.5">
-                  <label for="technicalProposal" class="text-gray-700 text-sm ml-2">
-                    Request detailed technical proposal with scope, timeline, and deliverables
-                  </label>
-                </div>
-                
-                <div class="flex items-start">
-                  <input type="checkbox" id="ndaRequired" class="form-checkbox mt-0.5">
-                  <label for="ndaRequired" class="text-gray-700 text-sm ml-2">
-                    NDA required before detailed technical discussion
-                  </label>
-                </div>
-                
-                <div class="flex items-start">
-                  <input type="checkbox" id="engineeringUpdates" class="form-checkbox mt-0.5" checked>
-                  <label for="engineeringUpdates" class="text-gray-700 text-sm ml-2">
-                    Receive technical updates and engineering insights
-                  </label>
-                </div>
-              </div>
-              
-              <!-- Submit Button -->
-              <button type="submit" class="btn-primary w-full py-3 text-lg mt-6">
-                <i class="fas fa-paper-plane mr-2"></i>Submit Technical Inquiry
-              </button>
-              
-              <p class="text-sm text-gray-600 text-center mt-4">
-                Your inquiry will be reviewed by our engineering team within 24 hours.
-              </p>
-            </form>
-          </div>
-
-          <!-- Contact Information & Founder -->
-          <div class="space-y-8">
-            <!-- Founder Information -->
-            <div class="founder-card animate-fade-in-up" style="animation-delay: 0.1s;">
-              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-6">
-                <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/prince-portrait.png" 
-                     alt="Eng. Prince Joshina - Founder, J-Techno Engineering" 
-                     class="founder-image">
-                <div class="text-center sm:text-left">
-                  <h3 class="text-xl font-bold text-gray-900 mb-1">Eng. Prince Joshina</h3>
-                  <p class="text-gray-600 font-medium">Managing Director & Founder</p>
-                  <p class="text-sm text-gray-500">M.Sc. Mechanical Engineering, Leibniz University Hannover</p>
-                </div>
-              </div>
-              
-              <div class="space-y-4">
-                <div class="contact-info-item">
-                  <div class="contact-icon">
-                    <i class="fas fa-phone"></i>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-gray-900">Direct Technical Contact</p>
-                    <a href="tel:+4915566478752" class="text-orange-600 hover:text-orange-700 font-medium">
-                      +49 155 664 78752
-                    </a>
-                    <p class="text-sm text-gray-600 mt-1">Germany-based technical leadership</p>
-                  </div>
-                </div>
-                
-                <div class="contact-info-item">
-                  <div class="contact-icon">
-                    <i class="fab fa-whatsapp"></i>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-gray-900">WhatsApp Technical Chat</p>
-                    <a href="https://wa.me/4915566478752" class="text-orange-600 hover:text-orange-700 font-medium">
-                      Start WhatsApp Conversation
-                    </a>
-                    <p class="text-sm text-gray-600 mt-1">For quick technical questions and file sharing</p>
-                  </div>
-                </div>
-                
-                <div class="contact-info-item">
-                  <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                  </div>
-                  <div>
-                    <p class="font-semibold text-gray-900">Technical Email</p>
-                    <a href="mailto:info@jtechnoengineering.com" class="text-orange-600 hover:text-orange-700 font-medium">
-                      info@jtechnoengineering.com
-                    </a>
-                    <p class="text-sm text-gray-600 mt-1">For detailed technical documentation and proposals</p>
-                  </div>
-                </div>
-              </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Capability 1 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="capability-icon">
+              <i class="fas fa-industry"></i>
             </div>
-
-            <!-- Response Timeline -->
-            <div class="response-timeline animate-fade-in-up" style="animation-delay: 0.2s;">
-              <h3 class="text-xl font-bold mb-6 text-gray-900">Technical Response Timeline</h3>
-              
-              <div class="space-y-4">
-                <div class="timeline-step">
-                  <div class="step-number">1</div>
-                  <div>
-                    <h4 class="font-bold text-gray-900 mb-1">Within 2 Hours</h4>
-                    <p class="text-gray-600">Initial acknowledgment and inquiry confirmation</p>
-                  </div>
-                </div>
-                
-                <div class="timeline-step">
-                  <div class="step-number">2</div>
-                  <div>
-                    <h4 class="font-bold text-gray-900 mb-1">Within 24 Hours</h4>
-                    <p class="text-gray-600">Technical assessment and preliminary response</p>
-                  </div>
-                </div>
-                
-                <div class="timeline-step">
-                  <div class="step-number">3</div>
-                  <div>
-                    <h4 class="font-bold text-gray-900 mb-1">Within 48 Hours</h4>
-                    <p class="text-gray-600">Scheduled technical discussion with engineering leadership</p>
-                  </div>
-                </div>
-                
-                <div class="timeline-step">
-                  <div class="step-number">4</div>
-                  <div>
-                    <h4 class="font-bold text-gray-900 mb-1">Within 3 Business Days</h4>
-                    <p class="text-gray-600">Formal technical proposal with scope, timeline, and deliverables</p>
-                  </div>
-                </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Assembly Line Concepts</h3>
+            <p class="text-gray-600 mb-6">
+              Complete assembly line design including workstation layout, material flow, and process optimization.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Line balancing</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Cycle time analysis</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Ergonomic design</span>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Office Locations - FIXED 2-column layout -->
-        <div class="mt-12 pt-8 border-t border-gray-200">
-          <h3 class="section-heading text-center mb-10">Our Engineering Locations</h3>
-          <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Germany Office -->
-            <div class="office-card animate-fade-in-up" style="animation-delay: 0.3s;">
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 bg-gradient-to-br from-black to-gray-800 rounded-xl flex items-center justify-center">
-                  <i class="fas fa-flag text-white text-2xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-gray-900 text-xl mb-1">Germany Office</h4>
-                  <p class="text-gray-600 text-sm">Technical Leadership & Client Coordination</p>
-                </div>
+          <!-- Capability 2 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="capability-icon">
+              <i class="fas fa-boxes-stacked"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Material Handling Layouts</h3>
+            <p class="text-gray-600 mb-6">
+              Conveyor systems, AGV/AMR integration, and material transport solutions for efficient logistics.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Conveyor design</span>
               </div>
-              
-              <div class="space-y-4">
-                <div class="flex items-start gap-3">
-                  <i class="fas fa-map-marker-alt text-gray-500 mt-1"></i>
-                  <div>
-                    <p class="text-gray-900 font-medium mb-1">Address</p>
-                    <p class="text-gray-600">Fichtestraße 52<br>01917 Kamenz, Saxony, Germany</p>
-                  </div>
-                </div>
-                
-                <div class="flex items-start gap-3">
-                  <i class="fas fa-phone text-gray-500 mt-1"></i>
-                  <div>
-                    <p class="text-gray-900 font-medium mb-1">Phone</p>
-                    <a href="tel:+4915566478752" class="text-orange-600 hover:text-orange-700 font-medium">
-                      +49 155 664 78752
-                    </a>
-                  </div>
-                </div>
-                
-                <div class="flex items-start gap-3">
-                  <i class="fas fa-clock text-gray-500 mt-1"></i>
-                  <div>
-                    <p class="text-gray-900 font-medium mb-1">Business Hours</p>
-                    <p class="text-gray-600">CET (UTC+1)<br>Monday-Saturday, 7:00-22:00</p>
-                  </div>
-                </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>AGV path planning</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Buffer design</span>
               </div>
             </div>
+          </div>
 
-            <!-- India Office -->
-            <div class="office-card animate-fade-in-up" style="animation-delay: 0.4s;">
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center">
-                  <i class="fas fa-flag text-white text-2xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-gray-900 text-xl mb-1">India Office</h4>
-                  <p class="text-gray-600 text-sm">Engineering Execution & Technical Development</p>
-                </div>
+          <!-- Capability 3 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.3s;">
+            <div class="capability-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Robotic Cell Concepts</h3>
+            <p class="text-gray-600 mb-6">
+              Robotic workcell design for welding, assembly, machine tending, and material handling applications.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Cell layout</span>
               </div>
-              
-              <div class="space-y-4">
-                <div class="flex items-start gap-3">
-                  <i class="fas fa-map-marker-alt text-gray-500 mt-1"></i>
-                  <div>
-                    <p class="text-gray-900 font-medium mb-1">Address</p>
-                    <p class="text-gray-600">U-1 Paris Plaza, Station Road<br>Surat - 395003, Gujarat, India</p>
-                  </div>
-                </div>
-                
-                <div class="flex items-start gap-3">
-                  <i class="fas fa-phone text-gray-500 mt-1"></i>
-                  <div>
-                    <p class="text-gray-900 font-medium mb-1">Phone</p>
-                    <a href="tel:+919687782243" class="text-orange-600 hover:text-orange-700 font-medium">
-                      +91 96877 82243
-                    </a>
-                  </div>
-                </div>
-                
-                <div class="flex items-start gap-3">
-                  <i class="fas fa-clock text-gray-500 mt-1"></i>
-                  <div>
-                    <p class="text-gray-900 font-medium mb-1">Business Hours</p>
-                    <p class="text-gray-600">IST (UTC+5:30)<br>Monday-Saturday, 7:00-22:00</p>
-                  </div>
-                </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Safety integration</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Tooling design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capability 4 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.4s;">
+            <div class="capability-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Vision-Guided Automation</h3>
+            <p class="text-gray-600 mb-6">
+              Integration of vision systems for inspection, guidance, and quality control in automated processes.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Camera placement</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Lighting design</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Software integration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capability 5 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.5s;">
+            <div class="capability-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Fixtures & Tooling Design</h3>
+            <p class="text-gray-600 mb-6">
+              Custom fixtures, jigs, grippers, and tooling for automated assembly, welding, and processing.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>EOAT design</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Clamping systems</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Quick-change systems</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capability 6 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.6s;">
+            <div class="capability-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">System Integration</h3>
+            <p class="text-gray-600 mb-6">
+              Integration of multiple subsystems into a cohesive automation solution with control architecture.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>PLC interface design</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Network planning</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Safety system design</span>
               </div>
             </div>
           </div>
@@ -887,167 +626,333 @@
       </div>
     </section>
 
-    <!-- Before You Contact Information - Fixed with light blue background -->
-    <section class="section-padding">
+    <!-- Technology Integration Philosophy -->
+    <section class="bg-gray-50 section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
-        <div class="info-section">
-          <div class="text-center mb-10">
-            <h2 class="section-heading">Information for Effective Technical Consultation</h2>
+        <div class="philosophy-card animate-fade-in-up">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Technology Integration Philosophy</h2>
             <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
-            <p class="text-gray-700 max-w-3xl mx-auto">
-              Prepare your inquiry for the most efficient and productive technical discussion.
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+              Our engineering designs can be integrated with your preferred technologies — we maintain no brand bias.
             </p>
           </div>
           
-          <div class="grid md:grid-cols-2 gap-10">
-            <div>
-              <h4 class="text-lg font-semibold mb-4 text-gray-800">To Expedite Your Technical Inquiry</h4>
-              <ul class="space-y-4 text-gray-700">
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-green-500 mt-0.5"></i>
-                  <span class="flex-1">Provide specific technical requirements and objectives</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-green-500 mt-0.5"></i>
-                  <span class="flex-1">Share existing drawings, specifications, or reference materials</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-green-500 mt-0.5"></i>
-                  <span class="flex-1">Indicate project timeline and budget parameters</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-green-500 mt-0.5"></i>
-                  <span class="flex-1">Specify any technology preferences or constraints</span>
-                </li>
-              </ul>
+          <div class="grid md:grid-cols-3 gap-8 mb-10">
+            <div class="text-center p-6">
+              <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-crown text-blue-600 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Customer-Preferred Technologies</h3>
+              <p class="text-gray-600">
+                We design around your existing technology investments and preferred suppliers.
+              </p>
             </div>
             
-            <div>
-              <h4 class="text-lg font-semibold mb-4 text-gray-800">What to Expect in Our Response</h4>
-              <ul class="space-y-4 text-gray-700">
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-green-500 mt-0.5"></i>
-                  <span class="flex-1">Technical feasibility assessment and recommendations</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-green-500 mt-0.5"></i>
-                  <span class="flex-1">Preliminary engineering approach and methodology</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-green-500 mt-0.5"></i>
-                  <span class="flex-1">Realistic timeline and resource estimates</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <i class="fas fa-check text-green-500 mt-0.5"></i>
-                  <span class="flex-1">Engagement model and collaboration recommendations</span>
-                </li>
-              </ul>
+            <div class="text-center p-6">
+              <div class="w-16 h-16 mx-auto bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-industry text-indigo-600 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Industry-Standard Platforms</h3>
+              <p class="text-gray-600">
+                Designs compatible with major automation platforms and control systems.
+              </p>
+            </div>
+            
+            <div class="text-center p-6">
+              <div class="w-16 h-16 mx-auto bg-cyan-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-exchange-alt text-cyan-600 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Equivalent Alternatives</h3>
+              <p class="text-gray-600">
+                Where required, we evaluate and recommend technically equivalent alternatives.
+              </p>
             </div>
           </div>
           
-          <div class="mt-10 pt-6 border-t border-blue-200">
-            <div class="flex flex-wrap gap-3 justify-center">
-              <span class="response-badge">
-                <i class="fas fa-file-contract"></i> Technical Proposals
-              </span>
-              <span class="response-badge">
-                <i class="fas fa-calendar-check"></i> Scheduled Technical Calls
-              </span>
-              <span class="response-badge">
-                <i class="fas fa-cogs"></i> Engineering Approach
-              </span>
-              <span class="response-badge">
-                <i class="fas fa-clock"></i> Timeline Estimates
-              </span>
+          <div class="text-center">
+            <p class="text-gray-700 font-medium italic max-w-2xl mx-auto">
+              "Component and technology selection is driven by application needs, performance requirements, and customer approval — not brand preferences."
+            </p>
+          </div>
+        </div>
+
+        <!-- Technology Compatibility -->
+        <div class="mt-12">
+          <h3 class="text-2xl font-bold mb-6 text-center text-gray-900">Technology Compatibility</h3>
+          
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold mb-4 text-gray-800">Automation Platforms</h4>
+              <div>
+                <span class="tech-badge platform">Siemens</span>
+                <span class="tech-badge platform">Rockwell Automation</span>
+                <span class="tech-badge platform">Beckhoff</span>
+                <span class="tech-badge platform">B&R Automation</span>
+                <span class="tech-badge platform">Mitsubishi</span>
+              </div>
+            </div>
+            
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold mb-4 text-gray-800">Communication Standards</h4>
+              <div>
+                <span class="tech-badge standard">PROFINET</span>
+                <span class="tech-badge standard">EtherNet/IP</span>
+                <span class="tech-badge standard">Modbus TCP</span>
+                <span class="tech-badge standard">OPC UA</span>
+                <span class="tech-badge standard">EtherCAT</span>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-gray-800">Component Integration</h4>
+              <div>
+                <span class="tech-badge component">Robots (all major brands)</span>
+                <span class="tech-badge component">Vision Systems</span>
+                <span class="tech-badge component">Sensors & Actuators</span>
+                <span class="tech-badge component">Safety Systems</span>
+                <span class="tech-badge component">HMI/SCADA</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Service Areas -->
-    <section class="bg-gray-50 section-padding">
-      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
-        <div class="text-center mb-12">
-          <h2 class="section-heading">Primary Engineering Services</h2>
-          <p class="section-subheading max-w-3xl mx-auto">
-            Specialized engineering services for industries where technical accuracy and reliability are critical.
-          </p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors text-center">
-            <div class="w-12 h-12 mx-auto bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <i class="fas fa-cogs text-blue-600"></i>
-            </div>
-            <h3 class="text-lg font-bold mb-3 text-gray-900">Mechanical Design</h3>
-            <p class="text-gray-600 text-sm">3D CAD modeling, manufacturing drawings, component design.</p>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors text-center">
-            <div class="w-12 h-12 mx-auto bg-green-100 rounded-lg flex items-center justify-center mb-4">
-              <i class="fas fa-robot text-green-600"></i>
-            </div>
-            <h3 class="text-lg font-bold mb-3 text-gray-900">Automation Systems</h3>
-            <p class="text-gray-600 text-sm">Robotic cells, assembly lines, material handling systems.</p>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors text-center">
-            <div class="w-12 h-12 mx-auto bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-              <i class="fas fa-lightbulb text-purple-600"></i>
-            </div>
-            <h3 class="text-lg font-bold mb-3 text-gray-900">R&D Engineering</h3>
-            <p class="text-gray-600 text-sm">Concept development, feasibility studies, prototyping.</p>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors text-center">
-            <div class="w-12 h-12 mx-auto bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-              <i class="fas fa-project-diagram text-orange-600"></i>
-            </div>
-            <h3 class="text-lg font-bold mb-3 text-gray-900">System Integration</h3>
-            <p class="text-gray-600 text-sm">Technical integration planning, interface design.</p>
-          </div>
-        </div>
-
-        <div class="text-center mt-10">
-          <a href="engineering-services.html" class="inline-flex items-center text-orange-600 font-bold text-lg hover:text-orange-700">
-            View All Engineering Services
-            <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA - Clean Professional -->
+    <!-- Cost Optimization Section -->
     <section class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
-        <div class="text-center">
-          <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-12 border border-orange-200">
-            <div class="max-w-2xl mx-auto">
-              <h3 class="text-3xl font-bold text-gray-900 mb-6">
-                Ready to Start Your Engineering Project?
-              </h3>
-              
-              <p class="text-xl text-gray-700 mb-8">
-                Discuss your requirements directly with our founder. No sales pitches — just technical expertise and practical engineering solutions.
+        <div class="cost-optimization animate-fade-in-up">
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div class="md:w-1/4 text-center md:text-left">
+              <div class="w-16 h-16 mx-auto md:mx-0 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+              </div>
+            </div>
+            
+            <div class="md:w-3/4">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Cost Optimization Approach</h3>
+              <p class="text-gray-700 mb-4">
+                Where required, we support cost optimization through careful evaluation of component alternatives, while ensuring:
               </p>
               
-              <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="#contact-form" class="btn-primary text-lg px-10 py-4">
-                  <i class="fas fa-file-alt mr-2"></i>Submit Technical Inquiry
-                </a>
-                <a href="tel:+4915566478752" class="btn-secondary text-lg px-10 py-4">
-                  <i class="fas fa-phone mr-2"></i>Call +49 155 664 78752
-                </a>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-gray-900">Technical Compatibility</p>
+                    <p class="text-gray-600 text-sm">Equivalent technical specifications and performance</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-gray-900">Reliability Assurance</p>
+                    <p class="text-gray-600 text-sm">Proven reliability and appropriate service life</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-gray-900">Customer Approval</p>
+                    <p class="text-gray-600 text-sm">Full transparency and approval before implementation</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-gray-900">Supply Chain Stability</p>
+                    <p class="text-gray-600 text-sm">Available supply and reasonable lead times</p>
+                  </div>
+                </div>
               </div>
               
-              <div class="mt-8 pt-6 border-t border-orange-200">
-                <p class="text-gray-600 text-sm">
-                  <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                  Direct founder response within 24 hours
+              <div class="mt-6 p-4 bg-white rounded-lg border border-green-200">
+                <p class="text-green-800 font-medium">
+                  <i class="fas fa-info-circle mr-2"></i>
+                  All optimization recommendations include technical justification and risk assessment.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- NEW: Professional System Integration Process Timeline -->
+        <div class="mt-16">
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">System Integration Process</h3>
+          
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="timeline-container">
+              <div class="timeline-line"></div>
+              
+              <!-- Step 1 -->
+              <div class="timeline-step">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-clipboard-list text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Requirements Analysis</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Comprehensive analysis of technical requirements, production goals, and integration constraints.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 2 -->
+              <div class="timeline-step">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-lightbulb text-purple-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Concept Development</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Creation of system architecture, workflow diagrams, and preliminary design concepts.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 3 -->
+              <div class="timeline-step">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-cogs text-indigo-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Detailed Design</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Complete engineering documentation including 3D models, schematics, and specifications.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 4 -->
+              <div class="timeline-step">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-puzzle-piece text-cyan-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Interface Definition</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Specification of all mechanical, electrical, and software interfaces between components.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 5 -->
+              <div class="timeline-step">
+                <div class="timeline-number">5</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-file-contract text-green-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Documentation & Handover</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Complete documentation package including integration manuals, wiring diagrams, and acceptance criteria.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+              <p class="text-gray-700">
+                Each phase includes client review and approval before proceeding to the next.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Application Examples -->
+        <div class="mt-16">
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">Typical Applications</h3>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="application-example">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-cogs text-blue-600"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900">Special Purpose Machines</h4>
+              </div>
+              <p class="text-gray-600">
+                Custom machines for specific manufacturing processes, testing, or assembly operations.
+              </p>
+            </div>
+            
+            <div class="application-example">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-robot text-green-600"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900">Automated Assembly Systems</h4>
+              </div>
+              <p class="text-gray-600">
+                Complete assembly lines with robotic workstations, vision inspection, and quality control.
+              </p>
+            </div>
+            
+            <div class="application-example">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-eye text-purple-600"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900">Vision-Guided Handling</h4>
+              </div>
+              <p class="text-gray-600">
+                Robotic systems with vision guidance for part identification, orientation, and placement.
+              </p>
+            </div>
+            
+            <div class="application-example">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-tools text-orange-600"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900">Production Tooling & Fixtures</h4>
+              </div>
+              <p class="text-gray-600">
+                Custom tooling, fixtures, and end-effectors for automated manufacturing processes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="mt-16 text-center">
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-10 border border-blue-200">
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Start Your Automation Project</h3>
+            <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+              Discuss your automation requirements with our engineering team. We'll provide integration-ready designs that work with your preferred technologies.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+              <a href="contact.html" class="btn-primary text-lg px-10 py-4">
+                <i class="fas fa-comment-dots mr-2"></i>Discuss Automation Project
+              </a>
+              <a href="industries.html" class="btn-secondary text-lg px-10 py-4">
+                <i class="fas fa-industry mr-2"></i>View Industry Applications
+              </a>
+            </div>
+            
+            <p class="text-gray-600 mt-6 text-sm">
+              <i class="fas fa-clock mr-2"></i>
+              Technical discussion scheduled within 48 hours
+            </p>
           </div>
         </div>
       </div>
@@ -1178,88 +1083,7 @@
       });
     });
 
-    // Form submission with validation
-    document.getElementById('technicalInquiryForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Basic form validation
-      const requiredFields = ['projectType', 'projectTimeline', 'contactName', 'companyName', 'country', 'email', 'technicalDetails'];
-      let isValid = true;
-      
-      // Clear previous error states
-      document.querySelectorAll('.form-error').forEach(el => el.classList.remove('form-error'));
-      document.querySelectorAll('.error-message').forEach(el => el.remove());
-      
-      // Validate required fields
-      requiredFields.forEach(fieldId => {
-        const field = document.getElementById(fieldId);
-        if (!field.value.trim()) {
-          isValid = false;
-          field.classList.add('form-error');
-          
-          // Create error message
-          const errorMsg = document.createElement('div');
-          errorMsg.className = 'error-message';
-          errorMsg.textContent = 'This field is required';
-          field.parentNode.appendChild(errorMsg);
-        }
-      });
-      
-      // Email validation
-      const emailField = document.getElementById('email');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (emailField.value && !emailRegex.test(emailField.value)) {
-        isValid = false;
-        emailField.classList.add('form-error');
-        
-        const errorMsg = document.createElement('div');
-        errorMsg.className = 'error-message';
-        errorMsg.textContent = 'Please enter a valid email address';
-        emailField.parentNode.appendChild(errorMsg);
-      }
-      
-      if (!isValid) {
-        // Scroll to first error
-        const firstError = document.querySelector('.form-error');
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          firstError.focus();
-        }
-        return;
-      }
-      
-      // Get form data for confirmation message
-      const projectType = document.getElementById('projectType').value;
-      const timeline = document.getElementById('projectTimeline').value;
-      const technicalProposal = document.getElementById('technicalProposal').checked;
-      const ndaRequired = document.getElementById('ndaRequired').checked;
-      
-      // Create confirmation message
-      let message = 'Thank you for your technical inquiry. Your submission has been received by our engineering team.';
-      
-      if (technicalProposal) {
-        message += ' A detailed technical proposal will be prepared and sent within 3 business days.';
-      }
-      
-      if (ndaRequired) {
-        message += ' We will send an NDA for your review before proceeding with detailed technical discussions.';
-      }
-      
-      if (timeline === 'immediate') {
-        message += ' Given your immediate timeline, we will prioritize your inquiry and contact you within 2 hours.';
-      }
-      
-      // Show confirmation
-      alert(message);
-      
-      // Reset form
-      this.reset();
-      
-      // Scroll to top of form
-      document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Animation for cards on scroll
+    // Animation for capability cards on scroll
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -1274,12 +1098,20 @@
       });
     }, observerOptions);
 
-    // Observe cards for animation
-    document.querySelectorAll('.contact-form-card, .founder-card, .response-timeline, .office-card').forEach(card => {
+    // Observe capability cards for animation
+    document.querySelectorAll('.capability-card').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(20px)';
       card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(card);
+    });
+
+    // Observe timeline items for animation
+    document.querySelectorAll('.timeline-step').forEach((step, index) => {
+      step.style.opacity = '0';
+      step.style.transform = 'translateX(-20px)';
+      step.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+      observer.observe(step);
     });
   </script>
   
