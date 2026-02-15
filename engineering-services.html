@@ -871,16 +871,17 @@
     </section>
   </main>
 
-  <!-- Footer - Fixed with consistent structure -->
+  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
     <div class="container mx-auto px-6 lg:px-12">
+      <!-- Main Footer Grid (Your existing 4 columns) -->
       <div class="grid md:grid-cols-4 gap-10 mb-10">
         <div>
           <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" 
                alt="J-Techno Engineering Logo" 
-               class="h-16 mb-4">
+               class="h-16 mb-4" />
           <p class="text-gray-400">
-            Professional engineering services for industrial systems — R&D, design, simulation, and documentation aligned with German engineering standards.
+            Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards.
           </p>
         </div>
         
@@ -890,7 +891,7 @@
             <div><a href="engineering-services.html">R&D & Concept Engineering</a></div>
             <div><a href="engineering-services.html">Mechanical Design</a></div>
             <div><a href="engineering-services.html">Simulation & Validation</a></div>
-            <div><a href="engineering-services.html">Technical Documentation</a></div>
+            <div><a href="automation-integration.html">Automation Design</a></div>
           </div>
         </div>
         
@@ -908,30 +909,43 @@
           <h4 class="text-white font-bold text-lg mb-4">Contact Engineering Team</h4>
           <div class="space-y-3">
             <p class="flex items-center gap-2">
-              <i class="fas fa-globe text-gray-400" aria-hidden="true"></i>
+              <i class="fas fa-globe text-gray-400"></i>
               <span>Germany & India Engineering</span>
             </p>
             <p class="flex items-center gap-2">
-              <i class="fas fa-envelope text-gray-400" aria-hidden="true"></i>
+              <i class="fas fa-envelope text-gray-400"></i>
               <a href="mailto:info@jtechnoengineering.com" class="hover:text-orange-400">info@jtechnoengineering.com</a>
             </p>
             <p class="flex items-center gap-2">
-              <i class="fas fa-phone text-gray-400" aria-hidden="true"></i>
+              <i class="fas fa-phone text-gray-400"></i>
               <span>DE: +49 155 664 78752</span>
             </p>
             <p class="flex items-center gap-2">
-              <i class="fas fa-user-graduate text-gray-400" aria-hidden="true"></i>
+              <i class="fas fa-user-graduate text-gray-400"></i>
               <span>M.Sc. Mechanical Engineering</span>
             </p>
           </div>
         </div>
       </div>
-      
-      <div class="border-t border-gray-800 pt-8 text-center">
-        <p class="text-gray-500 text-sm">
-          © 2025 J-Techno Engineering. All rights reserved. | Engineering & Automation Design Partner
+
+      <!-- Legal Information Section -->
+      <div class="border-t border-gray-800 pt-8 mt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p class="text-gray-500 text-sm">
+            © 2025 J-Techno Engineering. All rights reserved.
+          </p>
+          <div class="flex items-center gap-3 text-sm">
+            <a href="impressum_full.html" class="text-gray-400 hover:text-orange-400 transition-colors">Impressum</a>
+            <span class="text-gray-600">|</span>
+            <a href="privacy-policy.html" class="text-gray-400 hover:text-orange-400 transition-colors">Privacy Policy</a>
+            <span class="text-gray-600">|</span>
+            <a href="privacy-policy.html" class="text-gray-400 hover:text-orange-400 transition-colors">Datenschutz</a>
+          </div>
+        </div>
+        <p class="text-gray-600 text-xs mt-3 text-center">
+          Proprietor: [Vipul Rameshbhai Joshina] | Registered: Surat, India
         </p>
-        <p class="text-gray-600 text-xs mt-2">German engineering standards with international execution efficiency</p>
+        <p class="text-gray-600 text-xs mt-2 text-center">German engineering mindset with international execution efficiency</p>
       </div>
     </div>
   </footer>
@@ -1015,5 +1029,139 @@
       observer.observe(image);
     });
   </script>
+  
+  <!-- Cookie Consent Banner - START -->
+<style>
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+  display: none;
+}
+#cookie-banner.show {
+  display: block;
+}
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.cookie-text {
+  flex: 1;
+  min-width: 300px;
+}
+.cookie-text p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cookie-text a {
+  color: #4da6ff;
+  text-decoration: underline;
+}
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cookie-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.cookie-btn:hover {
+  opacity: 0.9;
+}
+.btn-accept-cookies {
+  background: #0066cc;
+  color: white;
+}
+.btn-decline-cookies {
+  background: #666;
+  color: white;
+}
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-buttons {
+    width: 100%;
+  }
+  .cookie-btn {
+    flex: 1;
+  }
+}
+</style>
+
+<div id="cookie-banner">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <p>
+        <strong>🍪 We value your privacy</strong><br>
+        This website uses only essential cookies necessary for functionality. 
+        We do not use tracking or analytics cookies without your consent.
+        <a href="privacy-policy.html" target="_blank">Learn more</a>
+      </p>
+      <p style="font-size: 12px; color: #ccc;">
+        By clicking "Accept", you agree to our use of essential cookies. 
+        No analytics tracking is active unless you explicitly opt-in.
+      </p>
+    </div>
+    <div class="cookie-buttons">
+      <button class="cookie-btn btn-accept-cookies" onclick="acceptCookies()">Accept</button>
+      <button class="cookie-btn btn-decline-cookies" onclick="declineCookies()">Decline</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Cookie Banner Logic
+(function() {
+  'use strict';
+  
+  function getCookieConsent() {
+    const consent = localStorage.getItem('cookieConsent');
+    return consent;
+  }
+  
+  function showBannerIfNeeded() {
+    const consent = getCookieConsent();
+    if (!consent) {
+      document.getElementById('cookie-banner').classList.add('show');
+    }
+  }
+  
+  window.acceptCookies = function() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-banner').classList.remove('show');
+  };
+  
+  window.declineCookies = function() {
+    localStorage.setItem('cookieConsent', 'declined');
+    document.getElementById('cookie-banner').classList.remove('show');
+  };
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    showBannerIfNeeded();
+  });
+})();
+</script>
+<!-- Cookie Consent Banner - END -->
+
 </body>
 </html>
