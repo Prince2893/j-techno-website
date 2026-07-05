@@ -312,6 +312,73 @@
       background-size: 42px 42px;
       pointer-events: none;
     }
+
+    /* ---- HMI panel: animated CSS-only automation system visual ---- */
+    @keyframes armSwingUpper { 0%, 100% { transform: rotate(-16deg); } 50% { transform: rotate(16deg); } }
+    @keyframes armSwingLower { 0%, 100% { transform: rotate(22deg); } 50% { transform: rotate(-26deg); } }
+    @keyframes jointGlow { 0%, 100% { box-shadow: 0 0 9px 2px rgba(249,115,22,0.5); } 50% { box-shadow: 0 0 17px 6px rgba(249,115,22,0.85); } }
+    @keyframes pulseDot { 0%, 100% { opacity: 1; box-shadow: 0 0 7px 2px rgba(52,211,153,0.65); } 50% { opacity: 0.35; box-shadow: 0 0 2px 0 rgba(52,211,153,0.3); } }
+    @keyframes nodePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes radarSweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes conveyorMove { from { background-position: 0 0; } to { background-position: -40px 0; } }
+
+    .hmi-panel { background: #0A0F1E; border: 1px solid rgba(249,115,22,0.35); position: relative; }
+    .hmi-stage { position: relative; height: 380px; overflow: hidden; }
+    .hmi-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 58%, rgba(249,115,22,0.16), transparent 62%);
+      pointer-events: none;
+    }
+    .arm-base {
+      position: absolute; bottom: 58px; left: 50%; transform: translateX(-50%);
+      width: 88px; height: 26px; background: linear-gradient(180deg,#2b3344,#171d29);
+      border: 1px solid rgba(255,255,255,0.18); border-radius: 3px;
+    }
+    .arm-upper {
+      position: absolute; bottom: 24px; left: 50%; width: 12px; height: 118px; margin-left: -6px;
+      background: linear-gradient(180deg,#f97316,#ea580c); border-radius: 3px;
+      transform-origin: bottom center; animation: armSwingUpper 8s ease-in-out infinite;
+    }
+    .arm-joint {
+      position: absolute; top: -10px; left: 50%; width: 22px; height: 22px; margin-left: -11px;
+      background: #10161F; border: 2px solid #f97316; border-radius: 50%;
+      animation: jointGlow 2.6s ease-in-out infinite;
+    }
+    .arm-lower {
+      position: absolute; top: -96px; left: 50%; width: 10px; height: 96px; margin-left: -5px;
+      background: linear-gradient(180deg,#e5e7eb,#9ca3af); border-radius: 3px;
+      transform-origin: bottom center; animation: armSwingLower 6s ease-in-out infinite;
+    }
+    .arm-gripper {
+      position: absolute; top: -18px; left: 50%; width: 28px; height: 18px; margin-left: -14px;
+      border: 2px solid #f97316; border-top: none; border-radius: 0 0 8px 8px;
+    }
+    .hmi-node {
+      position: absolute; background: rgba(255,255,255,0.045); border: 1px solid rgba(249,115,22,0.4);
+      border-radius: 2px; padding: 7px 11px; animation: nodePulse 3.6s ease-in-out infinite;
+    }
+    .hmi-node .lbl { font-size: 9px; letter-spacing: .05em; color: #fdba74; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; }
+    .hmi-node .val { font-size: 10.5px; color: #e5e7eb; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; margin-top: 2px; white-space: nowrap; }
+    .hmi-radar {
+      position: absolute; top: 20px; right: 20px; width: 62px; height: 62px; border-radius: 50%;
+      border: 1px solid rgba(249,115,22,0.35); overflow: hidden;
+    }
+    .hmi-radar::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(249,115,22,0.65), transparent 32%);
+      animation: radarSweep 3s linear infinite;
+    }
+    .hmi-radar::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: #0A0F1E; }
+    .hmi-radar-dot { position: absolute; top: 50%; left: 50%; width: 5px; height: 5px; margin: -2.5px; border-radius: 50%; background: #f97316; z-index: 2; }
+    .hmi-radar-label { position: absolute; top: 86px; right: 12px; font-size: 9px; letter-spacing: .05em; color: #fdba74; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; }
+    .hmi-conveyor {
+      position: absolute; left: 20px; right: 20px; bottom: 22px; height: 5px; border-radius: 2px;
+      background-image: repeating-linear-gradient(90deg, rgba(249,115,22,0.65) 0 14px, transparent 14px 24px);
+      animation: conveyorMove 1s linear infinite; opacity: 0.7;
+    }
+    .hmi-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 26s linear infinite; }
+    .hmi-marquee-track span { font-size: 10px; color: #fdba74; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; padding-right: 2.5rem; }
   </style>
 
   <!-- FIXED: Schema markup with full URL -->
@@ -416,56 +483,77 @@
               </div>
 
               <!-- Trust Indicators -->
-              <div class="border-t border-white border-opacity-10 pt-8 mt-2 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-xl">
+              <div class="border-t border-white border-opacity-10 pt-8 mt-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 <div>
-                  <div class="trust-stat-number">2015</div>
-                  <div class="text-sm text-gray-400 font-medium">Engineering in German Industry Since</div>
+                  <div class="trust-stat-number" style="font-size:1.5rem; white-space:nowrap;">2015</div>
+                  <div class="text-xs text-gray-400 font-medium mt-1">Engineering Since</div>
                 </div>
                 <div>
-                  <div class="trust-stat-number">24-48h</div>
-                  <div class="text-sm text-gray-400 font-medium">Initial Response</div>
+                  <div class="trust-stat-number" style="font-size:1.5rem; white-space:nowrap;">24-48h</div>
+                  <div class="text-xs text-gray-400 font-medium mt-1">Initial Response</div>
                 </div>
                 <div>
-                  <div class="trust-stat-number">Founder-Led</div>
-                  <div class="text-sm text-gray-400 font-medium">Germany + India Engineering Model</div>
+                  <div class="trust-stat-number" style="font-size:1.5rem; white-space:nowrap;">DIN/ISO</div>
+                  <div class="text-xs text-gray-400 font-medium mt-1">Standards</div>
+                </div>
+                <div>
+                  <div class="trust-stat-number" style="font-size:1.5rem; white-space:nowrap;">DE+IN</div>
+                  <div class="text-xs text-gray-400 font-medium mt-1">Delivery Model</div>
+                </div>
+                <div>
+                  <div class="trust-stat-number" style="font-size:1.5rem; white-space:nowrap;">Founder-Led</div>
+                  <div class="text-xs text-gray-400 font-medium mt-1">Direct Access</div>
                 </div>
               </div>
             </div>
 
-            <!-- CAD viewport: a dimensioned technical drawing excerpt -->
-            <div class="hidden lg:block relative flex-shrink-0 tech-frame" style="width:340px; background:rgba(255,255,255,0.035); border:1px solid rgba(255,255,255,0.14);" aria-hidden="true">
-              <svg viewBox="0 0 340 260" width="340" height="260">
-                <!-- centerlines -->
-                <line x1="150" y1="14" x2="150" y2="246" stroke="rgba(255,255,255,0.22)" stroke-width="1" stroke-dasharray="9 4 2 4"/>
-                <line x1="14" y1="150" x2="286" y2="150" stroke="rgba(255,255,255,0.22)" stroke-width="1" stroke-dasharray="9 4 2 4"/>
-                <!-- bore circle -->
-                <circle cx="150" cy="150" r="52" stroke="#9CA3AF" stroke-width="1.4" fill="none"/>
-                <circle cx="150" cy="150" r="2.5" fill="#9CA3AF"/>
-                <!-- diameter dimension -->
-                <line x1="98" y1="216" x2="202" y2="216" stroke="#f97316" stroke-width="1"/>
-                <line x1="98" y1="209" x2="98" y2="223" stroke="#f97316" stroke-width="1"/>
-                <line x1="202" y1="209" x2="202" y2="223" stroke="#f97316" stroke-width="1"/>
-                <text x="150" y="238" text-anchor="middle" font-family="'SF Mono','IBM Plex Mono',Consolas,monospace" font-size="11" fill="#fdba74">&#8960;104 H7</text>
-                <!-- mounting plate -->
-                <rect x="220" y="40" width="70" height="46" stroke="#9CA3AF" stroke-width="1.4" fill="none"/>
-                <!-- leader + datum flag -->
-                <line x1="220" y1="63" x2="196" y2="46" stroke="#9CA3AF" stroke-width="1"/>
-                <circle cx="190" cy="40" r="9" stroke="#f97316" stroke-width="1.2" fill="none"/>
-                <text x="190" y="44" text-anchor="middle" font-family="'SF Mono',monospace" font-size="10" fill="#fdba74">A</text>
-                <!-- GD&amp;T feature control frame -->
-                <g transform="translate(220,96)">
-                  <rect x="0" y="0" width="24" height="20" stroke="#9CA3AF" stroke-width="1" fill="none"/>
-                  <text x="12" y="14" text-anchor="middle" font-family="monospace" font-size="12" fill="#e5e7eb">&#8869;</text>
-                  <rect x="24" y="0" width="36" height="20" stroke="#9CA3AF" stroke-width="1" fill="none"/>
-                  <text x="42" y="14" text-anchor="middle" font-family="'SF Mono',monospace" font-size="10" fill="#e5e7eb">0.02</text>
-                  <rect x="60" y="0" width="24" height="20" stroke="#f97316" stroke-width="1.3" fill="none"/>
-                  <text x="72" y="14" text-anchor="middle" font-family="'SF Mono',monospace" font-size="10" fill="#fdba74">A</text>
-                </g>
-              </svg>
-              <div class="flex items-center justify-between px-4 py-3" style="border-top:1px solid rgba(255,255,255,0.14);">
-                <span style="font-size:10px; color:#9CA3AF; font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">CE-DOC-04</span>
-                <span style="font-size:10px; color:#9CA3AF; font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">SCALE 1:2</span>
-                <span style="font-size:10px; color:#fdba74; font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">REV A</span>
+            <!-- HMI panel: animated CSS-only automation system visual -->
+            <div class="hidden lg:block relative flex-shrink-0 hmi-panel" style="width:480px;" aria-hidden="true">
+              <div class="flex items-center justify-between px-4 py-3" style="border-bottom:1px solid rgba(249,115,22,0.25);">
+                <span style="font-size:10px; letter-spacing:.08em; color:#f97316; font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">SYSTEM STATUS</span>
+                <span class="flex items-center gap-1.5">
+                  <span style="width:6px;height:6px;border-radius:50%;background:#34d399;display:inline-block;animation:pulseDot 2s ease-in-out infinite;"></span>
+                  <span style="font-size:9px;color:#6ee7b7;font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">LIVE</span>
+                </span>
+              </div>
+
+              <div class="hmi-stage">
+                <div class="hmi-glow"></div>
+
+                <div class="arm-base">
+                  <div class="arm-upper">
+                    <div class="arm-joint"></div>
+                    <div class="arm-lower">
+                      <div class="arm-gripper"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hmi-radar"></div>
+                <div class="hmi-radar-dot"></div>
+                <div class="hmi-radar-label">SENSING</div>
+
+                <div class="hmi-conveyor"></div>
+
+                <div class="hmi-node" style="top:26px; left:20px;">
+                  <div class="lbl">MOTION CONTROL</div>
+                  <div class="val">MULTI-AXIS SYNC</div>
+                </div>
+                <div class="hmi-node" style="top:130px; left:20px; animation-delay:1.1s;">
+                  <div class="lbl">SAFETY DESIGN</div>
+                  <div class="val">FAIL-SAFE CIRCUITS</div>
+                </div>
+                <div class="hmi-node" style="bottom:44px; right:20px; animation-delay:2.2s;">
+                  <div class="lbl">NETWORKING</div>
+                  <div class="val">PROFINET / ETHERCAT</div>
+                </div>
+              </div>
+
+              <div class="overflow-hidden" style="border-top:1px solid rgba(249,115,22,0.25); padding:8px 0;">
+                <div class="hmi-marquee-track">
+                  <span>MULTI-AXIS MOTION CONTROL &nbsp;·&nbsp; MACHINE VISION &amp; SENSING &nbsp;·&nbsp; FAIL-SAFE SAFETY CIRCUITS &nbsp;·&nbsp; INDUSTRIAL NETWORKING &nbsp;·&nbsp; SUPPLIER-NEUTRAL SYSTEM INTEGRATION &nbsp;·&nbsp;</span>
+                  <span>MULTI-AXIS MOTION CONTROL &nbsp;·&nbsp; MACHINE VISION &amp; SENSING &nbsp;·&nbsp; FAIL-SAFE SAFETY CIRCUITS &nbsp;·&nbsp; INDUSTRIAL NETWORKING &nbsp;·&nbsp; SUPPLIER-NEUTRAL SYSTEM INTEGRATION &nbsp;·&nbsp;</span>
+                </div>
               </div>
             </div>
           </div>
@@ -666,8 +754,8 @@
             <div class="line-icon" style="margin-left:auto;margin-right:auto;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20h4M6 20v-4l4-2V9l5-3M15 6a2 2 0 100-4 2 2 0 000 4zM10 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
             </div>
-            <h3 class="text-lg font-bold mb-2">KUKA &amp; Automation Specialization</h3>
-            <p class="text-gray-600">Robotic cell design and automation system integration experience.</p>
+            <h3 class="text-lg font-bold mb-2">Complete Automation System Integration</h3>
+            <p class="text-gray-600">Motion control, robotics, vision, safety, and networking — engineered as one integrated system, not just individual components.</p>
           </div>
 
           <div class="text-center">
@@ -787,7 +875,7 @@
             <span class="badge-outline">MD 2006/42/EC</span>
             <span class="badge-outline">ISO 12100 — Risk Assessment</span>
             <span class="badge-outline">IEC/IEEE 82079-1 — Documentation</span>
-            <span class="badge-outline">KUKA Robotics Integration Experience</span>
+            <span class="badge-outline">Automation System Integration</span>
             <span class="badge-outline">M.Sc. Mechanical Engineering — Leibniz University Hannover</span>
           </div>
         </div>
