@@ -2,7 +2,7 @@
 
 Single source of truth for two linked projects owned by the same person. Written to be handed to any AI tool or a fresh Claude Code session with zero prior context — it states only the current, correct state, not the history of how it got there. If something below conflicts with what you find in the actual code, trust the code and treat this file as stale on that one point.
 
-**Last verified accurate:** 2026-07-05, both repos pushed and matching their remotes.
+**Last verified accurate:** 2026-07-05, both repos pushed and matching their remotes. Mistral AI is confirmed live and working in production (owner-confirmed) — **Razorpay is the only integration still outstanding.**
 
 ## 1. Who this is for
 
@@ -47,8 +47,8 @@ No templating: every page has its own copy-pasted `<header>`/`<nav>`/`<footer>` 
   - `prisma-production/schema.prisma` — Postgres, for Render. Migrations in `prisma-production/migrations/`.
   - Any model change needs a migration generated for *both* (dev: `npx prisma migrate dev --name X`; prod: `npx prisma migrate diff --from-schema-datamodel <old-prod-schema> --to-schema-datamodel prisma-production/schema.prisma --script`, saved by hand into a new `prisma-production/migrations/<timestamp>_X/migration.sql`).
 - **Document generation:** `docx.js`, entirely client-side in the browser (`src/services/docxGenerator.ts`).
-- **AI drafting (Step 5 of the wizard):** Mistral AI via the official `@mistralai/mistralai` SDK (`Mistral` is a **named** export, not default), model `mistral-small-latest`, called server-side only via `POST /api/generate`. Key env var: `MISTRAL_API_KEY` — **currently not set anywhere** (empty in local `.env`; unconfirmed whether set on Render). Until set, Step 5 returns a clear "not configured" message in the user's language instead of failing silently.
-- **Billing:** Razorpay (not Stripe — Stripe is invite-only for new India-registered businesses and settles India accounts in INR only). Checkout, webhook signature verification (HMAC-SHA256, raw body), and cancellation all implemented in `server/routes/billing.ts`. Env vars `RAZORPAY_KEY_ID`/`RAZORPAY_KEY_SECRET`/`RAZORPAY_WEBHOOK_SECRET`/`RAZORPAY_PLAN_ID_*` — **currently not set anywhere**. Until set, paid-tier checkout returns "billing not configured"; the Free tier works regardless since it never touches Razorpay.
+- **AI drafting (Step 5 of the wizard):** Mistral AI via the official `@mistralai/mistralai` SDK (`Mistral` is a **named** export, not default), model `mistral-small-latest`, called server-side only via `POST /api/generate`. Key env var: `MISTRAL_API_KEY`. **Live and working in production** — the key is set on Render and Step 5 generates real AI drafts. (Local `.env` may still have this empty; that's fine, it only affects the developer's own machine and falls back to a clear "not configured" message rather than failing silently.)
+- **Billing:** Razorpay (not Stripe — Stripe is invite-only for new India-registered businesses and settles India accounts in INR only). Checkout, webhook signature verification (HMAC-SHA256, raw body), and cancellation all implemented in `server/routes/billing.ts`. Env vars `RAZORPAY_KEY_ID`/`RAZORPAY_KEY_SECRET`/`RAZORPAY_WEBHOOK_SECRET`/`RAZORPAY_PLAN_ID_*` — **this is the one remaining unconfigured integration.** Until set, paid-tier checkout returns "billing not configured"; the Free tier works regardless since it never touches Razorpay. This is the single biggest open item blocking real revenue — see §6.
 - **Auth:** bcryptjs password hashing, opaque server-side session tokens in httpOnly cookies (no JWT).
 - **PDF export:** optional, requires LibreOffice (`soffice`) installed on whatever machine runs the server — falls back to a clear "not available" message if it isn't found. The `.docx` download always works regardless.
 
@@ -72,15 +72,15 @@ Only the **doc-count cap** and the **Free-tier watermark** are actually enforced
 - Both repos are on `main`, pushed, matching their remotes (`ba-generator` @ `a5fc276`, `j-techno-website` @ `f820e68`).
 - Render Blueprint (`render.yaml`) deploys the web service + managed Postgres together. Build command must include `npm install --include=dev` — Render sets `NODE_ENV=production` which makes plain `npm install` skip devDependencies (including `typescript`/`vite`/`@types/react`/`tsx`), breaking the build. This is already fixed in `render.yaml`; don't remove `--include=dev`.
 - The app is live and working at `https://jtechno-ba-generator.onrender.com`.
+- **`MISTRAL_API_KEY` is set on Render and confirmed working** — Step 5 AI drafting is live in production. This integration is complete, no further action needed.
 
 **Not yet done — needs the account owner, not code:**
-1. **Namecheap DNS:** add a CNAME record, Host = `app`, Value = `jtechno-ba-generator.onrender.com`, TTL = Automatic.
-2. **Render custom domain:** on the `jtechno-ba-generator` web service → Settings → Custom Domains → add `app.jtechnoengineering.com`. SSL auto-provisions once the DNS record is detected.
-3. **Real `MISTRAL_API_KEY`** — get one from Mistral's console, set it in Render's environment variables. The SDK call shape was verified against the installed package's own type declarations (not against a live API response, since no key was available while building this) — the very first live call is still worth a manual smoke-test.
-4. **Real Razorpay account** — needed before any paid tier can actually be purchased. Requires: business KYC with Razorpay, one monthly Plan created per paid tier (Starter/Professional/Compliance Suite/Enterprise) with their Plan IDs set as env vars, a webhook pointed at `POST https://app.jtechnoengineering.com/api/billing/webhook` with its secret set as `RAZORPAY_WEBHOOK_SECRET`.
-5. **GST/LUT filing** — exporting SaaS services internationally as an Indian sole proprietorship needs either GST charged on the invoice or a valid Letter of Undertaking (Form GST RFD-11) to zero-rate the export. Needed before real international payments, independent of the Razorpay setup itself.
-6. **Real transactional email** — password-reset links currently just log to the server console (`server/email.ts`); no email provider is wired in.
-7. **Upgrade Render plans** before relying on this for real customers — the free web service spins down after 15 minutes idle (next visitor waits ~30-60s), and free Postgres databases expire after a fixed period.
+1. **Real Razorpay account — the main outstanding item.** Needed before any paid tier can actually be purchased. Requires: business KYC with Razorpay, one monthly Plan created per paid tier (Starter/Professional/Compliance Suite/Enterprise) with their Plan IDs set as env vars (`RAZORPAY_PLAN_ID_STARTER` etc.), the base keys (`RAZORPAY_KEY_ID`/`RAZORPAY_KEY_SECRET`), and a webhook pointed at `POST https://app.jtechnoengineering.com/api/billing/webhook` with its secret set as `RAZORPAY_WEBHOOK_SECRET`. Everything else in the app is done and working around this one gap — Free tier signups, the wizard, and AI drafting all work today regardless of this.
+2. **Namecheap DNS:** add a CNAME record, Host = `app`, Value = `jtechno-ba-generator.onrender.com`, TTL = Automatic.
+3. **Render custom domain:** on the `jtechno-ba-generator` web service → Settings → Custom Domains → add `app.jtechnoengineering.com`. SSL auto-provisions once the DNS record is detected.
+4. **GST/LUT filing** — exporting SaaS services internationally as an Indian sole proprietorship needs either GST charged on the invoice or a valid Letter of Undertaking (Form GST RFD-11) to zero-rate the export. Needed before real international payments — independent of the Razorpay setup itself, but blocks the same goal (taking real money from real customers).
+5. **Real transactional email** — password-reset links currently just log to the server console (`server/email.ts`); no email provider is wired in.
+6. **Upgrade Render plans** before relying on this for real customers — the free web service spins down after 15 minutes idle (next visitor waits ~30-60s), and free Postgres databases expire after a fixed period.
 
 ## 7. Explicitly NOT built (so nobody re-requests these thinking they're missing)
 
