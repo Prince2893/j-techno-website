@@ -81,7 +81,7 @@
     
     .service-card {
       background: white;
-      border-radius: 1rem;
+      border-radius: 0.25rem;
       padding: 2.5rem 2rem;
       border: 1px solid #e5e7eb;
       transition: all 0.3s ease;
@@ -97,8 +97,9 @@
     .card-icon {
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-      border-radius: 0.75rem;
+      background: #FEF0E6;
+      border: 1px solid rgba(249, 115, 22, 0.22);
+      border-radius: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -146,6 +147,7 @@
     }
     
     .stat-number {
+      font-family: 'SF Mono', 'IBM Plex Mono', Consolas, monospace;
       font-size: 2.5rem;
       font-weight: 700;
       color: #f97316;
@@ -197,6 +199,7 @@
       background: rgba(255,255,255,0.03);
     }
     .trust-stat-number {
+      font-family: 'SF Mono', 'IBM Plex Mono', Consolas, monospace;
       font-size: 2.5rem;
       font-weight: 800;
       color: #f97316;
@@ -225,6 +228,89 @@
     #mobileMenu.open {
       max-height: 32rem;
       opacity: 1;
+    }
+
+    /* ---- Visual system: technical drawing sheet ---- */
+    .section-paper { background: #FAF8F4; }
+    .section-paper-alt { background: #F1EDE3; }
+    .section-ink { background: #10161F; }
+
+    .sheet-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'SF Mono', 'IBM Plex Mono', Consolas, monospace;
+      font-size: 0.6875rem;
+      letter-spacing: 0.03em;
+      border: 1px solid currentColor;
+      padding: 2px 7px;
+      margin-right: 0.6rem;
+      opacity: 0.85;
+      vertical-align: 1px;
+    }
+
+    .dim-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      color: #f97316;
+      margin-bottom: 1.25rem;
+    }
+    .dim-rule::before, .dim-rule::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.55;
+    }
+
+    .tech-frame { position: relative; }
+    .tech-frame::before, .tech-frame::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+    }
+    .tech-frame::before {
+      top: -1px; left: -1px;
+      border-top: 2px solid #f97316;
+      border-left: 2px solid #f97316;
+      opacity: 0.65;
+    }
+    .tech-frame::after {
+      bottom: -1px; right: -1px;
+      border-bottom: 2px solid #f97316;
+      border-right: 2px solid #f97316;
+      opacity: 0.65;
+    }
+
+    .line-icon {
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ea580c;
+      border-bottom: 2px solid #f97316;
+      margin-bottom: 1.25rem;
+    }
+    .line-icon svg { width: 26px; height: 26px; }
+
+    .line-icon-light {
+      color: #fdba74;
+      border-bottom-color: rgba(253,186,116,0.55);
+    }
+
+    .blueprint-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 42px 42px;
+      pointer-events: none;
     }
   </style>
 
@@ -300,17 +386,17 @@
 
   <main>
     <!-- Hero Section (Above the Fold) -->
-    <section class="relative overflow-hidden" style="background: linear-gradient(135deg, #111827 0%, #1f2937 100%);">
-      <div class="hero-pattern"></div>
+    <section class="relative overflow-hidden" style="background: linear-gradient(160deg, #10161F 0%, #1B2432 100%);">
+      <div class="blueprint-grid"></div>
       <div class="section-padding relative">
         <div class="container mx-auto px-6 lg:px-12">
           <div class="max-w-3xl animate-fade-in-up">
-            <div class="badge-outline">
+            <div class="badge-outline tech-frame" style="padding-left:1.25rem; padding-right:1.25rem;">
               <i class="fas fa-check-circle"></i>
               <span>Serving German &amp; EU engineering clients</span>
             </div>
 
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-6 mb-6 leading-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-8 mb-6 leading-tight">
               Engineering Precision for Industrial Machinery
               <span class="text-orange-500">— From Concept to CE Compliance</span>
             </h1>
@@ -329,18 +415,18 @@
             </div>
 
             <!-- Trust Indicators -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-4 max-w-xl">
+            <div class="border-t border-white border-opacity-10 pt-8 mt-2 grid grid-cols-2 md:grid-cols-3 gap-6 max-w-xl">
               <div>
-                <div class="trust-stat-number">3+</div>
-                <div class="text-sm text-gray-400 font-medium">Years in German Industry</div>
+                <div class="trust-stat-number">2015</div>
+                <div class="text-sm text-gray-400 font-medium">Engineering in German Industry Since</div>
               </div>
               <div>
                 <div class="trust-stat-number">24-48h</div>
                 <div class="text-sm text-gray-400 font-medium">Initial Response</div>
               </div>
               <div>
-                <div class="trust-stat-number">IN→DE</div>
-                <div class="text-sm text-gray-400 font-medium">Global Execution, German Standards</div>
+                <div class="trust-stat-number">Founder-Led</div>
+                <div class="text-sm text-gray-400 font-medium">Germany + India Engineering Model</div>
               </div>
             </div>
           </div>
@@ -348,21 +434,11 @@
       </div>
     </section>
 
-    <!-- Trust Metrics -->
-    <section class="trust-bar py-12">
-      <div class="container mx-auto px-6 lg:px-12 max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div><div class="trust-stat-number">3+</div><p class="text-gray-300 text-sm mt-2">Years Engineering Experience</p></div>
-        <div><div class="trust-stat-number">6+</div><p class="text-gray-300 text-sm mt-2">Industries Served</p></div>
-        <div><div class="trust-stat-number">DIN/ISO</div><p class="text-gray-300 text-sm mt-2">Standards Compliance</p></div>
-        <div><div class="trust-stat-number">DE+IN</div><p class="text-gray-300 text-sm mt-2">Dual-Location Engineering</p></div>
-      </div>
-    </section>
-
     <!-- What We Do Section -->
-    <section id="what-we-do" class="bg-white section-padding">
+    <section id="what-we-do" class="section-paper section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <p class="eyebrow">Our Services</p>
+          <p class="eyebrow"><span class="sheet-no">01</span>Our Services</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">What We Do</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure">
             J-Techno Engineering provides engineering services across the complete development lifecycle — from concept development and feasibility studies to detailed mechanical design, simulation, and production-ready documentation.
@@ -374,8 +450,8 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="service-card flex flex-col">
-            <div class="card-icon">
-              <i class="fas fa-lightbulb"></i>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18h6M10 21h4M12 3a6 6 0 00-3.6 10.8c.4.3.6.8.6 1.2v.5a1 1 0 001 1h4a1 1 0 001-1v-.5c0-.4.2-.9.6-1.2A6 6 0 0012 3z"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">R&D & Concept Engineering</h3>
             <p class="text-gray-600 flex-grow">Feasibility studies, functional architecture, technology evaluation, and concept development.</p>
@@ -383,8 +459,8 @@
           </div>
 
           <div class="service-card flex flex-col">
-            <div class="card-icon">
-              <i class="fas fa-cogs"></i>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Mechanical & Automation Design</h3>
             <p class="text-gray-600 flex-grow">3D CAD design, manufacturing-ready drawings, Special Purpose Machines (SPM), and automation layouts.</p>
@@ -392,8 +468,8 @@
           </div>
 
           <div class="service-card flex flex-col">
-            <div class="card-icon">
-              <i class="fas fa-chart-line"></i>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 17l4-5 4 3 6-8M15 7h4v4"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Simulation & Design Validation</h3>
             <p class="text-gray-600 flex-grow">FEA analysis, motion simulation, tolerance analysis, and design optimization for reliability.</p>
@@ -401,8 +477,8 @@
           </div>
 
           <div class="service-card flex flex-col">
-            <div class="card-icon">
-              <i class="fas fa-file-contract"></i>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m-7 5h8a2 2 0 002-2V7.414a2 2 0 00-.586-1.414l-3.414-3.414A2 2 0 0012.586 2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Integration-Ready Documentation</h3>
             <p class="text-gray-600 flex-grow">BOMs, technical documentation, supplier-ready data packages, and manufacturing drawings.</p>
@@ -420,14 +496,10 @@
     </section>
 
     <!-- CE DocSuite -->
-    <section id="ba-generator" class="bg-white section-padding" style="scroll-margin-top: 100px;">
+    <section id="ba-generator" class="section-paper-alt section-padding" style="scroll-margin-top: 100px;">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <div class="trust-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>CE Documentation Suite</span>
-          </div>
-
+          <p class="eyebrow"><span class="sheet-no">02</span>The Product</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">CE DocSuite — Complete CE Documentation, Generated Automatically</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure">
             Every document required for CE marking of your machine or automation system — produced in hours, not weeks.
@@ -437,48 +509,48 @@
         <!-- Document types -->
         <div class="grid md:grid-cols-3 gap-6 mb-12">
           <div class="service-card">
-            <div class="card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m-7 5h8a2 2 0 002-2V7.414a2 2 0 00-.586-1.414l-3.414-3.414A2 2 0 0012.586 2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m-7 5h8a2 2 0 002-2V7.414a2 2 0 00-.586-1.414l-3.414-3.414A2 2 0 0012.586 2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Betriebsanleitung (Operating Instructions)</h3>
             <p class="text-gray-600">Machine-specific operating manual per IEC/IEEE 82079-1 and DIN EN ISO 20607. German and English.</p>
           </div>
 
           <div class="service-card">
-            <div class="card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Risikobeurteilung (Risk Assessment)</h3>
             <p class="text-gray-600">Systematic hazard identification and risk estimation per ISO 12100 and Machinery Directive 2006/42/EC.</p>
           </div>
 
           <div class="service-card">
-            <div class="card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Konformitätserklärung (Declaration of Conformity)</h3>
             <p class="text-gray-600">EU Declaration of Conformity with all applicable directives and harmonised standards listed automatically.</p>
           </div>
 
           <div class="service-card">
-            <div class="card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Technische Dokumentation (Technical File – Annex VII)</h3>
             <p class="text-gray-600">Complete technical construction file index structured for Notified Body review.</p>
           </div>
 
           <div class="service-card">
-            <div class="card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5"><rect x="5" y="11" width="14" height="9" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 11V8a4 4 0 018 0v3"/></svg>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="9" rx="2"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 11V8a4 4 0 018 0v3"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Sicherheitskonzept (Safety Concept)</h3>
             <p class="text-gray-600">Safety architecture documentation per ISO 13849 with Performance Level determination.</p>
           </div>
 
           <div class="service-card">
-            <div class="card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a5 5 0 01-6.7 6.7L4.7 22.3a1.5 1.5 0 01-2-2L12.2 10a5 5 0 016.7-6.7l-3.1 3.1z"/></svg>
+            <div class="line-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.1-3.1a5 5 0 01-6.7 6.7L4.7 22.3a1.5 1.5 0 01-2-2L12.2 10a5 5 0 016.7-6.7l-3.1 3.1z"/></svg>
             </div>
             <h3 class="text-xl font-bold mb-4">Wartungs- und Prüfplan (Maintenance Plan)</h3>
             <p class="text-gray-600">Component-specific maintenance schedules and inspection intervals.</p>
@@ -487,14 +559,14 @@
 
         <!-- Pricing summary -->
         <div class="grid md:grid-cols-3 gap-6 mb-10">
-          <div class="bg-white rounded-xl border border-gray-200 p-6 text-center">
+          <div class="bg-white rounded border border-gray-200 p-6 text-center">
             <h3 class="text-lg font-bold mb-1">Free</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€0<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-6">1 document/month</p>
             <a href="https://app.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center">Get Started</a>
           </div>
 
-          <div class="bg-white rounded-xl border-2 border-orange-500 p-6 text-center relative">
+          <div class="bg-white rounded border-2 border-orange-500 p-6 text-center relative">
             <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
             <h3 class="text-lg font-bold mb-1">Professional</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€299<span class="text-sm font-normal text-gray-500">/month</span></p>
@@ -502,7 +574,7 @@
             <a href="https://app.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center">Start Trial</a>
           </div>
 
-          <div class="bg-white rounded-xl border border-gray-200 p-6 text-center">
+          <div class="bg-white rounded border border-gray-200 p-6 text-center">
             <h3 class="text-lg font-bold mb-1">Compliance Suite</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€599<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-6">All 6 document types, unlimited</p>
@@ -523,70 +595,11 @@
       </div>
     </section>
 
-    <!-- Our Engineering Approach -->
-    <section class="bg-gray-50 section-padding">
-      <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
-        <div class="role-card">
-          <div class="text-center mb-8">
-            <p class="eyebrow">Methodology</p>
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Engineering Approach</h2>
-            <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
-          </div>
-          
-          <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                  <i class="fas fa-drafting-compass text-orange-500 text-2xl"></i>
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold mb-2">End-to-End System Design</h3>
-                  <p class="text-gray-700 prose-measure">
-                    We provide complete engineering solutions — from concept to production-ready documentation. Our focus is system design, mechanical integration, and technical validation to ensure your project succeeds.
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                  <i class="fas fa-cogs text-blue-500 text-2xl"></i>
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold mb-2">Integrated Component Selection</h3>
-                  <p class="text-gray-700 prose-measure">
-                    Component selection is integrated into our system design process. We work with your preferred suppliers and standards, selecting components that meet your performance requirements and align with your existing technology ecosystem.
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-              <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                  <i class="fas fa-handshake text-green-500 text-2xl"></i>
-                </div>
-                <div>
-                  <h3 class="text-lg font-bold mb-2">Supplier-Neutral, Customer-First</h3>
-                  <p class="text-gray-700 prose-measure">
-                    We maintain complete neutrality in component and technology selection. Our designs integrate seamlessly with your preferred vendors and platforms — no brand bias, only engineering excellence focused on your project goals.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- REMOVED: The internal discussion line "This clarity ensures we deliver exactly what you need — no confusion, no misalignment." -->
-        </div>
-      </div>
-    </section>
-
     <!-- Why J-Techno Engineering -->
-    <section class="bg-white section-padding">
+    <section class="section-paper section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <p class="eyebrow">Why J-Techno</p>
+          <p class="eyebrow"><span class="sheet-no">03</span>Why J-Techno</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Choose J-Techno Engineering</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure">
             The combination that delivers German engineering quality with international execution efficiency.
@@ -595,96 +608,76 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div class="text-center">
-            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center mb-4">
-              <i class="fas fa-brain text-blue-600 text-2xl"></i>
+            <div class="line-icon" style="margin-left:auto;margin-right:auto;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20L14 4M4 20l6-3M14 4l6 3M8 15l2 1M11 10l2 1"/></svg>
             </div>
             <h3 class="text-lg font-bold mb-2">German Engineering Standards</h3>
             <p class="text-gray-600">Designs and documentation aligned with DIN/ISO/VDI methodology.</p>
           </div>
 
           <div class="text-center">
-            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-green-100 to-green-50 rounded-full flex items-center justify-center mb-4">
-              <i class="fas fa-comments text-green-600 text-2xl"></i>
+            <div class="line-icon" style="margin-left:auto;margin-right:auto;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v6c0 5-3.5 8.5-7 9-3.5-.5-7-4-7-9V6l7-3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
             </div>
             <h3 class="text-lg font-bold mb-2">CE Compliance Expertise</h3>
             <p class="text-gray-600">End-to-end CE documentation (Betriebsanleitung, Risk Assessment, Declaration of Conformity, and more) via CE DocSuite.</p>
           </div>
 
           <div class="text-center">
-            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-purple-100 to-purple-50 rounded-full flex items-center justify-center mb-4">
-              <i class="fas fa-sliders-h text-purple-600 text-2xl"></i>
+            <div class="line-icon" style="margin-left:auto;margin-right:auto;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20h4M6 20v-4l4-2V9l5-3M15 6a2 2 0 100-4 2 2 0 000 4zM10 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
             </div>
             <h3 class="text-lg font-bold mb-2">KUKA &amp; Automation Specialization</h3>
             <p class="text-gray-600">Robotic cell design and automation system integration experience.</p>
           </div>
 
           <div class="text-center">
-            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-orange-100 to-orange-50 rounded-full flex items-center justify-center mb-4">
-              <i class="fas fa-balance-scale text-orange-600 text-2xl"></i>
+            <div class="line-icon" style="margin-left:auto;margin-right:auto;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h11m0 0l-3-3m3 3l-3 3M17 17H6m0 0l3 3m-3-3l3-3"/></svg>
             </div>
-            <h3 class="text-lg font-bold mb-2">India-Based Cost Advantage</h3>
-            <p class="text-gray-600">German engineering standards delivered at a more efficient cost basis for EU clients, via the Germany–India dual-location model.</p>
+            <h3 class="text-lg font-bold mb-2">Germany–India Delivery Model</h3>
+            <p class="text-gray-600">Founder-led technical leadership in Germany, paired with dedicated execution capacity in India — extended coverage without extended timelines.</p>
           </div>
         </div>
 
         <!-- Quality Process Section -->
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100 mt-12">
+        <div class="bg-white rounded-lg p-8 border border-gray-200 mt-12 tech-frame">
           <div class="text-center mb-6">
-            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-4">
-              <i class="fas fa-check-double text-white text-2xl"></i>
-            </div>
+            <p class="eyebrow" style="margin-bottom:0.25rem;">Validation</p>
             <h3 class="text-2xl font-bold mb-3">Design Validation Process</h3>
           </div>
-          <p class="text-gray-700 text-center max-w-4xl mx-auto">
+          <p class="text-gray-700 text-center max-w-4xl mx-auto prose-measure" style="margin-left:auto;margin-right:auto;">
             Every design undergoes systematic validation: concept feasibility review, 3D design review for manufacturing feasibility (DFM), tolerance stack-up analysis, FEA for structural integrity, and motion simulation for mechanism validation. Deliverables are checked against customer specifications and relevant standards (DIN, ISO) before handover. Design iterations are documented, and lessons learned are integrated into future projects.
           </p>
-        </div>
-
-        <!-- CTA Card -->
-        <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100 mt-12">
-          <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 class="text-2xl font-bold mb-2">Ready to Start Your Engineering Project?</h3>
-              <p class="text-gray-700">Discuss your requirements with our engineering team. No sales pitch — just technical expertise.</p>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="contact.html" class="btn-primary whitespace-nowrap">
-  <i class="fas fa-envelope mr-2"></i>Contact Us
-</a>
-              <a href="working-model.html" class="btn-secondary whitespace-nowrap">
-                <i class="fas fa-info-circle mr-2"></i>See How We Work
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- How We Work -->
-    <section class="bg-gray-50 section-padding">
+    <section class="section-paper-alt section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <p class="eyebrow">How We Work</p>
+          <p class="eyebrow"><span class="sheet-no">04</span>How We Work</p>
           <h2 class="text-3xl md:text-4xl font-bold">A Clear, Structured Process</h2>
         </div>
-        <div class="grid md:grid-cols-4 gap-8">
-          <div class="text-center">
-            <div class="w-14 h-14 mx-auto rounded-full bg-orange-100 text-orange-600 font-bold text-xl flex items-center justify-center mb-4">1</div>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 01</div>
             <h3 class="font-bold text-lg mb-2">Consultation</h3>
             <p class="text-gray-600 text-sm">Understanding your technical requirements and project scope.</p>
           </div>
-          <div class="text-center">
-            <div class="w-14 h-14 mx-auto rounded-full bg-orange-100 text-orange-600 font-bold text-xl flex items-center justify-center mb-4">2</div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 02</div>
             <h3 class="font-bold text-lg mb-2">Engineering Design</h3>
             <p class="text-gray-600 text-sm">3D CAD, simulation, and technical validation.</p>
           </div>
-          <div class="text-center">
-            <div class="w-14 h-14 mx-auto rounded-full bg-orange-100 text-orange-600 font-bold text-xl flex items-center justify-center mb-4">3</div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 03</div>
             <h3 class="font-bold text-lg mb-2">Implementation</h3>
             <p class="text-gray-600 text-sm">Manufacturing-ready documentation and technical handover.</p>
           </div>
-          <div class="text-center">
-            <div class="w-14 h-14 mx-auto rounded-full bg-orange-100 text-orange-600 font-bold text-xl flex items-center justify-center mb-4">4</div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 04</div>
             <h3 class="font-bold text-lg mb-2">Documentation &amp; Compliance</h3>
             <p class="text-gray-600 text-sm">Complete CE documentation via CE DocSuite.</p>
           </div>
@@ -696,10 +689,10 @@
     </section>
 
     <!-- Quick Industry Applications -->
-    <section class="bg-white section-padding">
+    <section class="section-paper section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
-          <p class="eyebrow">Industries</p>
+          <p class="eyebrow"><span class="sheet-no">05</span>Industries</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">Industries We Serve</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             Specialized engineering services for industries where technical accuracy and reliability are critical.
@@ -707,31 +700,25 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+          <div class="bg-white p-6 border border-gray-200 hover:border-orange-300 transition-colors">
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-robot text-orange-600"></i>
-              </div>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20h4M6 20v-4l4-2V9l5-3M15 6a2 2 0 100-4 2 2 0 000 4zM10 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/></svg>
               <h3 class="text-lg font-bold">Automation & Robotics</h3>
             </div>
             <p class="text-gray-600">Special purpose machines, robotic cells, automated assembly systems.</p>
           </div>
 
-          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+          <div class="bg-white p-6 border border-gray-200 hover:border-orange-300 transition-colors">
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-industry text-blue-600"></i>
-              </div>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21V10l5 3v-3l5 3V8l5 3v10H3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 21v-4m4 4v-4m4 4v-4"/></svg>
               <h3 class="text-lg font-bold">Machinery Manufacturing</h3>
             </div>
             <p class="text-gray-600">Industrial machinery design, production tooling, equipment development.</p>
           </div>
 
-          <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-orange-300 transition-colors">
+          <div class="bg-white p-6 border border-gray-200 hover:border-orange-300 transition-colors">
             <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <i class="fas fa-truck-loading text-green-600"></i>
-              </div>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M6 21V9l6-4 6 4v12M6 13h12"/></svg>
               <h3 class="text-lg font-bold">Material Handling</h3>
             </div>
             <p class="text-gray-600">Conveyor systems, intralogistics solutions, handling equipment.</p>
@@ -748,24 +735,30 @@
     </section>
 
     <!-- Certifications & Standards -->
-    <section class="bg-gray-900 section-padding">
+    <section class="section-ink section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
-        <p class="eyebrow" style="color:#fb923c;">Certifications &amp; Standards</p>
-        <h2 class="text-3xl font-bold text-white mb-8">Built on Recognized Engineering Standards</h2>
-        <div class="flex flex-wrap gap-3 justify-center">
-          <span class="badge-outline">CE Marking</span>
-          <span class="badge-outline">MD 2006/42/EC</span>
-          <span class="badge-outline">ISO 12100</span>
-          <span class="badge-outline">IEC/IEEE 82079-1</span>
-          <span class="badge-outline">KUKA System Partner</span>
-          <span class="badge-outline">M.Sc. Mechanical Engineering — Leibniz University Hannover</span>
+        <p class="eyebrow" style="color:#fb923c;"><span class="sheet-no" style="border-color:#fb923c;">06</span>Standards We Design To</p>
+        <h2 class="text-3xl font-bold text-white mb-4">Engineering Discipline, Not Just a Badge Row</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mb-8 prose-measure">
+          Every deliverable is engineered against the standards below. These describe our working discipline, not third-party certifications of the company — we're precise about that distinction, and happy to walk through exactly how a design meets each one.
+        </p>
+        <div class="tech-frame" style="display:inline-block; padding:1.5rem 2rem; border:1px solid rgba(255,255,255,0.12);">
+          <div class="flex flex-wrap gap-3 justify-center">
+            <span class="badge-outline">CE Marking (Machinery Directive)</span>
+            <span class="badge-outline">MD 2006/42/EC</span>
+            <span class="badge-outline">ISO 12100 — Risk Assessment</span>
+            <span class="badge-outline">IEC/IEEE 82079-1 — Documentation</span>
+            <span class="badge-outline">KUKA Robotics Integration Experience</span>
+            <span class="badge-outline">M.Sc. Mechanical Engineering — Leibniz University Hannover</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Ready to Start CTA -->
-    <section class="bg-gray-900 section-padding" style="padding-top: 0;">
+    <section class="section-ink section-padding" style="padding-top: 0;">
       <div class="container mx-auto px-6 lg:px-12 max-w-3xl text-center">
+        <div class="dim-rule"></div>
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
         <p class="text-lg text-gray-400 mb-8">Talk to our engineering team about your machine or automation system — no obligation, direct technical response.</p>
         <a href="contact.html" class="btn-primary text-lg px-10 py-4 inline-block">Get in Touch</a>
@@ -774,7 +767,7 @@
   </main>
 
    <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+  <footer class="section-ink text-gray-300 pt-12 pb-8">
     <div class="container mx-auto px-6 lg:px-12">
       <!-- Main Footer Grid (Your existing 4 columns) -->
       <div class="grid md:grid-cols-4 gap-10 mb-10">
@@ -1001,7 +994,7 @@
   <div class="cookie-content">
     <div class="cookie-text">
       <p>
-        <strong>🍪 We value your privacy</strong><br>
+        <strong>We Value Your Privacy</strong><br>
         This website uses only essential cookies necessary for functionality. 
         We do not use tracking or analytics cookies without your consent.
         <a href="privacy-policy.html" target="_blank">Learn more</a>
