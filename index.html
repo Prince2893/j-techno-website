@@ -16,14 +16,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    body { 
+    body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     html { scroll-behavior: smooth; }
     :focus-visible { outline: 3px solid rgba(243,156,18,0.5); outline-offset: 3px; }
-    
-    .section-padding { padding: 5rem 1rem; }
+
+    .section-padding { padding: 6rem 1rem; }
     @media (max-width: 768px) {
       .section-padding { padding: 3rem 1rem; }
     }
@@ -166,6 +166,66 @@
     .animate-fade-in-up {
       animation: fadeInUp 0.6s ease-out;
     }
+
+    .prose-measure { max-width: 65ch; }
+
+    /* Enterprise redesign additions */
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #EA580C;
+      margin-bottom: 0.75rem;
+    }
+    .heading-accent {
+      padding-left: 1rem;
+      border-left: 4px solid #f97316;
+    }
+    .badge-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #e5e7eb;
+      padding: 0.5rem 1.125rem;
+      border-radius: 0.375rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: rgba(255,255,255,0.03);
+    }
+    .trust-stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #f97316;
+      line-height: 1;
+    }
+    .trust-bar {
+      background: #111827;
+    }
+    header.scrolled {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      background-image: radial-gradient(circle, #ffffff 1.5px, transparent 1.5px);
+      background-size: 26px 26px;
+      pointer-events: none;
+    }
+    #mobileMenu {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+    #mobileMenu.open {
+      max-height: 32rem;
+      opacity: 1;
+    }
   </style>
 
   <!-- FIXED: Schema markup with full URL -->
@@ -191,7 +251,7 @@
 <body class="text-gray-800 bg-white">
 
   <!-- Header -->
-  <header class="bg-white shadow-sm sticky top-0 z-40">
+  <header class="bg-white sticky top-0 z-40">
     <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
       <!-- FIXED: Added alt text to logo -->
       <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
@@ -205,13 +265,13 @@
       </a>
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Main Navigation">
-        <a href="index.html" class="text-orange-600 hover:text-orange-700 transition-colors">Home</a>
+        <a href="index.html" class="relative text-orange-600 font-semibold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-orange-500">Home</a>
         <a href="engineering-services.html" class="text-gray-700 hover:text-orange-600 transition-colors">Engineering Services</a>
         <a href="automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors">Automation & Integration</a>
         <a href="industries.html" class="text-gray-700 hover:text-orange-600 transition-colors">Industries</a>
         <a href="working-model.html" class="text-gray-700 hover:text-orange-600 transition-colors">Working Model</a>
         <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
-        <a href="index.html#ba-generator" class="text-gray-700 hover:text-orange-600 transition-colors">CE DocSuite</a>
+        <a href="index.html#ba-generator" class="text-orange-600 font-semibold hover:text-orange-700 transition-colors">CE DocSuite</a>
         <a href="contact.html" class="btn-primary text-center mt-2">Contact</a>
       </nav>
 
@@ -224,7 +284,7 @@
       </div>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t shadow-lg">
+    <div id="mobileMenu" class="md:hidden bg-white border-t shadow-lg">
       <nav class="px-6 py-6 flex flex-col gap-4" aria-label="Mobile Navigation">
         <a href="index.html" class="py-2 text-orange-600 font-semibold">Home</a>
         <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
@@ -232,7 +292,7 @@
         <a href="industries.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Industries</a>
         <a href="working-model.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Working Model</a>
         <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
-        <a href="index.html#ba-generator" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">CE DocSuite</a>
+        <a href="index.html#ba-generator" class="py-2 text-orange-600 font-semibold">CE DocSuite</a>
         <a href="contact.html" class="btn-primary text-sm">Contact</a>
       </nav>
     </div>
@@ -240,80 +300,47 @@
 
   <main>
     <!-- Hero Section (Above the Fold) -->
-    <section class="hero-gradient relative overflow-hidden">
+    <section class="relative overflow-hidden" style="background: linear-gradient(135deg, #111827 0%, #1f2937 100%);">
+      <div class="hero-pattern"></div>
       <div class="section-padding relative">
         <div class="container mx-auto px-6 lg:px-12">
-          <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="animate-fade-in-up">
-              <div class="trust-badge">
-                <i class="fas fa-check-circle"></i>
-                <span>Serving German & EU engineering clients</span>
-              </div>
-              
-              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Engineering & Automation Design Partner
-                <span class="highlight-text">for Industrial Systems</span>
-              </h1>
-              
-              <p class="text-xl text-gray-700 mb-8">
-                Research, design, and integration-ready engineering services for mechanical and automation systems — aligned with German engineering standards.
-              </p>
-              
-              <p class="text-lg text-gray-600 mb-8 font-medium">
-                <i class="fas fa-globe-europe text-orange-500 mr-2"></i>
-                Serving manufacturers, system integrators, and startups across Germany, EU, and international markets.
-              </p>
-
-              <div class="flex flex-wrap gap-4 mb-8">
-                <a href="contact.html" class="btn-primary text-lg px-8 py-4">
-  <i class="fas fa-envelope mr-2"></i>Contact Engineering Team
-</a>
-                <a href="#what-we-do" class="btn-secondary text-lg px-8 py-4">
-                  <i class="fas fa-cogs mr-2"></i>View Our Services
-                </a>
-              </div>
-
-              <!-- Trust Indicators -->
-              <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-                <div class="text-center">
-                  <div class="stat-number">3+</div>
-                  <div class="text-sm text-gray-600 font-medium">Years in German Industry</div>
-                </div>
-                <div class="text-center">
-                  <div class="stat-number">24-48h</div>
-                  <div class="text-sm text-gray-600 font-medium">Initial Response</div>
-                </div>
-                <div class="text-center">
-                  <div class="stat-number">IN→DE</div>
-                  <div class="text-sm text-gray-600 font-medium">Global Execution, German Standards</div>
-                </div>
-              </div>
+          <div class="max-w-3xl animate-fade-in-up">
+            <div class="badge-outline">
+              <i class="fas fa-check-circle"></i>
+              <span>Serving German &amp; EU engineering clients</span>
             </div>
 
-            <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
-              <div class="bg-white rounded-2xl p-2 shadow-2xl border border-gray-100">
-                <div class="rounded-xl overflow-hidden">
-                  <!-- FIXED: Added lazy loading to hero image -->
-                  <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/engineering-design-team.png" 
-                       alt="Engineering team working on mechanical design and automation systems" 
-                       loading="lazy"
-                       class="w-full h-auto rounded-lg">
-                </div>
-                <div class="p-6">
-                  <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
-                      <i class="fas fa-user-graduate text-orange-600"></i>
-                    </div>
-                    <div>
-                      <p class="font-bold">Prince Joshina</p>
-                      <p class="text-sm text-gray-600">M.Sc. Mechanical Engineering, Leibniz University Hannover</p>
-                      <p class="text-xs text-gray-500 mt-1">Autodesk Inventor • SolidWorks • ANSYS • 3+ Years German Industry</p>
-                    </div>
-                  </div>
-                  <p class="text-gray-700 italic border-l-4 border-orange-500 pl-4 py-1">
-                    "We combine German engineering mindset with international execution efficiency."
-                  </p>
-                </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-6 mb-6 leading-tight">
+              Engineering Precision for Industrial Machinery
+              <span class="text-orange-500">— From Concept to CE Compliance</span>
+            </h1>
+
+            <p class="text-xl text-gray-300 mb-10 prose-measure">
+              We deliver mechanical design, automation and robotics integration, and complete CE compliance documentation for industrial machinery manufacturers across the DACH and EU region.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-12">
+              <a href="contact.html" class="btn-primary text-lg px-8 py-4">
+                <i class="fas fa-envelope mr-2"></i>Discuss Your Project
+              </a>
+              <a href="engineering-services.html" class="text-lg px-8 py-4 inline-block font-semibold rounded-md border border-white text-white bg-transparent transition-all duration-300 hover:bg-white hover:text-gray-900">
+                <i class="fas fa-cogs mr-2"></i>Explore Services
+              </a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-4 max-w-xl">
+              <div>
+                <div class="trust-stat-number">3+</div>
+                <div class="text-sm text-gray-400 font-medium">Years in German Industry</div>
+              </div>
+              <div>
+                <div class="trust-stat-number">24-48h</div>
+                <div class="text-sm text-gray-400 font-medium">Initial Response</div>
+              </div>
+              <div>
+                <div class="trust-stat-number">IN→DE</div>
+                <div class="text-sm text-gray-400 font-medium">Global Execution, German Standards</div>
               </div>
             </div>
           </div>
@@ -321,50 +348,65 @@
       </div>
     </section>
 
+    <!-- Trust Metrics -->
+    <section class="trust-bar py-12">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div><div class="trust-stat-number">3+</div><p class="text-gray-300 text-sm mt-2">Years Engineering Experience</p></div>
+        <div><div class="trust-stat-number">6+</div><p class="text-gray-300 text-sm mt-2">Industries Served</p></div>
+        <div><div class="trust-stat-number">DIN/ISO</div><p class="text-gray-300 text-sm mt-2">Standards Compliance</p></div>
+        <div><div class="trust-stat-number">DE+IN</div><p class="text-gray-300 text-sm mt-2">Dual-Location Engineering</p></div>
+      </div>
+    </section>
+
     <!-- What We Do Section -->
     <section id="what-we-do" class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
+          <p class="eyebrow">Our Services</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">What We Do</h2>
-          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure">
             J-Techno Engineering provides engineering services across the complete development lifecycle — from concept development and feasibility studies to detailed mechanical design, simulation, and production-ready documentation.
           </p>
-          <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4 prose-measure">
             We support our clients as an extended engineering arm, enabling faster development, reduced internal workload, and reliable system implementation.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="service-card">
+          <div class="service-card flex flex-col">
             <div class="card-icon">
               <i class="fas fa-lightbulb"></i>
             </div>
             <h3 class="text-xl font-bold mb-4">R&D & Concept Engineering</h3>
-            <p class="text-gray-600">Feasibility studies, functional architecture, technology evaluation, and concept development.</p>
+            <p class="text-gray-600 flex-grow">Feasibility studies, functional architecture, technology evaluation, and concept development.</p>
+            <a href="engineering-services.html" class="text-orange-600 font-semibold hover:text-orange-700 mt-4 inline-block">Learn more →</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card flex flex-col">
             <div class="card-icon">
               <i class="fas fa-cogs"></i>
             </div>
             <h3 class="text-xl font-bold mb-4">Mechanical & Automation Design</h3>
-            <p class="text-gray-600">3D CAD design, manufacturing-ready drawings, Special Purpose Machines (SPM), and automation layouts.</p>
+            <p class="text-gray-600 flex-grow">3D CAD design, manufacturing-ready drawings, Special Purpose Machines (SPM), and automation layouts.</p>
+            <a href="engineering-services.html" class="text-orange-600 font-semibold hover:text-orange-700 mt-4 inline-block">Learn more →</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card flex flex-col">
             <div class="card-icon">
               <i class="fas fa-chart-line"></i>
             </div>
             <h3 class="text-xl font-bold mb-4">Simulation & Design Validation</h3>
-            <p class="text-gray-600">FEA analysis, motion simulation, tolerance analysis, and design optimization for reliability.</p>
+            <p class="text-gray-600 flex-grow">FEA analysis, motion simulation, tolerance analysis, and design optimization for reliability.</p>
+            <a href="engineering-services.html" class="text-orange-600 font-semibold hover:text-orange-700 mt-4 inline-block">Learn more →</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card flex flex-col">
             <div class="card-icon">
               <i class="fas fa-file-contract"></i>
             </div>
             <h3 class="text-xl font-bold mb-4">Integration-Ready Documentation</h3>
-            <p class="text-gray-600">BOMs, technical documentation, supplier-ready data packages, and manufacturing drawings.</p>
+            <p class="text-gray-600 flex-grow">BOMs, technical documentation, supplier-ready data packages, and manufacturing drawings.</p>
+            <a href="engineering-services.html" class="text-orange-600 font-semibold hover:text-orange-700 mt-4 inline-block">Learn more →</a>
           </div>
         </div>
 
@@ -387,7 +429,7 @@
           </div>
 
           <h2 class="text-3xl md:text-4xl font-bold mb-6">CE DocSuite — Complete CE Documentation, Generated Automatically</h2>
-          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure">
             Every document required for CE marking of your machine or automation system — produced in hours, not weeks.
           </p>
         </div>
@@ -486,6 +528,7 @@
       <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
         <div class="role-card">
           <div class="text-center mb-8">
+            <p class="eyebrow">Methodology</p>
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Engineering Approach</h2>
             <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
           </div>
@@ -498,7 +541,7 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-bold mb-2">End-to-End System Design</h3>
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 prose-measure">
                     We provide complete engineering solutions — from concept to production-ready documentation. Our focus is system design, mechanical integration, and technical validation to ensure your project succeeds.
                   </p>
                 </div>
@@ -512,7 +555,7 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-bold mb-2">Integrated Component Selection</h3>
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 prose-measure">
                     Component selection is integrated into our system design process. We work with your preferred suppliers and standards, selecting components that meet your performance requirements and align with your existing technology ecosystem.
                   </p>
                 </div>
@@ -526,7 +569,7 @@
                 </div>
                 <div>
                   <h3 class="text-lg font-bold mb-2">Supplier-Neutral, Customer-First</h3>
-                  <p class="text-gray-700">
+                  <p class="text-gray-700 prose-measure">
                     We maintain complete neutrality in component and technology selection. Our designs integrate seamlessly with your preferred vendors and platforms — no brand bias, only engineering excellence focused on your project goals.
                   </p>
                 </div>
@@ -543,8 +586,9 @@
     <section class="bg-white section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
+          <p class="eyebrow">Why J-Techno</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Choose J-Techno Engineering</h2>
-          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure">
             The combination that delivers German engineering quality with international execution efficiency.
           </p>
         </div>
@@ -554,32 +598,32 @@
             <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-100 to-blue-50 rounded-full flex items-center justify-center mb-4">
               <i class="fas fa-brain text-blue-600 text-2xl"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2">German Engineering Mindset</h3>
-            <p class="text-gray-600">Trained in German engineering universities with experience in German industry standards and quality expectations.</p>
+            <h3 class="text-lg font-bold mb-2">German Engineering Standards</h3>
+            <p class="text-gray-600">Designs and documentation aligned with DIN/ISO/VDI methodology.</p>
           </div>
 
           <div class="text-center">
             <div class="w-16 h-16 mx-auto bg-gradient-to-br from-green-100 to-green-50 rounded-full flex items-center justify-center mb-4">
               <i class="fas fa-comments text-green-600 text-2xl"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2">Clear Communication</h3>
-            <p class="text-gray-600">Direct founder-level communication, fast turnaround, and transparent project tracking throughout.</p>
+            <h3 class="text-lg font-bold mb-2">CE Compliance Expertise</h3>
+            <p class="text-gray-600">End-to-end CE documentation (Betriebsanleitung, Risk Assessment, Declaration of Conformity, and more) via CE DocSuite.</p>
           </div>
 
           <div class="text-center">
             <div class="w-16 h-16 mx-auto bg-gradient-to-br from-purple-100 to-purple-50 rounded-full flex items-center justify-center mb-4">
               <i class="fas fa-sliders-h text-purple-600 text-2xl"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2">Flexible Engagement Models</h3>
-            <p class="text-gray-600">Hourly engineering support, project-based delivery, or long-term partnership — tailored to your needs.</p>
+            <h3 class="text-lg font-bold mb-2">KUKA &amp; Automation Specialization</h3>
+            <p class="text-gray-600">Robotic cell design and automation system integration experience.</p>
           </div>
 
           <div class="text-center">
             <div class="w-16 h-16 mx-auto bg-gradient-to-br from-orange-100 to-orange-50 rounded-full flex items-center justify-center mb-4">
               <i class="fas fa-balance-scale text-orange-600 text-2xl"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2">Supplier-Neutral Design</h3>
-            <p class="text-gray-600">Designs that integrate with your preferred technologies. No brand bias, only what's best for your project.</p>
+            <h3 class="text-lg font-bold mb-2">India-Based Cost Advantage</h3>
+            <p class="text-gray-600">German engineering standards delivered at a more efficient cost basis for EU clients, via the Germany–India dual-location model.</p>
           </div>
         </div>
 
@@ -616,10 +660,46 @@
       </div>
     </section>
 
-    <!-- Quick Industry Applications -->
+    <!-- How We Work -->
     <section class="bg-gray-50 section-padding">
       <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
         <div class="text-center mb-12">
+          <p class="eyebrow">How We Work</p>
+          <h2 class="text-3xl md:text-4xl font-bold">A Clear, Structured Process</h2>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-orange-100 text-orange-600 font-bold text-xl flex items-center justify-center mb-4">1</div>
+            <h3 class="font-bold text-lg mb-2">Consultation</h3>
+            <p class="text-gray-600 text-sm">Understanding your technical requirements and project scope.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-orange-100 text-orange-600 font-bold text-xl flex items-center justify-center mb-4">2</div>
+            <h3 class="font-bold text-lg mb-2">Engineering Design</h3>
+            <p class="text-gray-600 text-sm">3D CAD, simulation, and technical validation.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-orange-100 text-orange-600 font-bold text-xl flex items-center justify-center mb-4">3</div>
+            <h3 class="font-bold text-lg mb-2">Implementation</h3>
+            <p class="text-gray-600 text-sm">Manufacturing-ready documentation and technical handover.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-14 h-14 mx-auto rounded-full bg-orange-100 text-orange-600 font-bold text-xl flex items-center justify-center mb-4">4</div>
+            <h3 class="font-bold text-lg mb-2">Documentation &amp; Compliance</h3>
+            <p class="text-gray-600 text-sm">Complete CE documentation via CE DocSuite.</p>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <a href="working-model.html" class="text-orange-600 font-semibold hover:text-orange-700">See our full process →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Industry Applications -->
+    <section class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <p class="eyebrow">Industries</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-6">Industries We Serve</h2>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             Specialized engineering services for industries where technical accuracy and reliability are critical.
@@ -666,6 +746,31 @@
         </div>
       </div>
     </section>
+
+    <!-- Certifications & Standards -->
+    <section class="bg-gray-900 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
+        <p class="eyebrow" style="color:#fb923c;">Certifications &amp; Standards</p>
+        <h2 class="text-3xl font-bold text-white mb-8">Built on Recognized Engineering Standards</h2>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <span class="badge-outline">CE Marking</span>
+          <span class="badge-outline">MD 2006/42/EC</span>
+          <span class="badge-outline">ISO 12100</span>
+          <span class="badge-outline">IEC/IEEE 82079-1</span>
+          <span class="badge-outline">KUKA System Partner</span>
+          <span class="badge-outline">M.Sc. Mechanical Engineering — Leibniz University Hannover</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready to Start CTA -->
+    <section class="bg-gray-900 section-padding" style="padding-top: 0;">
+      <div class="container mx-auto px-6 lg:px-12 max-w-3xl text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
+        <p class="text-lg text-gray-400 mb-8">Talk to our engineering team about your machine or automation system — no obligation, direct technical response.</p>
+        <a href="contact.html" class="btn-primary text-lg px-10 py-4 inline-block">Get in Touch</a>
+      </div>
+    </section>
   </main>
 
    <!-- Footer -->
@@ -680,8 +785,9 @@
           <p class="text-gray-400">
             Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards.
           </p>
+          <p class="text-gray-500 text-sm mt-3">GST: 24ADEPJ6770B1ZV</p>
         </div>
-        
+
         <div>
           <h4 class="text-white font-bold text-lg mb-4">Engineering Services</h4>
           <div class="footer-links space-y-3">
@@ -689,16 +795,16 @@
             <div><a href="engineering-services.html">Mechanical Design</a></div>
             <div><a href="engineering-services.html">Simulation & Validation</a></div>
             <div><a href="automation-integration.html">Automation Design</a></div>
-            <div><a href="index.html#ba-generator">CE DocSuite</a></div>
           </div>
         </div>
-        
+
         <div>
           <h4 class="text-white font-bold text-lg mb-4">Company</h4>
           <div class="footer-links space-y-3">
             <div><a href="working-model.html">How We Work</a></div>
             <div><a href="industries.html">Industries</a></div>
             <div><a href="about.html">About</a></div>
+            <div><a href="index.html#ba-generator">CE DocSuite</a></div>
             <div><a href="contact.html">Contact</a></div>
           </div>
         </div>
@@ -746,19 +852,25 @@
 
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // Mobile menu toggle
+    // Mobile menu toggle (animated open/close)
+    const mobileMenuEl = document.getElementById('mobileMenu');
     document.getElementById('mobileToggle').addEventListener('click', function() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
+      mobileMenuEl.classList.toggle('open');
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-      const menu = document.getElementById('mobileMenu');
       const toggle = document.getElementById('mobileToggle');
-      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
-        menu.classList.add('hidden');
+      if (!mobileMenuEl.contains(event.target) && !toggle.contains(event.target)) {
+        mobileMenuEl.classList.remove('open');
       }
+    });
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 20) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
     });
 
     // Smooth scroll for anchor links
@@ -778,7 +890,7 @@
           });
           
           // Close mobile menu if open
-          document.getElementById('mobileMenu').classList.add('hidden');
+          mobileMenuEl.classList.remove('open');
         }
       });
     });
@@ -929,4 +1041,16 @@
   };
   
   window.declineCookies = function() {
-    localStorage.setItem('cookieConsent',
+    localStorage.setItem('cookieConsent', 'declined');
+    document.getElementById('cookie-banner').classList.remove('show');
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    showBannerIfNeeded();
+  });
+})();
+</script>
+<!-- Cookie Consent Banner - END -->
+
+</body>
+</html>
