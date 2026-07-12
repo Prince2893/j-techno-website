@@ -314,14 +314,9 @@
     }
 
     /* ---- HMI panel: animated CSS-only automation system visual ---- */
-    @keyframes armSwingUpper { 0%, 100% { transform: rotate(-16deg); } 50% { transform: rotate(16deg); } }
-    @keyframes armSwingLower { 0%, 100% { transform: rotate(22deg); } 50% { transform: rotate(-26deg); } }
-    @keyframes jointGlow { 0%, 100% { box-shadow: 0 0 9px 2px rgba(249,115,22,0.5); } 50% { box-shadow: 0 0 17px 6px rgba(249,115,22,0.85); } }
     @keyframes pulseDot { 0%, 100% { opacity: 1; box-shadow: 0 0 7px 2px rgba(52,211,153,0.65); } 50% { opacity: 0.35; box-shadow: 0 0 2px 0 rgba(52,211,153,0.3); } }
     @keyframes nodePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @keyframes radarSweep { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes conveyorMove { from { background-position: 0 0; } to { background-position: -40px 0; } }
 
     .hmi-panel { background: #0A0F1E; border: 1px solid rgba(249,115,22,0.35); position: relative; }
     .hmi-stage { position: relative; height: 380px; overflow: hidden; }
@@ -330,53 +325,13 @@
       background: radial-gradient(circle at 50% 58%, rgba(249,115,22,0.16), transparent 62%);
       pointer-events: none;
     }
-    .arm-base {
-      position: absolute; bottom: 58px; left: 50%; transform: translateX(-50%);
-      width: 88px; height: 26px; background: linear-gradient(180deg,#2b3344,#171d29);
-      border: 1px solid rgba(255,255,255,0.18); border-radius: 3px;
-    }
-    .arm-upper {
-      position: absolute; bottom: 24px; left: 50%; width: 12px; height: 118px; margin-left: -6px;
-      background: linear-gradient(180deg,#f97316,#ea580c); border-radius: 3px;
-      transform-origin: bottom center; animation: armSwingUpper 8s ease-in-out infinite;
-    }
-    .arm-joint {
-      position: absolute; top: -10px; left: 50%; width: 22px; height: 22px; margin-left: -11px;
-      background: #10161F; border: 2px solid #f97316; border-radius: 50%;
-      animation: jointGlow 2.6s ease-in-out infinite;
-    }
-    .arm-lower {
-      position: absolute; top: -96px; left: 50%; width: 10px; height: 96px; margin-left: -5px;
-      background: linear-gradient(180deg,#e5e7eb,#9ca3af); border-radius: 3px;
-      transform-origin: bottom center; animation: armSwingLower 6s ease-in-out infinite;
-    }
-    .arm-gripper {
-      position: absolute; top: -18px; left: 50%; width: 28px; height: 18px; margin-left: -14px;
-      border: 2px solid #f97316; border-top: none; border-radius: 0 0 8px 8px;
-    }
+    .hmi-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
     .hmi-node {
       position: absolute; background: rgba(255,255,255,0.045); border: 1px solid rgba(249,115,22,0.4);
       border-radius: 2px; padding: 7px 11px; animation: nodePulse 3.6s ease-in-out infinite;
     }
     .hmi-node .lbl { font-size: 9px; letter-spacing: .05em; color: #fdba74; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; }
     .hmi-node .val { font-size: 10.5px; color: #e5e7eb; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; margin-top: 2px; white-space: nowrap; }
-    .hmi-radar {
-      position: absolute; top: 20px; right: 20px; width: 62px; height: 62px; border-radius: 50%;
-      border: 1px solid rgba(249,115,22,0.35); overflow: hidden;
-    }
-    .hmi-radar::before {
-      content: ''; position: absolute; inset: -1px; border-radius: 50%;
-      background: conic-gradient(from 0deg, rgba(249,115,22,0.65), transparent 32%);
-      animation: radarSweep 3s linear infinite;
-    }
-    .hmi-radar::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: #0A0F1E; }
-    .hmi-radar-dot { position: absolute; top: 50%; left: 50%; width: 5px; height: 5px; margin: -2.5px; border-radius: 50%; background: #f97316; z-index: 2; }
-    .hmi-radar-label { position: absolute; top: 86px; right: 12px; font-size: 9px; letter-spacing: .05em; color: #fdba74; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; }
-    .hmi-conveyor {
-      position: absolute; left: 20px; right: 20px; bottom: 22px; height: 5px; border-radius: 2px;
-      background-image: repeating-linear-gradient(90deg, rgba(249,115,22,0.65) 0 14px, transparent 14px 24px);
-      animation: conveyorMove 1s linear infinite; opacity: 0.7;
-    }
     .hmi-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 26s linear infinite; }
     .hmi-marquee-track span { font-size: 10px; color: #fdba74; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; padding-right: 2.5rem; }
   </style>
@@ -523,23 +478,10 @@
                 </span>
               </div>
 
-              <div class="hmi-stage">
+              <div class="hmi-stage" id="hmiStage">
                 <div class="hmi-glow"></div>
 
-                <div class="arm-base">
-                  <div class="arm-upper">
-                    <div class="arm-joint"></div>
-                    <div class="arm-lower">
-                      <div class="arm-gripper"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="hmi-radar"></div>
-                <div class="hmi-radar-dot"></div>
-                <div class="hmi-radar-label">SENSING</div>
-
-                <div class="hmi-conveyor"></div>
+                <canvas id="hmiCanvas" class="hmi-canvas" aria-hidden="true" role="presentation"></canvas>
 
                 <div class="hmi-node" style="top:26px; left:20px;">
                   <div class="lbl">MOTION CONTROL</div>
@@ -987,7 +929,276 @@
       observer.observe(card);
     });
   </script>
-  
+
+  <!-- HMI hero scene: procedural Three.js automation-line animation, desktop only (panel is hidden lg:block) -->
+  <script type="module">
+    (async () => {
+      const stage = document.getElementById('hmiStage');
+      const canvas = document.getElementById('hmiCanvas');
+      if (!stage || !canvas) return;
+
+      // Only ever run on the widths where the panel is actually visible (hidden lg:block, lg = 1024px).
+      // Guards against downloading/initializing Three.js on mobile even if display:none is bypassed later.
+      if (!window.matchMedia('(min-width: 1024px)').matches) return;
+
+      function hasWebGL() {
+        try {
+          const c = document.createElement('canvas');
+          return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
+        } catch (e) {
+          return false;
+        }
+      }
+      if (!hasWebGL()) return;
+
+      let THREE;
+      try {
+        THREE = await import('https://cdnjs.cloudflare.com/ajax/libs/three.js/0.185.0/three.module.min.js');
+      } catch (e) {
+        return; // CDN unreachable - panel still looks intentional with glow + chips + ticker alone
+      }
+
+      const width = stage.clientWidth;
+      const height = stage.clientHeight;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+      renderer.setSize(width, height, false);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.Fog(0x0a0f1e, 6, 15);
+
+      const camera = new THREE.PerspectiveCamera(36, width / height, 0.1, 50);
+      camera.position.set(3.6, 2.7, 5.4);
+      camera.lookAt(0.2, 0.25, 0);
+
+      scene.add(new THREE.AmbientLight(0x445066, 1.2));
+      const keyLight = new THREE.DirectionalLight(0xfff2e0, 1.4);
+      keyLight.position.set(3, 5, 4);
+      scene.add(keyLight);
+      const rimLight = new THREE.PointLight(0xf97316, 3.5, 12);
+      rimLight.position.set(-2.2, 1.8, -1.5);
+      scene.add(rimLight);
+
+      // Palette matches the panel's existing colors exactly - no new scheme introduced.
+      const ORANGE = 0xf97316;
+      const DARK_METAL = 0x2b3344;
+      const LIGHT_GRAY = 0xe5e7eb;
+      const PANEL_DARK = 0x10161f;
+      const LIVE_GREEN = 0x34d399;
+
+      const matOrange = new THREE.MeshStandardMaterial({ color: ORANGE, metalness: 0.4, roughness: 0.4, emissive: 0x4a1a00, emissiveIntensity: 0.3 });
+      const matDark = new THREE.MeshStandardMaterial({ color: DARK_METAL, metalness: 0.6, roughness: 0.5 });
+      const matLight = new THREE.MeshStandardMaterial({ color: LIGHT_GRAY, metalness: 0.25, roughness: 0.55 });
+
+      // Floor (subtle depth cue, no shadows needed at this scale/complexity)
+      const floor = new THREE.Mesh(
+        new THREE.PlaneGeometry(20, 20),
+        new THREE.MeshStandardMaterial({ color: 0x0b1120, roughness: 1 })
+      );
+      floor.rotation.x = -Math.PI / 2;
+      floor.position.y = -0.55;
+      scene.add(floor);
+
+      // Conveyor: base + belt surface with a procedurally-drawn stripe texture (no image assets)
+      const beltGroup = new THREE.Group();
+      const beltBase = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.3, 1.05), matDark);
+      beltBase.position.set(-0.3, -0.35, 0);
+      beltGroup.add(beltBase);
+
+      const stripeCanvas = document.createElement('canvas');
+      stripeCanvas.width = 64;
+      stripeCanvas.height = 16;
+      const sctx = stripeCanvas.getContext('2d');
+      sctx.fillStyle = '#111722';
+      sctx.fillRect(0, 0, 64, 16);
+      sctx.fillStyle = 'rgba(249,115,22,0.6)';
+      for (let x = 0; x < 64; x += 16) sctx.fillRect(x, 0, 6, 16);
+      const stripeTex = new THREE.CanvasTexture(stripeCanvas);
+      stripeTex.wrapS = THREE.RepeatWrapping;
+      stripeTex.wrapT = THREE.RepeatWrapping;
+      stripeTex.repeat.set(9, 1);
+      stripeTex.colorSpace = THREE.SRGBColorSpace;
+
+      const beltTop = new THREE.Mesh(
+        new THREE.PlaneGeometry(5.0, 0.85),
+        new THREE.MeshStandardMaterial({ map: stripeTex, roughness: 0.8, metalness: 0.1 })
+      );
+      beltTop.rotation.x = -Math.PI / 2;
+      beltTop.position.set(-0.3, -0.19, 0);
+      beltGroup.add(beltTop);
+      scene.add(beltGroup);
+
+      // Packages looping along the belt
+      const BELT_MIN_X = -2.6;
+      const BELT_MAX_X = 1.6;
+      const packages = [];
+      for (let i = 0; i < 3; i++) {
+        const pkg = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.32, 0.32), matLight);
+        pkg.position.set(BELT_MIN_X + i * ((BELT_MAX_X - BELT_MIN_X) / 3), 0.01, 0);
+        beltGroup.add(pkg);
+        packages.push(pkg);
+      }
+
+      // Robot arm: base -> shoulder (swing) -> upper arm -> elbow (bend) -> forearm -> gripper
+      const armGroup = new THREE.Group();
+      armGroup.position.set(1.5, -0.2, 0);
+      scene.add(armGroup);
+
+      const base = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.48, 0.26, 20), matDark);
+      armGroup.add(base);
+
+      const shoulder = new THREE.Group();
+      shoulder.position.y = 0.13;
+      armGroup.add(shoulder);
+      shoulder.add(new THREE.Mesh(new THREE.SphereGeometry(0.15, 16, 12), matOrange));
+
+      const upperArm = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.85, 0.15), matOrange);
+      upperArm.position.y = 0.425;
+      shoulder.add(upperArm);
+
+      const elbow = new THREE.Group();
+      elbow.position.y = 0.85;
+      shoulder.add(elbow);
+      elbow.add(new THREE.Mesh(new THREE.SphereGeometry(0.11, 16, 12), matDark));
+
+      const forearm = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.65, 0.12), matLight);
+      forearm.position.y = 0.325;
+      elbow.add(forearm);
+
+      const gripper = new THREE.Group();
+      gripper.position.y = 0.65;
+      elbow.add(gripper);
+      const fingerGeo = new THREE.BoxGeometry(0.045, 0.2, 0.045);
+      const fingerL = new THREE.Mesh(fingerGeo, matOrange);
+      fingerL.position.set(-0.06, 0.1, 0);
+      const fingerR = new THREE.Mesh(fingerGeo, matOrange);
+      fingerR.position.set(0.06, 0.1, 0);
+      gripper.add(fingerL, fingerR);
+
+      // Status panel with blinking LEDs (reuses existing orange + the LIVE dot's green - no new colors)
+      const panelGroup = new THREE.Group();
+      panelGroup.position.set(-2.5, 0.5, -1.1);
+      panelGroup.add(
+        new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.5, 0.06), new THREE.MeshStandardMaterial({ color: PANEL_DARK, roughness: 0.6 }))
+      );
+      const ledColors = [ORANGE, LIVE_GREEN, ORANGE];
+      const leds = ledColors.map((c, i) => {
+        const mat = new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.3 });
+        const led = new THREE.Mesh(new THREE.CircleGeometry(0.045, 12), mat);
+        led.position.set(-0.26 + i * 0.26, 0.1, 0.032);
+        panelGroup.add(led);
+        return { mesh: led, mat, phase: i * 1.7 };
+      });
+      scene.add(panelGroup);
+
+      // Pick-and-place cycle: named keyframes for shoulder swing + elbow bend, eased between them.
+      // Last keyframe's pose matches the first, so the loop has no visible seam.
+      const CYCLE = 4.2; // seconds
+      const KEYFRAMES = [
+        { t: 0.0, shoulder: 0.55, elbow: 0.15, grip: 0 }, // idle / approach pick side
+        { t: 0.18, shoulder: 0.55, elbow: 0.95, grip: 0 }, // reach down to pick
+        { t: 0.28, shoulder: 0.55, elbow: 0.95, grip: 1 }, // grip closed
+        { t: 0.5, shoulder: -0.5, elbow: 0.15, grip: 1 }, // lift + swing to place side
+        { t: 0.68, shoulder: -0.5, elbow: 0.85, grip: 1 }, // lower to place
+        { t: 0.76, shoulder: -0.5, elbow: 0.85, grip: 0 }, // release
+        { t: 1.0, shoulder: 0.55, elbow: 0.15, grip: 0 }, // return to idle (== keyframe 0)
+      ];
+
+      function easeInOutCubic(x) {
+        return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+      }
+
+      function sampleArm(phase) {
+        for (let i = 0; i < KEYFRAMES.length - 1; i++) {
+          const a = KEYFRAMES[i];
+          const b = KEYFRAMES[i + 1];
+          if (phase >= a.t && phase <= b.t) {
+            const localT = (phase - a.t) / (b.t - a.t || 1);
+            const e = easeInOutCubic(localT);
+            return {
+              shoulder: a.shoulder + (b.shoulder - a.shoulder) * e,
+              elbow: a.elbow + (b.elbow - a.elbow) * e,
+              grip: a.grip + (b.grip - a.grip) * e,
+            };
+          }
+        }
+        return KEYFRAMES[0];
+      }
+
+      let raf = null;
+      let animating = false;
+      let startTime = null;
+      let lastTime = null;
+
+      function frame(now) {
+        raf = requestAnimationFrame(frame);
+        if (startTime === null) { startTime = now; lastTime = now; }
+        const dt = Math.min((now - lastTime) / 1000, 0.1);
+        const t = (now - startTime) / 1000;
+        lastTime = now;
+
+        const phase = (t % CYCLE) / CYCLE;
+        const pose = sampleArm(phase);
+        shoulder.rotation.y = pose.shoulder;
+        elbow.rotation.x = -pose.elbow;
+        const gripOpen = 0.06 - pose.grip * 0.035;
+        fingerL.position.x = -gripOpen;
+        fingerR.position.x = gripOpen;
+
+        packages.forEach((pkg, i) => {
+          pkg.position.x += dt * 0.35;
+          if (pkg.position.x > BELT_MAX_X) {
+            pkg.position.x = BELT_MIN_X;
+          }
+        });
+
+        leds.forEach((led) => {
+          led.mat.emissiveIntensity = 0.3 + Math.max(0, Math.sin(t * 2.2 + led.phase)) * 1.1;
+        });
+
+        rimLight.intensity = 3.2 + Math.sin(t * 1.6) * 0.4;
+
+        renderer.render(scene, camera);
+      }
+
+      function start() {
+        if (animating) return;
+        animating = true;
+        raf = requestAnimationFrame(frame);
+      }
+
+      function stop() {
+        animating = false;
+        if (raf) cancelAnimationFrame(raf);
+        raf = null;
+      }
+
+      // Don't burn CPU on a backgrounded tab.
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          stop();
+        } else {
+          start();
+        }
+      });
+
+      // Don't render while scrolled out of view either (hero is usually above the fold, but be defensive).
+      const io = new IntersectionObserver(
+        (entries) => {
+          const visible = entries[0]?.isIntersecting;
+          if (visible && !document.hidden) start();
+          else stop();
+        },
+        { threshold: 0.01 }
+      );
+      io.observe(stage);
+
+      start();
+    })();
+  </script>
+
 <!-- Cookie Consent Banner - START -->
 <style>
 #cookie-banner {
