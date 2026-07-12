@@ -448,14 +448,17 @@
       </a>
 
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Main Navigation">
-        <a href="index.html" class="text-gray-700 hover:text-orange-600 transition-colors">Home</a>
-        <a href="engineering-services.html" class="text-gray-700 hover:text-orange-600 transition-colors">Engineering Services</a>
-        <a href="automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors">Automation & Integration</a>
+        <div class="relative">
+          <button type="button" id="servicesDropdownToggle" class="flex items-center gap-1 text-gray-700 hover:text-orange-600 transition-colors" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" class="inline"><path stroke-linecap="round" stroke-linejoin="round" d="M2 4l4 4 4-4"></path></svg></button>
+          <div id="servicesDropdownMenu" class="hidden absolute left-0 top-full mt-3 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[240px] z-50">
+            <a href="engineering-services.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Engineering Services</a>
+            <a href="automation-integration.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Automation & Integration</a>
+          </div>
+        </div>
         <a href="industries.html" class="text-gray-700 hover:text-orange-600 transition-colors">Industries</a>
-        <a href="working-model.html" class="relative text-orange-600 font-semibold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-orange-500">Working Model</a>
-        <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
         <a href="index.html#ba-generator" class="text-orange-600 font-semibold hover:text-orange-700 transition-colors">CE DocSuite</a>
         <a href="pricing.html" class="text-gray-700 hover:text-orange-600 transition-colors">Pricing</a>
+        <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
         <a href="contact.html" class="btn-primary text-sm">Contact</a>
       </nav>
 
@@ -475,14 +478,15 @@
         </svg>
       </button>
       <nav class="px-6 py-10 flex flex-col gap-4" aria-label="Mobile Navigation">
-        <a href="index.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Home</a>
-        <a href="engineering-services.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
-        <a href="automation-integration.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
+        <div class="pt-1 pb-1">
+          <div class="text-xs uppercase tracking-wide text-gray-400 font-bold mb-1">Services</div>
+          <a href="engineering-services.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
+          <a href="automation-integration.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
+        </div>
         <a href="industries.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Industries</a>
-        <a href="working-model.html" class="py-2 text-orange-600 font-semibold">Working Model</a>
-        <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
         <a href="index.html#ba-generator" class="py-2 text-orange-600 font-semibold">CE DocSuite</a>
         <a href="pricing.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Pricing</a>
+        <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
         <a href="contact.html" class="btn-primary text-center mt-2">Contact</a>
       </nav>
     </div>
@@ -1141,7 +1145,6 @@
         <div>
           <h4 class="text-white font-bold text-lg mb-4">Company</h4>
           <div class="footer-links space-y-3">
-            <div><a href="working-model.html">How We Work</a></div>
             <div><a href="industries.html">Industries</a></div>
             <div><a href="about.html">About</a></div>
             <div><a href="index.html#ba-generator">CE DocSuite</a></div>
@@ -1197,6 +1200,25 @@
     document.getElementById('mobileToggle').addEventListener('click', function() {
       mobileMenuEl.classList.toggle('open');
     });
+
+    // Services dropdown (desktop nav)
+    (function() {
+      const servicesToggle = document.getElementById('servicesDropdownToggle');
+      const servicesMenu = document.getElementById('servicesDropdownMenu');
+      if (!servicesToggle || !servicesMenu) return;
+      servicesToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = !servicesMenu.classList.contains('hidden');
+        servicesMenu.classList.toggle('hidden');
+        servicesToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+      document.addEventListener('click', function(event) {
+        if (!servicesMenu.contains(event.target) && !servicesToggle.contains(event.target)) {
+          servicesMenu.classList.add('hidden');
+          servicesToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
 
     // Close mobile menu button
     document.getElementById('mobileClose').addEventListener('click', function() {
