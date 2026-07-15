@@ -174,9 +174,10 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
+        <!-- Entry tiers: single-generator or narrow-allowance plans -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           <!-- Free -->
-          <div class="bg-white rounded border border-gray-200 p-6 text-center flex flex-col">
+          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
             <h3 class="text-lg font-bold mb-1">Free</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€0<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-4 flex-grow">1 Betriebsanleitung + 1 Konformitätserklärung per month (separate allowances). Output is watermarked as a sample document.</p>
@@ -184,37 +185,40 @@
           </div>
 
           <!-- Starter BA -->
-          <div class="bg-white rounded border border-gray-200 p-6 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Starter — Betriebsanleitung</h3>
+          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
+            <h3 class="text-lg font-bold mb-1">Starter — BA</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€499<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-4 flex-grow">Betriebsanleitung only — 3 documents/month. For teams who only need operating manuals, not a Declaration of Conformity.</p>
             <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center">Subscribe</a>
           </div>
 
           <!-- Starter DoC -->
-          <div class="bg-white rounded border border-gray-200 p-6 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Starter — Konformitätserklärung</h3>
+          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
+            <h3 class="text-lg font-bold mb-1">Starter — DoC</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€99<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-4 flex-grow">Declaration of Conformity only — 3 documents/month. For teams who only need the EU DoC, not a full operating manual.</p>
             <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center">Subscribe</a>
           </div>
+        </div>
 
+        <!-- Flagship tiers: unlimited BA + DoC, Founding Member access to what ships next -->
+        <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto mb-10">
           <!-- Professional -->
-          <div class="bg-white rounded border-2 border-orange-500 p-6 text-center relative flex flex-col">
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
-            <h3 class="text-lg font-bold mb-1">Professional</h3>
-            <p class="text-3xl font-bold text-orange-600 mb-1">€1,299<span class="text-sm font-normal text-gray-500">/month</span></p>
+          <div class="bg-white rounded-lg border-2 border-orange-500 p-8 text-center relative flex flex-col shadow-xl sm:scale-105">
+            <span class="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap bg-orange-500 text-white text-xs font-bold uppercase tracking-wide px-4 py-1.5 rounded-full shadow-md">Most Popular</span>
+            <h3 class="text-xl font-bold mb-1 mt-2">Professional</h3>
+            <p class="text-4xl font-bold text-orange-600 mb-1">€1,299<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-3 flex-grow">Unlimited Betriebsanleitung + Konformitätserklärung.</p>
-            <p class="text-xs font-medium text-amber-800 bg-amber-50 rounded p-2 mb-4">🏆 Founding Member: Risikobeurteilung included the moment it ships, price locked in.</p>
+            <p class="text-xs font-medium text-amber-800 bg-amber-50 rounded p-3 mb-4">🏆 Founding Member: Risikobeurteilung included the moment it ships, price locked in.</p>
             <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center">Subscribe</a>
           </div>
 
           <!-- Compliance Suite -->
-          <div class="bg-white rounded border border-gray-200 p-6 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Compliance Suite</h3>
-            <p class="text-3xl font-bold text-orange-600 mb-1">€1,499<span class="text-sm font-normal text-gray-500">/month</span></p>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 text-center flex flex-col">
+            <h3 class="text-xl font-bold mb-1">Compliance Suite</h3>
+            <p class="text-4xl font-bold text-orange-600 mb-1">€1,499<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-3 flex-grow">Unlimited Betriebsanleitung + Konformitätserklärung.</p>
-            <p class="text-xs font-medium text-amber-800 bg-amber-50 rounded p-2 mb-4">🏆 Founding Member: Sicherheitskonzept, Wartungsplan &amp; Technische Dokumentation included as each ships, price locked in.</p>
+            <p class="text-xs font-medium text-amber-800 bg-amber-50 rounded p-3 mb-4">🏆 Founding Member: Sicherheitskonzept, Wartungsplan &amp; Technische Dokumentation included as each ships, price locked in.</p>
             <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center">Subscribe</a>
           </div>
         </div>
