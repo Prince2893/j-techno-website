@@ -1041,7 +1041,10 @@
         packages.push(pkg);
       }
 
-      // Robot arm: base -> shoulder (swing) -> upper arm -> elbow (bend) -> forearm -> gripper
+      // Robot arm: base -> shoulder (swing) -> upper arm -> elbow (bend) -> forearm -> gripper.
+      // Both shoulder and elbow rotate around Z, so the whole chain moves within the XY plane
+      // that contains the belt's direction of travel (X) - this is what makes the swing actually
+      // move the gripper toward/away from the belt, rather than spinning a link around its own axis.
       const armGroup = new THREE.Group();
       armGroup.position.set(1.5, -0.2, 0);
       scene.add(armGroup);
@@ -1072,9 +1075,12 @@
       elbow.add(gripper);
       const fingerGeo = new THREE.BoxGeometry(0.045, 0.2, 0.045);
       const fingerL = new THREE.Mesh(fingerGeo, matOrange);
-      fingerL.position.set(-0.06, 0.1, 0);
       const fingerR = new THREE.Mesh(fingerGeo, matOrange);
-      fingerR.position.set(0.06, 0.1, 0);
+      // Fingers open/close along Z (perpendicular to the arm's swing plane), so they straddle a
+      // package from the sides relative to the belt's direction of travel - not along the swing
+      // plane itself, which would just push a held object toward/away from the shoulder pivot.
+      fingerL.position.set(0, 0.1, -0.06);
+      fingerR.position.set(0, 0.1, 0.06);
       gripper.add(fingerL, fingerR);
 
       // Status panel with blinking LEDs (reuses existing orange + the LIVE dot's green - no new colors)
@@ -1093,18 +1099,92 @@
       });
       scene.add(panelGroup);
 
-      // Pick-and-place cycle: named keyframes for shoulder swing + elbow bend, eased between them.
-      // Last keyframe's pose matches the first, so the loop has no visible seam.
-      const CYCLE = 4.2; // seconds
-      const KEYFRAMES = [
-        { t: 0.0, shoulder: 0.55, elbow: 0.15, grip: 0 }, // idle / approach pick side
-        { t: 0.18, shoulder: 0.55, elbow: 0.95, grip: 0 }, // reach down to pick
-        { t: 0.28, shoulder: 0.55, elbow: 0.95, grip: 1 }, // grip closed
-        { t: 0.5, shoulder: -0.5, elbow: 0.15, grip: 1 }, // lift + swing to place side
-        { t: 0.68, shoulder: -0.5, elbow: 0.85, grip: 1 }, // lower to place
-        { t: 0.76, shoulder: -0.5, elbow: 0.85, grip: 0 }, // release
-        { t: 1.0, shoulder: 0.55, elbow: 0.15, grip: 0 }, // return to idle (== keyframe 0)
+      // --- Pick-and-place motion: grounded in real inverse kinematics, not guessed angles ---
+      //
+      // Both joints rotate around Z, so the chain is a standard 2-link planar arm living in the
+      // XY plane (shoulder pivot -> upperArm, length L1 -> elbow -> forearm+gripper, length L2).
+      // theta1 is measured from the +Y axis (vertical, "arm hanging straight up") toward -X;
+      // theta2 is the forearm's angle relative to the upper arm (composes as theta1+theta2).
+      // Forward kinematics (gripper position relative to the shoulder pivot):
+      //   x = -L1*sin(theta1) - L2*sin(theta1+theta2)
+      //   y =  L1*cos(theta1) + L2*cos(theta1+theta2)
+      const L1 = 0.85; // shoulder-to-elbow (matches upperArm geometry above)
+      const L2 = 0.65; // elbow-to-gripper (matches forearm + gripper offset above)
+      const CYCLE = 6.0; // seconds per full pick-and-place cycle
+      const SHOULDER_PIVOT = { x: armGroup.position.x, y: armGroup.position.y + shoulder.position.y };
+
+      function forwardKinematics(theta1, theta2) {
+        return {
+          x: SHOULDER_PIVOT.x - L1 * Math.sin(theta1) - L2 * Math.sin(theta1 + theta2),
+          y: SHOULDER_PIVOT.y + L1 * Math.cos(theta1) + L2 * Math.cos(theta1 + theta2),
+        };
+      }
+
+      // Standard closed-form 2-link planar IK, solved for a world-space target (x,y).
+      function solveIK(targetX, targetY) {
+        const dx = targetX - SHOULDER_PIVOT.x;
+        const dy = targetY - SHOULDER_PIVOT.y;
+        const maxReach = L1 + L2;
+        const minReach = Math.abs(L1 - L2);
+        const r = Math.min(Math.max(Math.sqrt(dx * dx + dy * dy), minReach + 1e-4), maxReach - 1e-4);
+        const cosA2 = Math.min(1, Math.max(-1, (r * r - L1 * L1 - L2 * L2) / (2 * L1 * L2)));
+        const a2 = Math.atan2(Math.sqrt(1 - cosA2 * cosA2), cosA2); // "elbow-out" branch
+        const a1 = Math.atan2(dy, dx) - Math.atan2(L2 * Math.sin(a2), L1 + L2 * Math.cos(a2));
+        return { theta1: a1 - Math.PI / 2, theta2: a2 };
+      }
+
+      // Real target points on the belt, in world space - the belt runs along X at z=0, package
+      // rest height is y=0.05 (packages are 0.32 side boxes centered at y=0.01, so this sits just
+      // above their centerline, a believable grasp height).
+      const PICK_POINT = { x: 0.15, y: 0.05 };
+      const PLACE_POINT = { x: 0.75, y: 0.05 };
+      const PICK_ANGLES = solveIK(PICK_POINT.x, PICK_POINT.y);
+      const PLACE_ANGLES = solveIK(PLACE_POINT.x, PLACE_POINT.y);
+      const HOME = { theta1: 0.15, theta2: 0.3 }; // compact/retracted idle pose (not IK-targeted, just "parked")
+      const HOVER_ELBOW = 0.4; // shared, less-folded elbow angle used for the "approach from above" hover poses
+
+      // Named poses tracing the full 8-step pick-and-place cycle - phase (`p`) for each is derived
+      // below from actual angular distance between poses, not hand-picked, so a pose requiring a
+      // bigger joint swing (e.g. PLACE's much more folded elbow, since it's closer to the pivot
+      // than PICK) automatically gets proportionally more time instead of moving faster than its
+      // neighbors. `dwell` reserves a small fixed slice of phase for a held pose (grip opening/
+      // closing while stationary), separate from the proportional motion budget.
+      const DWELL = 0.045;
+      const POSES = [
+        { name: 'home', theta1: HOME.theta1, theta2: HOME.theta2, grip: 0, dwell: 0 }, // 8. idle
+        { name: 'hoverPick', theta1: PICK_ANGLES.theta1, theta2: HOVER_ELBOW, grip: 0, dwell: 0 }, // 1. approach above pick
+        { name: 'pick', theta1: PICK_ANGLES.theta1, theta2: PICK_ANGLES.theta2, grip: 0, dwell: 0 }, // 2. descend - package arrives here too
+        { name: 'pickGripped', theta1: PICK_ANGLES.theta1, theta2: PICK_ANGLES.theta2, grip: 1, dwell: DWELL }, // 3. grip closes - package attaches
+        { name: 'hoverPickUp', theta1: PICK_ANGLES.theta1, theta2: HOVER_ELBOW, grip: 1, dwell: 0 }, // 4. lift clear
+        { name: 'transit', theta1: HOME.theta1, theta2: HOME.theta2, grip: 1, dwell: 0 }, // 5. transport, arc peak
+        { name: 'hoverPlace', theta1: PLACE_ANGLES.theta1, theta2: HOVER_ELBOW, grip: 1, dwell: 0 }, // 5. transport, approach above place
+        { name: 'place', theta1: PLACE_ANGLES.theta1, theta2: PLACE_ANGLES.theta2, grip: 1, dwell: 0 }, // 6. descend to place
+        { name: 'placeReleased', theta1: PLACE_ANGLES.theta1, theta2: PLACE_ANGLES.theta2, grip: 0, dwell: DWELL }, // 7. release - package detaches
+        { name: 'hoverPlaceUp', theta1: PLACE_ANGLES.theta1, theta2: HOVER_ELBOW, grip: 0, dwell: 0 }, // 8. lift clear after release
+        { name: 'homeEnd', theta1: HOME.theta1, theta2: HOME.theta2, grip: 0, dwell: 0 }, // 8. return (== 'home', seamless loop)
       ];
+
+      // Assign each pose a phase by walking the list: fixed dwell budgets are reserved first, and
+      // the remaining phase is split across the motion segments in proportion to how much the
+      // joints actually have to move for each one.
+      const totalDwell = POSES.reduce((sum, pose) => sum + pose.dwell, 0);
+      const motionBudget = 1 - totalDwell;
+      let totalAngularDist = 0;
+      const segDist = [];
+      for (let i = 0; i < POSES.length - 1; i++) {
+        const d = Math.hypot(POSES[i + 1].theta1 - POSES[i].theta1, POSES[i + 1].theta2 - POSES[i].theta2);
+        segDist.push(d);
+        totalAngularDist += d;
+      }
+      POSES[0].p = 0;
+      for (let i = 0; i < segDist.length; i++) {
+        POSES[i + 1].p = POSES[i].p + (segDist[i] / totalAngularDist) * motionBudget + POSES[i + 1].dwell;
+      }
+      POSES[POSES.length - 1].p = 1.0; // pin the endpoint exactly, absorbing float rounding
+
+      const KEYFRAMES = POSES;
+      const PACKAGE_ATTACH_P = POSES.find((pose) => pose.name === 'pickGripped').p;
+      const PACKAGE_DETACH_P = POSES.find((pose) => pose.name === 'placeReleased').p;
 
       function easeInOutCubic(x) {
         return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
@@ -1114,12 +1194,12 @@
         for (let i = 0; i < KEYFRAMES.length - 1; i++) {
           const a = KEYFRAMES[i];
           const b = KEYFRAMES[i + 1];
-          if (phase >= a.t && phase <= b.t) {
-            const localT = (phase - a.t) / (b.t - a.t || 1);
+          if (phase >= a.p && phase <= b.p) {
+            const localT = (phase - a.p) / (b.p - a.p || 1);
             const e = easeInOutCubic(localT);
             return {
-              shoulder: a.shoulder + (b.shoulder - a.shoulder) * e,
-              elbow: a.elbow + (b.elbow - a.elbow) * e,
+              theta1: a.theta1 + (b.theta1 - a.theta1) * e,
+              theta2: a.theta2 + (b.theta2 - a.theta2) * e,
               grip: a.grip + (b.grip - a.grip) * e,
             };
           }
@@ -1127,10 +1207,50 @@
         return KEYFRAMES[0];
       }
 
+      // Package[0] runs a fully scripted path locked to the SAME phase variable as the arm, so its
+      // arrival at PICK_POINT and departure from PLACE_POINT are guaranteed to coincide with the
+      // arm's own keyframe timing - not detected at runtime, but true by construction. Every phase
+      // boundary below is read from the POSES timeline itself (not a separate hardcoded number), so
+      // if the proportional timing above ever shifts, the package's schedule shifts with it instead
+      // of silently drifting out of sync. Packages 1 and 2 keep the original simple ambient belt
+      // loop (unattached, just line-is-running filler).
+      const BELT_SPEED = 0.35; // units/sec - matches the ambient packages' existing loop speed below
+      const PICK_ARRIVE_P = POSES.find((pose) => pose.name === 'pick').p; // arm fully descended, not yet gripping
+      const RELEASE_DWELL_END_P = PACKAGE_DETACH_P + DWELL; // brief rest at the drop point before continuing
+      // Approach/exit distances are derived from the actual computed timing above at BELT_SPEED, so
+      // the "hero" package rides the belt at the same speed as the ambient ones, not faster/slower.
+      const APPROACH_START_X = PICK_POINT.x - BELT_SPEED * (PICK_ARRIVE_P * CYCLE);
+      const EXIT_END_X = PLACE_POINT.x + BELT_SPEED * ((1.0 - RELEASE_DWELL_END_P) * CYCLE);
+      packages[0].position.x = APPROACH_START_X; // match the scripted path's phase-0 position exactly, no initial jump
+
+      function sampleActivePackageX(phase) {
+        if (phase < PICK_ARRIVE_P) {
+          // 1. approach: riding the belt at constant speed toward the pick point
+          const t = phase / PICK_ARRIVE_P;
+          return APPROACH_START_X + (PICK_POINT.x - APPROACH_START_X) * t;
+        }
+        if (phase < PACKAGE_ATTACH_P) {
+          return PICK_POINT.x; // dwell while the gripper finishes closing
+        }
+        if (phase < PACKAGE_DETACH_P) {
+          return null; // carried - position comes from the gripper's transform, not scripted here
+        }
+        if (phase < RELEASE_DWELL_END_P) {
+          return PLACE_POINT.x; // dwell right after release
+        }
+        // 8. continues down the line after being placed
+        const t = (phase - RELEASE_DWELL_END_P) / (1.0 - RELEASE_DWELL_END_P);
+        return PLACE_POINT.x + (EXIT_END_X - PLACE_POINT.x) * t;
+      }
+
       let raf = null;
       let animating = false;
       let startTime = null;
       let lastTime = null;
+      let activeAttached = false; // whether packages[0] is currently parented to the gripper
+
+      const activePkg = packages[0];
+      const ambientPkgs = packages.slice(1);
 
       function frame(now) {
         raf = requestAnimationFrame(frame);
@@ -1141,14 +1261,31 @@
 
         const phase = (t % CYCLE) / CYCLE;
         const pose = sampleArm(phase);
-        shoulder.rotation.y = pose.shoulder;
-        elbow.rotation.x = -pose.elbow;
-        const gripOpen = 0.06 - pose.grip * 0.035;
-        fingerL.position.x = -gripOpen;
-        fingerR.position.x = gripOpen;
+        shoulder.rotation.z = pose.theta1;
+        elbow.rotation.z = pose.theta2;
+        const gripOpenZ = 0.06 - pose.grip * 0.035;
+        fingerL.position.z = -gripOpenZ;
+        fingerR.position.z = gripOpenZ;
 
-        packages.forEach((pkg, i) => {
-          pkg.position.x += dt * 0.35;
+        // Attach/detach the active package exactly at the keyframes where grip finishes
+        // closing/opening - tied to the arm's own state, not a guessed timestamp.
+        const shouldBeAttached = phase >= PACKAGE_ATTACH_P && phase < PACKAGE_DETACH_P;
+        if (shouldBeAttached && !activeAttached) {
+          gripper.add(activePkg); // re-parent: from here on its position IS the gripper's transform
+          activePkg.position.set(0, 0.08, 0);
+          activeAttached = true;
+        } else if (!shouldBeAttached && activeAttached) {
+          beltGroup.add(activePkg); // re-parent back to the belt at the drop point
+          activePkg.position.set(PLACE_POINT.x, 0.01, 0);
+          activeAttached = false;
+        }
+        if (!activeAttached) {
+          const x = sampleActivePackageX(phase);
+          if (x !== null) activePkg.position.x = x;
+        }
+
+        ambientPkgs.forEach((pkg) => {
+          pkg.position.x += dt * BELT_SPEED;
           if (pkg.position.x > BELT_MAX_X) {
             pkg.position.x = BELT_MIN_X;
           }
