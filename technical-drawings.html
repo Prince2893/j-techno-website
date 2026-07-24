@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pricing | CE DocSuite | J-Techno Engineering</title>
-  <meta name="description" content="CE DocSuite pricing — Free, Starter (Betriebsanleitung or Konformitätserklärung), Professional, and Compliance Suite, with Founding Member access to every future document type." />
+  <title>Technical Drawings | J-Techno Engineering</title>
+  <meta name="description" content="Manufacturing-ready technical drawings — single-part, assembly, and full manufacturing packages — hand-produced by a qualified mechanical engineer, priced and scheduled up front." />
   <link rel="icon" href="images/Logo.svg" type="image/svg+xml" />
 
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -87,13 +87,11 @@
     .section-ink { background: #10161F; }
     .prose-measure { max-width: 65ch; }
 
-    /* Plan-card ribbon badges ("Most Popular", "Most Comprehensive"). Real
-       hex, not Tailwind color utilities -- the Tailwind build loaded via CDN
-       above is the small precompiled default set and doesn't actually include
-       "orange"/"amber"/"slate" as color families, so bg-orange-500/
-       bg-slate-700 silently apply no background at all, leaving white badge
-       text unreadable on the white card. Same reason .btn-primary/.btn-secondary/
-       .eyebrow above use real hex instead of Tailwind color utilities. */
+    /* Plan-card ribbon badge ("Most Requested") -- real hex, not a Tailwind
+       color utility, for the same reason pricing.html's plan-badge classes
+       use real hex: the precompiled Tailwind v2 CDN bundle loaded above
+       doesn't include "orange" as a color family, so bg-orange-500 would
+       silently apply no background. */
     .plan-badge {
       position: absolute;
       top: -1rem;
@@ -109,9 +107,8 @@
       border-radius: 9999px;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.15), 0 2px 4px -2px rgba(0,0,0,0.1);
       color: #ffffff;
+      background: #f97316;
     }
-    .plan-badge-popular { background: #f97316; }
-    .plan-badge-comprehensive { background: #1e293b; }
 
     .footer-links a {
       color: #9ca3af;
@@ -160,8 +157,8 @@
         <a href="industries.html" class="text-gray-700 hover:text-orange-600 transition-colors">Industries</a>
         <a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-orange-600 transition-colors">Free Estimator</a>
         <a href="ce-docsuite.html" class="text-gray-700 hover:text-orange-600 transition-colors">CE DocSuite</a>
-        <a href="technical-drawings.html" class="text-gray-700 hover:text-orange-600 transition-colors">Technical Drawings</a>
-        <a href="pricing.html" class="relative text-orange-600 font-semibold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-orange-500">Pricing</a>
+        <a href="technical-drawings.html" class="relative text-orange-600 font-semibold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-orange-500">Technical Drawings</a>
+        <a href="pricing.html" class="text-gray-700 hover:text-orange-600 transition-colors">Pricing</a>
         <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
         <a href="contact.html" class="btn-primary text-center mt-2">Contact</a>
       </nav>
@@ -185,8 +182,8 @@
         <a href="industries.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Industries</a>
         <a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Free Estimator</a>
         <a href="ce-docsuite.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">CE DocSuite</a>
-        <a href="technical-drawings.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Technical Drawings</a>
-        <a href="pricing.html" class="py-2 text-orange-600 font-semibold">Pricing</a>
+        <a href="technical-drawings.html" class="py-2 text-orange-600 font-semibold">Technical Drawings</a>
+        <a href="pricing.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Pricing</a>
         <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
         <a href="contact.html" class="btn-primary text-sm">Contact</a>
       </nav>
@@ -194,79 +191,153 @@
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="section-paper section-padding">
-      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
-        <div class="text-center mb-14">
-          <p class="eyebrow"><span class="sheet-no">Pricing</span>CE DocSuite</p>
-          <h1 class="text-3xl md:text-4xl font-bold mb-6">Simple, Per-Generator Pricing</h1>
-          <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure">
-            Pay for the document types you actually need. Every plan below is exactly what's live in the app today.
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+        <div class="text-center mb-10">
+          <p class="eyebrow"><span class="sheet-no">Service</span>Technical Drawings</p>
+          <h1 class="text-3xl md:text-4xl font-bold mb-6">Manufacturing-Ready Technical Drawings, Delivered on a Fixed Timeline</h1>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-4 prose-measure" style="margin-left:auto;margin-right:auto;">
+            Detailed part, assembly, and manufacturing drawings — dimensioned, toleranced, and ready to hand to your workshop or supplier. Every drawing is hand-produced by a qualified mechanical engineer, priced and scheduled up front, no back-and-forth quoting.
+          </p>
+          <p class="text-gray-600 max-w-3xl mx-auto prose-measure" style="margin-left:auto;margin-right:auto;">
+            A compliant machine needs more than a Betriebsanleitung and a Declaration of Conformity — Annex VII of the Machinery Directive expects manufacturing drawings a Notified Body can actually verify against. We produce those drawings ourselves, the same engineering team behind J-Techno's design work, on the same predictable-pricing principle as CE DocSuite.
           </p>
         </div>
 
-        <!-- Entry tiers: single-generator or narrow-allowance plans -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-          <!-- Free -->
-          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Free</h3>
-            <p class="text-3xl font-bold text-orange-600 mb-1">€0<span class="text-sm font-normal text-gray-500">/month</span></p>
-            <p class="text-sm text-gray-600 mb-4 flex-grow">1 Betriebsanleitung + 1 Konformitätserklärung per month (separate allowances). Output is watermarked as a sample document.</p>
-            <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center">Get Started</a>
-          </div>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="contact.html#contact-form" class="btn-primary text-lg px-8 py-4 inline-flex items-center gap-2">
+            Request a Drawing
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="ce-docsuite.html" class="btn-secondary text-lg px-8 py-4 inline-block">See CE DocSuite</a>
+        </div>
+      </div>
+    </section>
 
-          <!-- Starter BA -->
-          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Starter — BA</h3>
-            <p class="text-3xl font-bold text-orange-600 mb-1">€499<span class="text-sm font-normal text-gray-500">/month</span></p>
-            <p class="text-sm text-gray-600 mb-4 flex-grow">Betriebsanleitung only — up to 5 documents/month. For teams who only need operating manuals, not a Declaration of Conformity.</p>
-            <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center">Subscribe</a>
-          </div>
-
-          <!-- Starter DoC -->
-          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Starter — DoC</h3>
-            <p class="text-3xl font-bold text-orange-600 mb-1">€99<span class="text-sm font-normal text-gray-500">/month</span></p>
-            <p class="text-sm text-gray-600 mb-4 flex-grow">Declaration of Conformity only — up to 10 documents/month. For teams who only need the EU DoC, not a full operating manual.</p>
-            <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center">Subscribe</a>
-          </div>
+    <!-- Pricing tiers -->
+    <section class="section-paper-alt section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-14">
+          <p class="eyebrow"><span class="sheet-no">01</span>Pricing</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Simple, Published Pricing</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure" style="margin-left:auto;margin-right:auto;">
+            The price and turnaround you see below is what you pay — no quoting cycle for the two standard tiers.
+          </p>
         </div>
 
-        <!-- Flagship tiers: highest per-month document caps, Founding Member access to what ships next -->
-        <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto mb-10">
-          <!-- Professional -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-6">
+          <!-- Single-part drawing -->
+          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
+            <h3 class="text-lg font-bold mb-1">Single-Part Drawing</h3>
+            <p class="text-3xl font-bold text-orange-600 mb-1">€149<span class="text-sm font-normal text-gray-500">/drawing</span></p>
+            <ul class="text-sm text-gray-600 mb-4 flex-grow text-left space-y-2 mt-4">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>One manufactured part, fully dimensioned and toleranced</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>DIN/ISO drafting standard, your choice of DXF/DWG/PDF export</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Delivered in 48 hours</span></li>
+            </ul>
+            <a href="contact.html#contact-form" class="btn-secondary w-full text-center">Request a Drawing</a>
+          </div>
+
+          <!-- Assembly drawing -->
           <div class="bg-white rounded-lg border-2 border-orange-500 p-8 text-center relative flex flex-col shadow-xl sm:scale-105">
-            <span class="plan-badge plan-badge-popular">Most Popular</span>
-            <h3 class="text-xl font-bold mb-1 mt-2">Professional</h3>
-            <p class="text-4xl font-bold text-orange-600 mb-1">€1,299<span class="text-sm font-normal text-gray-500">/month</span></p>
-            <p class="text-sm text-gray-600 mb-3 flex-grow">Up to 20 documents/month — Betriebsanleitung or Konformitätserklärung, combined pool.</p>
-            <p class="text-xs font-medium text-amber-800 bg-amber-50 rounded p-3 mb-4">🏆 Founding Member: Risikobeurteilung included the moment it ships, price locked in.</p>
-            <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center">Subscribe</a>
+            <span class="plan-badge">Most Requested</span>
+            <h3 class="text-lg font-bold mb-1 mt-2">Assembly Drawing</h3>
+            <p class="text-3xl font-bold text-orange-600 mb-1">€449<span class="text-sm font-normal text-gray-500">/assembly</span></p>
+            <ul class="text-sm text-gray-600 mb-4 flex-grow text-left space-y-2 mt-4">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Multi-part assembly with parts list / item numbers, exploded view on request</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Includes up to 8 individual part drawings</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Delivered in 5 business days</span></li>
+            </ul>
+            <a href="contact.html#contact-form" class="btn-primary w-full text-center">Request an Assembly</a>
           </div>
 
-          <!-- Compliance Suite -->
-          <div class="bg-white rounded-lg border-2 border-slate-700 p-8 text-center relative flex flex-col shadow-xl sm:scale-105">
-            <span class="plan-badge plan-badge-comprehensive">Most Comprehensive</span>
-            <h3 class="text-xl font-bold mb-1 mt-2">Compliance Suite</h3>
-            <p class="text-4xl font-bold text-orange-600 mb-1">€1,999<span class="text-sm font-normal text-gray-500">/month</span></p>
-            <p class="text-sm text-gray-600 mb-3 flex-grow">Up to 35 documents/month — Betriebsanleitung or Konformitätserklärung, combined pool.</p>
-            <p class="text-xs font-medium text-amber-800 bg-amber-50 rounded p-3 mb-4">🏆 Founding Member: Sicherheitskonzept, Wartungsplan &amp; Technische Dokumentation included as each ships, price locked in.</p>
-            <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full text-center">Subscribe</a>
+          <!-- Full manufacturing package -->
+          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
+            <h3 class="text-lg font-bold mb-1">Full Manufacturing Package</h3>
+            <p class="text-3xl font-bold text-orange-600 mb-1">€1,200+</p>
+            <p class="text-xs text-gray-500 mb-3">Scoped after a short intake call</p>
+            <ul class="text-sm text-gray-600 mb-4 flex-grow text-left space-y-2">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Complete drawing set + structured BOM for a full machine or sub-system</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Supplier-ready data package</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Delivered in 10 business days</span></li>
+            </ul>
+            <a href="contact.html#contact-form" class="btn-secondary w-full text-center">Talk to Our Team</a>
           </div>
         </div>
 
-        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-4 prose-measure">
-          For custom requirements (larger teams, higher volumes, custom templates, API access):
-          <a href="mailto:info@jtechnoengineering.com" class="text-orange-600 font-semibold underline">info@jtechnoengineering.com</a>
-          — we'll put together a tailored offer.
+        <p class="text-center text-sm text-gray-500 max-w-2xl mx-auto prose-measure" style="margin-left:auto;margin-right:auto;">
+          Custom volumes, recurring drawing work, or CAD-file-only handoffs (no PDF):
+          <a href="contact.html#contact-form" class="text-orange-600 font-semibold underline">contact us</a> for a tailored arrangement.
         </p>
+      </div>
+    </section>
 
-        <p class="text-center text-sm text-gray-500 max-w-3xl mx-auto mt-8 prose-measure">
-          Built to stay current with the EU Machinery Regulation (2023/1230), applicable from January 2027.
-        </p>
-
-        <div class="text-center mt-12">
-          <a href="sample.html" class="btn-secondary text-lg px-8 py-4 inline-block">See a Real Example →</a>
+    <!-- How it works -->
+    <section class="section-paper section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <p class="eyebrow"><span class="sheet-no">02</span>How It Works</p>
+          <h2 class="text-3xl md:text-4xl font-bold">From Request to Delivered Drawing</h2>
         </div>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 01</div>
+            <h3 class="font-bold text-lg mb-2">Submit Your Request</h3>
+            <p class="text-gray-600 text-sm">A short form: what you need drawn, reference photos/sketches/existing CAD if any, target standard, required file formats.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 02</div>
+            <h3 class="font-bold text-lg mb-2">Fixed Quote, Same Day</h3>
+            <p class="text-gray-600 text-sm">For single-part and assembly tiers, the price is already published above — we confirm scope and turnaround within hours, not days.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 03</div>
+            <h3 class="font-bold text-lg mb-2">We Draft It</h3>
+            <p class="text-gray-600 text-sm">A qualified mechanical engineer produces the drawing in Inventor/SolidWorks, checked against DIN/ISO drafting conventions.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 04</div>
+            <h3 class="font-bold text-lg mb-2">Delivered on Schedule</h3>
+            <p class="text-gray-600 text-sm">Final files by direct download link, with revision history kept for any follow-up changes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="section-paper-alt section-padding" style="padding-top: 3rem; padding-bottom: 3rem;">
+      <div class="container mx-auto px-6 lg:px-12 max-w-5xl">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="flex items-start gap-3">
+            <i class="fas fa-check-circle text-orange-600 mt-1"></i>
+            <span class="text-gray-700 text-sm">Fixed price, published up front — no surprise quotes</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i class="fas fa-check-circle text-orange-600 mt-1"></i>
+            <span class="text-gray-700 text-sm">DIN/ISO drafting discipline on every drawing</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i class="fas fa-check-circle text-orange-600 mt-1"></i>
+            <span class="text-gray-700 text-sm">Delivered by the same engineering team behind J-Techno's design work</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i class="fas fa-check-circle text-orange-600 mt-1"></i>
+            <span class="text-gray-700 text-sm">Revision-friendly — one round of corrections included at every tier</span>
+          </div>
+        </div>
+        <p class="text-center text-sm text-gray-500 mt-10">
+          Sample drawings are available on request — get in touch and we'll share relevant examples for your industry.
+        </p>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="section-ink section-padding" style="padding-top: 0;">
+      <div class="container mx-auto px-6 lg:px-12 max-w-3xl text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Already Documenting a Machine With CE DocSuite?</h2>
+        <p class="text-lg text-gray-400 mb-8">If you have an existing Betriebsanleitung or Risikobeurteilung project with us, mention it in your request — we'll use the machine context you already gave us, so you don't have to re-explain the system from scratch.</p>
+        <a href="contact.html#contact-form" class="btn-primary text-lg px-10 py-4 inline-block">Request a Drawing</a>
       </div>
     </section>
   </main>
