@@ -1,0 +1,63 @@
+/* Real-hex replacements for Tailwind orange/amber/slate utility classes.
+   The Tailwind build loaded via CDN (tailwindcss@2.2.19/dist/tailwind.min.css)
+   ships only the classic v1 default palette -- gray, red, yellow, green, blue,
+   indigo, purple, pink. It has zero "orange", "amber", or "slate" rules, so
+   every bg-orange-*/text-orange-*/border-orange-*/bg-amber-*/text-amber-*/
+   border-slate-* class in the markup silently applies no color at all. This
+   file fills in exactly those class names with real hex (Tailwind's own
+   canonical values for each shade) so the existing markup keeps working
+   without a build step. Same reasoning as the inline .btn-primary/.btn-secondary/
+   .eyebrow/.plan-badge-* classes already used per-page for this. */
+
+.bg-orange-50 { background-color: #fff7ed; }
+.bg-orange-100 { background-color: #ffedd5; }
+.bg-orange-500 { background-color: #f97316; }
+
+.border-orange-100 { border-color: #ffedd5; }
+.border-orange-500 { border-color: #f97316; }
+.hover\:border-orange-300:hover { border-color: #fdba74; }
+
+.text-orange-500 { color: #f97316; }
+.text-orange-600 { color: #ea580c; }
+.text-orange-700 { color: #c2410c; }
+.text-orange-800 { color: #9a3412; }
+.text-orange-900 { color: #7c2d12; }
+.hover\:text-orange-400:hover { color: #fb923c; }
+.hover\:text-orange-600:hover { color: #ea580c; }
+.hover\:text-orange-700:hover { color: #c2410c; }
+
+.bg-amber-50 { background-color: #fffbeb; }
+.border-amber-100 { border-color: #fef3c7; }
+.border-amber-200 { border-color: #fde68a; }
+.text-amber-600 { color: #d97706; }
+.text-amber-800 { color: #92400e; }
+.hover\:text-amber-700:hover { color: #b45309; }
+
+.bg-slate-700 { background-color: #334155; }
+.border-slate-700 { border-color: #334155; }
+
+/* Gradient color stops -- mirrors the --tw-gradient-* custom-property
+   mechanism the CDN build's own bg-gradient-to-r/bg-gradient-to-br utilities
+   already read from, so these compose correctly with those classes. */
+.from-orange-50 { --tw-gradient-from: #fff7ed; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 247, 237, 0)); }
+.from-orange-500 { --tw-gradient-from: #f97316; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(249, 115, 22, 0)); }
+.from-amber-50 { --tw-gradient-from: #fffbeb; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 251, 235, 0)); }
+.to-orange-50 { --tw-gradient-to: #fff7ed; }
+.to-amber-50 { --tw-gradient-to: #fffbeb; }
+.to-amber-500 { --tw-gradient-to: #f59e0b; }
+
+/* Active-nav-link underline. Replaces the after:content-['']/after:absolute/
+   after:bg-orange-500 pseudo-element trick used on the current page's nav
+   link -- that bracket-value JIT syntax doesn't exist in any precompiled
+   Tailwind build, so the underline never rendered at all, independent of
+   the orange color problem above. */
+.nav-active { position: relative; }
+.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  height: 0.125rem;
+  width: 100%;
+  background-color: #f97316;
+}
