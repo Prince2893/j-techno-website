@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Technical Drawings | J-Techno Engineering</title>
+  <meta name="description" content="Manufacturing-ready technical drawings — single-part, assembly, and full manufacturing packages — hand-produced by a qualified mechanical engineer, priced and scheduled up front." />
+  <link rel="icon" href="images/Logo.svg" type="image/svg+xml" />
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+    }
+    html { scroll-behavior: smooth; }
+    :focus-visible { outline: 3px solid rgba(243,156,18,0.5); outline-offset: 3px; }
+
+    .section-padding { padding: 6rem 1rem; }
+    @media (max-width: 768px) {
+      .section-padding { padding: 3rem 1rem; }
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #EA580C;
+      margin-bottom: 0.75rem;
+    }
+    .sheet-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'SF Mono', 'IBM Plex Mono', Consolas, monospace;
+      font-size: 0.6875rem;
+      letter-spacing: 0.03em;
+      border: 1px solid currentColor;
+      padding: 2px 7px;
+      margin-right: 0.6rem;
+      opacity: 0.85;
+      vertical-align: 1px;
+    }
+    .section-paper { background: #FAF8F4; }
+    .section-paper-alt { background: #F1EDE3; }
+    .section-ink { background: #10161F; }
+    .prose-measure { max-width: 65ch; }
+
+    /* Plan-card ribbon badge ("Most Requested") -- real hex, not a Tailwind
+       color utility, for the same reason pricing.html's plan-badge classes
+       use real hex: the precompiled Tailwind v2 CDN bundle loaded above
+       doesn't include "orange" as a color family, so bg-orange-500 would
+       silently apply no background. */
+    .plan-badge {
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      white-space: nowrap;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.375rem 1rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.15), 0 2px 4px -2px rgba(0,0,0,0.1);
+      color: #ffffff;
+      background: #f97316;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #f97316;
+    }
+
+    #mobileMenu {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+    #mobileMenu.open {
+      max-height: 32rem;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="text-gray-800 bg-white">
+
+  <!-- Header -->
+  <header class="bg-white sticky top-0 z-40">
+    <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg"
+             alt="J-Techno Engineering Logo"
+             class="h-14 w-auto">
+        <div>
+          <span class="font-bold text-xl text-gray-900">J-Techno Engineering</span>
+          <div class="text-xs text-orange-600 font-semibold">Engineering & Automation Design Partner</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Main Navigation">
+        <div class="relative">
+          <button type="button" id="servicesDropdownToggle" class="relative flex items-center gap-1 text-orange-600 font-semibold after:content-[''] after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-orange-500" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" class="inline"><path stroke-linecap="round" stroke-linejoin="round" d="M2 4l4 4 4-4"></path></svg></button>
+          <div id="servicesDropdownMenu" class="hidden absolute left-0 top-full mt-3 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[240px] z-50">
+            <a href="engineering-services.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Engineering Services</a>
+            <a href="automation-integration.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Automation & Integration</a>
+            <a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Free Estimator</a>
+            <a href="technical-drawings.html" class="block px-4 py-2 text-orange-600 font-semibold bg-gray-50">Technical Drawings</a>
+          </div>
+        </div>
+        <a href="ce-docsuite.html" class="text-gray-700 hover:text-orange-600 transition-colors">CE DocSuite</a>
+        <a href="pricing.html" class="text-gray-700 hover:text-orange-600 transition-colors">Pricing</a>
+        <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">About</a>
+        <a href="contact.html" class="btn-primary text-center mt-2">Contact</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileToggle" type="button" aria-label="Open navigation" class="p-3 rounded-lg hover:bg-gray-100 transition-colors">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden bg-white border-t shadow-lg">
+      <nav class="px-6 py-6 flex flex-col gap-4" aria-label="Mobile Navigation">
+        <div class="pt-1 pb-1">
+          <div class="text-xs uppercase tracking-wide text-gray-400 font-bold mb-1">Services</div>
+          <a href="engineering-services.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Engineering Services</a>
+          <a href="automation-integration.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Automation & Integration</a>
+          <a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Free Estimator</a>
+          <a href="technical-drawings.html" class="block py-2 pl-3 text-orange-600 font-semibold">Technical Drawings</a>
+        </div>
+        <a href="ce-docsuite.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">CE DocSuite</a>
+        <a href="pricing.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Pricing</a>
+        <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">About</a>
+        <a href="contact.html" class="btn-primary text-sm">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="section-paper section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+        <div class="text-center mb-10">
+          <p class="eyebrow"><span class="sheet-no">Service</span>Technical Drawings</p>
+          <h1 class="text-3xl md:text-4xl font-bold mb-6">Manufacturing-Ready Technical Drawings, Delivered on a Fixed Timeline</h1>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-4 prose-measure" style="margin-left:auto;margin-right:auto;">
+            Detailed part, assembly, and manufacturing drawings — dimensioned, toleranced, and ready to hand to your workshop or supplier. Every drawing is hand-produced by a qualified mechanical engineer; the two standard tiers are priced and scheduled up front, no back-and-forth quoting.
+          </p>
+          <p class="text-gray-600 max-w-3xl mx-auto prose-measure" style="margin-left:auto;margin-right:auto;">
+            A compliant machine needs more than a Betriebsanleitung and a Konformitätserklärung — Annex VII of the Machinery Directive expects manufacturing drawings a Notified Body can actually verify against. We produce those drawings in-house, not outsourced, on the same predictable-pricing principle as CE DocSuite.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="contact.html#contact-form" class="btn-primary text-lg px-8 py-4 inline-flex items-center gap-2">
+            Request a Drawing
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="ce-docsuite.html" class="btn-secondary text-lg px-8 py-4 inline-block">See CE DocSuite</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing tiers -->
+    <section class="section-paper-alt section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-14">
+          <p class="eyebrow"><span class="sheet-no">01</span>Pricing</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Simple, Published Pricing</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto prose-measure" style="margin-left:auto;margin-right:auto;">
+            The price and turnaround you see below are what you pay — no quoting cycle for the two standard tiers.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-6">
+          <!-- Single-part drawing -->
+          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
+            <h3 class="text-lg font-bold mb-1">Single-Part Drawing</h3>
+            <p class="text-3xl font-bold text-orange-600 mb-1">€149<span class="text-sm font-normal text-gray-500">/drawing</span></p>
+            <ul class="text-sm text-gray-600 mb-4 flex-grow text-left space-y-2 mt-4">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>One manufactured part, fully dimensioned and toleranced</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>DIN/ISO drafting standard, your choice of DXF/DWG/PDF export</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Delivered in 48 hours</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>One round of revisions included</span></li>
+            </ul>
+            <a href="contact.html#contact-form" class="btn-secondary w-full text-center">Request a Drawing</a>
+          </div>
+
+          <!-- Assembly drawing -->
+          <div class="bg-white rounded-lg border-2 border-orange-500 p-8 text-center relative flex flex-col shadow-xl sm:scale-105">
+            <span class="plan-badge">Most Requested</span>
+            <h3 class="text-lg font-bold mb-1 mt-2">Assembly Drawing</h3>
+            <p class="text-3xl font-bold text-orange-600 mb-1">€449<span class="text-sm font-normal text-gray-500">/assembly</span></p>
+            <ul class="text-sm text-gray-600 mb-4 flex-grow text-left space-y-2 mt-4">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Multi-part assembly with parts list / item numbers, exploded view on request</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Includes up to 8 individual part drawings</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Delivered in 5 business days</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>One round of revisions included</span></li>
+            </ul>
+            <a href="contact.html#contact-form" class="btn-primary w-full text-center">Request an Assembly</a>
+          </div>
+
+          <!-- Full manufacturing package -->
+          <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
+            <h3 class="text-lg font-bold mb-1">Full Manufacturing Package</h3>
+            <p class="text-3xl font-bold text-orange-600 mb-1">€1,200+</p>
+            <p class="text-xs text-gray-500 mb-3">Scoped after a short intake call</p>
+            <ul class="text-sm text-gray-600 mb-4 flex-grow text-left space-y-2">
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Complete drawing set + structured BOM for a full machine or sub-system</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Supplier-ready data package</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>Delivered in 10 business days</span></li>
+              <li class="flex items-start gap-2"><i class="fas fa-check text-green-500 mt-1"></i><span>One round of revisions included</span></li>
+            </ul>
+            <a href="contact.html#contact-form" class="btn-secondary w-full text-center">Talk to Our Team</a>
+          </div>
+        </div>
+
+        <p class="text-center text-sm text-gray-500 max-w-2xl mx-auto prose-measure" style="margin-left:auto;margin-right:auto;">
+          Custom volumes, recurring drawing work, or CAD-file-only handoffs (no PDF):
+          <a href="contact.html#contact-form" class="text-orange-600 font-semibold underline">contact us</a> for a tailored arrangement.
+        </p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section-paper section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <p class="eyebrow"><span class="sheet-no">02</span>How It Works</p>
+          <h2 class="text-3xl md:text-4xl font-bold">From Request to Delivered Drawing</h2>
+        </div>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 01</div>
+            <h3 class="font-bold text-lg mb-2">Submit Your Request</h3>
+            <p class="text-gray-600 text-sm">A short form: what you need drawn, reference photos/sketches/existing CAD if any, target standard, required file formats.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 02</div>
+            <h3 class="font-bold text-lg mb-2">Fixed Quote, Same Day</h3>
+            <p class="text-gray-600 text-sm">For single-part and assembly tiers, the price is already published above — we confirm scope and turnaround within hours, not days.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 03</div>
+            <h3 class="font-bold text-lg mb-2">We Draft It</h3>
+            <p class="text-gray-600 text-sm">A qualified mechanical engineer produces the drawing in Inventor/SolidWorks, checked against DIN/ISO drafting conventions.</p>
+          </div>
+          <div class="bg-white p-6 border border-gray-200 relative" style="border-top:3px solid #f97316;">
+            <div class="font-mono text-orange-600 text-sm mb-3" style="font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">STEP 04</div>
+            <h3 class="font-bold text-lg mb-2">Delivered on Schedule</h3>
+            <p class="text-gray-600 text-sm">Final files by direct download link, with revision history kept for any follow-up changes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="section-paper-alt section-padding" style="padding-top: 3rem; padding-bottom: 3rem;">
+      <div class="container mx-auto px-6 lg:px-12 max-w-5xl">
+        <div class="text-center mb-10">
+          <p class="eyebrow"><span class="sheet-no">03</span>Why It's Low-Risk</p>
+          <h2 class="text-2xl md:text-3xl font-bold">What You Can Count On</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="flex items-start gap-3">
+            <i class="fas fa-check-circle text-orange-600 mt-1"></i>
+            <span class="text-gray-700 text-sm">Fixed price, published up front — no surprise quotes</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i class="fas fa-check-circle text-orange-600 mt-1"></i>
+            <span class="text-gray-700 text-sm">DIN/ISO drafting discipline on every drawing</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i class="fas fa-check-circle text-orange-600 mt-1"></i>
+            <span class="text-gray-700 text-sm">Delivered by the same engineering team behind J-Techno's design work</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <i class="fas fa-check-circle text-orange-600 mt-1"></i>
+            <span class="text-gray-700 text-sm">Revision-friendly — one round of corrections included at every tier</span>
+          </div>
+        </div>
+        <p class="text-center text-sm text-gray-500 mt-10">
+          Sample drawings are available on request — get in touch and we'll share relevant examples for your industry.
+        </p>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="section-ink section-padding" style="padding-top: 0;">
+      <div class="container mx-auto px-6 lg:px-12 max-w-3xl text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Already Documenting a Machine With CE DocSuite?</h2>
+        <p class="text-lg text-gray-400 mb-8">If you have an existing Betriebsanleitung or Risikobeurteilung project with us, mention it in your request — we'll use the machine context you already gave us, so you don't have to re-explain the system from scratch.</p>
+        <a href="contact.html#contact-form" class="btn-primary text-lg px-10 py-4 inline-block">Request a Drawing</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="section-ink text-gray-300 pt-12 pb-8">
+    <div class="container mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg"
+               alt="J-Techno Engineering Logo"
+               class="h-16 mb-4" />
+          <p class="text-gray-400">
+            Engineering & automation design partner providing R&D, mechanical design, and system integration services aligned with German engineering standards.
+          </p>
+          <p class="text-gray-500 text-sm mt-3">GST: 24ADEPJ6770B1ZV</p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Engineering Services</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="engineering-services.html">R&D & Concept Engineering</a></div>
+            <div><a href="engineering-services.html">Mechanical Design</a></div>
+            <div><a href="engineering-services.html">Simulation & Validation</a></div>
+            <div><a href="automation-integration.html">Automation Design</a></div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Company</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="index.html#industries">Industries</a></div>
+            <div><a href="about.html">About</a></div>
+            <div><a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer">Free Estimator</a></div>
+            <div><a href="ce-docsuite.html">CE DocSuite</a></div>
+            <div><a href="technical-drawings.html">Technical Drawings</a></div>
+            <div><a href="pricing.html">Pricing</a></div>
+            <div><a href="contact.html">Contact</a></div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Contact Engineering Team</h4>
+          <div class="space-y-3">
+            <p class="flex items-center gap-2">
+              <i class="fas fa-globe text-gray-400"></i>
+              <span>Germany & India Engineering</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-envelope text-gray-400"></i>
+              <a href="mailto:info@jtechnoengineering.com" class="hover:text-orange-400">info@jtechnoengineering.com</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-phone text-gray-400"></i>
+              <span>DE: +49 155 664 78752</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-user-graduate text-gray-400"></i>
+              <span>M.Sc. Mechanical Engineering</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 mt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p class="text-gray-500 text-sm">
+            © 2025–2026 J-Techno Engineering. All rights reserved.
+          </p>
+          <div class="flex items-center gap-3 text-sm">
+            <a href="impressum_full.html" class="text-gray-400 hover:text-orange-400 transition-colors">Impressum</a>
+            <span class="text-gray-600">|</span>
+            <a href="privacy-policy.html" class="text-gray-400 hover:text-orange-400 transition-colors">Privacy Policy</a>
+            <span class="text-gray-600">|</span>
+            <a href="privacy-policy.html" class="text-gray-400 hover:text-orange-400 transition-colors">Datenschutz</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuEl = document.getElementById('mobileMenu');
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      mobileMenuEl.classList.toggle('open');
+    });
+
+    // Services dropdown (desktop nav)
+    (function() {
+      const servicesToggle = document.getElementById('servicesDropdownToggle');
+      const servicesMenu = document.getElementById('servicesDropdownMenu');
+      if (!servicesToggle || !servicesMenu) return;
+      servicesToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = !servicesMenu.classList.contains('hidden');
+        servicesMenu.classList.toggle('hidden');
+        servicesToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+      document.addEventListener('click', function(event) {
+        if (!servicesMenu.contains(event.target) && !servicesToggle.contains(event.target)) {
+          servicesMenu.classList.add('hidden');
+          servicesToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+    document.addEventListener('click', function(event) {
+      const toggle = document.getElementById('mobileToggle');
+      if (!mobileMenuEl.contains(event.target) && !toggle.contains(event.target)) {
+        mobileMenuEl.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
