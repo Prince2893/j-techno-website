@@ -14,6 +14,7 @@
   
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/brand-colors.css">
 
   <style>
     body {
@@ -315,23 +316,52 @@
 
     /* ---- HMI panel: animated CSS-only automation system visual ---- */
     @keyframes pulseDot { 0%, 100% { opacity: 1; box-shadow: 0 0 7px 2px rgba(52,211,153,0.65); } 50% { opacity: 0.35; box-shadow: 0 0 2px 0 rgba(52,211,153,0.3); } }
-    @keyframes nodePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     .hmi-panel { background: #0A0F1E; border: 1px solid rgba(249,115,22,0.35); position: relative; }
-    .hmi-stage { position: relative; height: 380px; overflow: hidden; }
-    .hmi-glow {
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 50% 58%, rgba(249,115,22,0.16), transparent 62%);
-      pointer-events: none;
+
+    /* ---- Pipeline visual: "Concept to CE Compliance" journey, replaces the old 3D robot scene.
+       Pure CSS/DOM - no canvas, no WebGL, no CDN fetch - so it always renders crisply and instantly. */
+    @keyframes pipelineFlow {
+      0%   { top: 0%;   opacity: 0; }
+      6%   { opacity: 1; }
+      94%  { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
     }
-    .hmi-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-    .hmi-node {
-      position: absolute; background: rgba(255,255,255,0.045); border: 1px solid rgba(249,115,22,0.4);
-      border-radius: 2px; padding: 7px 11px; animation: nodePulse 3.6s ease-in-out infinite;
+    @keyframes checkPop {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
     }
-    .hmi-node .lbl { font-size: 9px; letter-spacing: .05em; color: #fdba74; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; }
-    .hmi-node .val { font-size: 10.5px; color: #e5e7eb; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; margin-top: 2px; white-space: nowrap; }
+    .pipeline-wrap { position: relative; padding: 30px 32px 28px; }
+    .pipeline-line {
+      position: absolute; left: 43px; top: 42px; bottom: 42px; width: 2px;
+      background-image: linear-gradient(rgba(249,115,22,0.32) 60%, transparent 0%);
+      background-size: 2px 9px; background-repeat: repeat-y;
+    }
+    .pipeline-pulse {
+      position: absolute; left: -3px; width: 8px; height: 8px; border-radius: 50%;
+      background: #f97316; box-shadow: 0 0 10px 3px rgba(249,115,22,0.75);
+      animation: pipelineFlow 5.5s linear infinite;
+    }
+    .pipeline-step { position: relative; display: flex; align-items: flex-start; gap: 16px; padding-bottom: 25px; }
+    .pipeline-step:last-child { padding-bottom: 0; }
+    .pipeline-node {
+      position: relative; z-index: 1; flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+      background: #10161F; border: 2px solid rgba(249,115,22,0.75); display: flex; align-items: center;
+      justify-content: center; font-size: 10px; font-weight: 700; color: #f97316;
+      font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace;
+    }
+    .pipeline-step.is-done .pipeline-node {
+      background: #34d399; border-color: #34d399; color: #06281d;
+      box-shadow: 0 0 12px 2px rgba(52,211,153,0.55); animation: checkPop 2.4s ease-in-out infinite;
+    }
+    .pipeline-step .pipeline-label { font-size: 13.5px; font-weight: 600; color: #f3f4f6; line-height: 1.3; }
+    .pipeline-step .pipeline-sub {
+      font-size: 10px; letter-spacing: .03em; color: #8b93a3; margin-top: 3px;
+      font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace;
+    }
+    .pipeline-step.is-done .pipeline-label { color: #6ee7b7; }
+
     .hmi-marquee-track { display: flex; white-space: nowrap; animation: marqueeScroll 26s linear infinite; }
     .hmi-marquee-track span { font-size: 10px; color: #fdba74; font-family: 'SF Mono','IBM Plex Mono',Consolas,monospace; padding-right: 2.5rem; }
   </style>
@@ -470,32 +500,60 @@
               </div>
             </div>
 
-            <!-- HMI panel: animated CSS-only automation system visual -->
+            <!-- Pipeline panel: "Concept to CE Compliance" visualized as a live project journey -->
             <div class="hidden lg:block relative flex-shrink-0 hmi-panel" style="width:480px;" aria-hidden="true">
               <div class="flex items-center justify-between px-4 py-3" style="border-bottom:1px solid rgba(249,115,22,0.25);">
-                <span style="font-size:10px; letter-spacing:.08em; color:#f97316; font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">SYSTEM STATUS</span>
+                <span style="font-size:10px; letter-spacing:.08em; color:#f97316; font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">PROJECT LIFECYCLE</span>
                 <span class="flex items-center gap-1.5">
                   <span style="width:6px;height:6px;border-radius:50%;background:#34d399;display:inline-block;animation:pulseDot 2s ease-in-out infinite;"></span>
                   <span style="font-size:9px;color:#6ee7b7;font-family:'SF Mono','IBM Plex Mono',Consolas,monospace;">LIVE</span>
                 </span>
               </div>
 
-              <div class="hmi-stage" id="hmiStage">
-                <div class="hmi-glow"></div>
+              <div class="pipeline-wrap">
+                <div class="pipeline-line"><div class="pipeline-pulse"></div></div>
 
-                <canvas id="hmiCanvas" class="hmi-canvas" aria-hidden="true" role="presentation"></canvas>
-
-                <div class="hmi-node" style="top:26px; left:20px;">
-                  <div class="lbl">MOTION CONTROL</div>
-                  <div class="val">MULTI-AXIS SYNC</div>
+                <div class="pipeline-step">
+                  <div class="pipeline-node">01</div>
+                  <div>
+                    <div class="pipeline-label">Concept &amp; Feasibility</div>
+                    <div class="pipeline-sub">R&amp;D · ARCHITECTURE · TECH EVALUATION</div>
+                  </div>
                 </div>
-                <div class="hmi-node" style="top:130px; left:20px; animation-delay:1.1s;">
-                  <div class="lbl">SAFETY DESIGN</div>
-                  <div class="val">FAIL-SAFE CIRCUITS</div>
+                <div class="pipeline-step">
+                  <div class="pipeline-node">02</div>
+                  <div>
+                    <div class="pipeline-label">Mechanical Design</div>
+                    <div class="pipeline-sub">3D CAD · SPM · AUTOMATION LAYOUT</div>
+                  </div>
                 </div>
-                <div class="hmi-node" style="bottom:44px; right:20px; animation-delay:2.2s;">
-                  <div class="lbl">NETWORKING</div>
-                  <div class="val">PROFINET / ETHERCAT</div>
+                <div class="pipeline-step">
+                  <div class="pipeline-node">03</div>
+                  <div>
+                    <div class="pipeline-label">Simulation &amp; Validation</div>
+                    <div class="pipeline-sub">FEA · TOLERANCE · MOTION ANALYSIS</div>
+                  </div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-node">04</div>
+                  <div>
+                    <div class="pipeline-label">Automation Integration</div>
+                    <div class="pipeline-sub">ROBOTICS · PLC · FAIL-SAFE CIRCUITS</div>
+                  </div>
+                </div>
+                <div class="pipeline-step">
+                  <div class="pipeline-node">05</div>
+                  <div>
+                    <div class="pipeline-label">Risk Assessment</div>
+                    <div class="pipeline-sub">EN ISO 12100 · TR 14121-2</div>
+                  </div>
+                </div>
+                <div class="pipeline-step is-done">
+                  <div class="pipeline-node"><i class="fas fa-check"></i></div>
+                  <div>
+                    <div class="pipeline-label">CE Compliant</div>
+                    <div class="pipeline-sub">TECHNICAL FILE + DoC READY</div>
+                  </div>
                 </div>
               </div>
 
@@ -972,411 +1030,6 @@
     });
   </script>
 
-  <!-- HMI hero scene: procedural Three.js automation-line animation, desktop only (panel is hidden lg:block) -->
-  <script type="module">
-    (async () => {
-      const stage = document.getElementById('hmiStage');
-      const canvas = document.getElementById('hmiCanvas');
-      if (!stage || !canvas) return;
-
-      // Only ever run on the widths where the panel is actually visible (hidden lg:block, lg = 1024px).
-      // Guards against downloading/initializing Three.js on mobile even if display:none is bypassed later.
-      if (!window.matchMedia('(min-width: 1024px)').matches) return;
-
-      function hasWebGL() {
-        try {
-          const c = document.createElement('canvas');
-          return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
-        } catch (e) {
-          return false;
-        }
-      }
-      if (!hasWebGL()) return;
-
-      let THREE;
-      try {
-        THREE = await import('https://cdnjs.cloudflare.com/ajax/libs/three.js/0.185.0/three.module.min.js');
-      } catch (e) {
-        return; // CDN unreachable - panel still looks intentional with glow + chips + ticker alone
-      }
-
-      const width = stage.clientWidth;
-      const height = stage.clientHeight;
-
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
-      renderer.setSize(width, height, false);
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-      const scene = new THREE.Scene();
-      scene.fog = new THREE.Fog(0x0a0f1e, 6, 15);
-
-      const camera = new THREE.PerspectiveCamera(36, width / height, 0.1, 50);
-      camera.position.set(3.6, 2.7, 5.4);
-      camera.lookAt(0.2, 0.25, 0);
-
-      scene.add(new THREE.AmbientLight(0x445066, 1.2));
-      const keyLight = new THREE.DirectionalLight(0xfff2e0, 1.4);
-      keyLight.position.set(3, 5, 4);
-      scene.add(keyLight);
-      const rimLight = new THREE.PointLight(0xf97316, 3.5, 12);
-      rimLight.position.set(-2.2, 1.8, -1.5);
-      scene.add(rimLight);
-
-      // Palette matches the panel's existing colors exactly - no new scheme introduced.
-      const ORANGE = 0xf97316;
-      const DARK_METAL = 0x2b3344;
-      const LIGHT_GRAY = 0xe5e7eb;
-      const PANEL_DARK = 0x10161f;
-      const LIVE_GREEN = 0x34d399;
-
-      const matOrange = new THREE.MeshStandardMaterial({ color: ORANGE, metalness: 0.4, roughness: 0.4, emissive: 0x4a1a00, emissiveIntensity: 0.3 });
-      const matDark = new THREE.MeshStandardMaterial({ color: DARK_METAL, metalness: 0.6, roughness: 0.5 });
-      const matLight = new THREE.MeshStandardMaterial({ color: LIGHT_GRAY, metalness: 0.25, roughness: 0.55 });
-
-      // Floor (subtle depth cue, no shadows needed at this scale/complexity)
-      const floor = new THREE.Mesh(
-        new THREE.PlaneGeometry(20, 20),
-        new THREE.MeshStandardMaterial({ color: 0x0b1120, roughness: 1 })
-      );
-      floor.rotation.x = -Math.PI / 2;
-      floor.position.y = -0.55;
-      scene.add(floor);
-
-      // Conveyor: base + belt surface with a procedurally-drawn stripe texture (no image assets)
-      const beltGroup = new THREE.Group();
-      const beltBase = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.3, 1.05), matDark);
-      beltBase.position.set(-0.3, -0.35, 0);
-      beltGroup.add(beltBase);
-
-      const stripeCanvas = document.createElement('canvas');
-      stripeCanvas.width = 64;
-      stripeCanvas.height = 16;
-      const sctx = stripeCanvas.getContext('2d');
-      sctx.fillStyle = '#111722';
-      sctx.fillRect(0, 0, 64, 16);
-      sctx.fillStyle = 'rgba(249,115,22,0.6)';
-      for (let x = 0; x < 64; x += 16) sctx.fillRect(x, 0, 6, 16);
-      const stripeTex = new THREE.CanvasTexture(stripeCanvas);
-      stripeTex.wrapS = THREE.RepeatWrapping;
-      stripeTex.wrapT = THREE.RepeatWrapping;
-      stripeTex.repeat.set(9, 1);
-      stripeTex.colorSpace = THREE.SRGBColorSpace;
-
-      const beltTop = new THREE.Mesh(
-        new THREE.PlaneGeometry(5.0, 0.85),
-        new THREE.MeshStandardMaterial({ map: stripeTex, roughness: 0.8, metalness: 0.1 })
-      );
-      beltTop.rotation.x = -Math.PI / 2;
-      beltTop.position.set(-0.3, -0.19, 0);
-      beltGroup.add(beltTop);
-      scene.add(beltGroup);
-
-      // Packages looping along the belt
-      const BELT_MIN_X = -2.6;
-      const BELT_MAX_X = 1.6;
-      const packages = [];
-      for (let i = 0; i < 3; i++) {
-        const pkg = new THREE.Mesh(new THREE.BoxGeometry(0.32, 0.32, 0.32), matLight);
-        pkg.position.set(BELT_MIN_X + i * ((BELT_MAX_X - BELT_MIN_X) / 3), 0.01, 0);
-        beltGroup.add(pkg);
-        packages.push(pkg);
-      }
-
-      // Robot arm: base -> shoulder (swing) -> upper arm -> elbow (bend) -> forearm -> gripper.
-      // Both shoulder and elbow rotate around Z, so the whole chain moves within the XY plane
-      // that contains the belt's direction of travel (X) - this is what makes the swing actually
-      // move the gripper toward/away from the belt, rather than spinning a link around its own axis.
-      const armGroup = new THREE.Group();
-      armGroup.position.set(1.5, -0.2, 0);
-      scene.add(armGroup);
-
-      const base = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.48, 0.26, 20), matDark);
-      armGroup.add(base);
-
-      const shoulder = new THREE.Group();
-      shoulder.position.y = 0.13;
-      armGroup.add(shoulder);
-      shoulder.add(new THREE.Mesh(new THREE.SphereGeometry(0.15, 16, 12), matOrange));
-
-      const upperArm = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.85, 0.15), matOrange);
-      upperArm.position.y = 0.425;
-      shoulder.add(upperArm);
-
-      const elbow = new THREE.Group();
-      elbow.position.y = 0.85;
-      shoulder.add(elbow);
-      elbow.add(new THREE.Mesh(new THREE.SphereGeometry(0.11, 16, 12), matDark));
-
-      const forearm = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.65, 0.12), matLight);
-      forearm.position.y = 0.325;
-      elbow.add(forearm);
-
-      const gripper = new THREE.Group();
-      gripper.position.y = 0.65;
-      elbow.add(gripper);
-      const fingerGeo = new THREE.BoxGeometry(0.045, 0.2, 0.045);
-      const fingerL = new THREE.Mesh(fingerGeo, matOrange);
-      const fingerR = new THREE.Mesh(fingerGeo, matOrange);
-      // Fingers open/close along Z (perpendicular to the arm's swing plane), so they straddle a
-      // package from the sides relative to the belt's direction of travel - not along the swing
-      // plane itself, which would just push a held object toward/away from the shoulder pivot.
-      fingerL.position.set(0, 0.1, -0.06);
-      fingerR.position.set(0, 0.1, 0.06);
-      gripper.add(fingerL, fingerR);
-
-      // Status panel with blinking LEDs (reuses existing orange + the LIVE dot's green - no new colors)
-      const panelGroup = new THREE.Group();
-      panelGroup.position.set(-2.5, 0.5, -1.1);
-      panelGroup.add(
-        new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.5, 0.06), new THREE.MeshStandardMaterial({ color: PANEL_DARK, roughness: 0.6 }))
-      );
-      const ledColors = [ORANGE, LIVE_GREEN, ORANGE];
-      const leds = ledColors.map((c, i) => {
-        const mat = new THREE.MeshStandardMaterial({ color: c, emissive: c, emissiveIntensity: 0.3 });
-        const led = new THREE.Mesh(new THREE.CircleGeometry(0.045, 12), mat);
-        led.position.set(-0.26 + i * 0.26, 0.1, 0.032);
-        panelGroup.add(led);
-        return { mesh: led, mat, phase: i * 1.7 };
-      });
-      scene.add(panelGroup);
-
-      // --- Pick-and-place motion: grounded in real inverse kinematics, not guessed angles ---
-      //
-      // Both joints rotate around Z, so the chain is a standard 2-link planar arm living in the
-      // XY plane (shoulder pivot -> upperArm, length L1 -> elbow -> forearm+gripper, length L2).
-      // theta1 is measured from the +Y axis (vertical, "arm hanging straight up") toward -X;
-      // theta2 is the forearm's angle relative to the upper arm (composes as theta1+theta2).
-      // Forward kinematics (gripper position relative to the shoulder pivot):
-      //   x = -L1*sin(theta1) - L2*sin(theta1+theta2)
-      //   y =  L1*cos(theta1) + L2*cos(theta1+theta2)
-      const L1 = 0.85; // shoulder-to-elbow (matches upperArm geometry above)
-      const L2 = 0.65; // elbow-to-gripper (matches forearm + gripper offset above)
-      const CYCLE = 6.0; // seconds per full pick-and-place cycle
-      const SHOULDER_PIVOT = { x: armGroup.position.x, y: armGroup.position.y + shoulder.position.y };
-
-      function forwardKinematics(theta1, theta2) {
-        return {
-          x: SHOULDER_PIVOT.x - L1 * Math.sin(theta1) - L2 * Math.sin(theta1 + theta2),
-          y: SHOULDER_PIVOT.y + L1 * Math.cos(theta1) + L2 * Math.cos(theta1 + theta2),
-        };
-      }
-
-      // Standard closed-form 2-link planar IK, solved for a world-space target (x,y).
-      function solveIK(targetX, targetY) {
-        const dx = targetX - SHOULDER_PIVOT.x;
-        const dy = targetY - SHOULDER_PIVOT.y;
-        const maxReach = L1 + L2;
-        const minReach = Math.abs(L1 - L2);
-        const r = Math.min(Math.max(Math.sqrt(dx * dx + dy * dy), minReach + 1e-4), maxReach - 1e-4);
-        const cosA2 = Math.min(1, Math.max(-1, (r * r - L1 * L1 - L2 * L2) / (2 * L1 * L2)));
-        const a2 = Math.atan2(Math.sqrt(1 - cosA2 * cosA2), cosA2); // "elbow-out" branch
-        const a1 = Math.atan2(dy, dx) - Math.atan2(L2 * Math.sin(a2), L1 + L2 * Math.cos(a2));
-        return { theta1: a1 - Math.PI / 2, theta2: a2 };
-      }
-
-      // Real target points on the belt, in world space - the belt runs along X at z=0, package
-      // rest height is y=0.05 (packages are 0.32 side boxes centered at y=0.01, so this sits just
-      // above their centerline, a believable grasp height).
-      const PICK_POINT = { x: 0.15, y: 0.05 };
-      const PLACE_POINT = { x: 0.75, y: 0.05 };
-      const PICK_ANGLES = solveIK(PICK_POINT.x, PICK_POINT.y);
-      const PLACE_ANGLES = solveIK(PLACE_POINT.x, PLACE_POINT.y);
-      const HOME = { theta1: 0.15, theta2: 0.3 }; // compact/retracted idle pose (not IK-targeted, just "parked")
-      const HOVER_ELBOW = 0.4; // shared, less-folded elbow angle used for the "approach from above" hover poses
-
-      // Named poses tracing the full 8-step pick-and-place cycle - phase (`p`) for each is derived
-      // below from actual angular distance between poses, not hand-picked, so a pose requiring a
-      // bigger joint swing (e.g. PLACE's much more folded elbow, since it's closer to the pivot
-      // than PICK) automatically gets proportionally more time instead of moving faster than its
-      // neighbors. `dwell` reserves a small fixed slice of phase for a held pose (grip opening/
-      // closing while stationary), separate from the proportional motion budget.
-      const DWELL = 0.045;
-      const POSES = [
-        { name: 'home', theta1: HOME.theta1, theta2: HOME.theta2, grip: 0, dwell: 0 }, // 8. idle
-        { name: 'hoverPick', theta1: PICK_ANGLES.theta1, theta2: HOVER_ELBOW, grip: 0, dwell: 0 }, // 1. approach above pick
-        { name: 'pick', theta1: PICK_ANGLES.theta1, theta2: PICK_ANGLES.theta2, grip: 0, dwell: 0 }, // 2. descend - package arrives here too
-        { name: 'pickGripped', theta1: PICK_ANGLES.theta1, theta2: PICK_ANGLES.theta2, grip: 1, dwell: DWELL }, // 3. grip closes - package attaches
-        { name: 'hoverPickUp', theta1: PICK_ANGLES.theta1, theta2: HOVER_ELBOW, grip: 1, dwell: 0 }, // 4. lift clear
-        { name: 'transit', theta1: HOME.theta1, theta2: HOME.theta2, grip: 1, dwell: 0 }, // 5. transport, arc peak
-        { name: 'hoverPlace', theta1: PLACE_ANGLES.theta1, theta2: HOVER_ELBOW, grip: 1, dwell: 0 }, // 5. transport, approach above place
-        { name: 'place', theta1: PLACE_ANGLES.theta1, theta2: PLACE_ANGLES.theta2, grip: 1, dwell: 0 }, // 6. descend to place
-        { name: 'placeReleased', theta1: PLACE_ANGLES.theta1, theta2: PLACE_ANGLES.theta2, grip: 0, dwell: DWELL }, // 7. release - package detaches
-        { name: 'hoverPlaceUp', theta1: PLACE_ANGLES.theta1, theta2: HOVER_ELBOW, grip: 0, dwell: 0 }, // 8. lift clear after release
-        { name: 'homeEnd', theta1: HOME.theta1, theta2: HOME.theta2, grip: 0, dwell: 0 }, // 8. return (== 'home', seamless loop)
-      ];
-
-      // Assign each pose a phase by walking the list: fixed dwell budgets are reserved first, and
-      // the remaining phase is split across the motion segments in proportion to how much the
-      // joints actually have to move for each one.
-      const totalDwell = POSES.reduce((sum, pose) => sum + pose.dwell, 0);
-      const motionBudget = 1 - totalDwell;
-      let totalAngularDist = 0;
-      const segDist = [];
-      for (let i = 0; i < POSES.length - 1; i++) {
-        const d = Math.hypot(POSES[i + 1].theta1 - POSES[i].theta1, POSES[i + 1].theta2 - POSES[i].theta2);
-        segDist.push(d);
-        totalAngularDist += d;
-      }
-      POSES[0].p = 0;
-      for (let i = 0; i < segDist.length; i++) {
-        POSES[i + 1].p = POSES[i].p + (segDist[i] / totalAngularDist) * motionBudget + POSES[i + 1].dwell;
-      }
-      POSES[POSES.length - 1].p = 1.0; // pin the endpoint exactly, absorbing float rounding
-
-      const KEYFRAMES = POSES;
-      const PACKAGE_ATTACH_P = POSES.find((pose) => pose.name === 'pickGripped').p;
-      const PACKAGE_DETACH_P = POSES.find((pose) => pose.name === 'placeReleased').p;
-
-      function easeInOutCubic(x) {
-        return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
-      }
-
-      function sampleArm(phase) {
-        for (let i = 0; i < KEYFRAMES.length - 1; i++) {
-          const a = KEYFRAMES[i];
-          const b = KEYFRAMES[i + 1];
-          if (phase >= a.p && phase <= b.p) {
-            const localT = (phase - a.p) / (b.p - a.p || 1);
-            const e = easeInOutCubic(localT);
-            return {
-              theta1: a.theta1 + (b.theta1 - a.theta1) * e,
-              theta2: a.theta2 + (b.theta2 - a.theta2) * e,
-              grip: a.grip + (b.grip - a.grip) * e,
-            };
-          }
-        }
-        return KEYFRAMES[0];
-      }
-
-      // Package[0] runs a fully scripted path locked to the SAME phase variable as the arm, so its
-      // arrival at PICK_POINT and departure from PLACE_POINT are guaranteed to coincide with the
-      // arm's own keyframe timing - not detected at runtime, but true by construction. Every phase
-      // boundary below is read from the POSES timeline itself (not a separate hardcoded number), so
-      // if the proportional timing above ever shifts, the package's schedule shifts with it instead
-      // of silently drifting out of sync. Packages 1 and 2 keep the original simple ambient belt
-      // loop (unattached, just line-is-running filler).
-      const BELT_SPEED = 0.35; // units/sec - matches the ambient packages' existing loop speed below
-      const PICK_ARRIVE_P = POSES.find((pose) => pose.name === 'pick').p; // arm fully descended, not yet gripping
-      const RELEASE_DWELL_END_P = PACKAGE_DETACH_P + DWELL; // brief rest at the drop point before continuing
-      // Approach/exit distances are derived from the actual computed timing above at BELT_SPEED, so
-      // the "hero" package rides the belt at the same speed as the ambient ones, not faster/slower.
-      const APPROACH_START_X = PICK_POINT.x - BELT_SPEED * (PICK_ARRIVE_P * CYCLE);
-      const EXIT_END_X = PLACE_POINT.x + BELT_SPEED * ((1.0 - RELEASE_DWELL_END_P) * CYCLE);
-      packages[0].position.x = APPROACH_START_X; // match the scripted path's phase-0 position exactly, no initial jump
-
-      function sampleActivePackageX(phase) {
-        if (phase < PICK_ARRIVE_P) {
-          // 1. approach: riding the belt at constant speed toward the pick point
-          const t = phase / PICK_ARRIVE_P;
-          return APPROACH_START_X + (PICK_POINT.x - APPROACH_START_X) * t;
-        }
-        if (phase < PACKAGE_ATTACH_P) {
-          return PICK_POINT.x; // dwell while the gripper finishes closing
-        }
-        if (phase < PACKAGE_DETACH_P) {
-          return null; // carried - position comes from the gripper's transform, not scripted here
-        }
-        if (phase < RELEASE_DWELL_END_P) {
-          return PLACE_POINT.x; // dwell right after release
-        }
-        // 8. continues down the line after being placed
-        const t = (phase - RELEASE_DWELL_END_P) / (1.0 - RELEASE_DWELL_END_P);
-        return PLACE_POINT.x + (EXIT_END_X - PLACE_POINT.x) * t;
-      }
-
-      let raf = null;
-      let animating = false;
-      let startTime = null;
-      let lastTime = null;
-      let activeAttached = false; // whether packages[0] is currently parented to the gripper
-
-      const activePkg = packages[0];
-      const ambientPkgs = packages.slice(1);
-
-      function frame(now) {
-        raf = requestAnimationFrame(frame);
-        if (startTime === null) { startTime = now; lastTime = now; }
-        const dt = Math.min((now - lastTime) / 1000, 0.1);
-        const t = (now - startTime) / 1000;
-        lastTime = now;
-
-        const phase = (t % CYCLE) / CYCLE;
-        const pose = sampleArm(phase);
-        shoulder.rotation.z = pose.theta1;
-        elbow.rotation.z = pose.theta2;
-        const gripOpenZ = 0.06 - pose.grip * 0.035;
-        fingerL.position.z = -gripOpenZ;
-        fingerR.position.z = gripOpenZ;
-
-        // Attach/detach the active package exactly at the keyframes where grip finishes
-        // closing/opening - tied to the arm's own state, not a guessed timestamp.
-        const shouldBeAttached = phase >= PACKAGE_ATTACH_P && phase < PACKAGE_DETACH_P;
-        if (shouldBeAttached && !activeAttached) {
-          gripper.add(activePkg); // re-parent: from here on its position IS the gripper's transform
-          activePkg.position.set(0, 0.08, 0);
-          activeAttached = true;
-        } else if (!shouldBeAttached && activeAttached) {
-          beltGroup.add(activePkg); // re-parent back to the belt at the drop point
-          activePkg.position.set(PLACE_POINT.x, 0.01, 0);
-          activeAttached = false;
-        }
-        if (!activeAttached) {
-          const x = sampleActivePackageX(phase);
-          if (x !== null) activePkg.position.x = x;
-        }
-
-        ambientPkgs.forEach((pkg) => {
-          pkg.position.x += dt * BELT_SPEED;
-          if (pkg.position.x > BELT_MAX_X) {
-            pkg.position.x = BELT_MIN_X;
-          }
-        });
-
-        leds.forEach((led) => {
-          led.mat.emissiveIntensity = 0.3 + Math.max(0, Math.sin(t * 2.2 + led.phase)) * 1.1;
-        });
-
-        rimLight.intensity = 3.2 + Math.sin(t * 1.6) * 0.4;
-
-        renderer.render(scene, camera);
-      }
-
-      function start() {
-        if (animating) return;
-        animating = true;
-        raf = requestAnimationFrame(frame);
-      }
-
-      function stop() {
-        animating = false;
-        if (raf) cancelAnimationFrame(raf);
-        raf = null;
-      }
-
-      // Don't burn CPU on a backgrounded tab.
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          stop();
-        } else {
-          start();
-        }
-      });
-
-      // Don't render while scrolled out of view either (hero is usually above the fold, but be defensive).
-      const io = new IntersectionObserver(
-        (entries) => {
-          const visible = entries[0]?.isIntersecting;
-          if (visible && !document.hidden) start();
-          else stop();
-        },
-        { threshold: 0.01 }
-      );
-      io.observe(stage);
-
-      start();
-    })();
-  </script>
 
 <!-- Cookie Consent Banner - START -->
 <style>
