@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>J-Techno Simulator | J-Techno Engineering</title>
+<meta name="description" content="Free interactive automation cell estimator. Set your budget, describe your process, and integrate real industrial robotics, vision, sensor, and IoT systems — built by J-Techno Engineering.">
+<meta property="og:title" content="J-Techno Simulator — Free Automation Cell Estimator">
+<meta property="og:description" content="Set your budget, describe your process, integrate real industrial systems. Try J-Techno Engineering's free interactive estimator.">
+<meta property="og:type" content="website">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
+:root{
+  --bg:#0a0e17; --panel:#0e1522; --panel2:#121b2c; --line:#1c2a44;
+  --blue:#00d4ff; --cyan:#00f5d4; --amber:#ffb800; --green:#00e676; --red:#ff5470;
+  --violet:#a78bfa; --teal:#2dd4bf; --pink:#f472b6;
+  --text:#eaf3ff; --muted:#8391b8;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:
+    radial-gradient(900px 500px at 10% 0%, #0a3a4022, transparent),
+    radial-gradient(900px 600px at 100% 100%, #0a2a4022, transparent),
+    var(--bg);
+  color:var(--text); font-family:'Rajdhani',sans-serif; overflow:hidden; height:100vh;
+}
+h1,h2,h3,.orbi{font-family:'Orbitron',sans-serif;}
+input,select{font-family:'Rajdhani',sans-serif;}
+.hide{display:none !important;}
+
+/* ============ FULLSCREEN STEP SCREENS ============ */
+.stepScreen{
+  position:fixed; inset:0; z-index:90; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:
+    linear-gradient(rgba(10,14,23,0.94), rgba(10,14,23,0.98)),
+    repeating-linear-gradient(0deg, transparent, transparent 38px, #00d4ff08 39px, transparent 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 38px, #00d4ff08 39px, transparent 40px);
+  text-align:center; padding:20px; overflow-y:auto;
+}
+.logoMark{
+  width:76px; height:76px; border-radius:16px; margin:0 auto 16px;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+  display:flex; align-items:center; justify-content:center; font-family:'Orbitron'; font-weight:900; font-size:24px; color:#001018;
+  box-shadow:0 0 50px #00d4ff77, 0 0 120px #00f5d433; animation:pulseLogo 2.4s ease-in-out infinite; flex:none;
+}
+@keyframes pulseLogo{0%,100%{box-shadow:0 0 50px #00d4ff77,0 0 120px #00f5d433;}50%{box-shadow:0 0 70px #00d4ffaa,0 0 160px #00f5d455;}}
+.company{font-size:13px; letter-spacing:4px; color:var(--muted); margin-bottom:6px; text-transform:uppercase;}
+.stepScreen h1{font-size:min(8vw,44px); background:linear-gradient(90deg,var(--blue),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:1.5px; margin-bottom:8px;}
+.stepScreen .sub{color:var(--muted); font-size:14px; margin-bottom:30px; letter-spacing:.5px; max-width:520px;}
+.bigBtn{
+  font-family:'Orbitron'; font-size:13px; letter-spacing:2px; padding:15px 42px; border-radius:8px; border:1px solid var(--cyan);
+  background:linear-gradient(135deg,#00d4ff22,#00f5d422); color:var(--cyan); cursor:pointer; position:relative; overflow:hidden;
+  text-transform:uppercase; margin-top:6px;
+}
+.bigBtn::before{content:'';position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(120deg, transparent, #ffffff55, transparent); transform:skewX(-20deg); animation:shine 2.6s infinite;}
+@keyframes shine{0%{left:-60%;}100%{left:140%;}}
+.bigBtn:hover{background:linear-gradient(135deg,#00d4ff44,#00f5d444); box-shadow:0 0 30px #00d4ff55;}
+.bigBtn:disabled{opacity:.35; cursor:not-allowed;}
+.taglineFoot{position:absolute; bottom:18px; color:var(--muted); font-size:10px; letter-spacing:1.5px;}
+
+/* budget step */
+.stepCard{background:var(--panel2); border:1px solid var(--line); border-radius:14px; padding:26px 30px; max-width:520px; width:100%;}
+.stepCard h3{font-size:12px; letter-spacing:1.6px; color:var(--cyan); text-transform:uppercase; margin-bottom:14px; text-align:left;}
+#budgetInput{width:100%; padding:14px; font-size:22px; font-family:'Orbitron'; text-align:center; background:#0a0f1e; border:1px solid var(--line); border-radius:10px; color:var(--green); margin-bottom:14px;}
+#budgetInput:focus{outline:none; border-color:var(--cyan);}
+.presetRow{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;}
+.presetChip{padding:8px 14px; border-radius:20px; border:1px solid var(--line); background:#0d1626; color:var(--muted); font-size:12px; cursor:pointer; font-family:'Orbitron';}
+.presetChip:hover, .presetChip.active{border-color:var(--amber); color:var(--amber); background:#ffb80015;}
+
+/* brief builder step */
+.briefGrid{display:grid; gap:16px; text-align:left; max-width:560px; width:100%;}
+.formRow label{display:block; font-size:11px; letter-spacing:1.2px; color:var(--cyan); text-transform:uppercase; margin-bottom:6px;}
+.formRow select{width:100%; padding:12px; background:#0a0f1e; border:1px solid var(--line); border-radius:8px; color:var(--text); font-size:14px;}
+.formRow select:focus{outline:none; border-color:var(--cyan);}
+.constraintGrid{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+.constraintChip{padding:10px 12px; border-radius:9px; border:1px solid var(--line); background:#0d1626; cursor:pointer; font-size:12px; color:var(--muted); text-align:left; transition:.15s;}
+.constraintChip:hover{border-color:var(--cyan);}
+.constraintChip.on{border-color:var(--amber); background:#ffb80012; color:var(--amber);}
+
+/* ============ GAME SHELL ============ */
+#game{display:none; height:100vh; grid-template-rows:auto 1fr; }
+#game.show{display:grid;}
+#topbar{
+  display:flex; align-items:center; justify-content:space-between; padding:10px 22px; flex-wrap:wrap; gap:8px;
+  border-bottom:1px solid var(--line); background:#0c1220ee; backdrop-filter:blur(8px); z-index:5;
+}
+#topbar .left{display:flex; align-items:center; gap:12px;}
+.logoMark2{width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--blue),var(--cyan)); display:flex; align-items:center; justify-content:center; font-family:'Orbitron'; font-weight:900; color:#001018; font-size:13px; flex:none;}
+#topbar h2{font-size:14px; letter-spacing:1px;}
+#topbar .clientTag{color:var(--muted); font-size:10.5px; letter-spacing:.5px;}
+#stats{display:flex; gap:14px; align-items:center;}
+.stat{display:flex; align-items:center; gap:5px; font-family:'Orbitron'; font-size:12.5px; white-space:nowrap;}
+.stat .ic{font-size:14px;}
+.stat.cash{color:var(--green);} .stat.rep{color:var(--amber);}
+
+#main{display:grid; grid-template-columns:1fr 360px; height:100%; overflow:hidden;}
+#gridWrap{position:relative; overflow:hidden; background:
+    radial-gradient(circle at 50% 35%, #0f1b30 0%, #080c16 75%); min-height:260px;}
+#gridCanvas{display:block; width:100%; height:100%; cursor:grab;}
+#gridHint{position:absolute; bottom:14px; left:18px; font-size:11px; color:var(--muted); background:#000a; padding:7px 14px; border-radius:20px; backdrop-filter:blur(6px); max-width:90%;}
+#cancelHint{position:absolute; top:14px; left:18px; background:#00141a; border:1px solid var(--cyan); color:var(--cyan); padding:6px 14px; border-radius:20px; font-size:11px; display:none;}
+#briefBanner{position:absolute; top:14px; right:16px; left:auto; max-width:320px; background:#000a; backdrop-filter:blur(8px); padding:10px 14px; border-radius:10px; font-size:11px; border:1px solid var(--line); text-align:left;}
+#briefBanner b{color:var(--cyan); display:block; font-size:12px; margin-bottom:4px;}
+#briefBanner .reqChips{display:flex; gap:5px; flex-wrap:wrap; margin-top:6px;}
+#briefBanner .chip{padding:2px 8px; border-radius:10px; font-size:9.5px; font-family:'Orbitron'; border:1px solid; }
+
+#viewControls{position:absolute; top:14px; right:16px; display:flex; flex-direction:column; gap:6px; z-index:6;}
+#viewControls.withBanner{top:150px;}
+.vcBtn{width:34px; height:34px; border-radius:8px; background:#000a; border:1px solid var(--line); color:var(--cyan);
+  font-size:16px; cursor:pointer; backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; font-family:'Orbitron';}
+.vcBtn:hover{border-color:var(--cyan); background:#00141a;}
+.vcBtn:active{transform:scale(0.92);}
+#zoomLabel{position:absolute; bottom:14px; right:16px; font-size:10.5px; color:var(--muted); background:#000a; padding:5px 10px; border-radius:14px; backdrop-filter:blur(6px);}
+
+/* SIDE PANEL */
+#side{background:var(--panel); border-left:1px solid var(--line); overflow-y:auto; padding:16px;}
+#side::-webkit-scrollbar{width:6px;} #side::-webkit-scrollbar-thumb{background:#223055; border-radius:3px;}
+.secTitle{font-family:'Orbitron'; font-size:11px; letter-spacing:1.6px; color:var(--cyan); text-transform:uppercase; margin:18px 0 10px; display:flex; align-items:center; gap:6px; justify-content:space-between;}
+.secTitle:first-child{margin-top:0;}
+.secTitle .lbl{display:flex; align-items:center; gap:6px;}
+.secTitle .lbl::before{content:''; width:4px; height:12px; background:var(--cyan); display:inline-block; border-radius:2px;}
+.secTitle .count{color:var(--muted); font-size:9.5px; letter-spacing:0;}
+
+.catBlock{margin-bottom:6px;}
+.catHead{display:flex; align-items:center; gap:6px; font-size:10.5px; font-weight:700; letter-spacing:.6px; margin:10px 0 6px; text-transform:uppercase;}
+.catHead .sw{width:8px; height:8px; border-radius:50%;}
+.compGrid{display:grid; grid-template-columns:1fr 1fr; gap:7px;}
+.compCard{
+  background:linear-gradient(160deg,#121c30,#0d1626); border:1px solid var(--line); border-radius:9px; padding:8px 6px;
+  text-align:center; cursor:pointer; transition:.15s; position:relative;
+}
+.compCard:hover{border-color:var(--cyan); box-shadow:0 0 14px #00f5d422; transform:translateY(-1px);}
+.compCard.selected{border-color:var(--amber); box-shadow:0 0 16px #ffb80055; background:linear-gradient(160deg,#241c0f,#161206);}
+.compCard.afford-no{opacity:0.35;}
+.compCard .emoji{font-size:19px; display:block; margin-bottom:4px;}
+.compCard .cname{font-size:10.5px; font-weight:700; line-height:1.2;}
+.compCard .ccost{font-size:9.5px; color:var(--muted); margin-top:2px;}
+
+#briefSummary{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:12px; font-size:12px; line-height:1.6; color:#cdd8f5;}
+#briefSummary b{color:var(--cyan);}
+.reqChipsFull{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;}
+.reqChipsFull .chip{padding:3px 10px; border-radius:12px; font-size:10px; font-family:'Orbitron'; border:1px solid;}
+
+.metric{background:var(--panel2); border-radius:10px; padding:10px 12px; border:1px solid var(--line); margin-bottom:9px;}
+.metric .row{display:flex; justify-content:space-between; align-items:baseline;}
+.metric .lbl{font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.6px;}
+.metric .val{font-size:16px; font-weight:700;}
+.bar{height:7px; background:#0a0f22; border-radius:4px; margin-top:7px; overflow:hidden;}
+.bar i{display:block; height:100%; border-radius:4px; background:linear-gradient(90deg,#1c9a83,var(--cyan)); width:0%; transition:width .4s;}
+
+button.mainAction{width:100%; padding:12px; border:none; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--cyan)); color:#001018; font-weight:700; cursor:pointer; font-size:13px; margin-top:8px; font-family:'Orbitron'; letter-spacing:.5px; text-transform:uppercase;}
+button.mainAction:disabled{opacity:.3; cursor:not-allowed;}
+button.ghostAction{width:100%; padding:10px; border:1px solid var(--line); border-radius:10px; background:transparent; color:var(--text); cursor:pointer; font-size:12px; margin-top:8px; font-family:'Orbitron'; letter-spacing:.4px;}
+
+#log{background:#070b13; border:1px solid var(--line); border-radius:10px; padding:10px; height:110px; overflow-y:auto; font-size:11px;}
+#log::-webkit-scrollbar{width:5px;} #log::-webkit-scrollbar-thumb{background:#223055;}
+#log div{margin-bottom:5px; line-height:1.4;}
+#log .info{color:var(--blue);} #log .success{color:var(--green);} #log .warn{color:var(--amber);}
+
+#toast{position:fixed; top:78px; right:26px; background:#0c1220; border:1px solid var(--cyan); padding:14px 18px; border-radius:10px;
+  font-size:13px; display:none; max-width:320px; z-index:60; box-shadow:0 10px 40px #000a;}
+#toast.success{border-color:var(--green);} #toast.warn{border-color:var(--amber);}
+
+#modalWrap{position:fixed; inset:0; background:#000c; display:none; align-items:center; justify-content:center; z-index:80; padding:16px;}
+#modalWrap.show{display:flex;}
+#modal{background:linear-gradient(160deg,#101a2c,#0a1120); border:1px solid var(--cyan); border-radius:16px; padding:28px 32px; text-align:center; max-width:460px; box-shadow:0 0 60px #00d4ff33; max-height:92vh; overflow-y:auto;}
+#modal h2{font-size:20px; background:linear-gradient(90deg,var(--blue),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:10px;}
+#modal p{color:var(--muted); font-size:13px; margin-bottom:16px; line-height:1.6;}
+#modal button.primary{font-family:'Orbitron'; padding:12px 26px; border:none; border-radius:8px; background:linear-gradient(135deg,var(--blue),var(--cyan)); color:#001018; font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; margin-top:8px; font-size:11.5px;}
+#modal button.secondary{font-family:'Orbitron'; padding:11px 26px; border:1px solid var(--line); border-radius:8px; background:transparent; color:var(--text); font-weight:700; cursor:pointer; letter-spacing:1px; width:100%; margin-top:8px; font-size:11px;}
+#modal input, #modal select{width:100%; padding:10px 12px; margin-bottom:10px; border-radius:7px; border:1px solid var(--line); background:#0a0f1e; color:var(--text); font-size:13px;}
+#modal input:focus, #modal select:focus{outline:none; border-color:var(--cyan);}
+#modal label{display:block; text-align:left; font-size:10.5px; color:var(--muted); margin-bottom:4px; letter-spacing:.5px; text-transform:uppercase;}
+#certPreview{width:100%; border-radius:10px; margin-bottom:14px; border:1px solid var(--line); display:block;}
+.skipLink{color:var(--muted); font-size:11px; text-decoration:underline; cursor:pointer; margin-top:10px; display:inline-block;}
+
+@media (max-width: 860px){
+  body{overflow-y:auto; height:auto; min-height:100vh;}
+  #game.show{display:flex; flex-direction:column; height:auto; min-height:100vh;}
+  #main{grid-template-columns:1fr; grid-auto-rows:auto; height:auto;}
+  #gridWrap{height:50vh; min-height:320px;}
+  #side{border-left:none; border-top:1px solid var(--line); max-height:none; overflow-y:visible;}
+  #briefBanner{max-width:220px; font-size:10px;}
+  .constraintGrid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ STEP 1: INTRO ============ -->
+<div class="stepScreen" id="intro">
+  <div class="logoMark">JT</div>
+  <div class="company">J-TECHNO ENGINEERING · FULL-STACK AUTOMATION SOLUTIONS</div>
+  <h1>J-TECHNO SIMULATOR</h1>
+  <div class="sub">A free automation cell estimator. Set your budget, describe your process, and integrate real industrial systems — no limits on what you can combine.</div>
+  <button class="bigBtn" id="initBtn">▶ Start Free Estimator</button>
+  <div class="taglineFoot">A J-Techno Engineering Interactive Tool</div>
+</div>
+
+<!-- ============ STEP 2: BUDGET ============ -->
+<div class="stepScreen hide" id="budgetStep">
+  <div class="stepCard">
+    <h3>01 · Set Your Budget</h3>
+    <input id="budgetInput" type="number" min="5000" step="1000" value="50000">
+    <div class="presetRow" id="presetRow"></div>
+    <button class="bigBtn" id="budgetNext" style="width:100%;">Continue →</button>
+  </div>
+</div>
+
+<!-- ============ STEP 3: BRIEF BUILDER ============ -->
+<div class="stepScreen hide" id="briefStep">
+  <div class="stepCard" style="max-width:600px;">
+    <h3>02 · Describe What You're Automating</h3>
+    <div class="briefGrid">
+      <div class="formRow">
+        <label>Industry</label>
+        <select id="industrySel"></select>
+      </div>
+      <div class="formRow">
+        <label>Process Goal</label>
+        <select id="processSel"></select>
+      </div>
+      <div class="formRow">
+        <label>Operating Constraints (optional)</label>
+        <div class="constraintGrid" id="constraintGrid"></div>
+      </div>
+    </div>
+    <button class="bigBtn" id="briefNext" style="width:100%; margin-top:20px;">Generate Requirement →</button>
+  </div>
+</div>
+
+<!-- ============ GAME / BUILD SCREEN ============ -->
+<div id="game">
+  <div id="topbar">
+    <div class="left">
+      <div class="logoMark2">JT</div>
+      <div>
+        <h2>J-TECHNO ENGINEERING</h2>
+        <div class="clientTag" id="clientTag">Client Brief</div>
+      </div>
+    </div>
+    <div id="stats">
+      <div class="stat cash"><span class="ic">💰</span><span id="cashVal">$0</span> left</div>
+    </div>
+  </div>
+
+  <div id="main">
+    <div id="gridWrap">
+      <canvas id="gridCanvas"></canvas>
+      <div id="briefBanner"></div>
+      <div id="viewControls" class="withBanner">
+        <button class="vcBtn" id="zoomInBtn" title="Zoom in">+</button>
+        <button class="vcBtn" id="zoomOutBtn" title="Zoom out">−</button>
+        <button class="vcBtn" id="rotateBtn" title="Rotate view">⟳</button>
+        <button class="vcBtn" id="fitBtn" title="Reset view">⤢</button>
+      </div>
+      <div id="zoomLabel">Zoom 100% · scroll to zoom · drag to pan · ⟳ to rotate view</div>
+      <div id="cancelHint">Placing component — tap a tile to place, ESC / right-click to cancel</div>
+      <div id="gridHint">Select any component below, then click/tap an empty tile to place it. Drag the floor to pan, scroll to zoom. All components are unlocked — your budget is the only limit.</div>
+    </div>
+
+    <div id="side">
+      <div class="secTitle"><span class="lbl">Component Library</span><span class="count" id="libCount"></span></div>
+      <div id="catalogWrap"></div>
+
+      <div class="secTitle" style="margin-top:20px;"><span class="lbl">Client Requirement</span></div>
+      <div id="briefSummary"></div>
+
+      <div class="secTitle" style="margin-top:20px;"><span class="lbl">Build Status</span></div>
+      <div class="metric"><div class="row"><span class="lbl">Requirement Completeness</span><span class="val" id="compVal">0%</span></div><div class="bar"><i id="compBar"></i></div></div>
+      <div class="metric"><div class="row"><span class="lbl">Budget Utilization</span><span class="val" id="budVal">0%</span></div><div class="bar"><i id="budBar" style="background:linear-gradient(90deg,#c9702c,var(--amber));"></i></div></div>
+      <div class="metric"><div class="row"><span class="lbl">Integration Complexity</span><span class="val" id="cplVal">0 / 7 systems</span></div><div class="bar"><i id="cplBar" style="background:linear-gradient(90deg,#7c5fd6,var(--violet));"></i></div></div>
+
+      <button class="mainAction" id="certifyBtn" disabled>Certify My Smart Cell</button>
+      <button class="ghostAction" id="resetBtn">Reset Build</button>
+
+      <div class="secTitle" style="margin-top:20px;"><span class="lbl">System Log</span></div>
+      <div id="log"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<div id="modalWrap"><div id="modal"></div></div>
+
+<script>
+/* ============================================================
+   COMPONENT CATALOG — 7 categories, multiple tiers each
+============================================================ */
+const CATEGORIES = {
+  Actuator:     { color:'#00d4ff', icon:'🤖' },
+  Sensor:       { color:'#ffb800', icon:'📡' },
+  Controller:   { color:'#00e676', icon:'🧠' },
+  Transport:    { color:'#a78bfa', icon:'➡️' },
+  Network:      { color:'#2dd4bf', icon:'🌐' },
+  Intelligence: { color:'#f472b6', icon:'🧬' },
+  Safety:       { color:'#ff5470', icon:'🛡️' },
+};
+
+const CATALOG = {
+  arm_cobot:   { name:"Compact Cobot Arm",      cat:"Actuator", cost:4000,  emoji:"🤖" },
+  arm_scara:   { name:"SCARA High-Speed Arm",   cat:"Actuator", cost:7000,  emoji:"🦾" },
+  arm_6axis:   { name:"6-Axis Industrial Arm",  cat:"Actuator", cost:9500,  emoji:"🤖" },
+  arm_heavy:   { name:"Heavy Palletizing Arm",  cat:"Actuator", cost:18000, emoji:"🦾" },
+
+  vis_2d:      { name:"2D Vision Camera",       cat:"Sensor", cost:1200,  emoji:"📷" },
+  vis_3d:      { name:"3D Vision Scanner",      cat:"Sensor", cost:4500,  emoji:"📷" },
+  sens_force:  { name:"Force/Torque Sensor",    cat:"Sensor", cost:1800,  emoji:"📡" },
+  sens_rfid:   { name:"Barcode / RFID Reader",  cat:"Sensor", cost:900,   emoji:"🏷️" },
+  sens_therm:  { name:"Thermal Camera",         cat:"Sensor", cost:2600,  emoji:"🌡️" },
+
+  plc_basic:   { name:"Compact PLC",            cat:"Controller", cost:1500, emoji:"🧠" },
+  plc_hmi:     { name:"Industrial PLC + HMI",   cat:"Controller", cost:3200, emoji:"🖥️" },
+  plc_safety:  { name:"Safety-Rated PLC",       cat:"Controller", cost:4800, emoji:"🧠" },
+
+  conv_belt:   { name:"Belt Conveyor Module",   cat:"Transport", cost:2200,  emoji:"➡️" },
+  conv_roller: { name:"Roller Conveyor Module", cat:"Transport", cost:2600,  emoji:"➡️" },
+  agv:         { name:"AGV Unit",               cat:"Transport", cost:12000, emoji:"🚙" },
+  amr:         { name:"AMR (Autonomous Mobile)",cat:"Transport", cost:16000, emoji:"🚗" },
+
+  gateway:     { name:"IoT Edge Gateway",       cat:"Network", cost:2800, emoji:"🌐" },
+  scada:       { name:"SCADA Integration Link", cat:"Network", cost:5500, emoji:"📶" },
+  cloud:       { name:"Cloud Connectivity",     cat:"Network", cost:2000, emoji:"☁️" },
+
+  ai_edge:     { name:"Edge AI Inference",      cat:"Intelligence", cost:6500, emoji:"🧬" },
+  ai_predict:  { name:"Predictive Maintenance AI", cat:"Intelligence", cost:8000, emoji:"🧬" },
+  ai_vision:   { name:"Adaptive Vision-AI",     cat:"Intelligence", cost:9200, emoji:"🧬" },
+
+  safe_curtain:{ name:"Safety Light Curtain",   cat:"Safety", cost:1600, emoji:"🛡️" },
+  safe_estop:  { name:"E-Stop Station Network", cat:"Safety", cost:700,  emoji:"🛑" },
+  safe_fence:  { name:"Safety Fencing + Interlock", cat:"Safety", cost:2400, emoji:"🚧" },
+};
+
+/* ============================================================
+   BRIEF GENERATION DATA (guided, deterministic, no AI, no cost)
+============================================================ */
+const INDUSTRIES = ["Automotive","Food & Beverage","Electronics","Logistics & Warehousing","Pharmaceutical","General Manufacturing"];
+
+const PROCESSES = {
+  "Pick & Place Automation":        { mandatory:["Actuator","Sensor","Controller"], recommended:["Network"] },
+  "Quality Inspection Line":        { mandatory:["Sensor","Controller"], recommended:["Intelligence"] },
+  "Palletizing & Packaging":        { mandatory:["Actuator","Transport","Controller"], recommended:["Safety"] },
+  "Adaptive Assembly Cell":         { mandatory:["Actuator","Sensor","Controller","Intelligence"], recommended:["Network"] },
+  "Material Handling & Transport":  { mandatory:["Transport","Controller"], recommended:["Network"] },
+  "Robotic Welding Cell":           { mandatory:["Actuator","Controller","Safety"], recommended:["Sensor"] },
+};
+
+const CONSTRAINTS = [
+  { id:'hazard', label:"Hazardous / High-Risk Environment", addMandatory:["Safety"] },
+  { id:'unmanned', label:"24/7 Unmanned Operation", addMandatory:["Network"] },
+  { id:'highmix', label:"High-Mix / Low-Volume Production", addMandatory:["Intelligence"] },
+  { id:'cold', label:"Cold Storage / Extreme Conditions", addMandatory:[] },
+];
+
+/* ============================================================
+   STATE
+============================================================ */
+let state = {
+  budget:50000, spent:0,
+  placed:[], selectedKey:null, nextId:1,
+  brief:null,
+  leadCaptured:false, leadInfo:null,
+  certCount:0,
+};
+
+/* ============================================================
+   STEP 1 -> STEP 2
+============================================================ */
+document.getElementById('initBtn').onclick = ()=>{
+  document.getElementById('intro').classList.add('hide');
+  document.getElementById('budgetStep').classList.remove('hide');
+};
+
+/* budget presets */
+const PRESETS = [25000,50000,100000,250000,500000];
+const presetRow = document.getElementById('presetRow');
+PRESETS.forEach(v=>{
+  const b = document.createElement('div');
+  b.className='presetChip'; b.textContent='$'+v.toLocaleString();
+  b.onclick = ()=>{ document.getElementById('budgetInput').value = v; syncPresetActive(v); };
+  presetRow.appendChild(b);
+});
+function syncPresetActive(v){
+  [...presetRow.children].forEach(c=> c.classList.toggle('active', c.textContent==='$'+v.toLocaleString()));
+}
+document.getElementById('budgetNext').onclick = ()=>{
+  const v = parseInt(document.getElementById('budgetInput').value,10);
+  if(!v || v < 5000){ showToast('Enter a budget of at least $5,000.','warn'); return; }
+  state.budget = v; state.spent = 0;
+  document.getElementById('budgetStep').classList.add('hide');
+  document.getElementById('briefStep').classList.remove('hide');
+};
+
+/* ============================================================
+   STEP 3: BRIEF BUILDER
+============================================================ */
+const industrySel = document.getElementById('industrySel');
+INDUSTRIES.forEach(i=>{ const o=document.createElement('option'); o.textContent=i; industrySel.appendChild(o); });
+
+const processSel = document.getElementById('processSel');
+Object.keys(PROCESSES).forEach(p=>{ const o=document.createElement('option'); o.textContent=p; processSel.appendChild(o); });
+
+const constraintGrid = document.getElementById('constraintGrid');
+let activeConstraints = new Set();
+CONSTRAINTS.forEach(c=>{
+  const div = document.createElement('div');
+  div.className='constraintChip'; div.textContent=c.label;
+  div.onclick = ()=>{
+    if(activeConstraints.has(c.id)) activeConstraints.delete(c.id); else activeConstraints.add(c.id);
+    div.classList.toggle('on');
+  };
+  constraintGrid.appendChild(div);
+});
+
+document.getElementById('briefNext').onclick = ()=>{
+  const industry = industrySel.value;
+  const processName = processSel.value;
+  const proc = PROCESSES[processName];
+  const mandatory = new Set(proc.mandatory);
+  const notes = [];
+  activeConstraints.forEach(id=>{
+    const c = CONSTRAINTS.find(x=>x.id===id);
+    c.addMandatory.forEach(m=>mandatory.add(m));
+    notes.push(c.label);
+  });
+  state.brief = {
+    industry, processName,
+    mandatory: [...mandatory],
+    recommended: proc.recommended.filter(r=>!mandatory.has(r)),
+    notes
+  };
+  document.getElementById('briefStep').classList.add('hide');
+  document.getElementById('game').classList.add('show');
+  resizeCanvas();
+  startBuild();
+};
+
+/* ============================================================
+   CANVAS / ISOMETRIC GRID
+============================================================ */
+const canvas = document.getElementById('gridCanvas');
+const ctx = canvas.getContext('2d');
+const GRID_COLS = 9, GRID_ROWS = 7;
+const TILE_W = 76, TILE_H = 38;
+let originX=0, originY=0;
+
+/* --- zoom & rotate-view state ---
+   True free 3D rotation would need a WebGL engine (e.g. Three.js) — this is an
+   isometric grid rendered in 2D canvas, so "rotate" cycles the viewing corner
+   in 90° steps instead. Zoom is a real continuous scale factor. */
+let baseZoom = 1, zoomMult = 1, viewRot = 0, panX = 0, panY = 0;
+function currentZoom(){ return baseZoom * zoomMult; }
+
+function resizeCanvas(){
+  const wrap = document.getElementById('gridWrap');
+  canvas.width = wrap.clientWidth; canvas.height = wrap.clientHeight;
+  originX = canvas.width/2;
+  originY = Math.min(140, canvas.height*0.16);
+  // auto-fit: scale grid to comfortably fill the available space
+  const refWidth = 620;
+  baseZoom = Math.max(0.85, Math.min(2.4, canvas.width/refWidth));
+  updateZoomLabel();
+}
+window.addEventListener('resize', resizeCanvas);
+
+function rotateOffset(dc,dr,steps){
+  for(let i=0;i<steps;i++){ const ndc=-dr, ndr=dc; dc=ndc; dr=ndr; }
+  return {dc,dr};
+}
+function gridToScreen(col,row){
+  const cc=(GRID_COLS-1)/2, crow=(GRID_ROWS-1)/2;
+  const {dc,dr} = rotateOffset(col-cc, row-crow, viewRot);
+  const rc = cc+dc, rr = crow+dr, z = currentZoom();
+  return { x: originX + panX + (rc-rr)*(TILE_W/2)*z, y: originY + panY + (rc+rr)*(TILE_H/2)*z };
+}
+function screenToGrid(x,y){
+  const z = currentZoom();
+  const px = (x-originX-panX)/z, py = (y-originY-panY)/z;
+  const rc = (px/(TILE_W/2) + py/(TILE_H/2))/2;
+  const rr = (py/(TILE_H/2) - px/(TILE_W/2))/2;
+  const cc=(GRID_COLS-1)/2, crow=(GRID_ROWS-1)/2;
+  const {dc,dr} = rotateOffset(rc-cc, rr-crow, (4-viewRot)%4);
+  return { col: Math.round(cc+dc), row: Math.round(crow+dr) };
+}
+
+/* ---- pan (click-drag / touch-drag to move the view) ---- */
+let dragState = null, suppressNextClick = false;
+function beginDrag(cx,cy){ dragState = { startX:cx, startY:cy, startPanX:panX, startPanY:panY, moved:false }; }
+function updateDrag(cx,cy){
+  if(!dragState) return;
+  const dx=cx-dragState.startX, dy=cy-dragState.startY;
+  if(Math.abs(dx)>4 || Math.abs(dy)>4) dragState.moved = true;
+  if(dragState.moved){ panX = dragState.startPanX+dx; panY = dragState.startPanY+dy; canvas.style.cursor='grabbing'; }
+}
+function endDrag(){ const moved = dragState ? dragState.moved : false; dragState=null; canvas.style.cursor='grab'; return moved; }
+
+canvas.addEventListener('mousedown', e=> beginDrag(e.clientX, e.clientY));
+window.addEventListener('mousemove', e=> updateDrag(e.clientX, e.clientY));
+window.addEventListener('mouseup', ()=>{ suppressNextClick = endDrag(); });
+canvas.addEventListener('touchstart', e=>{ const t=e.touches[0]; beginDrag(t.clientX,t.clientY); }, {passive:true});
+canvas.addEventListener('touchmove', e=>{ const t=e.touches[0]; updateDrag(t.clientX,t.clientY); }, {passive:true});
+function tileOccupied(col,row){ return state.placed.some(p=>p.col===col && p.row===row); }
+function inBounds(col,row){ return col>=0 && col<GRID_COLS && row>=0 && row<GRID_ROWS; }
+
+function updateZoomLabel(){
+  const el = document.getElementById('zoomLabel');
+  if(el) el.textContent = `Zoom ${Math.round(currentZoom()*100)}% · scroll to zoom · ⟳ to rotate view`;
+}
+function setZoomMult(v){ zoomMult = Math.max(0.5, Math.min(2.2, v)); updateZoomLabel(); }
+
+document.getElementById('zoomInBtn').onclick = ()=> setZoomMult(zoomMult+0.15);
+document.getElementById('zoomOutBtn').onclick = ()=> setZoomMult(zoomMult-0.15);
+document.getElementById('rotateBtn').onclick = ()=>{ viewRot = (viewRot+1)%4; };
+document.getElementById('fitBtn').onclick = ()=>{ zoomMult=1; viewRot=0; panX=0; panY=0; updateZoomLabel(); };
+canvas.addEventListener('wheel', e=>{
+  e.preventDefault();
+  setZoomMult(zoomMult + (e.deltaY<0? 0.1 : -0.1));
+}, {passive:false});
+
+let hoverTile=null, particles=[], flowDots=[], t=0;
+
+function drawDiamond(col,row,fillStyle,strokeStyle,lineDash){
+  const {x,y} = gridToScreen(col,row);
+  const z = currentZoom();
+  ctx.beginPath();
+  ctx.moveTo(x, y-(TILE_H/2)*z); ctx.lineTo(x+(TILE_W/2)*z, y); ctx.lineTo(x, y+(TILE_H/2)*z); ctx.lineTo(x-(TILE_W/2)*z, y);
+  ctx.closePath();
+  if(fillStyle){ ctx.fillStyle=fillStyle; ctx.fill(); }
+  if(strokeStyle){ ctx.strokeStyle=strokeStyle; ctx.lineWidth=1; if(lineDash) ctx.setLineDash(lineDash); else ctx.setLineDash([]); ctx.stroke(); ctx.setLineDash([]); }
+}
+function drawGrid(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(let r=0;r<GRID_ROWS;r++) for(let c=0;c<GRID_COLS;c++) drawDiamond(c,r,'rgba(0,212,255,0.03)','rgba(0,212,255,0.14)');
+  if(hoverTile && inBounds(hoverTile.col,hoverTile.row) && !tileOccupied(hoverTile.col,hoverTile.row) && state.selectedKey){
+    drawDiamond(hoverTile.col,hoverTile.row,'rgba(255,184,0,0.12)','#ffb800',[5,4]);
+  }
+}
+function drawConnections(){
+  const z = currentZoom();
+  state.placed.forEach(p=>{
+    p.connectedTo.forEach(id=>{
+      const other = state.placed.find(o=>o.id===id); if(!other) return;
+      const a = gridToScreen(p.col,p.row), b = gridToScreen(other.col,other.row);
+      ctx.beginPath(); ctx.setLineDash([6,5]); ctx.lineDashOffset=-t*0.6;
+      ctx.strokeStyle='rgba(0,245,212,0.5)'; ctx.lineWidth=1.6*z;
+      ctx.moveTo(a.x,a.y-14*z); ctx.lineTo(b.x,b.y-14*z); ctx.stroke(); ctx.setLineDash([]);
+    });
+  });
+}
+function drawFlowDots(){
+  const z = currentZoom();
+  flowDots.forEach(f=>{
+    const a=gridToScreen(f.a.col,f.a.row), b=gridToScreen(f.b.col,f.b.row);
+    const x=a.x+(b.x-a.x)*f.p, y=(a.y-14*z)+((b.y-14*z)-(a.y-14*z))*f.p;
+    ctx.beginPath(); ctx.arc(x,y,2.6*z,0,Math.PI*2);
+    ctx.fillStyle='#00f5d4'; ctx.shadowColor='#00f5d4'; ctx.shadowBlur=8; ctx.fill(); ctx.shadowBlur=0;
+    f.p+=0.012; if(f.p>1) f.p=0;
+  });
+}
+function drawComponents(){
+  const z = currentZoom();
+  state.placed.forEach(p=>{
+    const {x,y} = gridToScreen(p.col,p.row);
+    const c = CATALOG[p.key]; const catColor = CATEGORIES[c.cat].color;
+    drawDiamond(p.col,p.row, catColor+'18', catColor+'99');
+    const glowR = 18*z;
+    ctx.beginPath(); ctx.arc(x,y-22*z,glowR,0,Math.PI*2);
+    const grad = ctx.createRadialGradient(x,y-22*z,0,x,y-22*z,glowR);
+    grad.addColorStop(0, catColor+'55'); grad.addColorStop(1, catColor+'00');
+    ctx.fillStyle=grad; ctx.fill();
+    ctx.font=`${Math.round(20*z)}px sans-serif`; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(c.emoji, x, y-22*z);
+    ctx.font=`${Math.max(8,Math.round(9.5*z))}px Rajdhani, sans-serif`; ctx.fillStyle='#cdd8f5';
+    ctx.fillText(c.name.length>16? c.name.slice(0,15)+'…':c.name, x, y+4*z);
+  });
+}
+function drawParticles(){
+  particles.forEach(pt=>{
+    pt.x+=pt.vx; pt.y+=pt.vy; pt.vy+=0.15; pt.life--;
+    if(pt.life>0){ ctx.globalAlpha=Math.max(0,pt.life/40); ctx.fillStyle=pt.color; ctx.fillRect(pt.x,pt.y,4,4); ctx.globalAlpha=1; }
+  });
+  particles = particles.filter(p=>p.life>0);
+}
+function burstAt(col,row,color){
+  const {x,y} = gridToScreen(col,row);
+  for(let i=0;i<20;i++) particles.push({x,y:y-20, vx:(Math.random()-0.5)*6, vy:(Math.random()-1.2)*6, life:40, color});
+}
+function loop(){ t++; drawGrid(); drawConnections(); drawFlowDots(); drawComponents(); drawParticles(); requestAnimationFrame(loop); }
+
+/* placement input */
+function pointFromEvent(e){
+  const rect = canvas.getBoundingClientRect();
+  const cx = e.touches ? e.touches[0].clientX : e.clientX, cy = e.touches ? e.touches[0].clientY : e.clientY;
+  return { x: cx-rect.left, y: cy-rect.top };
+}
+canvas.addEventListener('mousemove', e=>{ const p=pointFromEvent(e); hoverTile=screenToGrid(p.x,p.y); });
+canvas.addEventListener('mouseleave', ()=> hoverTile=null);
+
+function handlePlaceTap(e){
+  if(!state.selectedKey) return;
+  const p = pointFromEvent(e); const {col,row} = screenToGrid(p.x,p.y);
+  if(!inBounds(col,row)) return;
+  if(tileOccupied(col,row)){ showToast('Tile occupied — choose an empty cell.','warn'); return; }
+  const c = CATALOG[state.selectedKey];
+  if(state.spent + c.cost > state.budget){ showToast('Over budget — this component exceeds what remains.','warn'); return; }
+  placeComponent(state.selectedKey, col, row);
+}
+canvas.addEventListener('click', e=>{
+  if(suppressNextClick){ suppressNextClick=false; return; } // was a pan-drag, not a placement tap
+  handlePlaceTap(e);
+});
+canvas.addEventListener('touchend', e=>{
+  e.preventDefault();
+  const moved = endDrag();
+  if(!moved) handlePlaceTap(e);
+}, {passive:false});
+canvas.addEventListener('contextmenu', e=>{ e.preventDefault(); cancelPlacement(); });
+canvas.addEventListener('dblclick', e=>{
+  const p = pointFromEvent(e); const {col,row} = screenToGrid(p.x,p.y);
+  const idx = state.placed.findIndex(pl=>pl.col===col && pl.row===row);
+  if(idx>=0){ state.spent -= CATALOG[state.placed[idx].key].cost; state.placed.splice(idx,1); refreshAll(); }
+});
+window.addEventListener('keydown', e=>{ if(e.key==='Escape') cancelPlacement(); });
+
+function cancelPlacement(){
+  state.selectedKey=null;
+  document.getElementById('cancelHint').style.display='none';
+  document.querySelectorAll('.compCard').forEach(el=>el.classList.remove('selected'));
+}
+
+function placeComponent(key,col,row){
+  const c = CATALOG[key];
+  state.spent += c.cost;
+  const comp = { id:state.nextId++, key, col, row, connectedTo:[] };
+  if(state.placed.length){
+    let nearest=null,bestD=Infinity;
+    state.placed.forEach(p=>{ const d=Math.hypot(p.col-col,p.row-row); if(d<bestD){bestD=d;nearest=p;} });
+    if(nearest){ comp.connectedTo.push(nearest.id); flowDots.push({a:{col,row}, b:{col:nearest.col,row:nearest.row}, p:Math.random()}); }
+  }
+  state.placed.push(comp);
+  burstAt(col,row, CATEGORIES[c.cat].color);
+  logEvent(`Integrated ${c.name} (${c.cat})`, 'info');
+  cancelPlacement();
+  refreshAll();
+}
+
+/* ============================================================
+   VALIDATION / SCORING
+============================================================ */
+function presentCategories(){ const s=new Set(); state.placed.forEach(p=>s.add(CATALOG[p.key].cat)); return s; }
+function isFullyConnected(){
+  if(state.placed.length<=1) return state.placed.length===1;
+  const visited=new Set(); const adj={};
+  state.placed.forEach(p=> adj[p.id]=new Set(p.connectedTo));
+  state.placed.forEach(p=> p.connectedTo.forEach(id=>{ if(adj[id]) adj[id].add(p.id); }));
+  const stack=[state.placed[0].id];
+  while(stack.length){ const cur=stack.pop(); if(visited.has(cur)) continue; visited.add(cur); (adj[cur]||new Set()).forEach(n=>{ if(!visited.has(n)) stack.push(n); }); }
+  return visited.size===state.placed.length;
+}
+function computeMetrics(){
+  const cats = presentCategories();
+  const mand = state.brief.mandatory;
+  const mandMet = mand.filter(m=>cats.has(m)).length;
+  const completeness = mand.length ? mandMet/mand.length : 1;
+  const connected = isFullyConnected();
+  const finalCompleteness = connected ? completeness : completeness*0.6;
+
+  const budgetUtil = state.budget ? state.spent/state.budget : 0;
+  const complexity = cats.size / Object.keys(CATEGORIES).length;
+
+  const score = Math.round(finalCompleteness*100);
+  return { completeness:finalCompleteness, budgetUtil, complexity, connected, mandMet, mandTotal:mand.length, score };
+}
+
+/* ============================================================
+   CATALOG RENDER (all unlocked, budget-gated only)
+============================================================ */
+function renderCatalog(){
+  const wrap = document.getElementById('catalogWrap'); wrap.innerHTML='';
+  document.getElementById('libCount').textContent = `${Object.keys(CATALOG).length} components · ${Object.keys(CATEGORIES).length} categories`;
+  const remaining = state.budget - state.spent;
+  Object.entries(CATEGORIES).forEach(([catName,catInfo])=>{
+    const items = Object.entries(CATALOG).filter(([,c])=>c.cat===catName);
+    const block = document.createElement('div'); block.className='catBlock';
+    block.innerHTML = `<div class="catHead" style="color:${catInfo.color};"><span class="sw" style="background:${catInfo.color};"></span>${catInfo.icon} ${catName}</div>`;
+    const grid = document.createElement('div'); grid.className='compGrid';
+    items.forEach(([key,c])=>{
+      const afford = c.cost <= remaining;
+      const div = document.createElement('div');
+      div.className='compCard '+(afford?'afford-yes':'afford-no')+(state.selectedKey===key?' selected':'');
+      div.innerHTML = `<span class="emoji">${c.emoji}</span><div class="cname">${c.name}</div><div class="ccost">$${c.cost.toLocaleString()}</div>`;
+      div.onclick = ()=>{
+        if(!afford){ showToast('Not enough budget remaining for '+c.name+'.','warn'); return; }
+        if(state.selectedKey===key){ cancelPlacement(); return; }
+        state.selectedKey = key;
+        document.getElementById('cancelHint').style.display='block';
+        renderCatalog();
+      };
+      grid.appendChild(div);
+    });
+    block.appendChild(grid);
+    wrap.appendChild(block);
+  });
+}
+
+/* ============================================================
+   BRIEF DISPLAY
+============================================================ */
+function chipHtml(catName, met){
+  const c = CATEGORIES[catName];
+  return `<span class="chip" style="border-color:${c.color}; color:${met?c.color:'#5a6690'}; background:${met?c.color+'15':'transparent'};">${met?'✓ ':''}${catName}</span>`;
+}
+function renderBrief(){
+  const b = state.brief;
+  document.getElementById('clientTag').textContent = `${b.industry} · ${b.processName}`;
+  const cats = presentCategories();
+
+  document.getElementById('briefBanner').innerHTML = `
+    <b>${b.industry} — ${b.processName}</b>
+    Required systems:
+    <div class="reqChips">${b.mandatory.map(m=>chipHtml(m,cats.has(m))).join('')}</div>
+  `;
+
+  document.getElementById('briefSummary').innerHTML = `
+    <b>Client:</b> ${b.industry} manufacturer<br>
+    <b>Process:</b> ${b.processName}<br>
+    ${b.notes.length? `<b>Constraints:</b> ${b.notes.join(', ')}<br>`:''}
+    <div class="reqChipsFull">${b.mandatory.map(m=>chipHtml(m,cats.has(m))).join('')}</div>
+    ${b.recommended.length? `<div style="margin-top:8px; color:var(--muted); font-size:11px;">Recommended (bonus): ${b.recommended.join(', ')}</div>`:''}
+  `;
+}
+
+/* ============================================================
+   REFRESH / METRICS UI
+============================================================ */
+function refreshAll(){
+  document.getElementById('cashVal').textContent = '$'+(state.budget-state.spent).toLocaleString();
+  renderCatalog();
+  renderBrief();
+  const m = computeMetrics();
+  document.getElementById('compVal').textContent = Math.round(m.completeness*100)+'%';
+  document.getElementById('compBar').style.width = Math.round(m.completeness*100)+'%';
+  document.getElementById('budVal').textContent = Math.round(m.budgetUtil*100)+'%';
+  document.getElementById('budBar').style.width = Math.min(100,Math.round(m.budgetUtil*100))+'%';
+  document.getElementById('cplVal').textContent = presentCategories().size+' / '+Object.keys(CATEGORIES).length+' systems';
+  document.getElementById('cplBar').style.width = Math.round(m.complexity*100)+'%';
+  document.getElementById('certifyBtn').disabled = !(m.mandMet===m.mandTotal && m.connected && state.placed.length>0);
+}
+
+document.getElementById('resetBtn').onclick = ()=>{
+  state.placed=[]; state.spent=0; flowDots=[]; refreshAll();
+  logEvent('Build reset.', 'warn');
+};
+
+/* ============================================================
+   LOG / TOAST
+============================================================ */
+function logEvent(msg, kind){
+  const log = document.getElementById('log');
+  const div = document.createElement('div');
+  div.innerHTML = `<span class="${kind}">${msg}</span>`;
+  log.appendChild(div); log.scrollTop = log.scrollHeight;
+}
+function showToast(msg, kind){
+  const t = document.getElementById('toast');
+  t.className = kind||''; t.textContent = msg; t.style.display='block';
+  clearTimeout(t._timer); t._timer=setTimeout(()=>t.style.display='none', 3000);
+}
+
+/* ============================================================
+   CERTIFY FLOW
+============================================================ */
+document.getElementById('certifyBtn').onclick = ()=>{
+  const m = computeMetrics();
+  logEvent('Smart Cell certified — requirement fully met.', 'success');
+  if(!state.leadCaptured) showLeadModal(m); else showCertModal(m);
+};
+
+const TITLES = ["","Mr.","Ms.","Mrs.","Mx.","Dr.","Prof.","Eng."];
+
+function showLeadModal(m){
+  const modal = document.getElementById('modal');
+  modal.innerHTML = `
+    <h2>🎉 SMART CELL CERTIFIED</h2>
+    <p>Your build satisfies the client requirement. Want a downloadable certificate of your design? Drop your details (optional).</p>
+    <label>Title</label>
+    <select id="leadTitle">${TITLES.map(t=>`<option value="${t}">${t||'No title / prefer not to say'}</option>`).join('')}</select>
+    <label>Name</label><input id="leadName" type="text" placeholder="Your name">
+    <label>Email</label><input id="leadEmail" type="email" placeholder="you@company.com">
+    <label>I am a...</label>
+    <select id="leadRole">
+      <option>Buyer / Procurement</option><option>Supplier / Vendor</option><option>Investor</option>
+      <option>Engineer / Professional</option><option>Student</option><option>Internal Team</option><option>Other</option>
+    </select>
+    <button class="primary" id="leadSubmit">Get My Certificate</button>
+    <div class="skipLink" id="leadSkip">Skip for now</div>
+  `;
+  document.getElementById('modalWrap').classList.add('show');
+  document.getElementById('leadSubmit').onclick = ()=>{
+    state.leadInfo = {
+      title: document.getElementById('leadTitle').value,
+      name: document.getElementById('leadName').value.trim()||'Guest Visitor',
+      email: document.getElementById('leadEmail').value.trim(),
+      role: document.getElementById('leadRole').value
+    };
+    state.leadCaptured = true;
+    logEvent(`Lead captured: ${state.leadInfo.title} ${state.leadInfo.name} (${state.leadInfo.role})`.trim(), 'success');
+    showCertModal(m);
+  };
+  document.getElementById('leadSkip').onclick = ()=>{
+    state.leadInfo = { title:'', name:'Guest Visitor', email:'', role:'' };
+    state.leadCaptured = true;
+    showCertModal(m);
+  };
+}
+
+/* ---- certificate rendering ---- */
+function roundRect(g,x,y,w,h,r){
+  g.beginPath(); g.moveTo(x+r,y); g.arcTo(x+w,y,x+w,y+h,r); g.arcTo(x+w,y+h,x,y+h,r);
+  g.arcTo(x,y+h,x,y,r); g.arcTo(x,y,x+w,y,r); g.closePath();
+}
+function drawMiniBuild(g, x0,y0,w,h){
+  // small network diagram of the placed components
+  g.save();
+  roundRect(g,x0,y0,w,h,12); g.fillStyle='#0a0f1e'; g.fill();
+  g.strokeStyle='#1c2a44'; roundRect(g,x0,y0,w,h,12); g.stroke();
+  const n = state.placed.length;
+  if(n===0){ g.restore(); return; }
+  const pts = state.placed.map((p,i)=>{
+    const ang = (i/n)*Math.PI*2 - Math.PI/2;
+    const rad = Math.min(w,h)/2 - 40;
+    return { p, x:x0+w/2+Math.cos(ang)*rad, y:y0+h/2+Math.sin(ang)*rad };
+  });
+  const byId = {}; pts.forEach(pt=>byId[pt.p.id]=pt);
+  g.strokeStyle='rgba(0,245,212,0.4)'; g.lineWidth=1.5;
+  pts.forEach(pt=>{ pt.p.connectedTo.forEach(id=>{ const o=byId[id]; if(!o) return; g.beginPath(); g.moveTo(pt.x,pt.y); g.lineTo(o.x,o.y); g.stroke(); }); });
+  pts.forEach(pt=>{
+    const c = CATALOG[pt.p.key]; const color = CATEGORIES[c.cat].color;
+    g.beginPath(); g.arc(pt.x,pt.y,16,0,Math.PI*2);
+    const grad = g.createRadialGradient(pt.x,pt.y,0,pt.x,pt.y,16); grad.addColorStop(0,color+'aa'); grad.addColorStop(1,color+'22');
+    g.fillStyle=grad; g.fill(); g.strokeStyle=color; g.lineWidth=2; g.stroke();
+    g.font='16px sans-serif'; g.textAlign='center'; g.textBaseline='middle'; g.fillStyle='#fff';
+    g.fillText(c.emoji, pt.x, pt.y);
+  });
+  g.restore();
+}
+function generateCertificate(m){
+  const W=1200, H=840;   // taller canvas — enough vertical room for every section, no overlap
+  const c = document.createElement('canvas'); c.width=W; c.height=H;
+  const g = c.getContext('2d');
+  const bgGrad = g.createLinearGradient(0,0,W,H); bgGrad.addColorStop(0,'#0a0e17'); bgGrad.addColorStop(1,'#0d1b2a');
+  g.fillStyle=bgGrad; g.fillRect(0,0,W,H);
+  g.strokeStyle='rgba(0,212,255,0.07)'; g.lineWidth=1;
+  for(let x=0;x<W;x+=40){ g.beginPath(); g.moveTo(x,0); g.lineTo(x,H); g.stroke(); }
+  for(let y=0;y<H;y+=40){ g.beginPath(); g.moveTo(0,y); g.lineTo(W,y); g.stroke(); }
+  g.strokeStyle='#00d4ff'; g.lineWidth=3; g.strokeRect(26,26,W-52,H-52);
+
+  /* ---- HEADER (0 - 130) ---- */
+  const logoGrad = g.createLinearGradient(66,54,126,114); logoGrad.addColorStop(0,'#00d4ff'); logoGrad.addColorStop(1,'#00f5d4');
+  g.fillStyle=logoGrad; roundRect(g,66,54,60,60,14); g.fill();
+  g.fillStyle='#001018'; g.font='900 24px Arial'; g.textAlign='center'; g.textBaseline='middle'; g.fillText('JT',96,86);
+
+  g.textAlign='left'; g.textBaseline='alphabetic'; g.fillStyle='#7d8bb0'; g.font='600 13px Arial';
+  g.fillText('J-TECHNO ENGINEERING · FULL-STACK AUTOMATION', 142, 70);
+  g.font='900 24px Arial'; g.fillStyle='#eaf3ff'; g.fillText('SMART CELL CERTIFIED', 142, 100);
+
+  /* ---- TITLE BLOCK (140 - 210) ---- */
+  g.font='900 32px Arial';
+  const tGrad = g.createLinearGradient(66,150,700,150); tGrad.addColorStop(0,'#00d4ff'); tGrad.addColorStop(1,'#00f5d4');
+  g.fillStyle=tGrad; g.fillText(state.brief.processName, 66, 176);
+  g.font='600 15px Arial'; g.fillStyle='#7d8bb0';
+  const person = state.leadInfo || {};
+  const displayName = `${person.title? person.title+' ':''}${person.name||'Guest Visitor'}`;
+  const roleTag = person.role ? ` · ${person.role}` : '';
+  g.fillText(`${state.brief.industry} · Prepared for: ${displayName}${roleTag}`, 66, 204);
+
+  /* ---- STAT CARDS — left column (230 - 590) ---- */
+  const stats = [
+    { label:'REQUIREMENT MET', val: Math.round(m.completeness*100)+'%', color: m.completeness>=1?'#00e676':'#ffb800' },
+    { label:'BUDGET USED', val: '$'+state.spent.toLocaleString()+' / $'+state.budget.toLocaleString(), color:'#ffb800' },
+    { label:'SYSTEMS INTEGRATED', val: presentCategories().size+' / '+Object.keys(CATEGORIES).length+' categories', color:'#00d4ff' },
+    { label:'TOTAL COMPONENTS', val: state.placed.length+' units', color:'#2dd4bf' },
+  ];
+  const cardW=320, cardH=76, gap=16, statStartY=230;
+  stats.forEach((s,i)=>{
+    const x=66, y=statStartY+i*(cardH+gap);
+    g.fillStyle='#0e1522'; roundRect(g,x,y,cardW,cardH,10); g.fill();
+    g.strokeStyle='#1c2a44'; g.lineWidth=1; roundRect(g,x,y,cardW,cardH,10); g.stroke();
+    g.fillStyle='#7d8bb0'; g.font='600 11px Arial'; g.fillText(s.label, x+16, y+26);
+    g.fillStyle=s.color; g.font='900 20px Arial'; g.fillText(s.val, x+16, y+54);
+  });
+  const statsBottom = statStartY + stats.length*(cardH+gap); // = 598
+
+  /* ---- MINI BUILD DIAGRAM — right column, aligned with stat cards ---- */
+  const mapX=440, mapY=230, mapW=700, mapH=statsBottom-mapY-34; // ends above statsBottom
+  drawMiniBuild(g, mapX, mapY, mapW, mapH);
+  g.fillStyle='#4a5a85'; g.font='600 12px Arial'; g.textAlign='center';
+  g.fillText('INTEGRATED SYSTEM MAP', mapX+mapW/2, mapY+mapH+22);
+  g.textAlign='left';
+
+  /* ---- COMPONENT LIST (starts safely below both columns) ---- */
+  const listTop = statsBottom + 30; // = 628, clear of every card above
+  g.fillStyle='#7d8bb0'; g.font='700 13px Arial';
+  g.fillText('INTEGRATED COMPONENTS', 66, listTop);
+
+  const names = state.placed.map(p=>CATALOG[p.key].name);
+  let cx=66, cy=listTop+34, lineH=26;
+  const rightMargin = W-66, maxListY = H-70;
+  g.font='500 14px Arial';
+  let shown=0;
+  for(let i=0;i<names.length;i++){
+    const col = CATALOG[state.placed[i].key];
+    const txt='• '+names[i];
+    const txtW = g.measureText(txt).width;
+    if(cx+txtW > rightMargin){ cx=66; cy+=lineH; }
+    if(cy > maxListY){
+      g.fillStyle='#7d8bb0'; g.fillText(`+ ${names.length-shown} more component${names.length-shown===1?'':'s'}…`, cx, cy);
+      break;
+    }
+    g.fillStyle = CATEGORIES[col.cat].color;
+    g.fillText(txt, cx, cy); cx += txtW+22; shown++;
+  }
+
+  /* ---- FOOTER ---- */
+  g.fillStyle='#3a4568'; g.font='600 12px Arial'; g.textAlign='left';
+  g.fillText('Generated free with the J-Techno Simulator', 66, H-40);
+
+  return c.toDataURL('image/png');
+}
+
+function showCertModal(m){
+  const dataUrl = generateCertificate(m);
+  state.certCount++;
+  const modal = document.getElementById('modal');
+  modal.innerHTML = `
+    <h2>CERTIFICATE READY</h2>
+    <img id="certPreview" src="${dataUrl}" alt="Smart Cell Certificate">
+    <p>Download and share your Smart Cell design, or explore another automation scenario.</p>
+    <a href="${dataUrl}" download="jtechno-smart-cell-certificate.png" style="text-decoration:none;">
+      <button class="primary">⬇ Download Certificate</button>
+    </a>
+    <button class="secondary" id="buildAnother">🔁 Build Another Scenario</button>
+    <button class="secondary" id="modalClose">Keep Editing This Build</button>
+  `;
+  document.getElementById('modalWrap').classList.add('show');
+  document.getElementById('modalClose').onclick = ()=> document.getElementById('modalWrap').classList.remove('show');
+  document.getElementById('buildAnother').onclick = ()=>{
+    document.getElementById('modalWrap').classList.remove('show');
+    state.placed=[]; state.spent=0; flowDots=[];
+    document.getElementById('game').classList.remove('show');
+    document.getElementById('briefStep').classList.remove('hide');
+  };
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+function startBuild(){
+  logEvent(`Requirement generated: ${state.brief.processName} for a ${state.brief.industry} client.`, 'info');
+  logEvent(`Budget set at $${state.budget.toLocaleString()}. All components unlocked — integrate freely.`, 'info');
+  refreshAll();
+  requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>
