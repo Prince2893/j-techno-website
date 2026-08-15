@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Automatisierung & Integration | J-Techno Engineering | Systemkonstruktion & Integration</title>
+  <meta name="description" content="Konstruktion und Integration von Automatisierungssystemen. Herstellerneutrales Engineering für Roboterzellen, Montagelinien und Materialflusssysteme nach deutschen Standards." />
+  <meta name="keywords" content="Automatisierungstechnik Deutschland, Roboterzellenkonstruktion, Systemintegration, Montagelinienplanung, Materialflusssysteme" />
+  <link rel="icon" href="images/Logo.svg" type="image/svg+xml" />
+  <link rel="alternate" hreflang="en" href="https://jtechnoengineering.com/automation-integration.html" />
+  <link rel="alternate" hreflang="de" href="https://jtechnoengineering.com/de/automation-integration.html" />
+  <link rel="alternate" hreflang="x-default" href="https://jtechnoengineering.com/automation-integration.html" />
+
+  <!-- Tailwind v2 and Inter font -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/brand-colors.css">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+    }
+    html { scroll-behavior: smooth; }
+
+    .section-padding { padding: 6rem 1rem; }
+    @media (max-width: 768px) {
+      .section-padding { padding: 3rem 1rem; }
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+    }
+    
+    .automation-hero {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color: #1f2937;
+    }
+    
+    .capability-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    
+    .capability-card:hover {
+      border-color: #f97316;
+      box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .capability-icon {
+      width: 70px;
+      height: 70px;
+      background: #FEF0E6;
+      border: 1px solid rgba(249, 115, 22, 0.22);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .capability-icon i {
+      font-size: 2rem;
+      color: #f97316;
+    }
+    
+    .integration-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .integration-item {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .integration-item i {
+      color: #10b981;
+      font-size: 1.25rem;
+    }
+    
+    .philosophy-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+      border: 1px solid #d1e9ff;
+      border-radius: 1rem;
+      padding: 2.5rem;
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tech-badge.platform {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .tech-badge.standard {
+      background: #dcfce7;
+      color: #166534;
+    }
+    
+    .tech-badge.component {
+      background: #f3e8ff;
+      color: #6b21a8;
+    }
+    
+    .application-example {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+    
+    .application-example:hover {
+      border-color: #3b82f6;
+      background: #f0f9ff;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #f97316;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    /* Cost optimization section styling */
+    .cost-optimization {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 1px solid #86efac;
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+    
+    /* NEW: Professional timeline styling */
+    .timeline-container {
+      position: relative;
+      padding: 2rem 0;
+    }
+    
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #06b6d4);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    
+    @media (max-width: 768px) {
+      .timeline-line {
+        left: 30px;
+      }
+    }
+    
+    .timeline-step {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+      z-index: 2;
+    }
+    
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+    
+    .timeline-number {
+      width: 60px;
+      height: 60px;
+      background: white;
+      border: 3px solid #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #3b82f6;
+      flex-shrink: 0;
+      z-index: 2;
+      position: relative;
+    }
+    
+    .timeline-content {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-left: 2rem;
+      flex: 1;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .timeline-step {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .timeline-content {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+      }
+    }
+    
+    /* Hero Image Container - Updated */
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto 0;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .automation-hero .container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  .automation-hero .container > div:first-child {
+    flex: 1;
+  }
+  
+  .hero-image-container {
+    flex: 1;
+    margin: 0;
+    max-width: none;
+  }
+}
+    
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .page-transition {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Enterprise redesign additions */
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #EA580C;
+      margin-bottom: 0.75rem;
+    }
+    header.scrolled {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    #mobileMenu {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+    #mobileMenu.open {
+      max-height: 32rem;
+      opacity: 1;
+    }
+    .prose-measure { max-width: 65ch; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Automation Engineering & System Integration",
+    "provider": {
+      "@type": "Organization",
+      "name": "J-Techno Engineering"
+    },
+    "description": "Automation system design and integration services for industrial applications including robotic cells, assembly lines, and material handling systems",
+    "areaServed": ["DE", "EU"],
+    "offers": {
+      "@type": "Offer",
+      "description": "Supplier-neutral automation engineering and system integration services"
+    }
+  }
+  </script>
+</head>
+<body class="text-gray-800 bg-white page-transition">
+
+  <!-- Header -->
+  <header class="bg-white sticky top-0 z-40">
+    <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering Startseite">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-14 w-auto">
+        <div>
+          <span class="font-bold text-xl text-gray-900">J-Techno Engineering</span>
+          <div class="text-xs text-orange-600 font-semibold">Engineering & Automation Design Partner</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Hauptnavigation">
+        <div class="relative">
+          <button type="button" id="servicesDropdownToggle" class="nav-active flex items-center gap-1 text-orange-600 font-semibold" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" class="inline"><path stroke-linecap="round" stroke-linejoin="round" d="M2 4l4 4 4-4"></path></svg></button>
+          <div id="servicesDropdownMenu" class="hidden absolute left-0 top-full mt-3 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[240px] z-50">
+            <a href="engineering-services.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Engineering-Dienstleistungen</a>
+            <a href="automation-integration.html" class="block px-4 py-2 text-orange-600 font-semibold bg-gray-50">Automatisierung & Integration</a>
+            <a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Kostenloser Kostenschätzer</a>
+            <a href="technical-drawings.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Technische Zeichnungen</a>
+            <a href="/simulator/" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Automatisierungs-Simulator</a>
+          </div>
+        </div>
+        <a href="ce-docsuite.html" class="text-gray-700 hover:text-orange-600 transition-colors">CE DocSuite</a>
+        <a href="pricing.html" class="text-gray-700 hover:text-orange-600 transition-colors">Preise</a>
+        <a href="about.html" class="text-gray-700 hover:text-orange-600 transition-colors">Über uns</a>
+        <a href="contact.html" class="btn-primary text-sm">Kontakt</a>
+      
+        <a href="/automation-integration.html" class="text-gray-700 hover:text-orange-600 transition-colors text-xs font-bold border border-gray-300 rounded px-2 py-1">EN</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileToggle" type="button" aria-label="Navigationsmenü öffnen" class="p-3 rounded-lg hover:bg-gray-100 transition-colors">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden bg-white border-t shadow-lg relative">
+      <button id="mobileClose" class="absolute top-4 right-6 p-2 text-gray-500 hover:text-gray-700" aria-label="Navigation schließen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav class="px-6 py-10 flex flex-col gap-4" aria-label="Mobile Navigation">
+        <div class="pt-1 pb-1">
+          <div class="text-xs uppercase tracking-wide text-gray-400 font-bold mb-1">Leistungen</div>
+          <a href="engineering-services.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Engineering-Dienstleistungen</a>
+          <a href="automation-integration.html" class="block py-2 pl-3 text-orange-600 font-semibold">Automatisierung & Integration</a>
+          <a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Kostenloser Kostenschätzer</a>
+          <a href="technical-drawings.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Technische Zeichnungen</a>
+          <a href="/simulator/" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Automatisierungs-Simulator</a>
+        </div>
+        <a href="ce-docsuite.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">CE DocSuite</a>
+        <a href="pricing.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Preise</a>
+        <a href="about.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Über uns</a>
+        <a href="contact.html" class="btn-primary text-center mt-2">Kontakt</a>
+      
+        <a href="/automation-integration.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold text-xs">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="automation-hero relative overflow-hidden">
+      <div class="section-padding relative">
+        <div class="container mx-auto px-6 lg:px-12">
+          <div class="max-w-4xl animate-fade-in-up relative z-10">
+            <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-800 mb-6 border border-gray-200">
+              <i class="fas fa-robot text-orange-500"></i>
+              <span>Automatisierung & Systemintegration</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Automatisierungssysteme
+              <span class="text-orange-500">konstruieren & integrieren</span>
+            </h1>
+            
+            <p class="text-xl text-gray-700 mb-8">
+              Wir konstruieren Automatisierungssysteme, die integrationsbereit, herstellerneutral und auf Ihre bevorzugten Technologien abgestimmt sind.
+            </p>
+            
+            <div class="flex flex-wrap gap-4">
+              <a href="#capabilities" class="btn-primary text-lg px-8 py-4">
+                <i class="fas fa-cogs mr-2"></i>Leistungsspektrum ansehen
+              </a>
+              <a href="contact.html" class="bg-transparent border-2 border-gray-800 text-gray-800 hover:bg-gray-100 text-lg px-8 py-4 rounded-lg font-semibold transition-colors">
+                <i class="fas fa-calendar-check mr-2"></i>Technisches Gespräch vereinbaren
+              </a>
+            </div>
+            
+            <!-- Key Differentiators -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-300">
+              <div class="flex items-start gap-3">
+                <i class="fas fa-balance-scale text-orange-500 text-xl mt-1"></i>
+                <div>
+                  <p class="font-bold text-gray-900">Herstellerneutral</p>
+                  <p class="text-gray-600 text-sm">Keine Markenbindung — nur das Beste für Ihr Projekt</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fas fa-handshake text-orange-500 text-xl mt-1"></i>
+                <div>
+                  <p class="font-bold text-gray-900">Kundenorientiert</p>
+                  <p class="text-gray-600 text-sm">Kompatibel mit Ihren bevorzugten Technologien</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <i class="fas fa-puzzle-piece text-orange-500 text-xl mt-1"></i>
+                <div>
+                  <p class="font-bold text-gray-900">Integrationsbereit</p>
+                  <p class="text-gray-600 text-sm">Für eine nahtlose Umsetzung konzipiert</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PNG Image Integration -->
+          <div class="hero-image-container">
+            <img 
+              src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/automation-hero.png" 
+              alt="Automatisierungssysteme, Konstruktion und Integration" 
+              class="hero-image"
+              onerror="this.style.display='none'"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Automation System Design Section -->
+    <section id="capabilities" class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Automatisierungssysteme</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Umfassende Konstruktionsleistungen für industrielle Automatisierungssysteme — vom Konzept bis zur umsetzungsreifen Ausarbeitung.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Capability 1 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="capability-icon">
+              <i class="fas fa-industry"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Montagelinien-Konzepte</h3>
+            <p class="text-gray-600 mb-6">
+              Vollständige Montagelinien-Konstruktion mit Arbeitsplatzlayout, Materialfluss und Prozessoptimierung.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Linienabgleich</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Zykluszeitanalyse</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Ergonomische Gestaltung</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capability 2 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="capability-icon">
+              <i class="fas fa-boxes-stacked"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Materialfluss-Layouts</h3>
+            <p class="text-gray-600 mb-6">
+              Fördersysteme, AGV/AMR-Integration und Materialtransportlösungen für eine effiziente Logistik.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Förderkonstruktion</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>AGV-Wegplanung</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Pufferkonstruktion</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capability 3 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.3s;">
+            <div class="capability-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Roboterzellen-Konzepte</h3>
+            <p class="text-gray-600 mb-6">
+              Roboterzellenkonstruktion für Schweißen, Montage, Maschinenbeschickung und Materialhandling.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Zellenlayout</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Sicherheitsintegration</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Werkzeugkonstruktion</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capability 4 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.4s;">
+            <div class="capability-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Bildverarbeitungsgestützte Automatisierung</h3>
+            <p class="text-gray-600 mb-6">
+              Integration von Bildverarbeitungssystemen für Inspektion, Führung und Qualitätskontrolle in automatisierten Prozessen.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Kameraplatzierung</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Beleuchtungskonstruktion</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Softwareintegration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capability 5 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.5s;">
+            <div class="capability-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Vorrichtungs- & Werkzeugkonstruktion</h3>
+            <p class="text-gray-600 mb-6">
+              Kundenspezifische Vorrichtungen, Lehren, Greifer und Werkzeuge für automatisierte Montage, Schweißen und Bearbeitung.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>EOAT-Konstruktion</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Spannsysteme</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Schnellwechselsysteme</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Capability 6 -->
+          <div class="capability-card animate-fade-in-up" style="animation-delay: 0.6s;">
+            <div class="capability-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Systemintegration</h3>
+            <p class="text-gray-600 mb-6">
+              Integration mehrerer Teilsysteme zu einer kohärenten Automatisierungslösung mit Steuerungsarchitektur.
+            </p>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>SPS-Schnittstellenkonstruktion</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Netzwerkplanung</span>
+              </div>
+              <div class="integration-item">
+                <i class="fas fa-check"></i>
+                <span>Sicherheitssystemkonstruktion</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Integration Philosophy -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="philosophy-card animate-fade-in-up">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Philosophie der Technologieintegration</h2>
+            <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+              Unsere Engineering-Konstruktionen lassen sich in Ihre bevorzugten Technologien integrieren — wir sind dabei markenneutral.
+            </p>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-8 mb-10">
+            <div class="text-center p-6">
+              <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-crown text-blue-600 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Kundenpräferierte Technologien</h3>
+              <p class="text-gray-600">
+                Wir konstruieren passend zu Ihren bestehenden Technologieinvestitionen und bevorzugten Lieferanten.
+              </p>
+            </div>
+            
+            <div class="text-center p-6">
+              <div class="w-16 h-16 mx-auto bg-indigo-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-industry text-indigo-600 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Branchenübliche Plattformen</h3>
+              <p class="text-gray-600">
+                Konstruktionen kompatibel mit gängigen Automatisierungsplattformen und Steuerungssystemen.
+              </p>
+            </div>
+            
+            <div class="text-center p-6">
+              <div class="w-16 h-16 mx-auto bg-cyan-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-exchange-alt text-cyan-600 text-2xl"></i>
+              </div>
+              <h3 class="text-lg font-bold mb-3 text-gray-900">Gleichwertige Alternativen</h3>
+              <p class="text-gray-600">
+                Wenn Ihre bevorzugte Komponente nicht verfügbar oder nicht passend ist, bewerten wir technisch gleichwertige Alternativen und empfehlen diese — mit klar benannten Kompromissen.
+              </p>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <p class="text-gray-700 font-medium italic max-w-2xl mx-auto">
+              "Die Auswahl von Komponenten und Technologien richtet sich nach Anwendungsanforderungen, Leistungsvorgaben und Kundenfreigabe — nicht nach Markenvorlieben."
+            </p>
+          </div>
+        </div>
+
+        <!-- Technology Compatibility -->
+        <div class="mt-12">
+          <h3 class="text-2xl font-bold mb-6 text-center text-gray-900">Technologiekompatibilität</h3>
+          
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold mb-4 text-gray-800">Automatisierungsplattformen</h4>
+              <div>
+                <span class="tech-badge platform">Siemens</span>
+                <span class="tech-badge platform">Rockwell Automation</span>
+                <span class="tech-badge platform">Beckhoff</span>
+                <span class="tech-badge platform">B&R Automation</span>
+                <span class="tech-badge platform">Mitsubishi</span>
+              </div>
+            </div>
+            
+            <div class="mb-6">
+              <h4 class="text-lg font-semibold mb-4 text-gray-800">Communication Standards</h4>
+              <div>
+                <span class="tech-badge standard">PROFINET</span>
+                <span class="tech-badge standard">EtherNet/IP</span>
+                <span class="tech-badge standard">Modbus TCP</span>
+                <span class="tech-badge standard">OPC UA</span>
+                <span class="tech-badge standard">EtherCAT</span>
+              </div>
+            </div>
+            
+            <div>
+              <h4 class="text-lg font-semibold mb-4 text-gray-800">Komponentenintegration</h4>
+              <div>
+                <span class="tech-badge component">KUKA Robotics Integration</span>
+                <span class="tech-badge component">Vision Systems</span>
+                <span class="tech-badge component">Sensors & Actuators</span>
+                <span class="tech-badge component">Safety Systems</span>
+                <span class="tech-badge component">HMI/SCADA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cost Optimization Section -->
+    <section class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+        <div class="cost-optimization animate-fade-in-up">
+          <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div class="md:w-1/4 text-center md:text-left">
+              <div class="w-16 h-16 mx-auto md:mx-0 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+              </div>
+            </div>
+            
+            <div class="md:w-3/4">
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Kostenoptimierungsansatz</h3>
+              <p class="text-gray-700 mb-4">
+                Auf Wunsch prüfen wir Komponentenalternativen und optimieren die Kosten, ohne die Konstruktion zu beeinträchtigen — jede Substitution wird geprüft anhand von:
+              </p>
+              
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-gray-900">Technische Kompatibilität</p>
+                    <p class="text-gray-600 text-sm">Gleichwertige technische Spezifikationen und Leistung</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-gray-900">Zuverlässigkeitssicherung</p>
+                    <p class="text-gray-600 text-sm">Bewährte Zuverlässigkeit und angemessene Lebensdauer</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-gray-900">Kundenfreigabe</p>
+                    <p class="text-gray-600 text-sm">Vollständige Transparenz und Freigabe vor der Umsetzung</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                  <div>
+                    <p class="font-semibold text-gray-900">Lieferkettenstabilität</p>
+                    <p class="text-gray-600 text-sm">Verfügbare Versorgung und angemessene Lieferzeiten</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-6 p-4 bg-white rounded-lg border border-green-200">
+                <p class="text-green-800 font-medium">
+                  <i class="fas fa-info-circle mr-2"></i>
+                  Alle Optimierungsempfehlungen enthalten eine technische Begründung und Risikobewertung.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Automation Technology & Integration Standards -->
+        <div class="mt-16">
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">Automatisierungstechnik & Integrationsstandards</h3>
+          
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Integration Technologies -->
+            <div class="bg-white p-6 rounded-xl border border-gray-200">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-microchip text-blue-600"></i>
+                </div>
+                <h4 class="text-lg font-bold">Integrationstechnologien</h4>
+              </div>
+              
+              <div class="space-y-3">
+                <div>
+                  <p class="font-semibold text-gray-700 text-sm mb-1">Industrielle Kommunikation:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">PROFINET</span>
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">Ethernet/IP</span>
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">OPC UA</span>
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">IO-Link</span>
+                  </div>
+                </div>
+                
+                <div>
+                  <p class="font-semibold text-gray-700 text-sm mb-1">Bildverarbeitung & Sensorik:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">3D Vision</span>
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">2D Cameras</span>
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">Sensors</span>
+                  </div>
+                </div>
+                
+                <div>
+                  <p class="font-semibold text-gray-700 text-sm mb-1">Robotik:</p>
+                  <div class="flex flex-wrap gap-1">
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">6-Axis Robots</span>
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">Cobots</span>
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">AGV/AMR</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Safety & Standards -->
+            <div class="bg-white p-6 rounded-xl border border-gray-200">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-shield-alt text-green-600"></i>
+                </div>
+                <h4 class="text-lg font-bold">Sicherheitsstandards</h4>
+              </div>
+              
+              <div class="space-y-2">
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-500 text-sm mt-0.5"></i>
+                  <p class="text-sm text-gray-700"><strong>EN ISO 12100:</strong> Maschinensicherheit & Risikobeurteilung</p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-500 text-sm mt-0.5"></i>
+                  <p class="text-sm text-gray-700"><strong>EN ISO 10218:</strong> Sicherheitsnormen für Roboter</p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-500 text-sm mt-0.5"></i>
+                  <p class="text-sm text-gray-700"><strong>EN ISO 13849:</strong> Sicherheitssteuerungen (PLd)</p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-500 text-sm mt-0.5"></i>
+                  <p class="text-sm text-gray-700"><strong>CE-Maschinenrichtlinie:</strong> Konformität nach 2006/42/EG</p>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-500 text-sm mt-0.5"></i>
+                  <p class="text-sm text-gray-700"><strong>Safety Devices:</strong> Lichtvorhänge, Sicherheitsscanner</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Representative Integration Projects -->
+        <div class="mt-16">
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">Repräsentative Integrationsprojekte</h3>
+          
+          <!-- Integration Project 1 -->
+          <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-robot text-blue-600"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 mb-1">Universelle CNC-Automatisierungszelle</h4>
+                <p class="text-sm text-gray-600">Roboterarm + Palettensystem + AGV-Integration für flexible CNC-Beschickung</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-3 mb-4">
+              <div class="bg-blue-50 p-3 rounded border border-blue-100">
+                <p class="text-xs font-semibold text-blue-900 mb-1">Herausforderung</p>
+                <p class="text-xs text-blue-800">Mehrteil-Automatisierung, Rüstzeitreduzierung, AGV-Koordination</p>
+              </div>
+              <div class="bg-green-50 p-3 rounded border border-green-100">
+                <p class="text-xs font-semibold text-green-900 mb-1">Lösung</p>
+                <p class="text-xs text-green-800">6-Achs-Roboter, Palettenwechsler, AGV-Andockstation, Sicherheitsintegration</p>
+              </div>
+              <div class="bg-orange-50 p-3 rounded border border-orange-100">
+                <p class="text-xs font-semibold text-orange-900 mb-1">Ergebnisse</p>
+                <p class="text-xs text-orange-800">20 % Rüstzeitreduzierung, flexible Handhabung, sichere Zusammenarbeit</p>
+              </div>
+            </div>
+
+            <div class="border-t pt-3">
+              <p class="text-xs font-semibold text-gray-700 mb-1">Ergebnisunterlagen:</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">3D-Layout</span>
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Elektro-Schaltplan</span>
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Sicherheitsschaltung (PLd)</span>
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">I/O-Zuordnung</span>
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Zykluszeitanalyse</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Integration Project 2 -->
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-3 mb-4">
+              <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-eye text-purple-600"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 mb-1">Bildverarbeitungsgestützte Montagezelle</h4>
+                <p class="text-sm text-gray-600">3D-Bildverarbeitungssystem, in den Roboter integriert, für die Handhabung beliebig orientierter Teile</p>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-3 mb-4">
+              <div class="bg-blue-50 p-3 rounded border border-blue-100">
+                <p class="text-xs font-semibold text-blue-900 mb-1">Herausforderung</p>
+                <p class="text-xs text-blue-800">Beliebige Teileorientierung, ±0,3 mm Genauigkeit, PROFINET-Integration</p>
+              </div>
+              <div class="bg-green-50 p-3 rounded border border-green-100">
+                <p class="text-xs font-semibold text-green-900 mb-1">Lösung</p>
+                <p class="text-xs text-green-800">Kameraoptimierung, Beleuchtungskonstruktion, Sensornetzwerk, Kommunikation</p>
+              </div>
+              <div class="bg-orange-50 p-3 rounded border border-orange-100">
+                <p class="text-xs font-semibold text-orange-900 mb-1">Ergebnisse</p>
+                <p class="text-xs text-orange-800">8 s Zykluszeit, ±0,3 mm erreicht, 98 % Verfügbarkeit, schnelle Inbetriebnahme</p>
+              </div>
+            </div>
+
+            <div class="border-t pt-3">
+              <p class="text-xs font-semibold text-gray-700 mb-1">Ergebnisunterlagen:</p>
+              <div class="flex flex-wrap gap-1">
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Systemlayout 3D</span>
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Kamerahalterung</span>
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Netzwerkdiagramm</span>
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Signalzuordnung</span>
+                <span class="text-xs bg-gray-100 px-2 py-0.5 rounded">Inbetriebnahmeplan</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <p class="text-xs text-gray-700 text-center">
+              <i class="fas fa-info-circle text-blue-600 mr-1"></i>
+              Diese Beispiele veranschaulichen unseren Integrationsansatz und den typischen Leistungsumfang. Kundennamen werden grundsätzlich nicht genannt; alle Konstruktionen sind herstellerneutral.
+            </p>
+          </div>
+        </div>
+
+        <!-- NEW: Professional System Integration Process Timeline -->
+        <div class="mt-16">
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">Systemintegrationsprozess</h3>
+          
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <div class="timeline-container">
+              <div class="timeline-line"></div>
+              
+              <!-- Step 1 -->
+              <div class="timeline-step">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-clipboard-list text-blue-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Anforderungsanalyse</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Umfassende Analyse der technischen Anforderungen, Produktionsziele und Integrationsrandbedingungen.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 2 -->
+              <div class="timeline-step">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-lightbulb text-purple-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Konzeptentwicklung</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Erstellung von Systemarchitektur, Ablaufdiagrammen und vorläufigen Konstruktionskonzepten.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 3 -->
+              <div class="timeline-step">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-cogs text-indigo-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Detailkonstruktion</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Vollständige technische Dokumentation inklusive 3D-Modellen, Schaltplänen und Spezifikationen.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 4 -->
+              <div class="timeline-step">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-puzzle-piece text-cyan-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Schnittstellendefinition</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Spezifikation aller mechanischen, elektrischen und softwareseitigen Schnittstellen zwischen den Komponenten.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Step 5 -->
+              <div class="timeline-step">
+                <div class="timeline-number">5</div>
+                <div class="timeline-content">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <i class="fas fa-file-contract text-green-600"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900">Dokumentation & Übergabe</h4>
+                  </div>
+                  <p class="text-gray-600">
+                    Vollständiges Dokumentationspaket inklusive Integrationshandbüchern, Schaltplänen und Abnahmekriterien.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+              <p class="text-gray-700">
+                Jede Phase umfasst eine Prüfung und Freigabe durch den Kunden, bevor mit der nächsten Phase begonnen wird.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Application Examples -->
+        <div class="mt-16">
+          <h3 class="text-2xl font-bold mb-8 text-center text-gray-900">Typische Anwendungen</h3>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="application-example">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-cogs text-blue-600"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900">Sondermaschinen</h4>
+              </div>
+              <p class="text-gray-600">
+                Kundenspezifische Maschinen für bestimmte Fertigungsprozesse, Prüfabläufe oder Montagevorgänge.
+              </p>
+            </div>
+            
+            <div class="application-example">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-robot text-green-600"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900">Automatisierte Montagesysteme</h4>
+              </div>
+              <p class="text-gray-600">
+                Vollständige Montagelinien mit Roboterarbeitsplätzen, Bildverarbeitungsprüfung und Qualitätskontrolle.
+              </p>
+            </div>
+            
+            <div class="application-example">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-eye text-purple-600"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900">Bildverarbeitungsgestützte Handhabung</h4>
+              </div>
+              <p class="text-gray-600">
+                Robotersysteme mit Bildverarbeitungsführung zur Teileerkennung, -orientierung und -platzierung.
+              </p>
+            </div>
+            
+            <div class="application-example">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-tools text-orange-600"></i>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900">Fertigungswerkzeuge & Vorrichtungen</h4>
+              </div>
+              <p class="text-gray-600">
+                Kundenspezifische Werkzeuge, Vorrichtungen und Greifer für automatisierte Fertigungsprozesse.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ready to Start CTA -->
+        <div class="mt-16">
+          <div class="bg-gray-900 rounded-2xl p-10 md:p-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Bereit für Ihr Projekt?</h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">Sprechen Sie mit unserem Engineering-Team über Ihre Maschine oder Ihr Automatisierungssystem — unverbindlich und mit direkter technischer Rückmeldung.</p>
+            <a href="contact.html" class="btn-primary text-lg px-10 py-4 inline-block">Kontakt aufnehmen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+    <div class="container mx-auto px-6 lg:px-12">
+      <!-- Main Footer Grid (Your existing 4 columns) -->
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" 
+               alt="J-Techno Engineering Logo" 
+               class="h-16 mb-4" />
+          <p class="text-gray-400">
+            Engineering- und Automatisierungspartner für F&E, Maschinenbau-Konstruktion und Systemintegration nach deutschen Ingenieurstandards.
+          </p>
+          <p class="text-gray-500 text-sm mt-3">GST: 24ADEPJ6770B1ZV</p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Engineering-Dienstleistungen</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="engineering-services.html">F&E & Konzeptentwicklung</a></div>
+            <div><a href="engineering-services.html">Maschinenbau-Konstruktion</a></div>
+            <div><a href="engineering-services.html">Simulation & Validierung</a></div>
+            <div><a href="automation-integration.html">Automatisierungskonstruktion</a></div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Unternehmen</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="index.html#industries">Branchen</a></div>
+            <div><a href="about.html">Über uns</a></div>
+            <div><a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer">Kostenloser Kostenschätzer</a></div>
+            <div><a href="ce-docsuite.html">CE DocSuite</a></div>
+            <div><a href="technical-drawings.html">Technische Zeichnungen</a></div>
+            <div><a href="pricing.html">Preise</a></div>
+            <div><a href="contact.html">Kontakt</a></div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Engineering-Team kontaktieren</h4>
+          <div class="space-y-3">
+            <p class="flex items-center gap-2">
+              <i class="fas fa-globe text-gray-400"></i>
+              <span>Engineering in Deutschland & Indien</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-envelope text-gray-400"></i>
+              <a href="/cdn-cgi/l/email-protection#c8a1a6aea788a2bcadaba0a6a7ada6afa1a6adadbaa1a6afe6aba7a5" class="hover:text-orange-400"><span class="__cf_email__" data-cfemail="fc95929a93bc9688999f94929399929b959299998e95929bd29f9391">info@jtechnoengineering.com</span></a>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-phone text-gray-400"></i>
+              <span>DE: +49 155 664 78752</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-user-graduate text-gray-400"></i>
+              <span>M.Sc. Maschinenbau</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal Information Section -->
+      <div class="border-t border-gray-800 pt-8 mt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p class="text-gray-500 text-sm">
+            © 2025–2026 J-Techno Engineering. Alle Rechte vorbehalten.
+          </p>
+          <div class="flex items-center gap-3 text-sm">
+            <a href="/impressum_full.html" class="text-gray-400 hover:text-orange-400 transition-colors">Impressum</a>
+            <span class="text-gray-600">|</span>
+            <a href="/privacy-policy.html" class="text-gray-400 hover:text-orange-400 transition-colors">Datenschutzerklärung</a>
+            <span class="text-gray-600">|</span>
+            <a href="/privacy-policy.html" class="text-gray-400 hover:text-orange-400 transition-colors">Datenschutz</a>
+          </div>
+        </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Mobile menu toggle
+    const mobileMenuEl = document.getElementById('mobileMenu');
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      mobileMenuEl.classList.toggle('open');
+    });
+
+    // Services dropdown (desktop nav)
+    (function() {
+      const servicesToggle = document.getElementById('servicesDropdownToggle');
+      const servicesMenu = document.getElementById('servicesDropdownMenu');
+      if (!servicesToggle || !servicesMenu) return;
+      servicesToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = !servicesMenu.classList.contains('hidden');
+        servicesMenu.classList.toggle('hidden');
+        servicesToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+      document.addEventListener('click', function(event) {
+        if (!servicesMenu.contains(event.target) && !servicesToggle.contains(event.target)) {
+          servicesMenu.classList.add('hidden');
+          servicesToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+    document.getElementById('mobileClose').addEventListener('click', function() {
+      mobileMenuEl.classList.remove('open');
+    });
+    document.addEventListener('click', function(event) {
+      const toggle = document.getElementById('mobileToggle');
+      const closeBtn = document.getElementById('mobileClose');
+      if (!mobileMenuEl.contains(event.target) && !toggle.contains(event.target) && !closeBtn.contains(event.target)) {
+        mobileMenuEl.classList.remove('open');
+      }
+    });
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 20) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === '#') return;
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          window.scrollTo({
+            top: targetElement.offsetTop - headerHeight - 20,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          document.getElementById('mobileMenu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Animation for capability cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe capability cards for animation
+    document.querySelectorAll('.capability-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+
+    // Observe timeline items for animation
+    document.querySelectorAll('.timeline-step').forEach((step, index) => {
+      step.style.opacity = '0';
+      step.style.transform = 'translateX(-20px)';
+      step.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+      observer.observe(step);
+    });
+  </script>
+  
+  <!-- Cookie Consent Banner - START -->
+<style>
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+  display: none;
+}
+#cookie-banner.show {
+  display: block;
+}
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.cookie-text {
+  flex: 1;
+  min-width: 300px;
+}
+.cookie-text p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cookie-text a {
+  color: #4da6ff;
+  text-decoration: underline;
+}
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cookie-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.cookie-btn:hover {
+  opacity: 0.9;
+}
+.btn-accept-cookies {
+  background: #0066cc;
+  color: white;
+}
+.btn-decline-cookies {
+  background: #666;
+  color: white;
+}
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-buttons {
+    width: 100%;
+  }
+  .cookie-btn {
+    flex: 1;
+  }
+}
+</style>
+
+<div id="cookie-banner">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <p>
+        <strong>Ihre Privatsphäre ist uns wichtig</strong><br>
+        Diese Website verwendet nur essenzielle Cookies, die für die Funktionalität notwendig sind. 
+        Wir verwenden keine Tracking- oder Analyse-Cookies ohne Ihre Zustimmung.
+        <a href="/privacy-policy.html" target="_blank">Mehr erfahren</a>
+      </p>
+      <p style="font-size: 12px; color: #ccc;">
+        Mit einem Klick auf „Akzeptieren" stimmen Sie der Verwendung essenzieller Cookies zu. 
+        Ein Analyse-Tracking ist nur aktiv, wenn Sie ausdrücklich zustimmen (Opt-in).
+      </p>
+    </div>
+    <div class="cookie-buttons">
+      <button class="cookie-btn btn-accept-cookies" onclick="acceptCookies()">Akzeptieren</button>
+      <button class="cookie-btn btn-decline-cookies" onclick="declineCookies()">Ablehnen</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Cookie Banner Logic
+(function() {
+  'use strict';
+  
+  function getCookieConsent() {
+    const consent = localStorage.getItem('cookieConsent');
+    return consent;
+  }
+  
+  function showBannerIfNeeded() {
+    const consent = getCookieConsent();
+    if (!consent) {
+      document.getElementById('cookie-banner').classList.add('show');
+    }
+  }
+  
+  window.acceptCookies = function() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-banner').classList.remove('show');
+  };
+  
+  window.declineCookies = function() {
+    localStorage.setItem('cookieConsent', 'declined');
+    document.getElementById('cookie-banner').classList.remove('show');
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    showBannerIfNeeded();
+  });
+})();
+</script>
+<!-- Cookie Consent Banner - END -->
+
+<!-- WhatsApp Chat Button - START -->
+<a href="https://wa.me/919687782243?text=Hi%20J-Techno%20Engineering%2C%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp" style="position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:9999;transition:transform 0.2s ease;text-decoration:none;">
+  <i class="fab fa-whatsapp" style="font-size:28px;color:#ffffff;"></i>
+</a>
+<!-- WhatsApp Chat Button - END -->
+
+</body>
+</html>
