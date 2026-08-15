@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Über uns | J-Techno Engineering | Deutsch-Indische Engineering-Partnerschaft</title>
+  <meta name="description" content="J-Techno Engineering: Led by Prince Joshina, M.Sc. Maschinenbau from Leibniz Universität Hannover. German-Indian engineering partnership with academic depth and industrial experience." />
+  <meta name="keywords" content="about J-Techno Engineering, Prince Joshina, German engineering company, mechanical engineering Germany, Fraunhofer IPK" />
+  <link rel="icon" href="images/Logo.svg" type="image/svg+xml" />
+  <link rel="alternate" hreflang="en" href="https://jtechnoengineering.com/about.html" />
+  <link rel="alternate" hreflang="de" href="https://jtechnoengineering.com/de/about.html" />
+  <link rel="alternate" hreflang="x-default" href="https://jtechnoengineering.com/about.html" />
+
+  <!-- Tailwind v2 and Inter font -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/brand-colors.css">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+    }
+    html { scroll-behavior: smooth; }
+
+    .section-padding { padding: 6rem 1rem; }
+    @media (max-width: 768px) {
+      .section-padding { padding: 3rem 1rem; }
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+      color: white;
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: #4b5563;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: #f9fafb;
+      border-color: #9ca3af;
+      transform: translateY(-2px);
+    }
+    
+    .about-hero {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color: #1f2937;
+    }
+    
+    /* Fix text colors for light background */
+    .about-hero h1,
+    .about-hero h2,
+    .about-hero h3,
+    .about-hero h4 {
+      color: #1f2937 !important;
+    }
+
+    .about-hero p {
+      color: #4b5563 !important;
+    }
+
+    /* Hero Image Container - Updated for about page */
+    .hero-image-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 3rem auto 0;
+      z-index: 1;
+    }
+
+    @media (min-width: 1024px) {
+      /* Target the hero section specifically for about page */
+      .about-hero .container {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+      
+      .about-hero .container > div:first-child {
+        flex: 1;
+      }
+      
+      .hero-image-container {
+        flex: 1;
+        margin: 0;
+        max-width: none;
+      }
+    }
+
+    /* Hero Image Styling */
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .founder-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+    
+    .founder-card:hover {
+      border-color: #f97316;
+      box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .academic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .experience-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .company-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      border: 1px solid #e5e7eb;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .company-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 15px 35px rgba(59, 130, 246, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .company-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .company-icon i {
+      font-size: 2rem;
+      color: white;
+    }
+    
+    .philosophy-icon {
+      background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    }
+    
+    .approach-icon {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+    
+    .differentiator-icon {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    }
+    
+    .timeline-container {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      background: #f97316;
+      border-radius: 50%;
+    }
+    
+    .timeline-item:after {
+      content: '';
+      position: absolute;
+      left: -1.94rem;
+      top: 0.75rem;
+      width: 2px;
+      height: calc(100% - 0.5rem);
+      background: #d1d5db;
+    }
+    
+    .timeline-item:last-child:after {
+      display: none;
+    }
+    
+    .education-card {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+    
+    .education-card:hover {
+      border-color: #1d4ed8;
+      background: #f0f9ff;
+    }
+    
+    .university-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .location-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      font-size: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: #9ca3af;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #f97316;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    /* Founder image styling */
+    .founder-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 1rem;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .founder-image {
+        width: 160px;
+        height: 160px;
+      }
+    }
+    
+    /* Page transition animation */
+    .page-transition {
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Enterprise redesign additions */
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #EA580C;
+      margin-bottom: 0.75rem;
+    }
+    .heading-accent {
+      padding-left: 1rem;
+      border-left: 4px solid #f97316;
+    }
+    .badge-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #e5e7eb;
+      padding: 0.5rem 1.125rem;
+      border-radius: 0.375rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: rgba(255,255,255,0.03);
+    }
+    header.scrolled {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    #mobileMenu {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+    #mobileMenu.open {
+      max-height: 32rem;
+      opacity: 1;
+    }
+    .prose-measure { max-width: 65ch; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Prince Joshina",
+    "jobTitle": "Gründer & Leitender Ingenieur",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "J-Techno Engineering"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Leibniz Universität Hannover",
+      "sameAs": "https://www.uni-hannover.de/"
+    },
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Masters Degree",
+      "recognizedBy": {
+        "@type": "EducationalOrganization",
+        "name": "Leibniz Universität Hannover"
+      }
+    },
+    "knowsAbout": ["Maschinenbau", "Automation Systems", "German Engineering Standards"],
+    "url": "https://www.jtechnoengineering.com"
+  }
+  </script>
+</head>
+<body class="text-gray-800 bg-white page-transition">
+
+  <!-- Header -->
+  <header class="bg-white sticky top-0 z-40">
+    <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="J-Techno Engineering homepage">
+        <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" alt="J-Techno Engineering logo" class="h-14 w-auto">
+        <div>
+          <span class="font-bold text-xl text-gray-900">J-Techno Engineering</span>
+          <div class="text-xs text-orange-600 font-semibold">Engineering- und Automatisierungspartner</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold" aria-label="Main Navigation">
+        <div class="relative">
+          <button type="button" id="servicesDropdownToggle" class="flex items-center gap-1 text-gray-700 hover:text-orange-600 transition-colors" aria-haspopup="true" aria-expanded="false">Services <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" class="inline"><path stroke-linecap="round" stroke-linejoin="round" d="M2 4l4 4 4-4"></path></svg></button>
+          <div id="servicesDropdownMenu" class="hidden absolute left-0 top-full mt-3 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[240px] z-50">
+            <a href="engineering-services.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Engineering-Dienstleistungen</a>
+            <a href="automation-integration.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Automatisierung & Integration</a>
+            <a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Kostenloser Kalkulator</a>
+            <a href="technical-drawings.html" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Technische Zeichnungen</a>
+            <a href="/simulator/" class="block px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors">Automation Simulator</a>
+          </div>
+        </div>
+        <a href="ce-docsuite.html" class="text-gray-700 hover:text-orange-600 transition-colors">CE DocSuite</a>
+        <a href="pricing.html" class="text-gray-700 hover:text-orange-600 transition-colors">Preise</a>
+        <a href="about.html" class="nav-active text-orange-600 font-semibold">Über uns</a>
+        <a href="contact.html" class="btn-primary text-sm">Kontakt</a>
+<a href="/about.html" class="py-2 text-gray-500 hover:text-orange-600 font-semibold text-sm">English (EN)</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileToggle" type="button" aria-label="Open navigation" class="p-3 rounded-lg hover:bg-gray-100 transition-colors">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden bg-white border-t shadow-lg relative">
+      <button id="mobileClose" class="absolute top-4 right-6 p-2 text-gray-500 hover:text-gray-700" aria-label="Close navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <nav class="px-6 py-10 flex flex-col gap-4" aria-label="Mobile Navigation">
+        <div class="pt-1 pb-1">
+          <div class="text-xs uppercase tracking-wide text-gray-400 font-bold mb-1">Leistungen</div>
+          <a href="engineering-services.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Engineering-Dienstleistungen</a>
+          <a href="automation-integration.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Automatisierung & Integration</a>
+          <a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Kostenloser Kalkulator</a>
+          <a href="technical-drawings.html" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Technische Zeichnungen</a>
+          <a href="/simulator/" class="block py-2 pl-3 text-gray-700 hover:text-orange-600 font-semibold">Automation Simulator</a>
+        </div>
+        <a href="ce-docsuite.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">CE DocSuite</a>
+        <a href="pricing.html" class="py-2 text-gray-700 hover:text-orange-600 font-semibold">Preise</a>
+        <a href="about.html" class="py-2 text-orange-600 font-semibold">Über uns</a>
+        <a href="contact.html" class="btn-primary text-center mt-2">Kontakt</a>
+<a href="/about.html" class="text-sm font-semibold text-gray-500 hover:text-orange-600 ml-2">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section - Fixed Layout -->
+    <section class="about-hero relative overflow-hidden">
+      <div class="section-padding">
+        <div class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <!-- Text Content -->
+          <div class="lg:w-1/2 animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full text-sm font-medium text-gray-800 mb-6 border border-gray-200">
+              <i class="fas fa-university text-orange-500"></i>
+              <span>Deutsch-Indische Engineering-Partnerschaft</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              Engineering-Exzellenz durch
+              <span class="text-orange-500">grenzüberschreitende Zusammenarbeit</span>
+            </h1>
+            
+            <p class="text-xl mb-8">
+              J-Techno Engineering verbindet deutsche akademische Tiefe mit internationaler Umsetzungskompetenz und liefert professionelle Engineering-Dienstleistungen nach deutschen Qualitätsstandards.
+            </p>
+            
+            <div class="flex flex-wrap gap-4">
+              <a href="#founder" class="btn-primary text-lg px-8 py-4">
+                <i class="fas fa-user-graduate mr-2"></i>Unseren Gründer kennenlernen
+              </a>
+              <a href="contact.html" class="btn-secondary text-lg px-8 py-4">
+                <i class="fas fa-comment-dots mr-2"></i>Technische Zusammenarbeit besprechen
+              </a>
+            </div>
+          </div>
+          
+          <!-- Image Content -->
+          <div class="lg:w-1/2 hero-image-container">
+            <img 
+              src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/about-hero.png" 
+              alt="Deutsch-Indische Engineering-Partnerschaft - J-Techno Engineering" 
+              class="hero-image"
+              onerror="this.style.display='none'"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="founder-card animate-fade-in-up">
+          <div class="grid md:grid-cols-3 gap-8 items-start">
+            <!-- Founder Image & Basic Info -->
+            <div class="text-center md:text-left">
+              <div class="flex flex-col items-center md:items-start">
+               <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/prince-portrait.png"  
+                     alt="Dipl.-Ing. Prince Joshina - Founder, J-Techno Engineering" 
+                     class="founder-image mb-6">
+                
+                <div class="mb-6">
+                  <p class="eyebrow">Unser Gründer</p>
+                  <h2 class="text-2xl font-bold text-gray-900 mb-1">Dipl.-Ing. Prince Joshina</h2>
+                  <p class="text-gray-600 font-medium">Gründer & Leitender Ingenieur</p>
+                  <p class="text-sm text-gray-500 mt-1">M.Sc. Maschinenbau</p>
+                </div>
+                
+                <!-- Academic Credentials -->
+                <div class="space-y-3">
+                  <div class="academic-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    Leibniz Universität Hannover
+                  </div>
+                  <div class="experience-badge">
+                    <i class="fas fa-briefcase"></i>
+                    Erfahrung bei Fraunhofer IPK
+                  </div>
+                  <div class="experience-badge">
+                    <i class="fas fa-globe-europe"></i>
+                    Deutsch-Indisches Engineering
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Beruflicher Werdegang -->
+            <div class="md:col-span-2">
+              <h3 class="text-xl font-bold mb-6 text-gray-900">Beruflicher Werdegang</h3>
+              
+              <div class="mb-8">
+                <p class="text-gray-700 mb-4 prose-measure">
+                  J-Techno Engineering ist eine <strong>gründergeführte Ingenieurpraxis</strong>: jedes Projekt läuft über
+                  <strong>Dipl.-Ing. Prince Joshina</strong>, einen Maschinenbauingenieur mit Masterabschluss der
+                  <strong>Leibniz Universität Hannover, Deutschland</strong>, unterstützt durch Umsetzungskapazitäten in Indien.
+                </p>
+
+                <p class="text-gray-700 mb-6 prose-measure">
+                  Das ist eine bewusste Struktur, keine Einschränkung — Kunden erhalten direkten Zugang zum Ingenieur,
+                  der für ihr Projekt verantwortlich ist, gestützt auf praktische Erfahrung in der deutschen Industrie
+                  seit 2015, unter anderem bei <strong>Fraunhofer IPK</strong> und mehreren deutschen Ingenieurbüros.
+                </p>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-100 mb-6">
+                  <p class="text-blue-800 font-medium">
+                    <i class="fas fa-quote-left mr-2"></i>
+                    Unser Ansatz integriert deutsche Ingenieurmethodik mit internationaler Umsetzungseffizienz und liefert technische Lösungen, die sowohl Qualitätsstandards als auch praktische Umsetzungsanforderungen erfüllen.
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Education Timeline -->
+              <div class="mb-8">
+                <h4 class="text-lg font-semibold mb-4 text-gray-800">Ausbildung & Qualifikationen</h4>
+                
+                <div class="grid gap-4">
+                  <div class="education-card">
+                    <div class="university-badge">Master of Science</div>
+                    <h5 class="font-bold text-gray-900 mb-1">Maschinenbau</h5>
+                    <p class="text-gray-600 mb-2">Leibniz Universität Hannover</p>
+                    <div class="flex items-center gap-2">
+                      <span class="location-chip">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Hannover, Deutschland
+                      </span>
+                      <span class="text-xs text-gray-500">• Spezialisierung auf Automatisierung & Robotik</span>
+                    </div>
+                  </div>
+                  
+                  <div class="education-card">
+                    <div class="university-badge">Bachelor of Engineering</div>
+                    <h5 class="font-bold text-gray-900 mb-1">Maschinenbau</h5>
+                    <p class="text-gray-600 mb-2">Visvesvaraya Technological University</p>
+                    <div class="flex items-center gap-2">
+                      <span class="location-chip">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Belgavi, Karnataka, Indien
+                      </span>
+                      <span class="text-xs text-gray-500">• Schwerpunkt Fertigungssysteme</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Berufserfahrung -->
+          <div class="mt-8 pt-8 border-t border-gray-200">
+            <h4 class="text-lg font-semibold mb-6 text-gray-800">Berufserfahrung</h4>
+            
+            <div class="space-y-6">
+              <!-- PURTEC -->
+              <div class="timeline-item">
+                <div class="flex items-start justify-between mb-2">
+                  <h5 class="font-bold text-gray-900">Innovationsmanager</h5>
+                  <span class="text-sm text-gray-600">2023 – 2024</span>
+                </div>
+                <p class="text-gray-700 font-medium mb-2">PURTEC Engineering GmbH, Königswartha, Deutschland</p>
+                <ul class="space-y-1 text-sm text-gray-600">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Konstruktion von Handhabungssystemen: Manipulatoren, Pneumatikgreifer, Stahlkonstruktionen, schienengeführte Baugruppen</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Erstellung technischer Zeichnungen, Stücklisten und Dokumentation nach Kundenvorgaben</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Verantwortlich für bis zu 5 parallele Projekte: Angebotserstellung, Terminplanung, Kundenkommunikation</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Entwicklung eines 200-kg-Hebesystems mit integrierter Sicherheitsverriegelung, CE-konformes Design</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Mairotec -->
+              <div class="timeline-item">
+                <div class="flex items-start justify-between mb-2">
+                  <h5 class="font-bold text-gray-900">Entwicklungsingenieur</h5>
+                  <span class="text-sm text-gray-600">2021 – 2022</span>
+                </div>
+                <p class="text-gray-700 font-medium mb-2">Mairotec GmbH, Ilmenau, Deutschland</p>
+                <ul class="space-y-1 text-sm text-gray-600">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Entwicklung einer universellen Automatisierungszelle für CNC-Maschinen: Roboterarme, Palettensysteme, FTS → 20 % kürzere Rüstzeit</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Konstruktion eines hochpräzisen Dreh-Schwenktisches (≤0,01 mm Toleranz) für die CNC-Integration</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Entwicklung von Entgrat- und Verschraubungswerkzeugen für die automatisierte Fertigung</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Integration von 3D-Bildverarbeitungssystemen und Sensoren zur Echtzeit-Prozesssteuerung</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Grossmann -->
+              <div class="timeline-item">
+                <div class="flex items-start justify-between mb-2">
+                  <h5 class="font-bold text-gray-900">Konstruktionsingenieur</h5>
+                  <span class="text-sm text-gray-600">2020 – 2021</span>
+                </div>
+                <p class="text-gray-700 font-medium mb-2">Grossmann GmbH, Büdingen, Deutschland</p>
+                <ul class="space-y-1 text-sm text-gray-600">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Konstruktion von Wickel- und Blechbearbeitungsmaschinen mit SolidWorks</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Entwicklung von Zuführ- und Schneidstationen → 15 % höherer Durchsatz</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Technischer Hauptansprechpartner für Kunden und Lieferanten während des gesamten Konstruktionsprozesses</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Lieferung umfassender 2D-Zeichnungen, Stücklisten und Montageanleitungen für die Produktion</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Fraunhofer (Research) -->
+              <div class="timeline-item">
+                <div class="flex items-start justify-between mb-2">
+                  <h5 class="font-bold text-gray-900">Forschungspraktikant – CAE-Simulation</h5>
+                  <span class="text-sm text-gray-600">2015 – 2016</span>
+                </div>
+                <p class="text-gray-700 font-medium mb-2">Fraunhofer-Institut IPK, Berlin, Deutschland</p>
+                <ul class="space-y-1 text-sm text-gray-600">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Simulation von Mikrospritzgussprozessen mit ANSYS (Füllen, Kühlen, Entformen)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Unterstützung experimenteller Studien durch simulationsbasierte Konstruktionsempfehlungen</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                    <span>Durchführung von Schlagversuchen an Polycarbonat- und Glaswerkstoffen im Prüflabor</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Expertise -->
+          <div class="mt-8 pt-8 border-t border-gray-200">
+            <h4 class="text-lg font-semibold mb-6 text-gray-800">Technische Expertise & Werkzeuge</h4>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <h5 class="font-semibold text-gray-900 mb-3">Engineering-Software</h5>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-cube text-blue-600"></i>
+                    <span class="text-gray-700"><strong>3D-CAD:</strong> Autodesk Inventor, SolidWorks, Solid Edge</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-chart-line text-green-600"></i>
+                    <span class="text-gray-700"><strong>Simulation:</strong> ANSYS (FEA, Thermisch, Modal)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-drafting-compass text-purple-600"></i>
+                    <span class="text-gray-700"><strong>Dokumentation:</strong> AutoCAD, PDM-Systeme</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h5 class="font-semibold text-gray-900 mb-3">Normen & Konformität</h5>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-orange-600"></i>
+                    <span class="text-gray-700">DIN-Normen (deutsches Ingenieurwesen)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-orange-600"></i>
+                    <span class="text-gray-700">ISO-Normen (Qualität & Design)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-orange-600"></i>
+                    <span class="text-gray-700">VDI-Richtlinien (Ingenieurmethodik)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i class="fas fa-check-circle text-orange-600"></i>
+                    <span class="text-gray-700">CE-Kennzeichnungsdokumentation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 grid md:grid-cols-3 gap-4">
+              <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                <p class="text-sm font-semibold text-blue-900 mb-1">Kernspezialisierung</p>
+                <p class="text-sm text-blue-800">Manipulatoren, Greifer, CNC-Module, Roboterintegration</p>
+              </div>
+              <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                <p class="text-sm font-semibold text-green-900 mb-1">Automatisierungskompetenzen</p>
+                <p class="text-sm text-green-800">Bildverarbeitungssysteme, Sensorintegration, PROFINET, IO-Link</p>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                <p class="text-sm font-semibold text-purple-900 mb-1">Sprachen</p>
+                <p class="text-sm text-purple-800">Englisch (fließend), Deutsch (verhandlungssicher), Hindi (Muttersprache)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unternehmen Philosophy & Approach -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Unternehmensphilosophie & technischer Ansatz</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Die Grundsätze, die unsere Ingenieurmethodik und Kundenzusammenarbeit leiten.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Philosophy -->
+          <div class="company-card animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="company-icon philosophy-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Technische Philosophie</h3>
+            <p class="text-gray-600 mb-6">
+              Wir verbinden deutsche Ingenieurspräzision mit internationaler Umsetzungseffizienz und konzentrieren uns auf praktische, fertigungsgerechte Lösungen, die sowohl Qualitätsstandards als auch praktische Umsetzungsanforderungen erfüllen.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Deutsche Ingenieurstandards als Basis</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Fokus auf praktische Fertigbarkeit</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Lieferantenneutrale technische Empfehlungen</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Engineering-Ansatz -->
+          <div class="company-card animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="company-icon approach-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Engineering-Ansatz</h3>
+            <p class="text-gray-600 mb-6">
+              Systematische Ingenieurmethodik mit klaren Phasen, Dokumentation und Freigabe-Meilensteinen durch den Kunden, die Abstimmung sicherstellen und Nacharbeit minimieren.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Strukturierter 7-Phasen-Engineering-Prozess</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Formelle Kundenfreigabe zwischen den Phasen</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Umfassende Dokumentationsstandards</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Differentiators -->
+          <div class="company-card animate-fade-in-up" style="animation-delay: 0.3s;">
+            <div class="company-icon differentiator-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Wesentliche Alleinstellungsmerkmale</h3>
+            <p class="text-gray-600 mb-6">
+              Was unsere Engineering-Dienstleistungen auf dem deutschen und internationalen Markt auszeichnet.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Technische Leitung auf Gründerebene</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Koordination an zwei Standorten Deutschland–Indien</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <span>Akademische Tiefe mit industrieller Erfahrung</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Role Clarification -->
+    <section class="bg-white section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+        <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-8 border border-amber-200">
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold mb-4">Unsere Rolle in Engineering-Projekten</h2>
+            <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">Engineering-Spezialisten, kein Katalog-Lieferant</h3>
+                  <p class="text-gray-700">
+                    Jedes Projekt ist engineering-first: Systemdesign, technische Integration und Dokumentation — die eigentliche Arbeit, kein Teilekatalog mit Aufschlag.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-project-diagram text-orange-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">Komponentenauswahl als Teil von Systemlösungen</h3>
+                  <p class="text-gray-700">
+                    Komponentenauswahl und Beschaffungsempfehlungen werden ausschließlich als Teil vollständiger Systemlösungen bereitgestellt, basierend auf Kundenstandards, Leistungsanforderungen und formeller Freigabe.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <i class="fas fa-handshake text-blue-500 text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-2">Lieferantenneutrale Engineering-Empfehlungen</h3>
+                  <p class="text-gray-700">
+                    Unsere Konstruktionen sind mit verschiedenen Technologieplattformen kompatibel. Wir haben keine Markenbindung — Empfehlungen basieren auf technischen Anforderungen, Leistungsbedarf und Kundenwünschen.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dual-Location Advantage -->
+    <section class="bg-gray-50 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">Zweistandort-Engineering-Modell</h2>
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+            Strategische Koordination zwischen Deutschland und Indien für optimale Engineering-Umsetzung.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- Standort Deutschland -->
+          <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-sm">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-gradient-to-br from-black to-gray-800 rounded-lg flex items-center justify-center">
+                <i class="fas fa-flag text-white text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">Standort Deutschland</h3>
+                <p class="text-gray-600">Technische Leitung & Kundenkoordination</p>
+              </div>
+            </div>
+            
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <div>
+                  <p class="font-semibold">Direkter Kundenkontakt</p>
+                  <p class="text-gray-600 text-sm">Persönliche Treffen und technische Gespräche mit Kunden in Deutschland und der EU</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <div>
+                  <p class="font-semibold">Qualitätssicherung & Normen</p>
+                  <p class="text-gray-600 text-sm">Einhaltung deutscher Ingenieurstandards und finale Qualitätsfreigabe</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <div>
+                  <p class="font-semibold">Projektmanagement</p>
+                  <p class="text-gray-600 text-sm">Gesamtprojektkoordination und Kundenkommunikationsmanagement</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+              <p class="text-gray-700 text-sm">
+                <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                <strong>Standort:</strong> Fichtestraße 52, 01917 Kamenz, Sachsen, Deutschland
+              </p>
+            </div>
+          </div>
+
+          <!-- Standort Indien -->
+          <div class="bg-white rounded-xl p-8 border border-gray-200 shadow-sm">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center">
+                <i class="fas fa-flag text-white text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">Standort Indien</h3>
+                <p class="text-gray-600">Engineering-Umsetzung & technische Entwicklung</p>
+              </div>
+            </div>
+            
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <div>
+                  <p class="font-semibold">Engineering-Design & F&E</p>
+                  <p class="text-gray-600 text-sm">3D-Modellierung, Simulation, Detailkonstruktion und technische Dokumentation</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <div>
+                  <p class="font-semibold">Prototyping-Unterstützung</p>
+                  <p class="text-gray-600 text-sm">Koordination der Prototypenentwicklung und Schnittstelle zur Fertigung</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fas fa-check text-green-500 mt-1"></i>
+                <div>
+                  <p class="font-semibold">Erweiterte Engineering-Kapazität</p>
+                  <p class="text-gray-600 text-sm">Zusätzliche Engineering-Ressourcen für die Projektumsetzung</p>
+                </div>
+              </li>
+            </ul>
+            
+            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+              <p class="text-gray-700 text-sm">
+                <i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+                <strong>Standort:</strong> U-1 Paris Plaza, Station Road, Surat - 395003, Gujarat, Indien
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coordination Benefits -->
+        <div class="mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
+          <h3 class="text-2xl font-bold mb-6 text-center">Koordinationsvorteile</h3>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center">
+              <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-clock text-blue-600"></i>
+              </div>
+              <h4 class="font-bold mb-2">Erweiterte Abdeckung</h4>
+              <p class="text-gray-600 text-sm">24/5-Engineering-Koordination über Zeitzonen hinweg</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-balance-scale text-blue-600"></i>
+              </div>
+              <h4 class="font-bold mb-2">Optimale Balance</h4>
+              <p class="text-gray-600 text-sm">Deutsche Qualitätsstandards mit effizienter Engineering-Umsetzung</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-euro-sign text-blue-600"></i>
+              </div>
+              <h4 class="font-bold mb-2">Direktes Engineering, kein Agentur-Overhead</h4>
+              <p class="text-gray-600 text-sm">Die Arbeit geht direkt an den ausführenden Ingenieur — keine Account-Manager-Ebene zwischen Ihnen und den Konstruktionsentscheidungen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Certifications & Standards -->
+    <section class="bg-gray-900 section-padding">
+      <div class="container mx-auto px-6 lg:px-12 max-w-4xl text-center">
+        <p class="eyebrow" style="color:#fb923c;">Normen, nach denen wir entwickeln</p>
+        <h2 class="text-3xl font-bold text-white mb-4">Ingenieurdisziplin, nicht nur eine Auflistung von Abzeichen</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mb-8 prose-measure">
+          Dies sind die Normen, gegen die jedes Ergebnis entwickelt wird — eine Beschreibung unserer Arbeitsdisziplin, kein Anspruch auf Drittzertifizierung des Unternehmens. Fragen Sie uns, wir erläutern gerne im Detail wie.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <span class="badge-outline">CE-Kennzeichnung (Maschinenrichtlinie)</span>
+          <span class="badge-outline">MD 2006/42/EC</span>
+          <span class="badge-outline">ISO 12100 — Risikobeurteilung</span>
+          <span class="badge-outline">IEC/IEEE 82079-1 — Dokumentation</span>
+          <span class="badge-outline">Erfahrung mit KUKA-Roboterintegration</span>
+          <span class="badge-outline">M.Sc. Maschinenbau — Leibniz Universität Hannover</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working Model pointer -->
+    <section class="section-paper section-padding" style="padding-top: 3rem; padding-bottom: 3rem;">
+      <div class="container mx-auto px-6 lg:px-12 max-w-3xl text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">Neugierig, wie wir ein Projekt tatsächlich durchführen?</h2>
+        <p class="text-gray-600 mb-6 prose-measure" style="margin-left:auto; margin-right:auto;">
+          Unsere Engagement-Modelle, Prozessphasen und Kommunikationsabläufe sind vollständig auf einer eigenen Seite dargestellt — Engagement-Modelle, ein beispielhafter Projektzeitplan und was Sie in jedem Schritt erwartet.
+        </p>
+        <a href="working-model.html" class="btn-secondary text-lg px-8 py-3 inline-block">Unser Arbeitsmodell ansehen &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Ready to Start CTA -->
+    <section class="bg-gray-900 section-padding" style="padding-top: 0;">
+      <div class="container mx-auto px-6 lg:px-12 max-w-3xl text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Bereit, Ihr Projekt zu starten?</h2>
+        <p class="text-lg text-gray-400 mb-8">Sprechen Sie mit unserem Engineering-Team über Ihre Maschine oder Ihr Automatisierungssystem — unverbindlich, mit direkter technischer Antwort.</p>
+        <a href="contact.html" class="btn-primary text-lg px-10 py-4 inline-block">Kontakt aufnehmen</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+    <div class="container mx-auto px-6 lg:px-12">
+      <!-- Main Footer Grid (Your existing 4 columns) -->
+      <div class="grid md:grid-cols-4 gap-10 mb-10">
+        <div>
+          <img src="https://raw.githubusercontent.com/Prince2893/j-techno-website/main/images/Logo.svg" 
+               alt="J-Techno Engineering Logo" 
+               class="h-16 mb-4" />
+          <p class="text-gray-400">
+            Engineering- und Automatisierungspartner für F&E, mechanisches Design und Systemintegration nach deutschen Ingenieurstandards.
+          </p>
+          <p class="text-gray-500 text-sm mt-3">GST: 24ADEPJ6770B1ZV</p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Engineering-Dienstleistungen</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="engineering-services.html">F&E & Konzept-Engineering</a></div>
+            <div><a href="engineering-services.html">Mechanisches Design</a></div>
+            <div><a href="engineering-services.html">Simulation & Validierung</a></div>
+            <div><a href="automation-integration.html">Automatisierungsdesign</a></div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Unternehmen</h4>
+          <div class="footer-links space-y-3">
+            <div><a href="index.html#industries">Branchen</a></div>
+            <div><a href="about.html">Über uns</a></div>
+            <div><a href="https://estimator.jtechnoengineering.com" target="_blank" rel="noopener noreferrer">Kostenloser Kalkulator</a></div>
+            <div><a href="ce-docsuite.html">CE DocSuite</a></div>
+            <div><a href="technical-drawings.html">Technische Zeichnungen</a></div>
+            <div><a href="pricing.html">Preise</a></div>
+            <div><a href="contact.html">Kontakt</a></div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Engineering-Team kontaktieren</h4>
+          <div class="space-y-3">
+            <p class="flex items-center gap-2">
+              <i class="fas fa-globe text-gray-400"></i>
+              <span>Engineering in Deutschland & Indien</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-envelope text-gray-400"></i>
+              <a href="/cdn-cgi/l/email-protection#f0999e969fb09a849593989e9f959e97999e959582999e97de939f9d" class="hover:text-orange-400"><span class="__cf_email__" data-cfemail="660f080009260c1203050e08090308010f080303140f08014805090b">info@jtechnoengineering.com</span></a>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-phone text-gray-400"></i>
+              <span>DE: +49 155 664 78752</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-user-graduate text-gray-400"></i>
+              <span>M.Sc. Maschinenbau</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal Information Section -->
+      <div class="border-t border-gray-800 pt-8 mt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p class="text-gray-500 text-sm">
+            © 2025–2026 J-Techno Engineering. Alle Rechte vorbehalten.
+          </p>
+          <div class="flex items-center gap-3 text-sm">
+            <a href="/impressum_full.html" class="text-gray-400 hover:text-orange-400 transition-colors">Impressum</a>
+            <span class="text-gray-600">|</span>
+            <a href="/privacy-policy.html" class="text-gray-400 hover:text-orange-400 transition-colors">Datenschutzerklärung</a>
+            <span class="text-gray-600">|</span>
+            <a href="/privacy-policy.html" class="text-gray-400 hover:text-orange-400 transition-colors">Datenschutz</a>
+          </div>
+        </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Mobile menu toggle (animated open/close)
+    const mobileMenuEl = document.getElementById('mobileMenu');
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+      mobileMenuEl.classList.toggle('open');
+    });
+
+    // Services dropdown (desktop nav)
+    (function() {
+      const servicesToggle = document.getElementById('servicesDropdownToggle');
+      const servicesMenu = document.getElementById('servicesDropdownMenu');
+      if (!servicesToggle || !servicesMenu) return;
+      servicesToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = !servicesMenu.classList.contains('hidden');
+        servicesMenu.classList.toggle('hidden');
+        servicesToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+      document.addEventListener('click', function(event) {
+        if (!servicesMenu.contains(event.target) && !servicesToggle.contains(event.target)) {
+          servicesMenu.classList.add('hidden');
+          servicesToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+    document.getElementById('mobileClose').addEventListener('click', function() {
+      mobileMenuEl.classList.remove('open');
+    });
+    document.addEventListener('click', function(event) {
+      const toggle = document.getElementById('mobileToggle');
+      const closeBtn = document.getElementById('mobileClose');
+      if (!mobileMenuEl.contains(event.target) && !toggle.contains(event.target) && !closeBtn.contains(event.target)) {
+        mobileMenuEl.classList.remove('open');
+      }
+    });
+
+    // Sticky header shadow on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 20) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === '#') return;
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          window.scrollTo({
+            top: targetElement.offsetTop - headerHeight - 20,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          document.getElementById('mobileMenu').classList.add('hidden');
+        }
+      });
+    });
+
+    // Animation for cards on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe company cards for animation
+    document.querySelectorAll('.company-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+  </script>
+  
+  <!-- Cookie Consent Banner - START -->
+<style>
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+  display: none;
+}
+#cookie-banner.show {
+  display: block;
+}
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.cookie-text {
+  flex: 1;
+  min-width: 300px;
+}
+.cookie-text p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cookie-text a {
+  color: #4da6ff;
+  text-decoration: underline;
+}
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cookie-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.cookie-btn:hover {
+  opacity: 0.9;
+}
+.btn-accept-cookies {
+  background: #0066cc;
+  color: white;
+}
+.btn-decline-cookies {
+  background: #666;
+  color: white;
+}
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-buttons {
+    width: 100%;
+  }
+  .cookie-btn {
+    flex: 1;
+  }
+}
+</style>
+
+<div id="cookie-banner">
+  <div class="cookie-content">
+    <div class="cookie-text">
+      <p>
+        <strong>Wir schätzen Ihre Privatsphäre</strong><br>
+        Diese Website verwendet nur essenzielle Cookies, die für die Funktionalität notwendig sind.
+        Wir verwenden keine Tracking- oder Analyse-Cookies ohne Ihre Zustimmung.
+        <a href="/privacy-policy.html" target="_blank">Mehr erfahren</a>
+      </p>
+      <p style="font-size: 12px; color: #ccc;">
+        Mit Klick auf "Akzeptieren" stimmen Sie der Verwendung essenzieller Cookies zu.
+        Es findet kein Analyse-Tracking statt, sofern Sie nicht ausdrücklich zustimmen.
+      </p>
+    </div>
+    <div class="cookie-buttons">
+      <button class="cookie-btn btn-accept-cookies" onclick="acceptCookies()">Akzeptieren</button>
+      <button class="cookie-btn btn-decline-cookies" onclick="declineCookies()">Ablehnen</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Cookie Banner Logic
+(function() {
+  'use strict';
+  
+  function getCookieConsent() {
+    const consent = localStorage.getItem('cookieConsent');
+    return consent;
+  }
+  
+  function showBannerIfNeeded() {
+    const consent = getCookieConsent();
+    if (!consent) {
+      document.getElementById('cookie-banner').classList.add('show');
+    }
+  }
+  
+  window.acceptCookies = function() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-banner').classList.remove('show');
+  };
+  
+  window.declineCookies = function() {
+    localStorage.setItem('cookieConsent', 'declined');
+    document.getElementById('cookie-banner').classList.remove('show');
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    showBannerIfNeeded();
+  });
+})();
+</script>
+<!-- Cookie Consent Banner - END -->
+
+<!-- WhatsApp Chat Button - START -->
+<a href="https://wa.me/919687782243?text=Hi%20J-Techno%20Engineering%2C%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp" style="position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,0.25);z-index:9999;transition:transform 0.2s ease;text-decoration:none;">
+  <i class="fab fa-whatsapp" style="font-size:28px;color:#ffffff;"></i>
+</a>
+<!-- WhatsApp Chat Button - END -->
+
+</body>
+</html>
