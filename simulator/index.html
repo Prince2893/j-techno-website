@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>J-Techno Simulator | J-Techno Engineering</title>
-<meta name="description" content="Free interactive automation cell estimator. Set your budget, describe your process, and integrate real industrial robotics, vision, sensor, and IoT systems — built by J-Techno Engineering.">
-<meta property="og:title" content="J-Techno Simulator — Free Automation Cell Estimator">
+<meta name="description" content="Free interactive automation cell estimator. Set your budget, describe your process, and integrate real industrial robotics, vision, sensor, and IoT systems - built by J-Techno Engineering.">
+<meta property="og:title" content="J-Techno Simulator - Free Automation Cell Estimator">
 <meta property="og:description" content="Set your budget, describe your process, integrate real industrial systems. Try J-Techno Engineering's free interactive estimator.">
 <meta property="og:type" content="website">
 <style>
@@ -193,7 +193,7 @@ button.ghostAction{width:100%; padding:10px; border:1px solid var(--line); borde
   <div class="logoMark">JT</div>
   <div class="company">J-TECHNO ENGINEERING · FULL-STACK AUTOMATION SOLUTIONS</div>
   <h1>J-TECHNO SIMULATOR</h1>
-  <div class="sub">A free automation cell estimator. Set your budget, describe your process, and integrate real industrial systems — no limits on what you can combine.</div>
+  <div class="sub">A free automation cell estimator. Set your budget, describe your process, and integrate real industrial systems - no limits on what you can combine.</div>
   <button class="bigBtn" id="initBtn">▶ Start Free Estimator</button>
   <div class="taglineFoot">A J-Techno Engineering Interactive Tool</div>
 </div>
@@ -256,8 +256,8 @@ button.ghostAction{width:100%; padding:10px; border:1px solid var(--line); borde
         <button class="vcBtn" id="fitBtn" title="Reset view">⤢</button>
       </div>
       <div id="zoomLabel">Zoom 100% · scroll to zoom · drag to pan · ⟳ to rotate view</div>
-      <div id="cancelHint">Placing component — tap a tile to place, ESC / right-click to cancel</div>
-      <div id="gridHint">Select any component below, then click/tap an empty tile to place it. Drag the floor to pan, scroll to zoom. All components are unlocked — your budget is the only limit.</div>
+      <div id="cancelHint">Placing component - tap a tile to place, ESC / right-click to cancel</div>
+      <div id="gridHint">Select any component below, then click/tap an empty tile to place it. Drag the floor to pan, scroll to zoom. All components are unlocked - your budget is the only limit.</div>
     </div>
 
     <div id="side">
@@ -286,7 +286,7 @@ button.ghostAction{width:100%; padding:10px; border:1px solid var(--line); borde
 
 <script>
 /* ============================================================
-   COMPONENT CATALOG — 7 categories, multiple tiers each
+   COMPONENT CATALOG - 7 categories, multiple tiers each
 ============================================================ */
 const CATEGORIES = {
   Actuator:     { color:'#00d4ff', icon:'🤖' },
@@ -446,7 +446,7 @@ const TILE_W = 76, TILE_H = 38;
 let originX=0, originY=0;
 
 /* --- zoom & rotate-view state ---
-   True free 3D rotation would need a WebGL engine (e.g. Three.js) — this is an
+   True free 3D rotation would need a WebGL engine (e.g. Three.js) - this is an
    isometric grid rendered in 2D canvas, so "rotate" cycles the viewing corner
    in 90° steps instead. Zoom is a real continuous scale factor. */
 let baseZoom = 1, zoomMult = 1, viewRot = 0, panX = 0, panY = 0;
@@ -601,9 +601,9 @@ function handlePlaceTap(e){
   if(!state.selectedKey) return;
   const p = pointFromEvent(e); const {col,row} = screenToGrid(p.x,p.y);
   if(!inBounds(col,row)) return;
-  if(tileOccupied(col,row)){ showToast('Tile occupied — choose an empty cell.','warn'); return; }
+  if(tileOccupied(col,row)){ showToast('Tile occupied - choose an empty cell.','warn'); return; }
   const c = CATALOG[state.selectedKey];
-  if(state.spent + c.cost > state.budget){ showToast('Over budget — this component exceeds what remains.','warn'); return; }
+  if(state.spent + c.cost > state.budget){ showToast('Over budget - this component exceeds what remains.','warn'); return; }
   placeComponent(state.selectedKey, col, row);
 }
 canvas.addEventListener('click', e=>{
@@ -717,7 +717,7 @@ function renderBrief(){
   const cats = presentCategories();
 
   document.getElementById('briefBanner').innerHTML = `
-    <b>${b.industry} — ${b.processName}</b>
+    <b>${b.industry} - ${b.processName}</b>
     Required systems:
     <div class="reqChips">${b.mandatory.map(m=>chipHtml(m,cats.has(m))).join('')}</div>
   `;
@@ -773,7 +773,7 @@ function showToast(msg, kind){
 ============================================================ */
 document.getElementById('certifyBtn').onclick = ()=>{
   const m = computeMetrics();
-  logEvent('Smart Cell certified — requirement fully met.', 'success');
+  logEvent('Smart Cell certified - requirement fully met.', 'success');
   if(!state.leadCaptured) showLeadModal(m); else showCertModal(m);
 };
 
@@ -846,7 +846,7 @@ function drawMiniBuild(g, x0,y0,w,h){
   g.restore();
 }
 function generateCertificate(m){
-  const W=1200, H=840;   // taller canvas — enough vertical room for every section, no overlap
+  const W=1200, H=840;   // taller canvas - enough vertical room for every section, no overlap
   const c = document.createElement('canvas'); c.width=W; c.height=H;
   const g = c.getContext('2d');
   const bgGrad = g.createLinearGradient(0,0,W,H); bgGrad.addColorStop(0,'#0a0e17'); bgGrad.addColorStop(1,'#0d1b2a');
@@ -875,7 +875,7 @@ function generateCertificate(m){
   const roleTag = person.role ? ` · ${person.role}` : '';
   g.fillText(`${state.brief.industry} · Prepared for: ${displayName}${roleTag}`, 66, 204);
 
-  /* ---- STAT CARDS — left column (230 - 590) ---- */
+  /* ---- STAT CARDS - left column (230 - 590) ---- */
   const stats = [
     { label:'REQUIREMENT MET', val: Math.round(m.completeness*100)+'%', color: m.completeness>=1?'#00e676':'#ffb800' },
     { label:'BUDGET USED', val: '$'+state.spent.toLocaleString()+' / $'+state.budget.toLocaleString(), color:'#ffb800' },
@@ -892,7 +892,7 @@ function generateCertificate(m){
   });
   const statsBottom = statStartY + stats.length*(cardH+gap); // = 598
 
-  /* ---- MINI BUILD DIAGRAM — right column, aligned with stat cards ---- */
+  /* ---- MINI BUILD DIAGRAM - right column, aligned with stat cards ---- */
   const mapX=440, mapY=230, mapW=700, mapH=statsBottom-mapY-34; // ends above statsBottom
   drawMiniBuild(g, mapX, mapY, mapW, mapH);
   g.fillStyle='#4a5a85'; g.font='600 12px Arial'; g.textAlign='center';
@@ -958,7 +958,7 @@ function showCertModal(m){
 ============================================================ */
 function startBuild(){
   logEvent(`Requirement generated: ${state.brief.processName} for a ${state.brief.industry} client.`, 'info');
-  logEvent(`Budget set at $${state.budget.toLocaleString()}. All components unlocked — integrate freely.`, 'info');
+  logEvent(`Budget set at $${state.budget.toLocaleString()}. All components unlocked - integrate freely.`, 'info');
   refreshAll();
   requestAnimationFrame(loop);
 }
