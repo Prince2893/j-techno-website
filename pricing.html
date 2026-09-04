@@ -83,6 +83,17 @@
       color: white;
     }
 
+    /* Entry-tier card titles vary in length ('Free Preview' vs.
+       'Compliance Certificate') - without a reserved height, a title
+       that wraps to 2 lines pushes that one card's price/copy/button
+       down relative to its 1-line siblings, breaking row alignment. */
+    .plan-title-sm {
+      min-height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .eyebrow {
       display: inline-block;
       text-transform: uppercase;
@@ -235,7 +246,7 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <!-- Free -->
           <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Free Preview</h3>
+            <h3 class="text-lg font-bold mb-1 plan-title-sm">Free Preview</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€0<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-4 flex-grow">1 Operating Manual + 1 Declaration of Conformity per month (separate allowances). Output is watermarked as a sample document.</p>
             <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-subscribe w-full text-center">Get Started</a>
@@ -243,7 +254,7 @@
 
           <!-- Starter BA -->
           <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Manual Builder</h3>
+            <h3 class="text-lg font-bold mb-1 plan-title-sm">Manual Builder</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€499<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-4 flex-grow">Fast, compliant operating manuals, ready to ship. Up to 5 documents/month.</p>
             <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-subscribe w-full text-center">Subscribe</a>
@@ -251,7 +262,7 @@
 
           <!-- Starter DoC -->
           <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Compliance Certificate</h3>
+            <h3 class="text-lg font-bold mb-1 plan-title-sm">Compliance Certificate</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€99<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-4 flex-grow">Sign-off-ready Declarations of Conformity, on demand. Up to 10 documents/month.</p>
             <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-subscribe w-full text-center">Subscribe</a>
@@ -259,7 +270,7 @@
 
           <!-- Starter RA -->
           <div class="bg-white rounded border border-gray-200 p-7 text-center flex flex-col">
-            <h3 class="text-lg font-bold mb-1">Risk Checker</h3>
+            <h3 class="text-lg font-bold mb-1 plan-title-sm">Risk Checker</h3>
             <p class="text-3xl font-bold text-orange-600 mb-1">€599<span class="text-sm font-normal text-gray-500">/month</span></p>
             <p class="text-sm text-gray-600 mb-4 flex-grow">Structured risk assessments that hold up in an audit. Up to 5 documents/month.</p>
             <a href="https://app.jtechnoengineering.com/signup" target="_blank" rel="noopener noreferrer" class="btn-subscribe w-full text-center">Subscribe</a>
